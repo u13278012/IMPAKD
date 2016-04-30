@@ -1,0 +1,5 @@
+Documentation/Tenders/*.aux
+Documentation/Tenders/*.idx
+Documentation/Tenders/*.log
+Documentation/Tenders/*.out
+Documentation/Tenders/*.synctex.gz
