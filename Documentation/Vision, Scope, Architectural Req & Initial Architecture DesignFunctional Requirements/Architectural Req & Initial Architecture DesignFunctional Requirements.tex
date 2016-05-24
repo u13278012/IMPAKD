@@ -117,38 +117,44 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \subsection{Architectural patterns or styles}
 \textbf{MVC (\textit{Model View Controller})}\\
 Allows the system's states to change and it encapsulates the interactions
-from the user and transforms these intercations into business logic.\\[0.3cm]
+from the user and transforms these intercations into business logic.\\
 \textsc{Reason:}
 	\begin{itemize}
 		\item Reduce presentation layers complexity and  improves flexibility
 			\begin{itemize}
-				\item separates responsibilities
+				\item Separates responsibilities
 					\begin{itemize}
 						\item Provide view onto information -\textbf{\textit{ View}}
 						\item React to user events - \textbf{\textit{Controller}}
 						\item Provide business services  and data - \textbf{\textit{Model}}
 					\end{itemize}
-				\item allows each section to change independently
+				\item Allows each component to change independently
 			\end{itemize}
 		\item Full decoupling
 			\begin{itemize}
-				\item Model from both view and controller
+				\item Model from both \textit{view} and \textit{controller}
 			\end{itemize}
 		\item Simplification
 			\begin{itemize}
-				\item Model from both view and controller
+				\item Through separation of concerns
 			\end{itemize}
 		\item Reuse
 			\begin{itemize}
-				\item Model from both view and controller
+				\item \textit{Model} components and \textit{View} components 
 			\end{itemize}
 		\item Maintainability
 			\begin{itemize}
-				\item Model from both view and controller
+				\item Different components can be used, developed and maintained by different memebers of a team 
+					\begin{itemize}
+						\item \textit{Model} - backened developers
+						\item \textit{View} - UI designers
+						\item \textit{Controller} - Front-end developers
+					\end{itemize}
 			\end{itemize}
 		\item Improved Testability
 			\begin{itemize}
-				\item Model from both view and controller
+				\item Model/business services tested independently of UI
+				\item UI tested with mock model
 			\end{itemize}
 	\end{itemize}
 
