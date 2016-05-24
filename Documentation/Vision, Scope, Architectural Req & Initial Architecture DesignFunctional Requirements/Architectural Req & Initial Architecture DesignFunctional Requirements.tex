@@ -37,7 +37,7 @@
 %Title
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Main Project Architectural Requirements and  Initial Architecture Design Functional Requirements}\\[0.1cm]
+{ \huge \bfseries Architectural Requirements and  Initial Architecture Design Functional Requirements}\\[0.1cm]
 \HRule \\[0.4cm]  
 
 % Group Members 
@@ -110,7 +110,31 @@ For further references see \href{https://github.com/COS301-Group-3-A-Phase2/Part
 \subsection{Architecture requirements}
 \subsubsection{Architectural scope}
 \subsubsection{Quality requirements}
+%Priscilla's Section - Start
+
 \subsubsection{Integration and access channel requirements}
+	\begin{itemize}
+		\item{\bfseries \underline{Integration}}
+		\begin{itemize}
+           		\item Logging into the system is done over a HTTPS POST method.
+			\item The user's login details are kept in an HTTP session so the user does not need to log in everytime he/she 					makes a request to the server.
+			\item The HTTPS sessions are invalidated when the user terminates his/her session by logging out.
+			\item Communication between the server (back-end) and the webpage (front-end) will be facilitated by the REST 					method which uses JSON objects and HTTPS methods to send requests and get responses.
+			\item The "Create, Read, Update and Delete" or CRUD actions that will make changes to the databse will be 					logged automatically. This will ensure auditability of the system. 
+		\end{itemize}
+
+		\item{\bfseries \underline{Human Access Channel}}
+			\begin{itemize}
+				\item End-users interact with the Web client to display the required information and do desired actions. 
+			\end{itemize}
+
+		\item{\bfseries \underline{System Access Channel}}
+			\begin{itemize}
+				\item The Web-based component of the system will be implememted in "Ember.js" which utilises JavaScript, 				HTML and "Handlebar.js".  
+			\end{itemize}
+	\end{itemize}
+%Priscilla's Section - End
+
 \subsubsection{Architectural constraints}
 \subsection{Architectural patterns or styles}
 \subsection{Architectural tactics or strategies}
