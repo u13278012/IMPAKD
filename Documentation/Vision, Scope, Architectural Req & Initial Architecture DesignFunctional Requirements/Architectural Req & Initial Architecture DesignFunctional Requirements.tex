@@ -93,7 +93,7 @@
 \newpage
 \begin{center}
 \textsc{\Large IMPAKD link}\\[0.5cm]
-For further references see \href{https://github.com/COS301-Group-3-A-Phase2/Part2-Mini-Project.git}{gitHub}.
+For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \today
 \end{center}
 \newpage
@@ -112,7 +112,48 @@ For further references see \href{https://github.com/COS301-Group-3-A-Phase2/Part
 \subsubsection{Quality requirements}
 \subsubsection{Integration and access channel requirements}
 \subsubsection{Architectural constraints}
+
+% Architectural patterns Section - start
 \subsection{Architectural patterns or styles}
+\textbf{MVC (\textit{Model View Controller})}\\
+Allows the system's states to change and it encapsulates the interactions
+from the user and transforms these intercations into business logic.\\[0.3cm]
+\textsc{Reason:}
+	\begin{itemize}
+		\item Reduce presentation layers complexity and  improves flexibility
+			\begin{itemize}
+				\item separates responsibilities
+					\begin{itemize}
+						\item Provide view onto information -\textbf{\textit{ View}}
+						\item React to user events - \textbf{\textit{Controller}}
+						\item Provide business services  and data - \textbf{\textit{Model}}
+					\end{itemize}
+				\item allows each section to change independently
+			\end{itemize}
+		\item Full decoupling
+			\begin{itemize}
+				\item Model from both view and controller
+			\end{itemize}
+		\item Simplification
+			\begin{itemize}
+				\item Model from both view and controller
+			\end{itemize}
+		\item Reuse
+			\begin{itemize}
+				\item Model from both view and controller
+			\end{itemize}
+		\item Maintainability
+			\begin{itemize}
+				\item Model from both view and controller
+			\end{itemize}
+		\item Improved Testability
+			\begin{itemize}
+				\item Model from both view and controller
+			\end{itemize}
+	\end{itemize}
+
+%Architectural patterns Section - end
+
 \subsection{Architectural tactics or strategies}
 \subsection{Use of reference architectures and frameworks}
 \subsection{Access and integration channels}
@@ -120,6 +161,8 @@ For further references see \href{https://github.com/COS301-Group-3-A-Phase2/Part
 
 \newpage
 \section{Functional requirements and application design}
+
+% Use case prioritization Section - start
 \subsection{Use case prioritization}
  \underline{\textbf{Critical:}}
 	\begin{itemize}
@@ -143,6 +186,9 @@ For further references see \href{https://github.com/COS301-Group-3-A-Phase2/Part
 		\item updateProfile
 		\item generateReport	
 	\end{itemize}
+
+% Use case prioritization Section - start
+
 \subsection{Use case/Services contracts}
 \subsection{Required functionality}
 \subsection{Process specifications}
