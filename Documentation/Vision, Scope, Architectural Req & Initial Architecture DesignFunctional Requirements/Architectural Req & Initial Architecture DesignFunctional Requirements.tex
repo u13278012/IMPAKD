@@ -297,11 +297,22 @@ from the user and transforms these intercations into business logic.\\
 
 % Diana's Section  - end
 
+% Priscilla's Section - Start
 \subsection{Use case/Services contracts}
 \textbf{\large{login}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The user must not be logged in.
+				\item The user must have already registered.
+				\item The login details must match the details that exist in the database.
+			\end{itemize}
 		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The user will be logged into the system.
+				\item The user will be able to use the system.
+				\item The activity will be logged automatically.
+			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{register}}
@@ -322,6 +333,8 @@ from the user and transforms these intercations into business logic.\\
 		\item \textit{Post-Conditions:}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
+
+% Priscilla's Section - End
 % Diana's Section - start
 \textbf{\large{updateProperty}}
 	\begin{itemize}
