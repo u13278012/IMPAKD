@@ -151,12 +151,16 @@ The system will consist of:\begin{itemize}
 		The system must execute processes smoothly between users' actions and the website, along with the graphs and 			statisitcs it will provide, must respond in a reasonble amount of time.
 		
 		\item{\bfseries \underline{Security}}\\\\
+		There must be no direct manipulation of the database and the server. Users will be required to login or register to be 			able to use the system. The database will be backed up to a CSV file.
 		
 		\item{\bfseries \underline{Auditability}}\\\\
+		Users' activities must be logged for reporting purposes.
 		
 		\item{\bfseries \underline{Testability}}\\\\
+		The system must be tested to ensure that each of its components are working properly. Each service contract must 			meet its pre-conditions and post-conditions. Unit and integration tests will be used to this end.
 		
 		\item{\bfseries \underline{Integrability}}\\\\
+		All the MVC components must be independent of each other so that they can be developed separately and integrated 			smoothly if any one of them are changed.
 \end{itemize}•
 
 %Kudzai's Section (Architectural Scope and Quality requirements) - End
