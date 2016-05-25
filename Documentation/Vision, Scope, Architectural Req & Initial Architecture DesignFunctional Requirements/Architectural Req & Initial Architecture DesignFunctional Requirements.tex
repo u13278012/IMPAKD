@@ -129,7 +129,7 @@ The system will consist of:\begin{itemize}
 	\item A database that will be used to persist objects that need to be saved.
 	\item A server that will deal with the process execution and calculations of the system.
 	\item A notification system that will be used to notify the user of important information that concerns them.
-\end{itemize}•
+\end{itemize}
 \subsubsection{Quality requirements}
 	\begin{itemize}
 		\item{\bfseries \underline{Flexibility}}\\\\
@@ -161,7 +161,7 @@ The system will consist of:\begin{itemize}
 		
 		\item{\bfseries \underline{Integrability}}\\\\
 		All the MVC components must be independent of each other so that they can be developed separately and integrated 			smoothly if any one of them are changed.
-\end{itemize}•
+\end{itemize}
 
 %Kudzai's Section (Architectural Scope and Quality requirements) - End
 %Priscilla's Section (Integration and Access Channel Requirements) - Start
@@ -441,30 +441,61 @@ from the user and transforms these intercations into business logic.\\
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 % Diana's Section - end
+% Kudzai's Section - Start
 \textbf{\large{updateProfile}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item user's profile must match with the one used to log in
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item database is updated with edited user profile information
+			\item user's profile is edited
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{compareTwoProperties}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item ROI of both properties must be calculated
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item property with greater ROI indicated
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{generateReport}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item statistics for the report must have been retrived from database
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item report generated and displayed
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{getDefaultValues}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item default values must existi in the system
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item default values are retrieved
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
+% Kudzai's Section - end
 \textbf{\large{displayGraphs}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
