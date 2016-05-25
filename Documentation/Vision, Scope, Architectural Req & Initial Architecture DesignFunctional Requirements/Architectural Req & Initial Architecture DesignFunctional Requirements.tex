@@ -318,7 +318,15 @@ from the user and transforms these intercations into business logic.\\
 \textbf{\large{register}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The specified username (email address) and password fields must not exist in the system.
+				\item The user must not be logged in.
+			\end{itemize}
 		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The specified user details will be added into the system.
+				\item The system will send an email to verify the email address specified.
+			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{logout}}
