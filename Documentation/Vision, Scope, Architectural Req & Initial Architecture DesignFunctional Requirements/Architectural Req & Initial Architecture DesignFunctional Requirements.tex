@@ -102,10 +102,8 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \newpage
 %Kudzai's Section (Vision and Background) - Start 
 \section{Vision}
-The Property Investor Optimiser project is objective is to evaluate whether a certain rental propery is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimise their investment strategy according to their portfolio.
-
-The project will assist the user by helping to answer the following questions:
-\begin{itemize}
+The Property Investor Optimiser project is objective is to evaluate whether a certain rental propery is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimise their investment strategy according to their portfolio.\\\\
+The project will assist the user by helping to answer the following questions:\begin{itemize}
 	\item Given a certain bond (interest rate, deposit as a percentage of property value), rental (occupancy rate,agent commission, 		rental amount) and environmental conditions (Interest rate, inflation) what is the ROI?
 	\item When is it better to pay a higher or lower deposit for a bond?
 	\item Between two rental scenarios which provides the greater ROI?
@@ -120,12 +118,43 @@ The project will assist the user by helping to answer the following questions:
 The project was given to us by our client, CSIR, so that we can research how the ROI of different configurations of rental properties can answer the questions listed in the Vision section of this document. Answers to these questions can be used to help users of the system choose to buy the best property that fits their portfolio and requirements with the ease of not having to manually evaluate the property themselves. The project can also be used for property-related research.
 
 %Kudzai's Section (Vision and Background) - Stop
+
 \newpage
 \section{Software Architecture}
 \subsection{Architecture requirements}
+%Kudzai's Section (Architectural Scope and Quality requirements) - Start
 \subsubsection{Architectural scope}
+The system will consist of:\begin{itemize}
+	\item A website that the user will interact with in order to use the system.
+	\item A database that will be used to persist objects that need to be saved.
+	\item A server that will deal with the process execution and calculations of the system.
+	\item A notification system that will be used to notify the user of important information that concerns them.
+\end{itemize}•
 \subsubsection{Quality requirements}
+	\begin{itemize}
+		\item{\bfseries \underline{Flexibility}}\\\\
+		The system must be be able to be accessed  by more than one access channel, mainly via a computer and a 		 		smartphone. It must also not be locked to any one persistence technology. We will be using Django as our persistence 			infrastructure.
+		
+		\item{\bfseries \underline{Maintainability}}\\\\
+		
+		\item{\bfseries \underline{Scalability}}\\\\
+		
+		\item{\bfseries \underline{Reliability}}\\\\
+		
+		\item{\bfseries \underline{Usability}}\\\\
+		
+		\item{\bfseries \underline{Performance}}\\\\
+		
+		\item{\bfseries \underline{Security}}\\\\
+		
+		\item{\bfseries \underline{Auditability}}\\\\
+		
+		\item{\bfseries \underline{Testability}}\\\\
+		
+		\item{\bfseries \underline{Integrability}}\\\\
+\end{itemize}•
 
+%Kudzai's Section (Architectural Scope and Quality requirements) - End
 %Priscilla's Section (Integration and Access Channel Requirements) - Start
 
 \subsubsection{Integration and access channel requirements}
