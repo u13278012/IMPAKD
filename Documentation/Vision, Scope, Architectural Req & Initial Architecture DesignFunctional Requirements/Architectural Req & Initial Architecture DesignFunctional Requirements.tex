@@ -332,7 +332,15 @@ from the user and transforms these intercations into business logic.\\
 \textbf{\large{logout}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The user must be logged in.
+			\end{itemize}
 		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The session must end.
+				\item The user should not be logged in.
+				\item The user should be redirected to the login page.
+			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{viewProfile}}
