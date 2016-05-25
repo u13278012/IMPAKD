@@ -346,7 +346,14 @@ from the user and transforms these intercations into business logic.\\
 \textbf{\large{viewProfile}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The user must be logged in.
+				\item The user profile must correspond with the credentials of the user logged in.
+			\end{itemize}
 		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The profile information requested should be returned.
+			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 
