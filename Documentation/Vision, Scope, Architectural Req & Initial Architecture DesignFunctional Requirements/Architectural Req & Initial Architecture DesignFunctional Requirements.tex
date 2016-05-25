@@ -339,7 +339,15 @@ from the user and transforms these intercations into business logic.\\
 \textbf{\large{deleteProperty}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item user must be logged in 
+				\item property must exist
+			\end{itemize}
 		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item property is deleted
+				\item user must not see deleted property anymore
+			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{addProperty}}
