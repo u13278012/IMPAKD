@@ -22,3 +22,10 @@ Documentation/Vision, Scope, Architectural Req & Initial Architecture DesignFunc
 Documentation/Vision, Scope, Architectural Req & Initial Architecture DesignFunctional Requirements/*.out
 Documentation/Vision, Scope, Architectural Req & Initial Architecture DesignFunctional Requirements/*.synctex.gz
 Documentation/Vision, Scope, Architectural Req & Initial Architecture DesignFunctional Requirements/*.toc
+
+Documentation/mainPDF/*.aux
+Documentation/mainPDF/*.idx
+Documentation/mainPDF/*.log
+Documentation/mainPDF/*.out
+Documentation/mainPDF/*.synctex.gz
+Documentation/mainPDF/*.toc

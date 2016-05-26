@@ -102,21 +102,23 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \newpage
 %Kudzai's Section (Vision and Background) - Start 
 \section{Vision}
-The Property Investor Optimiser project is objective is to evaluate whether a certain rental propery is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimise their investment strategy according to their portfolio.\\[0.2cm]
-The project will assist the user by helping to answer the following questions:
-\begin{itemize}
-	\item Given a certain bond (interest rate, deposit as a percentage of property value), rental (occupancy rate,agent commission, rental amount) and environmental conditions (Interest rate, inflation) what is the ROI?
+The Property Investor Optimiser project is objective is to evaluate whether a certain rental propery is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimise their investment strategy according to their portfolio.\\\\
+The project will assist the user by helping to answer the following questions:\begin{itemize}
+	\item Given a certain bond (interest rate, deposit as a percentage of property value), rental (occupancy rate,agent commission, 		rental amount) and environmental conditions (Interest rate, inflation) what is the ROI?
 	\item When is it better to pay a higher or lower deposit for a bond?
 	\item Between two rental scenarios which provides the greater ROI?
 	\item Is it better to try and pay off the bond as fast as possible by paying in extra capital?
 	\item How does purchasing another property influence a users’ ROI and at which point would this be a good idea?
 	\item At which point does it make sense to buy another property?
 	\item How much tax will the user have to pay?
+
 \end{itemize}
 \newpage
-\section{Scope}
-\includegraphics[width=1\textwidth]{./Image/Scope.png}
+\section{Background}
+The project was given to us by our client, CSIR, so that we can research how the ROI of different configurations of rental properties can answer the questions listed in the Vision section of this document. Answers to these questions can be used to help users of the system choose to buy the best property that fits their portfolio and requirements with the ease of not having to manually evaluate the property themselves. The project can also be used for property-related research.
+
 %Kudzai's Section (Vision and Background) - Stop
+
 \newpage
 \section{Software Architecture}
 \subsection{Architecture requirements}
@@ -131,39 +133,40 @@ The system will consist of:\begin{itemize}
 \end{itemize}
 \subsubsection{Quality requirements}
 	\begin{itemize}
-		\item{\bfseries \underline{Flexibility}}\\[0.4cm]
+		\item{\bfseries \underline{Flexibility}}\\\\
 		The system must be be able to be accessed  by more than one access channel, mainly via a computer and a 		 		smartphone. It must also not be locked to any one persistence technology. We will be using Django as our persistence 			infrastructure.
 		
-		\item{\bfseries \underline{Maintainability}}\\[0.4cm]
+		\item{\bfseries \underline{Maintainability}}\\\\
 		The system will be implemented with the Model View Controller structural pattern, which allows for modularisation. This 			allows the different components of the system to be maintained independently of each other. Ember.js, a 					widely-used technology with extensive support, will be used to implement MVC.
 		
-		\item{\bfseries \underline{Scalability}}\\[0.4cm]
+		\item{\bfseries \underline{Scalability}}\\\\
 		The system must be able to support as many users as possible since it is a website that will be available to a very large 			audience. Enterprise Java Beans (EJB) will be used because it can be used to develop scalable and robust enterprise 			level applications.
 		
-		\item{\bfseries \underline{Reliability}}\\[0.4cm]
+		\item{\bfseries \underline{Reliability}}\\\\
 		The webiste must have as little downtime as possible, and must display correct and accurate information at all times.
 		
-		\item{\bfseries \underline{Usability}}\\[0.4cm]
+		\item{\bfseries \underline{Usability}}\\\\
 		Users of the system must find it very easy and intuitive to use, even to users without extnsive computer literacy. The 			system must be as efficient as possible. This will be done by implementing the latest trends in website user interface 			design.
 		
-		\item{\bfseries \underline{Performance}}\\[0.4cm]
+		\item{\bfseries \underline{Performance}}\\\\
 		The system must execute processes smoothly between users' actions and the website, along with the graphs and 			statisitcs it will provide, must respond in a reasonble amount of time.
 		
-		\item{\bfseries \underline{Security}}\\[0.4cm]
+		\item{\bfseries \underline{Security}}\\\\
 		There must be no direct manipulation of the database and the server. Users will be required to login or register to be 			able to use the system. The database will be backed up to a CSV file.
 		
-		\item{\bfseries \underline{Auditability}}\\[0.4cm]
+		\item{\bfseries \underline{Auditability}}\\\\
 		Users' activities must be logged for reporting purposes.
 		
-		\item{\bfseries \underline{Testability}}\\[0.4cm]
+		\item{\bfseries \underline{Testability}}\\\\
 		The system must be tested to ensure that each of its components are working properly. Each service contract must 			meet its pre-conditions and post-conditions. Unit and integration tests will be used to this end.
 		
-		\item{\bfseries \underline{Integrability}}\\[0.4cm]
+		\item{\bfseries \underline{Integrability}}\\\\
 		All the MVC components must be independent of each other so that they can be developed separately and integrated 			smoothly if any one of them are changed.
 \end{itemize}
 
 %Kudzai's Section (Architectural Scope and Quality requirements) - End
 %Priscilla's Section (Integration and Access Channel Requirements) - Start
+
 \subsubsection{Integration and access channel requirements}
 	\begin{itemize}
 		\item{\bfseries \underline{Integration}}
@@ -182,10 +185,11 @@ The system will consist of:\begin{itemize}
 
 		\item{\bfseries \underline{System Access Channel}}
 			\begin{itemize}
-				\item The Web-based component of the system will be implememted in "Ember.js" which utilises JavaScript, HTML and "Handlebar.js".  
+				\item The Web-based component of the system will be implememted in "Ember.js" which utilises JavaScript, 				HTML and "Handlebar.js".  
 			\end{itemize}
 	\end{itemize}
 %Priscilla's Section - End
+
 % Diana's Section - start 
 \subsubsection{Architectural constraints}
 	\begin{itemize}
@@ -303,8 +307,226 @@ from the user and transforms these intercations into business logic.\\
 %Sandile's Section End
 
 \newpage
-\section{Design overview}
-\includegraphics[width=1\textwidth]{./Image/Overview.png}
+\section{Functional requirements and application design}
+
+% Diana's Section  - start
+\subsection{Use case prioritization}
+ \underline{\textbf{Critical:}}
+	\begin{itemize}
+		\item calculateROI
+		\item getDefaultValues
+		\item setDeafultValues
+	\end{itemize}
+\underline{\textbf{Important:}}
+	\begin{itemize}
+		\item Register
+		\item Login
+		\item logout
+		\item addProperty
+		\item updateProperty	
+		\item deleteProperty
+		\item displayGraphs
+		\item displayStatistics	
+	\end{itemize}
+\underline{\textbf{Nice-to-have:}}
+	\begin{itemize}
+		\item updateProfile
+		\item generateReport	
+	\end{itemize}
+
+% Diana's Section  - end
+
+% Priscilla's Section - Start
+\subsection{Use case/Services contracts}
+\textbf{\large{login}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The user must not be logged in.
+				\item The user must have already registered.
+				\item The login details must match the details that exist in the database.
+			\end{itemize}
+		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The user will be logged into the system.
+				\item The user will be able to use the system.
+				\item The activity will be logged automatically.
+			\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{register}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The specified username (email address) and password fields must not exist in the system.
+				\item The user must not be logged in.
+			\end{itemize}
+		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The specified user details will be added into the system.
+				\item The system will send an email to verify the email address specified.
+			\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{logout}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The user must be logged in.
+			\end{itemize}
+		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The session must end.
+				\item The user should not be logged in.
+				\item The user should be redirected to the login page.
+			\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{viewProfile}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item The user must be logged in.
+				\item The user profile must correspond with the credentials of the user logged in.
+			\end{itemize}
+		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item The profile information requested should be returned.
+			\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+
+% Priscilla's Section - End
+% Diana's Section - start
+\textbf{\large{updateProperty}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item user must be logged in 
+			\end{itemize}
+		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item the property page and associated fields must be updated
+				\item database should be updated 
+			\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{deleteProperty}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item user must be logged in 
+				\item property must exist
+			\end{itemize}
+		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item property is deleted
+				\item user must not see deleted property anymore
+			\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{addProperty}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+			\begin{itemize}
+				\item user must be logged in
+				\item user must be navigated to the addProperty page 
+				\item no duplicate properties
+			\end{itemize}
+		\item \textit{Post-Conditions:}
+			\begin{itemize}
+				\item property is added
+				\item user should be able to view addProperty
+			\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+% Diana's Section - end
+% Kudzai's Section - Start
+\textbf{\large{updateProfile}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item user's profile must match with the one used to log in
+		\end{itemize}
+		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item database is updated with edited user profile information
+			\item user's profile is edited
+		\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{compareTwoProperties}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item ROI of both properties must be calculated
+		\end{itemize}
+		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item property with greater ROI indicated
+		\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{generateReport}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item statistics for the report must have been retrived from database
+		\end{itemize}
+		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item report generated and displayed
+		\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{getDefaultValues}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item default values must existi in the system
+		\end{itemize}
+		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item default values are retrieved
+		\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+% Kudzai's Section - end
+\textbf{\large{displayGraphs}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\item \textit{Post-Conditions:}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{displayStatistics}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\item \textit{Post-Conditions:}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{calculateStatistics}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\item \textit{Post-Conditions:}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+\textbf{\large{calucalateROI}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\item \textit{Post-Conditions:}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
+
+\subsection{Required functionality}
+\subsection{Process specifications}
+\subsection{Domain Model}
+
+\newpage
+\section{Open Issues}
 
 
 
