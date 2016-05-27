@@ -122,7 +122,7 @@ The project will assist the user by helping to answer the following questions:
 \subsection{Architecture requirements}
 %Kudzai's Section (Architectural Scope and Quality requirements) - Start
 \subsubsection{Architectural scope}
-The project will be implemeneted using the Model View Controller, MVC, strucutural pattern.
+The project will be implemeneted using a combination of the Model View Controller, MVC, and the Layering strucutural patterns.
 The system will consist of:\begin{itemize}
 	\item A website that the user will interact with in order to use the system.
 	\item A database that will be used to persist objects that need to be saved.
@@ -132,7 +132,7 @@ The system will consist of:\begin{itemize}
 \subsubsection{Quality requirements}
 	\begin{itemize}
 		\item{\bfseries \underline{Flexibility}}\\[0.4cm]
-		The system must be be able to be accessed  by more than one access channel, mainly via a computer and a 		 		smartphone. It must also not be locked to any one persistence technology. We will be using MongoDB as our persistence 			infrastructure.
+		The system must be be able to be accessed  by more than one access channel, mainly via a computer and a 		 		smartphone. It must also not be locked to any one persistence technology. We will be using MySQL as our persistence 			infrastructure.
 		
 		\item{\bfseries \underline{Maintainability}}\\[0.4cm]
 		The system will be implemented with the Model View Controller structural pattern, which allows for modularisation. This 			allows the different components of the system to be maintained independently of each other. Ember.js, a 					widely-used technology with extensive support, will be used to implement MVC.
@@ -202,6 +202,17 @@ The system will consist of:\begin{itemize}
 
 % Diana's Section - start 
 \subsection{Architectural patterns or styles}
+ \textbf{Layer (\textit{object-oriented design})}
+\begin{itemize}
+\item \texttt{Services Layer}
+The CRUD actions that will change the database will be intercepted in this layer.
+\item \texttt{Business Logic Layer}
+Will capture information of requests from objects and submit the services request.
+\item\texttt{Multi-Layered}
+MVC model uses this approach to enable the separation of business logic.
+\item \texttt{Transport Layer}
+Used to provide devices with connection to a router.
+\end{itemize}
 \textbf{MVC (\textit{Model View Controller})}\\
 Allows the system's states to change and it encapsulates the interactions
 from the user and transforms these intercations into business logic.\\
@@ -246,8 +257,7 @@ from the user and transforms these intercations into business logic.\\
 	\end{itemize}
 
 %Diana's Section  - end
-
-\subsection{Architectural tactics or strategies}
+%\subsection{Architectural tactics or strategies}
 %Sandile's Section Start
 \subsection{Use of reference architectures and frameworks}
 \begin{itemize}
@@ -261,7 +271,6 @@ from the user and transforms these intercations into business logic.\\
 	\end{itemize}
 \end{itemize}
 %Sandile's Section End
-
 %Priscilla's Section (Access and Integration Channel Requirements) - Start
 \subsection{Access and integration channels}
 	\begin{itemize}
@@ -269,10 +278,8 @@ from the user and transforms these intercations into business logic.\\
 		\item Plug-ins and APIs will be included, and will therefore be integrated with the main application to add specialised 				functionality. 
 	\end{itemize}
 %Priscilla's Section - End
-
 %Sandile's Section Start
 \subsection{Technologies}
-
 \begin{itemize}
 	\item \textit{HTML5 : }It will be used to create the front end of the system
 \end{itemize}
@@ -289,9 +296,8 @@ from the user and transforms these intercations into business logic.\\
 	\item \textit{Ember.js:} To implement the MVC patten
 \end{itemize}
 \begin{itemize}
-	\item \textit{MongoDBs:}   it highly scalable and perfomance oriented database. a NoSQL database
+	\item \textit{MySQL:}   The data we are storing is structured so we decided to use a relational database to make retrieving  and storing data easier.
 \end{itemize}
-
 \begin{itemize}
 	\item \textit{QUnits:} QUnit It is powerful framework for javaScript unit testing,it is easy to use.It can test any generic javaScript code
 \end{itemize}
@@ -309,8 +315,6 @@ from the user and transforms these intercations into business logic.\\
 \newpage
 \section{Design overview}
 \includegraphics[width=1\textwidth]{./Image/Overview.png}
-
-
 
 \end{document}
 
