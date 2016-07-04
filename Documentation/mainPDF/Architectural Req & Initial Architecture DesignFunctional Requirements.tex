@@ -195,20 +195,31 @@ The system will consist of:\begin{itemize}
 	\begin{itemize}
 		\item User
 			\begin{itemize}
-				\item Has to be registered and his/her details in the system inorder to login and be able to use the system
+				\item Has to be registered and his/her details have to exist in the system in order to login and be able to use the system
 			\end{itemize}
 		\item Time
 			\begin{itemize}
-				\item If a user is logged in and remains inactive for more than 30mins the user will have to login again before they can use the system again
+				\item If a user is logged in and remains inactive for more than 30 minutes, the user will have to login again before they can use the system again
 			\end{itemize}
 	\end{itemize}	
 % Diana's Section - end 
 
 % Diana's Section - start 
 \subsection{Architectural patterns or styles}
+ \textbf{Layer (\textit{object-oriented design})}
+\begin{itemize}
+\item \texttt{Services Layer}\\
+The CRUD actions that will change the database will be intercepted in this layer.
+\item \texttt{Business Logic Layer}\\
+Will capture information of requests from objects and submit the services request.
+\item\texttt{Multi-Layered}\\
+MVC model uses this approach to enable the separation of business logic.
+\item \texttt{Transport Layer}\\
+Used to provide devices with connection to a router.
+\end{itemize}
 \textbf{MVC (\textit{Model View Controller})}\\
 Allows the system's states to change and it encapsulates the interactions
-from the user and transforms these intercations into business logic.\\
+from the user and transforms these interactions into business logic.\\
 \textsc{Reason:}
 	\begin{itemize}
 		\item Reduce presentation layers complexity and  improves flexibility
@@ -235,9 +246,9 @@ from the user and transforms these intercations into business logic.\\
 			\end{itemize}
 		\item Maintainability
 			\begin{itemize}
-				\item Different components can be used, developed and maintained by different memebers of a team 
+				\item Different components can be used, developed and maintained by different members of a team
 					\begin{itemize}
-						\item \textit{Model} - backened developers
+						\item \textit{Model} - backend developers
 						\item \textit{View} - UI designers
 						\item \textit{Controller} - Front-end developers
 					\end{itemize}
