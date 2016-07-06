@@ -8,5 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-  <modules></modules>
+  <modules>
+    <module>PropertyInvestmentOptimiser-ejb/PropertyInvestmentOptimiser_ejb</module>
+  </modules>
 </project>
