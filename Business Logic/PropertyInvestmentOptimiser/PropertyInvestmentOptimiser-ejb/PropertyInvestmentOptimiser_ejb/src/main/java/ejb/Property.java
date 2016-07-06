@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -33,10 +34,10 @@ public class Property implements Serializable {
     @Column
     private String propertyName;
     
-    @Column
+    @OneToOne
     private Bond bond;
     
-    @Column
+    @OneToOne
     private Rental rental;
 
     public double getTax() {
