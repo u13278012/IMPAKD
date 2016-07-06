@@ -6,48 +6,56 @@
 package ejb;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
-
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author Khumalo
  */
 @Entity
-public class Person implements Serializable {
+public class Statistics implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @OneToMany
+    private Property propertyList[];
+
+    public Property[] getPropertyList() {
+        return propertyList;
+    }
+
+    public void setPropertyList(Property[] propertyList) {
+        this.propertyList = propertyList;
+    }
+
+    public int[] getTime() {
+        return time;
+    }
+
+    public void setTime(int[] time) {
+        this.time = time;
+    }
+
+    public int[] getROI() {
+        return ROI;
+    }
+
+    public void setROI(int[] ROI) {
+        this.ROI = ROI;
+    }
     @OneToOne
-    private Profile profile;
-
-    @OneToMany(targetEntity = Property.class)
-    private List<Property> properties;
-
-    public List<Property> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(List<Property> properties) {
-        this.properties = properties;
-    }
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
+    private int time[];
+    
+    @OneToOne
+    private int ROI[];
     
     public Long getId() {
         return id;
@@ -56,7 +64,7 @@ public class Person implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
+     
     @Override
     public int hashCode() {
         int hash = 0;
@@ -67,10 +75,10 @@ public class Person implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Person)) {
+        if (!(object instanceof Statistics)) {
             return false;
         }
-        Person other = (Person) object;
+        Statistics other = (Statistics) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -79,7 +87,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "ejb.Person[ id=" + id + " ]";
+        return "ejb.Statistics[ id=" + id + " ]";
     }
     
 }
