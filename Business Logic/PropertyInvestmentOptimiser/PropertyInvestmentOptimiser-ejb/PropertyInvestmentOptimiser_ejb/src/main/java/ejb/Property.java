@@ -32,6 +32,12 @@ public class Property implements Serializable {
     
     @Column
     private String propertyName;
+    
+    @Column
+    private Bond bond;
+    
+    @Column
+    private Rental rental;
 
     public double getTax() {
         return tax;
