@@ -14,10 +14,10 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Kudzai Muranga
+ * @author Khumalo
  */
 @Entity
-public class Profile implements Serializable {
+public class Authentication implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -25,57 +25,35 @@ public class Profile implements Serializable {
     private Long id;
     
     @Column
-    private String firstName;
+    private String securityQuestion;
     
     @Column
-    private String surname;
+    private String password;
     
     @Column
-    private Authentication  authentication;
+    private String username;
 
-    public Authentication getAuthentication() {
-        return authentication;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAuthentication(Authentication authentication) {
-        this.authentication = authentication;
-    }
-    public String getSurname() {
-        return surname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getPassword() {
+        return password;
     }
 
-    public String getEmail() {
-        return email;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getSecurityQuestion() {
+        return securityQuestion;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContactDetails() {
-        return contactDetails;
-    }
-
-    public void setContactDetails(String contactDetails) {
-        this.contactDetails = contactDetails;
-    }
-    
-    @Column
-    private String email;
-    
-    @Column
-    private String contactDetails;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setSecurityQuestion(String securityQuestion) {
+        this.securityQuestion = securityQuestion;
     }
 
     public Long getId() {
@@ -96,10 +74,10 @@ public class Profile implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Profile)) {
+        if (!(object instanceof Authentication)) {
             return false;
         }
-        Profile other = (Profile) object;
+        Authentication other = (Authentication) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -108,7 +86,7 @@ public class Profile implements Serializable {
 
     @Override
     public String toString() {
-        return "ejb.Profile[ id=" + id + " ]";
+        return "ejb.Authentication[ id=" + id + " ]";
     }
     
 }
