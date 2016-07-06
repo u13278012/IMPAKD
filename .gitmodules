@@ -2,3 +2,7 @@
 	path = Users\\Diana\\Documents\\GitHub\\IMPAKD\\Implementation\\Front End\\PIOAPP\\app
 	url = C:Users\\Diana\\Documents\\GitHub\\IMPAKD\\Implementation\\Front End\\PIOAPP\\app
 	branch = master\\origin
+[submodule "Users\\Diana\\Documents\\GitHub\\IMPAKD\\Implementation\\Front End\\PIOAPP\\bower_components"]
+	path = Users\\Diana\\Documents\\GitHub\\IMPAKD\\Implementation\\Front End\\PIOAPP\\bower_components
+	url = C:Users\\Diana\\Documents\\GitHub\\IMPAKD\\Implementation\\Front End\\PIOAPP\\bower_components
+	branch = master\\origin
