@@ -1,6 +1,86 @@
+
+#addProperty
+{
+	font-family:Gadugi;
+    color: teal;
+    text-align: center;
+}
 #propertyName
 {
-    width:35%;
+      width:130%;
 	font-size: 20px;
 	font-family:Calibri Light;
+}
+#tax
+{
+      width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#inflation
+{
+      width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#annualMaintenanceCost
+{
+       width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#annualCostIncrease
+{
+      width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#interestRate
+{
+      width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#deposit
+{
+      width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#propertyValue
+{
+       width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#numberOfYears
+{
+      width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#occupancyRate
+{
+       width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#agentCommission
+{
+    width:130%;
+    font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#rentalAmount
+{
+    width:130%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#addProperty
+{
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 40%;
 }
