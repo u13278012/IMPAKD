@@ -5,7 +5,11 @@
 	margin-left: 30%;
 }
 #registerForm{
-	margin-top: 3%;
+	padding-top: 10%;
+	margin-left: 8%;
+}
+#Logo{
+	margin-top: -1%;
 }
 
 /* Register Section  */
@@ -67,4 +71,16 @@
 	margin-left: 30%;
 	font-family: monospace;
 	font-size: 25px;	
+}
+
+
+/* home page */
+#homeBar{
+	background-color: teal;
+}
+
+#userLoggedIn{
+	font-family: monospace;
+	color: white;
+	font-size: 25px;
 }
