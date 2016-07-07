@@ -1,3 +1,9 @@
+#propertyHeader
+{
+	font-family:Gadugi;
+    color: teal;
+    text-align: center;
+}
 
 #addProperty
 {
@@ -80,6 +86,7 @@
 }
 #addProperty
 {
+    border-color: gray;
     position: absolute;
     margin-top: 7%;
     margin-left: 40%;
