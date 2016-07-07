@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('registerLogin');
   this.route('addProperty');
   this.route('homePage');
+  this.route('propertyDetails');
 });
 
 export default Router;
