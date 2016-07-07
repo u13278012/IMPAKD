@@ -6,4 +6,5 @@
 !package.json
 !bower.json
 !.gitignore
+!public
 !tests
