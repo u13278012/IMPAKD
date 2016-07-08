@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('addProperty');
   this.route('homePage');
   this.route('propertyDetails');
+  this.route('mainPage');
 });
 
 export default Router;
