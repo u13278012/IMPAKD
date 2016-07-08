@@ -82,16 +82,33 @@
 	margin-top: 7.8%;
 	background-color: teal;
 	width: 100%;
-	
+	height: 9%;
+	font-family:Gadugi;
+	color: white;	
 }
 
 #userLoggedIn{
-	font-family:Gadugi;
-	color: white;
-	font-size: 25px;
-	margin-left: 75%;
+	font-size: 30px;
+	margin-top: -3.5%;
+	margin-left: 40%;
 }
 
 #name{
 	color:#1ABC9C;
 }
+
+#menu1{
+	width: 5%;
+	height: 5%;
+	background-color: teal;
+	border-color: teal;
+}
+#menuPic{
+	margin-top: 15%;
+	font-size: 200%;
+	color: white;
+}
+.dropdown-menu{
+	font-size: 17px;
+}
+

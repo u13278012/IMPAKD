@@ -1,7 +1,29 @@
+<!-- to show icon 
+<li><a id="logoutIcon" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+-->
 <nav class="navbar navbar-default" id="homeBar">
+	<div class="dropdown">
+		
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+    	<span id="menuPic" class="glyphicon glyphicon-th-list"></span>
+	</button>
+		
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li><a id="logoutIcon" href="#">Logout</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+    </ul>
+		
+  </div>
+	
   <div class="container-fluid">
-    <div class="navbar-header"  id="userLoggedIn">Signed in as
+    <div class="navbar-header" id="userLoggedIn">Signed in as
       <a href="#" class="navbar-link" id="name">Jane Doe</a>
     </div>
   </div>
 </nav>
+
+
