@@ -124,8 +124,12 @@
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #ffffff;
-  text-decoration: none;
+  /*color: #ffffff;
+  text-decoration: none;*/
+
+  color: #008080;
+  border-color: #008080;
+  background-color: #ffffff;
 }
 
 /* Login and Sign Up Buttons - Div */
