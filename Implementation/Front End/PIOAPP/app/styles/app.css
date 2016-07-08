@@ -110,6 +110,8 @@
 	font-size: 17px;
 }
 
+/* MAIN PAGE - STARTS*/
+
 /* Button Styles */
 .btn
 {
@@ -119,7 +121,13 @@
 	
 }
 
-/* MAIN PAGE */
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 /* Login and Sign Up Buttons - Div */
 .buttons
 {
