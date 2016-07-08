@@ -110,4 +110,22 @@
 	font-size: 17px;
 }
 
+/* Button Styles */
+.btn
+{
+	color: #008080;
+	border-color: #008080;
+	background-color: #ffffff;
+	
+}
+
+/* MAIN PAGE */
+/* Login and Sign Up Buttons - Div */
+.buttons
+{
+	position:fixed;
+	top: 40px;
+	right: 20px;
+}
+
 
