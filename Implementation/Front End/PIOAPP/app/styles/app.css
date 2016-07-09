@@ -113,6 +113,9 @@
 #propertList{
 	padding-top: 16%;
 }
+.thumbnail{
+	border:2px solid teal;
+}
 #recentActivities{
 	margin-top: -15%;
 	margin-left: 50%;
