@@ -52,7 +52,14 @@
 #submit{
 	margin-left: 9.5%;
 }
-
+#linking{
+	text-decoration: none;
+	color: white;
+}
+#linking:hover{
+	text-decoration: none;
+	color: teal;	
+}
 
 /* Login Section     */
 #UserName{
@@ -111,7 +118,7 @@
 	font-size: 17px;
 }
 #propertList{
-	padding-top: 16%;
+	padding-top: 13%;
 }
 .thumbnail{
 	border:2px solid teal;
@@ -120,7 +127,22 @@
 	margin-top: -15%;
 	margin-left: 50%;
 }
-
+#noProperties{
+	visibility: hidden;
+}
+#addedProperties{
+	/*visibility: hidden; */
+	margin-top: -18%;
+}
+#properties{
+	margin-top: -4%;
+	margin-left: 33%;
+	color: teal;
+}
+#line{
+	border:1px solid teal;
+	margin-top: -1%;
+}
 /* MAIN PAGE - STARTS*/
 
 /* Button Styles */

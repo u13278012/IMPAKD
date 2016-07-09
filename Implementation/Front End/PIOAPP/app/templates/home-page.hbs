@@ -12,7 +12,7 @@
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
       <li role="presentation" class="divider"></li>
-	<li><a id="logoutIcon" href="#">Logout</a></li>
+	<li><a id="logoutIcon" href="mainPage">Logout</a></li>
     </ul>
 		
   </div>
@@ -23,24 +23,38 @@
 
 <div class="row" id="propertList">
   <div class="col-sm-6 col-md-5">
-    <div class="thumbnail">
-      <div class="caption">
-        <!--<h3>No Properties</h3> -->
+    <div class="thumbnail" >     
+	<div class="caption" id="properties">
+		<h2>Properties</h2>
+	</div>
+		<hr id="line">
+	<div class="caption" id="noProperties">
+        <h1>No Properties</h1>
       </div>
-	  <div class="caption">
-        <h3>Property 1</h3>
+		<div id="addedProperties">
+	<div class="caption" >
+	  <div>      
+		  <h4>R 1 995 000 </h4>
 		  <p>3 Bedroom House</p>
       </div>
-	  <div class="caption">
-        <h3>Property 2</h3>		
+	  </div>
+	<div class="caption" >
+	  <div>
+        <h4>R 1 250 000</h4>		
 		<p>3 Bedroom Townhouse</p>
       </div>
+		</div>
 		<div class="caption">
-        <h3>Property 3</h3>
+		<div>
+        <h4>R 330 000</h4>
 		  <p>1.5 Bedroom Apartment</p>
       </div>
+		</div>
+		</div>
     </div>
+	  <button type="submit" class="btn">add</button>
   </div>
+	
 </div>
 
 
@@ -48,7 +62,7 @@
   <div class="col-sm-6 col-md-8">
     <div class="thumbnail">
       <div class="caption">
-        <h3>No Recent Activities</h3>
+        <h2>No Recent Activities</h2>
       </div>
 	  <div class="caption">
         
