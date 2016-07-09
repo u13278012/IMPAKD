@@ -1,55 +1,71 @@
 
-<form id="addProperty" align="center">
+<form action="homePage" id="addProperty" align="center">
     <h1 id="propertyHeader">Add Property</h1>
     
-    <fieldset class="form-group">
-     <input type="text" class="form-control" id="propertyName" placeholder="Name">
-    </fieldset>
+    <div id="property">
+        <div id="miniHeadingDiv">
+            <h3 id="miniHeading">Property Details</h3>
+        </div>
+        <fieldset class="form-group">
+         <input type="text" class="form-control" id="propertyName" placeholder="Name">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="tax" placeholder="Tax">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="inflation" placeholder="inflation">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="annualMaintenanceCost" placeholder="Annual Maintenance Cost">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="annualCostIncrease" placeholder="Annual Cost Increase">
+        </fieldset>
+    </div>
     
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="tax" placeholder="Tax">
-    </fieldset>
+    <div id="Bond">
+        <div id="miniHeadingDiv">
+            <h3 id="miniHeading">Bond Details</h3>
+        </div>
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="interestRate" placeholder="Interest Rate">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="deposit" placeholder="Deposit">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="propertyValue" placeholder="Property Value">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="numberOfYears" placeholder="Number Of Years">
+        </fieldset>
+    </div>
     
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="inflation" placeholder="inflation">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="annualMaintenanceCost" placeholder="Annual Maintenance Cost">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="annualCostIncrease" placeholder="Annual Cost Increase">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="interestRate" placeholder="Interest Rate">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="deposit" placeholder="Deposit">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="propertyValue" placeholder="Property Value">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="numberOfYears" placeholder="Number Of Years">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="occupancyRate" placeholder="Occupancy Rate">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="agentCommission" placeholder="Agent Commission">
-    </fieldset>
-    
-    <fieldset class="form-group">
-        <input type="text" class="form-control" id="rentalAmount" placeholder="Rental Amount" width="35%">
-    </fieldset>
-    
-    <button type="submit" id="submit" class="btn btn-success">Create Property</button>
+    <div id="Rental">
+        <div id="miniHeadingDiv">
+            <h3 id="miniHeading">Rental Information</h3>
+        </div>
+        
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="occupancyRate" placeholder="Occupancy Rate">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="agentCommission" placeholder="Agent Commission">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <input type="text" class="form-control" id="rentalAmount" placeholder="Rental Amount" width="35%">
+        </fieldset>
+
+        <button  type="submit" id="submit" class="btn btn-success">Create Property</button>
+    </div>
   
 </form>

@@ -27,7 +27,12 @@
 {
   position: absolute;
   margin-bottom: 3%;  
-  color: teal;
+  color: white;
   right: 7%;
   bottom: 0
+}
+
+#linkTOProperty:hover
+{
+ color: teal;   
 }

@@ -1,10 +1,12 @@
 #addProperty
 {
-    border-color: gray;
     position: absolute;
     margin-top: 7%;
     margin-left: 40%;
     width: 50%;
+    font-family:Gadugi;
+    color: teal;
+    text-align: center;
 }
 #propertyHeader
 {
@@ -12,13 +14,26 @@
     color: teal;
     margin-right: 65%; 
 }
-
-#addProperty
+#miniHeading
 {
-	font-family:Gadugi;
-    color: teal;
+   	font-family:Gadugi;
+    color: white;
+    margin-right: 63%;
+    align-content: center;
+    border: 2px solid teal;
+    width: 44%;
+    background-color: teal;
+    height: 30%;
+}
+#miniHeadingDiv
+{
+    position: relative;
+   
+    width: 80%;
     text-align: center;
 }
+
+
 #propertyName
 {
       width:35%;
@@ -96,4 +111,9 @@
 #submit
 {
     margin-right: 70%;
+}
+
+#property
+{
+    background-color: white;
 }
