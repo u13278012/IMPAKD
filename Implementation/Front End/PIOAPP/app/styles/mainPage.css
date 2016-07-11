@@ -1,10 +1,20 @@
-.buttons
+/* Login and Sign Up Buttons */
+
+#signUp
 {
-	position:fixed;
+	position: absolute;
+	top: 40px;
+	right: 90px;
+}
+
+#login
+{
+	position: absolute;
 	top: 40px;
 	right: 20px;
 }
 
+/* Carousel */
 .carousel-inner > .item > img 
 {
     margin: 0 auto;
@@ -66,4 +76,46 @@
   filter: alpha(opacity=90);
   outline: 0;
   opacity: .9;
+}
+
+/* Information Menu */
+.info
+{
+	padding-top: 150px;
+	width: 1340px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+.images
+{
+	height: 200px;
+	width:200px;
+}
+
+#view
+{
+	width: 400px;
+	float:left;
+	word-wrap: break-word;
+	margin: 20px;
+	text-align: center;
+}
+
+#visualize
+{
+	width: 400px;
+	float:left;
+	margin: 20px;
+	word-wrap: break-word;
+	text-align: center;
+}
+
+#compare
+{
+	width: 400px;
+	margin: 20px;
+	float:left;
+	word-wrap: break-word;
+	text-align: center;
 }
