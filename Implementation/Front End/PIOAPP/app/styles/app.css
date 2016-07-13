@@ -173,4 +173,43 @@
 	right: 20px;
 }
 
+/* Property Details-->*/
+#maindiv
+{
+    position: absolute;
+    margin-top: 14%;
+    margin-left: 6%;
+}
 
+#PDborder
+{
+   border:5px solid teal;
+    margin-right: 10px;
+    width: 30%;
+    height: 190px;
+}
+
+#propertyDeatailsHeafing
+{
+  position: absolute;
+  margin-top: 7%;
+  color: teal;
+  margin-left: 40%;
+  font-family: Gadugi; 
+     
+}
+
+#linkTOProperty
+{
+  position: absolute;
+  margin-bottom: 3%;  
+  color: white;
+  right: 7%;
+  bottom: 0
+}
+
+#linkTOProperty:hover
+{
+ color: teal;   
+}
+/* Property Details-->*/
