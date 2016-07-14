@@ -82,67 +82,78 @@
 	font-size: 25px;	
 }
 
-
 /* home page */
-#homeBar{
+#navBarHome{
 	position: absolute;
 	margin-top: 7.8%;
+	width: 99.8%;
+	font-size: 19px;
+}
+#btnMenu{
 	background-color: teal;
-	width: 100%;
+	color: white;
+	border-color: white;
+}
+#nameLabel{
+	margin-right: 2%;
+	color: teal;
 	font-family:Gadugi;
-	color: white;	
 }
-
-#userLoggedIn{
-	font-size: 27px;
-	margin-top: -2%;
-	margin-left: 40%;
-}
-
 #name{
 	color:#1ABC9C;
+	font-family:Gadugi;
 }
-
-#menu1{
-	width: 5%;
-	height: 5%;
-	background-color: teal;
-	border-color: teal;
-}
-#menuPic{
-	margin-top: 15%;
-	font-size: 200%;
-	color: white;
-}
-.dropdown-menu{
-	font-size: 17px;
+#listItem{
+	color: teal;
+	font-family:Gadugi;
 }
 #propertList{
-	padding-top: 13%;
+	padding-top: 16%;
+	margin-left: 2%;
+}
+#propertyItem{
+	text-decoration: none;
+	color: teal;
 }
 .thumbnail{
 	border:2px solid teal;
 }
 #recentActivities{
-	margin-top: -15%;
+	/*position: absolute; */
+	margin-top: -52%;
 	margin-left: 50%;
 }
 #noProperties{
+	color: #C0392B;
 	visibility: hidden;
+	font-family:Calibri Light;
 }
 #addedProperties{
 	/*visibility: hidden; */
 	margin-top: -18%;
+	font-family:Calibri Light;
+	font-size: 18px;
 }
 #properties{
 	margin-top: -4%;
 	margin-left: 33%;
 	color: teal;
+	font-family:Gadugi;
+}
+#noActivities{
+	color: #C0392B;
+	font-family:Calibri Light;
 }
 #line{
 	border:1px solid teal;
 	margin-top: -1%;
 }
+#btnAddProp{
+	position: absolute;
+	margin-bottom: 7%;
+	margin-left: 35%;
+}
+
 /* MAIN PAGE - STARTS*/
 
 /* Button Styles */
@@ -212,4 +223,4 @@
 {
  color: teal;   
 }
-/* Property Details-->*/
+
