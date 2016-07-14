@@ -1,4 +1,27 @@
 /* Property Details-->*/
+#sides{
+margin:0;
+   
+}
+#left{
+float:left;
+width:47%;
+overflow:hidden;
+color: teal;
+margin-left: 39.5%; 
+font-family: Gadugi;
+margin-top: 2%;      
+
+}
+#right{
+float:left;
+margin-left: 1%;
+margin-top: 4%;
+width:10%;
+overflow:hidden;
+}
+
+
 #maindiv
 {
     position: absolute;
@@ -28,7 +51,7 @@
 {
  
   color: white;
-  margin-left: 60%;
+ 
 }
 
 #linkTOProperty:hover
