@@ -26,15 +26,33 @@
 
 #linkTOProperty
 {
-  position: absolute;
-  margin-bottom: 3%;  
+ 
   color: white;
-  right: 7%;
-  bottom: 0
+  margin-right: 60%;
 }
 
 #linkTOProperty:hover
 {
  color: teal;   
+}
+
+#chartContainer
+{
+  margin-top: 2%;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+
+
+}
+
+#viewGraphPD{
+  margin-top: 30%;  
+  color: white;
+   margin-left: 15%;
+ 
+}
+#viewGraphPD:hover{
+     color: teal;
 }
 /* Property Details-->*/
