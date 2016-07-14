@@ -70,7 +70,10 @@ export default Ember.Route.extend({
 		});
 
 chart.render();
-           
+  document.getElementById("viewGraphPD").style.color ="white"; 
+ document.getElementById("viewGraphPD").style.backgroundColor ="teal";
+             
+document.getElementById("linkTOProperty").style.color ="teal";
              
 }
   }
