@@ -6,30 +6,30 @@
 </div>
 
 <div class="row" id="maindiv">
-   
+ {{#each model as |detailObj|}} 
   <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4 ">
-    
+  
  <table class="table table-hover">
      <tr><td><h3>Property</h3></td></tr>    
     <tr>
         <td>Property name</td>
-        <td>City Properties</td>
+        <td>{{detailObj.tax}}</td>
     </tr>
     <tr>
         <td>Tax</td>
-        <td>21%</td>
+        <td>{{detailObj.propertyName}}</td>
     </tr> 
     <tr>
         <td>Inflation</td>
-        <td>5.50%</td>
+        <td>{{detailObj.inflation}}</td>
     </tr>
     <tr>
         <td width="10%">Annual maintance cost</td>
-        <td width="10%">R6000.00</td>
+        <td width="10%">{{detailObj.anualMantainance}}</td>
     </tr>
     <tr>
         <td>Annual cost increase</td>
-        <td>10%</td>
+        <td>{{detailObj.anualMantainance}}</td>
     </tr>
    </table>
     
@@ -42,23 +42,20 @@
 
     <tr>
         <td>Interest Rate</td>
-        <td>10%</td>
+        <td>{{detailObj.interestRate}}</td>
     </tr>
     <tr>
         <td>Deposit as percentage</td>
-        <td>21%</td>
+        <td>{{detailObj.depositeASPercentage}}</td>
     </tr> 
     <tr>
         <td>Propery value</td>
-        <td>500000.00</td>
+        <td>{{detailObj.propertyValue}}</td>
     </tr>
-    <tr>
-        <td width="10%">Annual maintance cost</td>
-        <td width="10%">R6000.00</td>
-    </tr>
+
     <tr>
         <td>Number of years</td>
-        <td>30</td>
+        <td>{{detailObj.numberOfYears}}</td>
     </tr>
    </table>
     
@@ -70,15 +67,15 @@
 
     <tr>
         <td>Occupancy Rate</td>
-        <td>11%</td>
+        <td>{{detailObj.occupancyRate}}</td>
     </tr>
     <tr>
         <td width="10%">Agent Commission</td>
-        <td width="10%">R17000.00</td>
+        <td width="10%">{{detailObj.agentCommission}}</td>
     </tr> 
     <tr>
         <td>Rental Amount</td>
-        <td>5000.00</td>
+        <td>{{detailObj.rentalAmount}}</td>
     </tr>
  
   
@@ -86,8 +83,8 @@
    </table>
       
     </div>
-    
-       
+     {{/each}} 
+   
 </div>
 <button id ="viewGraphPD" class ="btn"{{action 'addTask' class ="btn"}}>View Graph</button>
  
