@@ -24,15 +24,47 @@ public class Property implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column
-    private double tax;
-    
-    @Column
-    private double inflation;
     
     @Column
     private String propertyName;
+    
+    @Column
+    private double marketPriceAdjustment;
+    
+    @Column
+    private double capitalGains;
+
+    public double getMarketPriceAdjustment() {
+        return marketPriceAdjustment;
+    }
+
+    public void setMarketPriceAdjustment(double marketPriceAdjustment) {
+        this.marketPriceAdjustment = marketPriceAdjustment;
+    }
+
+    public double getCapitalGains() {
+        return capitalGains;
+    }
+
+    public void setCapitalGains(double capitalGains) {
+        this.capitalGains = capitalGains;
+    }
+
+    public Bond getBond() {
+        return bond;
+    }
+
+    public void setBond(Bond bond) {
+        this.bond = bond;
+    }
+
+    public Rental getRental() {
+        return rental;
+    }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
+    }
     
     @OneToOne
     private Bond bond;
@@ -40,21 +72,7 @@ public class Property implements Serializable {
     @OneToOne
     private Rental rental;
 
-    public double getTax() {
-        return tax;
-    }
 
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
-
-    public double getInflation() {
-        return inflation;
-    }
-
-    public void setInflation(double inflation) {
-        this.inflation = inflation;
-    }
 
     public String getPropertyName() {
         return propertyName;
