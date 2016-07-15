@@ -51,6 +51,7 @@
 
 #submit{
 	margin-left: 9.5%;
+	margin-top: 5%;
 }
 #linking{
 	text-decoration: none;
@@ -73,6 +74,7 @@
 	margin-left: 5%;
 }
 #LoginButton{
+	margin-top: 5%;
 	margin-left: 13%;
 }
 #mainList{
@@ -224,3 +226,10 @@
  color: teal;   
 }
 
+.changethisone span{
+    background-color: #FFF;
+}
+
+.changethisone input{
+    border-right-style:none;
+}
