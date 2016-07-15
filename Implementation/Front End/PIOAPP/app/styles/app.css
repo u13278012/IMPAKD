@@ -89,28 +89,30 @@
 	position: absolute;
 	margin-top: 7.8%;
 	width: 99.8%;
-	font-size: 19px;
+	border-color: teal;
+	height: 5%;
 }
-#btnMenu{
+#divBar{
 	background-color: teal;
-	color: white;
-	border-color: white;
-}
-#nameLabel{
-	margin-right: 2%;
-	color: teal;
-	font-family:Gadugi;
-}
-#name{
-	color:#1ABC9C;
-	font-family:Gadugi;
+	font-family: Calibri Light;
+	font-size: 23px;
+	height: 100%;
 }
 #listItem{
-	color: teal;
-	font-family:Gadugi;
+	color:aliceblue;
+}
+#nameLabel{
+	color:aliceblue;
+}
+#name{
+	color: blanchedalmond;
+	font-family: Gadugi;
+}
+.listBar{
+	margin-left: 20%;
 }
 #propertList{
-	padding-top: 16%;
+	padding-top: 14%;
 	margin-left: 2%;
 }
 #propertyItem{
@@ -124,6 +126,8 @@
 	/*position: absolute; */
 	margin-top: -52%;
 	margin-left: 50%;
+	width: auto;
+	height: auto;
 }
 #noProperties{
 	color: #C0392B;
@@ -135,6 +139,9 @@
 	margin-top: -18%;
 	font-family:Calibri Light;
 	font-size: 18px;
+	width: auto;
+	height: auto;
+	
 }
 #properties{
 	margin-top: -4%;
@@ -152,8 +159,8 @@
 }
 #btnAddProp{
 	position: absolute;
-	margin-bottom: 7%;
-	margin-left: 35%;
+	margin-top: 2%;
+	margin-left: 37%;
 }
 
 /* MAIN PAGE - STARTS*/

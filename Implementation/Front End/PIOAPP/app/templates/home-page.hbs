@@ -1,31 +1,28 @@
 <!-- to show icon 
 <li><a id="logoutIcon" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+<p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="#" class="navbar-link">Jane Doe</a></p>
 -->
-<nav class="navbar navbar-default" id="navBarHome">
-  <button id="btnMenu" class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#divBar">
-    &#9776;
-  </button>
-  <div class="collapse navbar-toggleable-xs" id="divBar">
-    <ul class="nav navbar-nav">
-      <li class="nav-item">
-        <a id="listItem" class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a id="listItem" class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a id="listItem" class="nav-link" href="mainPage">logout</a>
-      </li>
+<nav class="navbar navbar-inverse" id="navBarHome">
+  <div class="container-fluid" id="divBar">
+    <div class="navbar-header">
+      <p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="#" class="navbar-link">Jane Doe</a></p>
+    </div>
+    <ul class="nav navbar-nav listBar">
+      <li><a id="listItem" href="#">Page 1</a></li>
+      <li><a id="listItem" href="#">Page 2</a></li> 
+      <li><a id="listItem" href="mainPage">Logout</a></li> 
     </ul>
   </div>
-	<p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="#" class="navbar-link">Jane Doe</a></p>
 </nav>
+
 <form action="addProperty">
 <div class="row" id="propertList">
 <div class="col-sm-6 col-md-5">
 <div class="thumbnail" >     
 	<div class="caption" id="properties">
 		<h2>Properties</h2>
+		<button id="btnAddProp" type="submit" class="btn">add Property</button>
 	</div>
 		<hr id="line">
 	<div class="caption" id="noProperties">
@@ -67,7 +64,7 @@
 	</div>
 </div>
 </div>
-	  <button id="btnAddProp" type="submit" class="btn">add Property</button>
+	  
 </div>
 	
 </div>
