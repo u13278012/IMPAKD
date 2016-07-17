@@ -32,6 +32,52 @@ public class Rental implements Serializable {
     
     @Column
     private Double rentalAmount;
+    
+    @Column
+    private Double onceOffAgentFee;
+    
+     @Column
+    private Double totalRent;
+
+    public Double getOccupancyRate() {
+        return occupancyRate;
+    }
+
+    public void setOccupancyRate(Double occupancyRate) {
+        this.occupancyRate = occupancyRate;
+    }
+
+    public Double getAgentCommission() {
+        return agentCommission;
+    }
+
+    public void setAgentCommission(Double agentCommission) {
+        this.agentCommission = agentCommission;
+    }
+
+    public Double getRentalAmount() {
+        return rentalAmount;
+    }
+
+    public void setRentalAmount(Double rentalAmount) {
+        this.rentalAmount = rentalAmount;
+    }
+
+    public Double getOnceOffAgentFee() {
+        return onceOffAgentFee;
+    }
+
+    public void setOnceOffAgentFee(Double onceOffAgentFee) {
+        this.onceOffAgentFee = onceOffAgentFee;
+    }
+
+    public Double getTotalRent() {
+        return totalRent;
+    }
+
+    public void setTotalRent(Double totalRent) {
+        this.totalRent = totalRent;
+    }
 
     public Long getId() {
         return id;
