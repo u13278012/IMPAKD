@@ -45,6 +45,12 @@ public class Property implements Serializable {
     
     @OneToOne
     private Inceases inceases;
+    
+    @OneToOne
+    private Rental rental;
+    
+    @OneToOne
+    private Bond bond;
 
     public UpFrontCosts getUpFrontCosts() {
         return upFrontCosts;
@@ -77,12 +83,6 @@ public class Property implements Serializable {
     public void setInceases(Inceases inceases) {
         this.inceases = inceases;
     }
-    
-    @OneToOne
-    private Rental rental;
-    
-    @OneToOne
-    private Bond bond;
 
     public double getMarketPriceAdjustment() {
         return marketPriceAdjustment;
