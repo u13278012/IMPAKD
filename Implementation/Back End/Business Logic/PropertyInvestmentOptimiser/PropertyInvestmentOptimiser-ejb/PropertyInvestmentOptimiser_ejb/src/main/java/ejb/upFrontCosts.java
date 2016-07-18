@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
  * @author Khumalo
  */
 @Entity
-public class upFrontCosts implements Serializable {
+public class UpFrontCosts implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -85,10 +85,10 @@ public class upFrontCosts implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof upFrontCosts)) {
+        if (!(object instanceof UpFrontCosts)) {
             return false;
         }
-        upFrontCosts other = (upFrontCosts) object;
+        UpFrontCosts other = (UpFrontCosts) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
