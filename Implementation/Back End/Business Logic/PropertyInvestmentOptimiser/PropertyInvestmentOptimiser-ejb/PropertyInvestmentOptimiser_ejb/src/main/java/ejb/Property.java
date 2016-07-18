@@ -33,6 +33,56 @@ public class Property implements Serializable {
     
     @Column
     private double capitalGains;
+    
+    @OneToOne
+    private UpFrontCosts upFrontCosts;
+    
+    @OneToOne
+    private Reserves reserves;
+    
+    @OneToOne
+    private Expenses expenses;
+    
+    @OneToOne
+    private Inceases inceases;
+
+    public UpFrontCosts getUpFrontCosts() {
+        return upFrontCosts;
+    }
+
+    public void setUpFrontCosts(UpFrontCosts upFrontCosts) {
+        this.upFrontCosts = upFrontCosts;
+    }
+
+    public Reserves getReserves() {
+        return reserves;
+    }
+
+    public void setReserves(Reserves reserves) {
+        this.reserves = reserves;
+    }
+
+    public Expenses getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(Expenses expenses) {
+        this.expenses = expenses;
+    }
+
+    public Inceases getInceases() {
+        return inceases;
+    }
+
+    public void setInceases(Inceases inceases) {
+        this.inceases = inceases;
+    }
+    
+    @OneToOne
+    private Rental rental;
+    
+    @OneToOne
+    private Bond bond;
 
     public double getMarketPriceAdjustment() {
         return marketPriceAdjustment;
@@ -66,13 +116,7 @@ public class Property implements Serializable {
         this.rental = rental;
     }
     
-    @OneToOne
-    private Bond bond;
     
-    @OneToOne
-    private Rental rental;
-
-
 
     public String getPropertyName() {
         return propertyName;
