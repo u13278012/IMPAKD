@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToOne;
 /**
  *
  * @author Khumalo
@@ -80,25 +80,25 @@ public class Inceases implements Serializable {
         this.levy = levy;
     }
     
-    @Column
+    @OneToOne
     private double inflation;
     
-    @Column
+    @OneToOne
     private double propertyValue;
     
-    @Column
+    @OneToOne
     private double rent;
     
-    @Column
+    @OneToOne
     private double rates;
     
-    @Column
+    @OneToOne
     private double tax;
     
-    @Column
+   @OneToOne
     private double bondFee;
     
-    @Column
+    @OneToOne
     private double levy;
     
     public Long getId() {

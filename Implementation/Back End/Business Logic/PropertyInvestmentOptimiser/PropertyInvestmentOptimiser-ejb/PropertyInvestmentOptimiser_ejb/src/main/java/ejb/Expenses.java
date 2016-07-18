@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -56,16 +57,16 @@ public class Expenses implements Serializable {
         this.managementFee = managementFee;
     }
 
-    @Column
+    @OneToOne
     private double tax;
     
-    @Column
+    @OneToOne
     private double rates;
     
-    @Column
+    @OneToOne
     private double levy;
     
-    @Column
+    @OneToOne
     private double managementFee;
     
     public Long getId() {

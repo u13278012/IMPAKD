@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -23,19 +24,19 @@ public class Reserves implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column
+    @OneToOne
     private double maintanance;
     
-    @Column
+    @OneToOne
     private int renovation;
     
-    @Column
+    @OneToOne
     private double deviance;
     
-    @Column
+    @OneToOne
     private double rentInsurance;
     
-    @Column
+    @OneToOne
     private double minReserves;
 
     public double getMaintanance() {
