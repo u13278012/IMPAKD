@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 import Ember from 'ember';
 import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -16,3 +17,4 @@ App = Ember.Application.extend({
 loadInitializers(App, config.modulePrefix);
 
 export default App;
+/* jshint ignore:end */
