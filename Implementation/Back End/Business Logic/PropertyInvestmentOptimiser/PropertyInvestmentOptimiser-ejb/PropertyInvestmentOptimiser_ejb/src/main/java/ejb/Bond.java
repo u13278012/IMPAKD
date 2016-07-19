@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -31,7 +32,42 @@ public class Bond implements Serializable {
     private Double propertyValue;
     
     @Column
+    private Double depositInRands;
+    
+     @Column
+    private Double bondRepayment;
+    
+    @Column
     private int numberOfYears;
+    
+    @OneToOne
+    private AdditionalBondRepayment additionalBondRepayment;
+
+    public Double getDepositInRands() {
+        return depositInRands;
+    }
+
+    public void setDepositInRands(Double depositInRands) {
+        this.depositInRands = depositInRands;
+    }
+
+    public Double getBondRepayment() {
+        return bondRepayment;
+    }
+
+    public void setBondRepayment(Double bondRepayment) {
+        this.bondRepayment = bondRepayment;
+    }
+
+    public AdditionalBondRepayment getAdditionalBondRepayment() {
+        return additionalBondRepayment;
+    }
+
+    public void setAdditionalBondRepayment(AdditionalBondRepayment additionalBondRepayment) {
+        this.additionalBondRepayment = additionalBondRepayment;
+    }
+    
+   
 
     public Double getInterestRate() {
         return interestRate;
