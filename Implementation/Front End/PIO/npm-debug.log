@@ -1,0 +1,133 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'http-server' ]
+2 info using npm@3.7.3
+3 info using node@v5.8.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData http-server
+8 silly fetchNamedPackageData http-server
+9 silly mapToRegistry name http-server
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/http-server
+13 verbose request uri https://registry.npmjs.org/http-server
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 4:10:09 PM
+16 verbose request id c15c02b7afc7f60a
+17 verbose etag "F1NZKFUYDMBGRX6TD2CUICE1Z"
+18 http request GET https://registry.npmjs.org/http-server
+19 info retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+20 info attempt registry request try #2 at 4:10:19 PM
+21 verbose etag "F1NZKFUYDMBGRX6TD2CUICE1Z"
+22 http request GET https://registry.npmjs.org/http-server
+23 info retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+24 info attempt registry request try #3 at 4:11:19 PM
+25 verbose etag "F1NZKFUYDMBGRX6TD2CUICE1Z"
+26 http request GET https://registry.npmjs.org/http-server
+27 silly get cb [ 304, undefined ]
+28 verbose etag https://registry.npmjs.org/http-server from cache
+29 verbose get saving http-server to C:\Users\Diana\AppData\Roaming\npm-cache\registry.npmjs.org\http-server\.cache.json
+30 verbose correctMkdir C:\Users\Diana\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+31 silly install normalizeTree
+32 silly loadCurrentTree Finishing
+33 silly loadIdealTree Starting
+34 silly install loadIdealTree
+35 silly cloneCurrentTree Starting
+36 silly install cloneCurrentTreeToIdealTree
+37 silly cloneCurrentTree Finishing
+38 silly loadShrinkwrap Starting
+39 silly install loadShrinkwrap
+40 silly loadShrinkwrap Finishing
+41 silly loadAllDepsIntoIdealTree Starting
+42 silly install loadAllDepsIntoIdealTree
+43 silly resolveWithNewModule http-server@0.9.0 checking installable status
+44 silly cache add args [ 'http-server', null ]
+45 verbose cache add spec http-server
+46 silly cache add parsed spec Result {
+46 silly cache add   raw: 'http-server',
+46 silly cache add   scope: null,
+46 silly cache add   name: 'http-server',
+46 silly cache add   rawSpec: '',
+46 silly cache add   spec: 'latest',
+46 silly cache add   type: 'tag' }
+47 silly addNamed http-server@latest
+48 verbose addNamed "latest" is being treated as a dist-tag for http-server
+49 info addNameTag [ 'http-server', 'latest' ]
+50 silly mapToRegistry name http-server
+51 silly mapToRegistry using default registry
+52 silly mapToRegistry registry https://registry.npmjs.org/
+53 silly mapToRegistry uri https://registry.npmjs.org/http-server
+54 verbose addNameTag registry:https://registry.npmjs.org/http-server not in flight; fetching
+55 verbose get https://registry.npmjs.org/http-server not expired, no request
+56 silly addNameTag next cb for http-server with tag latest
+57 silly addNamed http-server@0.9.0
+58 verbose addNamed "0.9.0" is a plain semver version for http-server
+59 silly mapToRegistry name http-server
+60 silly mapToRegistry using default registry
+61 silly mapToRegistry registry https://registry.npmjs.org/
+62 silly mapToRegistry uri https://registry.npmjs.org/http-server
+63 verbose addRemoteTarball https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz not in flight; adding
+64 verbose addRemoteTarball [ 'https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz',
+64 verbose addRemoteTarball   '8f1b06bdc733618d4dc42831c7ba1aff4e06001a' ]
+65 info retry fetch attempt 1 at 4:11:19 PM
+66 info attempt registry request try #1 at 4:11:19 PM
+67 http fetch GET https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+68 info retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+69 info attempt registry request try #2 at 4:11:29 PM
+70 http fetch GET https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+71 info retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+72 info attempt registry request try #3 at 4:12:29 PM
+73 http fetch GET https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+74 error fetch failed https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+75 warn retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+76 info retry fetch attempt 2 at 4:12:39 PM
+77 info attempt registry request try #1 at 4:12:39 PM
+78 http fetch GET https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+79 info retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+80 info attempt registry request try #2 at 4:12:49 PM
+81 http fetch GET https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+82 info retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+83 info attempt registry request try #3 at 4:13:49 PM
+84 http fetch GET https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+85 error fetch failed https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+86 warn retry will retry, error on last attempt: Error: getaddrinfo ENOENT registry.npmjs.org:443
+87 info retry fetch attempt 3 at 4:14:49 PM
+88 info attempt registry request try #1 at 4:14:49 PM
+89 http fetch GET https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+90 http fetch 200 https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+91 info retry will retry, error on last attempt: Error: read ECONNRESET
+92 info retry will retry, error on last attempt: Error: read ECONNRESET
+93 silly fetchAndShaCheck shasum 8f1b06bdc733618d4dc42831c7ba1aff4e06001a
+94 silly rollbackFailedOptional Starting
+95 silly rollbackFailedOptional Finishing
+96 silly runTopLevelLifecycles Starting
+97 silly runTopLevelLifecycles Finishing
+98 silly install printInstalled
+99 verbose stack Error: shasum check failed for C:\Users\Diana\AppData\Local\Temp\npm-10404-665df0db\registry.npmjs.org\http-server\-\http-server-0.9.0.tgz
+99 verbose stack Expected: 8f1b06bdc733618d4dc42831c7ba1aff4e06001a
+99 verbose stack Actual:   9b497133d7728bafc533c047245fea10bc92a5d6
+99 verbose stack From:     https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+99 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\sha\index.js:25:8
+99 verbose stack     at ReadStream.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\sha\index.js:72:7)
+99 verbose stack     at emitNone (events.js:85:20)
+99 verbose stack     at ReadStream.emit (events.js:179:7)
+99 verbose stack     at endReadableNT (_stream_readable.js:913:12)
+99 verbose stack     at _combinedTickCallback (node.js:377:13)
+99 verbose stack     at process._tickCallback (node.js:401:11)
+100 verbose cwd C:\Users\Diana\Documents\GitHub\IMPAKD\Implementation\Front End\PIO
+101 error Windows_NT 10.0.10586
+102 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "http-server"
+103 error node v5.8.0
+104 error npm  v3.7.3
+105 error shasum check failed for C:\Users\Diana\AppData\Local\Temp\npm-10404-665df0db\registry.npmjs.org\http-server\-\http-server-0.9.0.tgz
+105 error Expected: 8f1b06bdc733618d4dc42831c7ba1aff4e06001a
+105 error Actual:   9b497133d7728bafc533c047245fea10bc92a5d6
+105 error From:     https://registry.npmjs.org/http-server/-/http-server-0.9.0.tgz
+106 error If you need help, you may report this error at:
+106 error     <https://github.com/npm/npm/issues>
+107 verbose exit [ 1, true ]

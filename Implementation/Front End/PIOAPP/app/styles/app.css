@@ -91,12 +91,14 @@
 	width: 99.8%;
 	border-color: teal;
 	height: 5%;
+	
 }
 #divBar{
 	background-color: teal;
 	font-family: Calibri Light;
 	font-size: 23px;
 	height: 100%;
+	
 }
 #listItem{
 	color:aliceblue;
@@ -105,62 +107,55 @@
 	color:aliceblue;
 }
 #name{
-	color: #D4EFDF;
+	color: #2B2D42;
 	font-family: Gadugi;
 }
 .listBar{
-	margin-left: 20%;
+	margin-left: 25%;
+	
+}
+.thumbnail{
+	border:2px solid teal;
+	/*background-color: #2B2D42; */
 }
 #propertList{
 	padding-top: 14%;
-	margin-left: 2%;
+	margin-left: 6%;
 }
 #propertyItem{
 	text-decoration: none;
 	color: teal;
 }
-.thumbnail{
-	border:2px solid teal;
-}
-#recentActivities{
-	/*position: absolute; */
-	margin-top: -52%;
-	margin-left: 50%;
-	width: auto;
-	height: auto;
-}
 #noProperties{
+	margin-top: 10%;
 	color: #C0392B;
 	visibility: hidden;
 	font-family:Calibri Light;
 }
-#addedProperties{
+.tableOfProperties{
 	/*visibility: hidden; */
-	margin-top: -18%;
-	font-family:Calibri Light;
-	font-size: 18px;
-	width: auto;
-	height: auto;
+	margin-top: -11%;
+	color: teal;
+	font-family: Calibri Light;
+	font-size: 25px;
+}
+#propertyHeader{
+	margin-top: -2%;
+	margin-left: 40%;
+	color: teal;
 	
 }
-#properties{
-	margin-top: -4%;
-	margin-left: 33%;
-	color: teal;
-	font-family:Gadugi;
-}
-#noActivities{
-	color: #C0392B;
-	font-family:Calibri Light;
+#propertyHead{
+	font-family:sans-serif;
 }
 #line{
 	border:1px solid teal;
-	margin-top: -1%;
+	margin-top: -0.5%;
 }
 #btnAddProp{
 	position: absolute;
 	margin-top: 2%;
-	margin-left: 37%;
+	margin-left: 2%;
 }
 
 /* MAIN PAGE - STARTS*/

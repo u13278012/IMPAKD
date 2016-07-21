@@ -9,3 +9,11 @@ test('it exists', function(assert) {
   let route = this.subject();
   assert.ok(route);
 });
+
+//Test Module
+module('Unit: home');
+
+test('calling homeProperty method to check values', function() {
+  var homePropertyGet = App.home.create();
+  equal(homePropertyGet());
+});
