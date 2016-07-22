@@ -25,9 +25,9 @@ export default  Ember.Route.extend({
 	},
 	
 	//Get Method
-	homePropertyGet: function() {
+	/*homePropertyGet: function() {
   	return this.get(homeArray['number']) + ' ' + this.get(homeArray['name']) + ' ' + this.get(homeArray['price']) + ' ' + this.get(homeArray['ROI']);
-	}.property(homeArray['number'], homeArray['name'], homeArray['price'] , homeArray['ROI'])
+	}.property(homeArray['number'], homeArray['name'], homeArray['price'] , homeArray['ROI']) */
 	
 	/*//Set Method
 	homePropertySet: function() {
