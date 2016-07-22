@@ -29,3 +29,4 @@ Documentation/mainPDF/*.log
 Documentation/mainPDF/*.out
 Documentation/mainPDF/*.synctex.gz
 Documentation/mainPDF/*.toc
+/Implementation/PIO/PropertyInvestmentOptimiser/target/
