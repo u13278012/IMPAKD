@@ -13,9 +13,25 @@ angular.module('myApp', ['ngRoute'])
 
 }]);*/
 
-
 var app = angular.module('myApp', []);
 app.controller('PropertyDetailsCtrl', function($scope) {
     $scope.firstName = "John";
-    $scope.lastName = "Doe";
+    $scope.model = {
+			propertyName: 'City Properties',
+			tax: '21%',
+			inflation: '5.5%',
+			anualMantainance: '6000.00',
+                        anualCostIncrease: '10%',
+				
+                        interestRate: '10%',
+			depositeASPercentage: '21%',
+		        propertyValue: 'R500000.00',
+                        numberOfYears: '30',
+                
+			 occupancyRate: '11%',
+		         agentCommission: 'R 17000.00',
+		         rentalAmount: '5000.00'
+                
+                
+				};
 });

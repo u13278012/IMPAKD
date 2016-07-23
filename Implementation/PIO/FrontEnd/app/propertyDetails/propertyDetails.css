@@ -10,13 +10,13 @@ overflow:hidden;
 color: teal;
 margin-left: 39.5%; 
 font-family: Gadugi;
-margin-top: 2%;      
+      
 
 }
 #right{
 float:left;
 margin-left: 1%;
-margin-top: 4%;
+margin-top: 2%;
 width:10%;
 overflow:hidden;
 }
@@ -27,6 +27,8 @@ overflow:hidden;
     position: absolute;
     margin-top: 14%;
     margin-left: 6%;
+    font-family: Calibri Light;
+	font-size: 23px;
 }
 
 #PDborder
