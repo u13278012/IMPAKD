@@ -5,7 +5,7 @@
  */
 package service;
 
-import com.impakd.backend.Person;
+import com.impakd.backendpio.Statistics;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,27 +25,27 @@ import javax.ws.rs.core.MediaType;
  * @author Kudzai Muranga
  */
 @Stateless
-@Path("person")
-public class PersonFacadeREST extends AbstractFacade<Person> {
+@Path("statistics")
+public class StatisticsFacadeREST extends AbstractFacade<Statistics> {
 
-    @PersistenceContext(unitName = "com.IMPAKD_BackEnd_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "com.IMPAKD_BackEndPIO_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
-    public PersonFacadeREST() {
-        super(Person.class);
+    public StatisticsFacadeREST() {
+        super(Statistics.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Person entity) {
+    public void create(Statistics entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Long id, Person entity) {
+    public void edit(@PathParam("id") Long id, Statistics entity) {
         super.edit(entity);
     }
 
@@ -58,21 +58,21 @@ public class PersonFacadeREST extends AbstractFacade<Person> {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Person find(@PathParam("id") Long id) {
+    public Statistics find(@PathParam("id") Long id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Person> findAll() {
+    public List<Statistics> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Person> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Statistics> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
