@@ -59,7 +59,9 @@ overflow:hidden;
 
 #linkTOProperty:hover
 {
- color: white;   
+  color: #008080;
+  border-color: #008080;
+  background-color: #ffffff;  
 }
 
 #chartContainer
@@ -85,3 +87,23 @@ overflow:hidden;
      background-color: white;
 }
 /* Property Details-->*/
+
+/* Button Styles */
+.btn
+{
+	color: #ffffff;
+	border-color: #008080;
+	background-color: #008080;
+	
+}
+
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  /*color: #ffffff;
+  text-decoration: none;*/
+
+  color: #008080;
+  border-color: #008080;
+  background-color: #ffffff;
+}
