@@ -1,3 +1,24 @@
+/* Button Styles */
+.btn
+{
+	color: #ffffff;
+	border-color: #008080;
+	background-color: #008080;
+	
+}
+
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  /*color: #ffffff;
+  text-decoration: none;*/
+
+  color: #008080;
+  border-color: #008080;
+  background-color: #ffffff;
+}
+
+
 #addProperty
 {
     position: absolute;
@@ -10,7 +31,7 @@
 }
 #propertyHeader
 {
-	font-family:Gadugi;
+    font-family:Gadugi;
     color: teal;
     margin-right: 65%; 
 }
@@ -40,17 +61,17 @@
 	font-size: 20px;
 	font-family:Calibri Light;
 }
-#tax
+#marketPriceAdjustment
 {
       width:35%;
 	font-size: 20px;
 	font-family:Calibri Light;
 }
-#inflation
+#capitalGains
 {
-      width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
+    width:35%;
+    font-size: 20px;
+    font-family:Calibri Light;
 }
 #annualMaintenanceCost
 {
@@ -94,6 +115,7 @@
 	font-size: 20px;
 	font-family:Calibri Light;
 }
+
 #agentCommission
 {
     width:35%;
@@ -117,4 +139,137 @@
 #property
 {
     background-color: white;
+}
+
+#rentInsurance
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#deviance
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#renovation
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#maintenance
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#conveyancingFees
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#vatDebit
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#deedsFee
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#initiationFee
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#tax
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#rates
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#levy
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#managementFee
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#inflation
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#propertyValueIncrease
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#rentIncrease
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#ratesIncrease
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#taxIncrease
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#bondFeeIncrease
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#levyIncrease
+{
+       width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
 }
