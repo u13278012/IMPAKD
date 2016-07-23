@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.impakd.backend;
+package com.impakd.backendpio;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -41,6 +42,7 @@ public class Profile implements Serializable {
     @OneToMany
     private List<Property> properties;
 
+    @XmlTransient
     public List<Property> getProperties() {
         return properties;
     }

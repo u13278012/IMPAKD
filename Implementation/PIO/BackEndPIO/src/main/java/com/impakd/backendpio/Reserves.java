@@ -3,20 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.impakd.backend;
+package com.impakd.backendpio;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-
 
 /**
  *
@@ -24,35 +20,66 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @XmlRootElement
-public class Person implements Serializable {
+public class Reserves implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column
+    private double maintanance;
     
-    @OneToOne
-    private Profile profile;
-
-    @OneToMany(targetEntity = Property.class)
-    private List<Property> properties;
-
-    @XmlTransient
-    public List<Property> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(List<Property> properties) {
-        this.properties = properties;
-    }
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
+    @Column
+    private int renovation;
     
+    @Column
+    private double deviance;
+    
+    @Column
+    private double rentInsurance;
+    
+    @Column
+    private double minReserves;
+
+    public double getMaintanance() {
+        return maintanance;
+    }
+
+    public void setMaintanance(double maintanance) {
+        this.maintanance = maintanance;
+    }
+
+    public int getRenovation() {
+        return renovation;
+    }
+
+    public void setRenovation(int renovation) {
+        this.renovation = renovation;
+    }
+
+    public double getDeviance() {
+        return deviance;
+    }
+
+    public void setDeviance(double deviance) {
+        this.deviance = deviance;
+    }
+
+    public double getRentInsurance() {
+        return rentInsurance;
+    }
+
+    public void setRentInsurance(double rentInsurance) {
+        this.rentInsurance = rentInsurance;
+    }
+
+    public double getMinReserves() {
+        return minReserves;
+    }
+
+    public void setMinReserves(double minReserves) {
+        this.minReserves = minReserves;
+    }
     public Long getId() {
         return id;
     }
@@ -71,10 +98,10 @@ public class Person implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Person)) {
+        if (!(object instanceof Reserves)) {
             return false;
         }
-        Person other = (Person) object;
+        Reserves other = (Reserves) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -83,7 +110,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "ejb.Person[ id=" + id + " ]";
+        return "ejb.Reserves[ id=" + id + " ]";
     }
     
 }
