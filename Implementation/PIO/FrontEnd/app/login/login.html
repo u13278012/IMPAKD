@@ -19,19 +19,45 @@
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+        <script type="text/javascript">
+            var barLogin, login, register;
+            
+            window.onload = function(e)
+            {
+                barLogin = document.getElementById("barLogin");
+                login = document.getElementById("Login");
+                register = document.getElementById("register");
+            };
+            function reg_log(id)
+            {
+                if (id === "register")
+                {
+                    barLogin.style.height = "475px";
+                    login.style.opacity = "0";
+                    register.style.opacity = "1";
+                }
+                else
+                {
+                    barLogin.style.height = "275px";
+                    login.style.opacity = "1";
+                    register.style.opacity = "0";
+                }
+            } 
+        </script>
         <link rel="stylesheet" type="text/css" href="login.css">
         
         <div class="navbar-header" id="Logo">
             <img alt="Brand"  ng-src="../images/Logo.png"/>
         </div> 
         
-        <form id="registerForm" action="../home/home.html">	
+        <div id="testDiv">
+        <form id="registerForm" action="../home/home.html">
             <ul class="nav nav-tabs" role="tablist" id="mainList">
               <li class="nav-item active">
-                <a class="nav-link active" data-toggle="tab" href="#Login" role="tab" id="tab">Log In</a>
+                  <a class="nav-link active" data-toggle="tab" href="#Login" onclick="reg_log('login')" role="tab" id="tab">Log In</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#register" role="tab" id="tab">Sign Up</a>
+                <a class="nav-link" data-toggle="tab" href="#register" onclick="reg_log('register')" role="tab" id="tab">Sign Up</a>
               </li>
             </ul>
 
@@ -103,7 +129,10 @@
                   <a id="linking" href="login.html">Create Account</a>
               </button>
             </div>
-            </div>	
+            </div>
         </form>
+             <div id="barLogin"></div>
+        </div>
+       
     </body>
 </html>
