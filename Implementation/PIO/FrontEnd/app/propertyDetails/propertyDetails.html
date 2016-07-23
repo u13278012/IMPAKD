@@ -1,16 +1,122 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+
+<html ng-app>
     <head>
-        <title>TODO supply a title</title>
+        <title>property details</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <!-- Canvas -->
+         <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+		 <!-- Canvas -->
+         <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	  <!-- JQuery -->
+         <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	  
+	  <!-- Bootstrap -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+	 
+         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+         <link rel="stylesheet" href="propertyDetails.css">
+
     </head>
     <body>
-        <div>TODO write content</div>
+       <div id ="sides">
+<div id ="left" > <h1>Property Details</h1></div>
+<div id ="right">
+ <a href="homePage/homePage.html" id ="linkTOProperty" class="btn btn-default" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>   
+</div>
+</div>
+
+<div class="row" id="maindiv" ng-app="myApp" ng-controller="myCtrl" >
+ 
+  <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4 ">
+  
+ <table>
+     <tr><td><h3>Property</h3></td></tr>    
+    <tr>
+        <td>Property name</td>
+        <td>{{firstName}}</td>
+    </tr>
+    <tr>
+        <td>Tax</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>Inflation</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td width="10%">Annual maintance cost</td>
+        <td width="10%"></td>
+    </tr>
+    <tr>
+        <td>Annual cost increase</td>
+        <td></td>
+    </tr>
+   </table>
+    
+  </div>
+  
+   <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4">
+    
+    <table>
+         <tr><td><h3>Bond</h3></td></tr>    
+
+    <tr>
+        <td>Interest Rate</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Deposit as percentage</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>Propery value</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Number of years</td>
+        <td></td>
+    </tr>
+   </table>
+    
+   </div>
+  <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4" >
+    
+    <table>
+     <tr><td><h3>Rental</h3></td></tr>    
+
+    <tr>
+        <td>Occupancy Rate</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td width="10%">Agent Commission</td>
+        <td width="10%"></td>
+    </tr> 
+    <tr>
+        <td>Rental Amount</td>
+        <td></td>
+    </tr>
+ 
+  
+
+   </table>
+      
+    </div>
+  
+   
+</div>
+<button id ="viewGraphPD" class ="btn">View Graph</button>
+ 
+<div id="chartContainer" style="height: 300px; width: 50%;">
+     
+
+	</div>
+
+
     </body>
 </html>

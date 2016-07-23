@@ -1,6 +1,6 @@
-'use strict';
+/*'use strict';
 
-angular.module('myApp.propertyDetails', ['ngRoute'])
+angular.module('myApp', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/propertyDetails', {
@@ -11,6 +11,11 @@ angular.module('myApp.propertyDetails', ['ngRoute'])
 
 .controller('PropertyDetailsCtrl', [function() {
 
-}]);
+}]);*/
 
 
+var app = angular.module('myApp', []);
+app.controller('PropertyDetailsCtrl', function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
