@@ -1,5 +1,5 @@
 
-<html ng-app>
+<html lang="en" ng-app="myApp">
     <head>
         <title>property details</title>
         <meta charset="UTF-8">
@@ -19,41 +19,46 @@
          <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
          <link rel="stylesheet" href="propertyDetails.css">
+                 
+
 
     </head>
     <body>
+      <div class="navbar-header" id="Logo">
+        <img alt="Brand"  ng-src="../images/Logo.png"/>
+    </div> 
        <div id ="sides">
 <div id ="left" > <h1>Property Details</h1></div>
 <div id ="right">
- <a href="homePage/homePage.html" id ="linkTOProperty" class="btn btn-default" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>   
+ <a href="../home/home.html" id ="linkTOProperty" class="btn btn-default" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>   
 </div>
 </div>
 
-<div class="row" id="maindiv" ng-app="myApp" ng-controller="myCtrl" >
+<div class="row" id="maindiv" ng-controller="PropertyDetailsCtrl">
  
   <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4 ">
-  
+
  <table>
      <tr><td><h3>Property</h3></td></tr>    
     <tr>
         <td>Property name</td>
-        <td>{{firstName}}</td>
+        <td>{{model.propertyName}}</td>
     </tr>
     <tr>
         <td>Tax</td>
-        <td></td>
+        <td>{{model.tax}}</td>
     </tr> 
     <tr>
         <td>Inflation</td>
-        <td></td>
+        <td>{{model.inflation}}</td>
     </tr>
     <tr>
         <td width="10%">Annual maintance cost</td>
-        <td width="10%"></td>
+        <td width="10%">{{model.anualMantainance}}</td>
     </tr>
     <tr>
         <td>Annual cost increase</td>
-        <td></td>
+        <td>{{model.anualCostIncrease}}</td>
     </tr>
    </table>
     
@@ -66,20 +71,20 @@
 
     <tr>
         <td>Interest Rate</td>
-        <td></td>
+        <td>{{model.interestRate}}</td>
     </tr>
     <tr>
         <td>Deposit as percentage</td>
-        <td></td>
+        <td>{{model.depositeASPercentage}}</td>
     </tr> 
     <tr>
-        <td>Propery value</td>
-        <td></td>
+        <td width="10%">Propery value</td>
+        <td width="10%">{{model.propertyValue}}</td>
     </tr>
 
     <tr>
         <td>Number of years</td>
-        <td></td>
+        <td>{{model.numberOfYears}}</td>
     </tr>
    </table>
     
@@ -91,15 +96,15 @@
 
     <tr>
         <td>Occupancy Rate</td>
-        <td></td>
+        <td>{{model.occupancyRate}}</td>
     </tr>
     <tr>
         <td width="10%">Agent Commission</td>
-        <td width="10%"></td>
+        <td width="10%">{{model.agentCommission}}</td>
     </tr> 
     <tr>
         <td>Rental Amount</td>
-        <td></td>
+        <td>{{model.rentalAmount}}</td>
     </tr>
  
   
@@ -110,13 +115,15 @@
   
    
 </div>
-<button id ="viewGraphPD" class ="btn">View Graph</button>
- 
+<div ng-controller="PropertyDetailsCtrl">
+<button id ="viewGraphPD" ng-click ="show()" class ="btn">View Graph</button>
+</div>
 <div id="chartContainer" style="height: 300px; width: 50%;">
      
 
 	</div>
 
-
+ <script src="propertyDetails.js"></script>
+ 
     </body>
 </html>
