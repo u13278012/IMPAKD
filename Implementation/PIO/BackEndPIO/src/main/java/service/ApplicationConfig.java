@@ -29,7 +29,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.impakd.backend.NewCrossOriginResourceSharingFilter.class);
+        resources.add(com.impakd.backendpio.NewCrossOriginResourceSharingFilter.class);
         resources.add(service.AdditionalBondRepaymentFacadeREST.class);
         resources.add(service.AuthenticationFacadeREST.class);
         resources.add(service.BondFacadeREST.class);

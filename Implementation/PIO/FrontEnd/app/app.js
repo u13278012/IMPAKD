@@ -8,7 +8,7 @@ angular.module('myApp', [
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/report'});
+//  $locationProvider.hashPrefix('main');
+//
+//  $routeProvider.otherwise({redirectTo: '/main'});
 }]);

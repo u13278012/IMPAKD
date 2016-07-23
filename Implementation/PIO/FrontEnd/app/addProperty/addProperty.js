@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.addProperty', ['ngRoute'])
+angular.module('myApp', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/addProperty', {

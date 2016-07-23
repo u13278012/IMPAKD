@@ -6,11 +6,87 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Add Property</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="addProperty.css">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="navbar-header" id="Logo">
+                  <img alt="Brand" ng-src="../images/Logo.png">
+            
+          </div>
+        
+        <form action="homePage" id="addProperty" style="align:center">
+            <h1 id="propertyHeader">Add Property</h1>
+
+            <div id="property">
+                <div id="miniHeadingDiv">
+                    <h3 id="miniHeading">Property Details</h3>
+                </div>
+                <fieldset class="form-group">
+                 <input type="text" class="form-control" id="propertyName" placeholder="Name">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="tax" placeholder="Tax">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="inflation" placeholder="inflation">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="annualMaintenanceCost" placeholder="Annual Maintenance Cost">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="annualCostIncrease" placeholder="Annual Cost Increase">
+                </fieldset>
+            </div>
+
+            <div id="Bond">
+                <div id="miniHeadingDiv">
+                    <h3 id="miniHeading">Bond Details</h3>
+                </div>
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="interestRate" placeholder="Interest Rate">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="deposit" placeholder="Deposit">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="propertyValue" placeholder="Property Value">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="numberOfYears" placeholder="Number Of Years">
+                </fieldset>
+            </div>
+
+            <div id="Rental">
+                <div id="miniHeadingDiv">
+                    <h3 id="miniHeading">Rental Information</h3>
+                </div>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="occupancyRate" placeholder="Occupancy Rate">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="agentCommission" placeholder="Agent Commission">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" id="rentalAmount" placeholder="Rental Amount" style="width:35%">
+                </fieldset>
+
+
+            </div>
+                  <button  type="submit" id="submit" class="btn">Create Property</button>
+        </form>
     </body>
 </html>
