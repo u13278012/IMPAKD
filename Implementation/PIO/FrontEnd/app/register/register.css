@@ -1,0 +1,102 @@
+/* Register Section  */
+#FirstName{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#LastName{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#Password{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#confrimPassword{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#Email{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#register{
+	margin-top: 2.5%;
+	margin-left: 5%;	
+}
+
+#createAcc{
+	margin-left: 9.8%;
+	margin-top: 5%;
+}
+#linking{
+	text-decoration: none;
+	color: white;
+}
+#linking:hover{
+	text-decoration: none;
+	color: teal;	
+}
+
+/* Login Section     */
+#UserName{
+    width:35%;
+    font-size: 20px;
+    font-family:Calibri Light;
+}
+
+#Login{
+    margin-top: 2.5%;
+    margin-left: 5%;
+}
+#LoginButton{
+    margin-top: 5%;
+    margin-left: 13%;
+}
+#mainList{
+    width:30%;
+    margin-left: 30%;
+    font-family: monospace;
+    font-size: 25px;	
+}
+#tab{
+	color: teal;
+	font-family:Gadugi;
+}
+#main_List{
+	margin-left: 30%;
+}
+#registerForm{
+	padding-top: 10%;
+	margin-left: 8%;
+}
+/* Button Styles */
+.btn
+{
+	color: #ffffff;
+	border-color: #008080;
+	background-color: #008080;
+	
+}
+
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  /*color: #ffffff;
+  text-decoration: none;*/
+
+  color: #008080;
+  border-color: #008080;
+  background-color: #ffffff;
+}
+
+
+
