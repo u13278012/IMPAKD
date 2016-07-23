@@ -1,5 +1,87 @@
-<p>This is the partial for home.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <link rel="stylesheet" type="text/css" href="home.css">
+        <!--<link rel="stylesheet" href="app.css"> -->
+    </head>
+<body>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="home.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+   <div class="navbar-header" id="Logo">
+        <img alt="Brand"  ng-src="../images/Logo.png"/>
+    </div> 
+        
+    <nav class="navbar navbar-inverse" id="navBarHome">
+      <div class="container-fluid" id="divBar">
+        <div class="navbar-header">
+          <p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="#" class="navbar-link">Jane Doe</a></p>
+        </div>
+        <ul class="nav navbar-nav listBar">
+          <li><a id="listItem" href="#">Report</a></li>
+          <li><a id="listItem" href="mainPage">Logout</a></li> 
+        </ul>
+      </div>
+    </nav>
+
+    <form action="addProperty">
+    <div class="row" id="propertList">
+    <div class="col-sm-12 col-md-11">
+    <div class="thumbnail" >     
+        <div class="caption" id="propertyHeader">
+                <h1 id="propertyHead">Properties</h1>
+        </div>
+        <button id="btnAddProp" type="submit" class="btn">add Property</button>
+                <hr id="line">
+        <div class="caption" id="noProperties">
+        <h1>No Properties added</h1>
+      </div>
+    <table class="table table-hover tableOfProperties">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Property Name</th>
+          <th>Price</th>
+          <th>ROI</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>3 Bedroom House</td>
+            <td>1 995 000</td>
+            <td>15%</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>1.5 Bedroom Apartment</td>
+            <td>R 330 000</td>
+            <td>5%</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>3 Bedroom Townhouse</td>
+            <td>R 1 250 000</td>
+            <td>20%</td>
+          </tr>
+      </tbody>
+    </table>
+    </div>
+
+    </div>
+
+    </div>
+
+    </form>
+</body>
+</html>
