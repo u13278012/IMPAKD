@@ -72,14 +72,7 @@ body:before{
 	margin-left: 9.8%;
 	margin-top: 5%;
 }
-#linking{
-	text-decoration: none;
-	color: white;
-}
-#linking:hover{
-	text-decoration: none;
-	color: teal;	
-}
+
 
 /* Login Section     */
 #UserName{
@@ -119,9 +112,9 @@ body:before{
 /* Button Styles */
 .btn
 {
-	color: #ffffff;
-	border-color: #008080;
-	background-color: #008080;
+    color: #ffffff;
+    border-color: #008080;
+    background-color: #008080;
 	
 }
 
