@@ -62,7 +62,7 @@ body:before{
 }
 
 #register{
-	margin-top: 2.5%;
+	margin-top: 2%;
 	margin-left: 5%;
         opacity: 0;
         transition: all 0.5s;
@@ -70,7 +70,7 @@ body:before{
 
 #createAcc{
 	margin-left: 9.8%;
-	margin-top: 5%;
+	margin-top: 4%;
 }
 #linking{
 	text-decoration: none;

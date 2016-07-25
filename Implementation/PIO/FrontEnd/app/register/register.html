@@ -66,11 +66,9 @@
                   <a class="nav-link active" data-toggle="tab" href="#register" onclick="reg_log('register')" role="tab" id="tab">Sign Up</a>
                 </li>
             </ul>	
-            <div class="tab-content" id="main_List">
-                
+            <div class="tab-content" id="main_List">              
                     <!-- LogIn Section-->
-            <form action="">
-                <div class="tab-pane" id="Login" role="tabpanel">
+                <form class="tab-pane" id="Login" role="tabpanel" action="">
                         <div class="input-group">
                                 <span class="input-group-addon">
                                         <i class="glyphicon glyphicon-user"></i>
@@ -85,11 +83,10 @@
                                 <input type="text" class="form-control" id="Password" placeholder="Password">
                         </div>
                         <button onclick="return LoginButton_onclick()" type="button" id="LoginButton" class="btn">Log In</button>
-                </div>
-            </form>
+                </form>
             <!-- SignUp/Register Section-->
-            <form action="">
-                <div class="tab-pane active" id="register" role="tabpanel">
+            
+                <form class="tab-pane active" id="register" role="tabpanel" action="">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-pencil"></i>
@@ -135,8 +132,8 @@
                   <button onclick="return createAcc_onclick()" type="button" id="createAcc" class="btn">
                         Create Account
                   </button>
-                </div>
-            </form>
+                </form>
+            
             </div>	
         </div>
         <div id="barRegister"></div>

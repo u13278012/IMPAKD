@@ -62,15 +62,15 @@ body:before{
 }
 
 #register{
-	margin-top: -19%;
+	margin-top: 2%;
 	margin-left: 5%;
         opacity: 1;
         transition: all 0.5s;
 }
 
 #createAcc{
-	margin-left: 9.8%;
-	margin-top: 5%;
+    margin-left: 9.8%;
+    margin-top: 4%;
 }
 
 
