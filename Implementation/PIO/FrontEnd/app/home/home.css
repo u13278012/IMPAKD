@@ -77,6 +77,11 @@
     background-color: #008080;
 	
 }
+#aLink{
+    text-decoration: none;
+    color: teal;
+}
+
 
 .btn:hover,
 .btn:focus,
