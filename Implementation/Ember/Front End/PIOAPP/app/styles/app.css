@@ -1,0 +1,237 @@
+#tab{
+	color: teal;
+	font-family:Gadugi;
+}
+#main_List{
+	margin-left: 30%;
+}
+#registerForm{
+	padding-top: 10%;
+	margin-left: 8%;
+}
+#Logo{
+	margin-top: -1%;
+	margin-left: -1%;
+}
+
+/* Register Section  */
+#FirstName{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#LastName{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+#Password{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#confrimPassword{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#Email{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#register{
+	margin-top: 2.5%;
+	margin-left: 5%;	
+}
+
+#createAcc{
+	margin-left: 9.8%;
+	margin-top: 5%;
+}
+#linking{
+	text-decoration: none;
+	color: white;
+}
+#linking:hover{
+	text-decoration: none;
+	color: teal;	
+}
+
+/* Login Section     */
+#UserName{
+	width:35%;
+	font-size: 20px;
+	font-family:Calibri Light;
+}
+
+#Login{
+	margin-top: 2.5%;
+	margin-left: 5%;
+}
+#LoginButton{
+	margin-top: 5%;
+	margin-left: 13%;
+}
+#mainList{
+	width:30%;
+	margin-left: 30%;
+	font-family: monospace;
+	font-size: 25px;	
+}
+
+/* home page */
+#navBarHome{
+	position: absolute;
+	margin-top: 8%;
+	width: 99.8%;
+	border-color: teal;
+	height: 5%;
+	
+}
+#divBar{
+	background-color: teal;
+	font-family: Calibri Light;
+	font-size: 23px;
+	height: 100%;
+	
+}
+#listItem{
+	color:aliceblue;
+}
+#nameLabel{
+	color:aliceblue;
+}
+#name{
+	color: #2B2D42;
+	font-family: Gadugi;
+}
+.listBar{
+	margin-left: 25%;
+	
+}
+.thumbnail{
+	border:2px solid teal;
+	/*background-color: #2B2D42; */
+}
+#propertList{
+	padding-top: 14%;
+	margin-left: 6%;
+}
+#propertyItem{
+	text-decoration: none;
+	color: teal;
+}
+#noProperties{
+	margin-top: 10%;
+	color: #C0392B;
+	visibility: hidden;
+	font-family:Calibri Light;
+}
+.tableOfProperties{
+	/*visibility: hidden; */
+	margin-top: -11%;
+	color: teal;
+	font-family: Calibri Light;
+	font-size: 25px;
+}
+#propertyHeader{
+	margin-top: -2%;
+	margin-left: 40%;
+	color: teal;
+	
+}
+#propertyHead{
+	font-family:sans-serif;
+}
+#line{
+	border:1px solid teal;
+	margin-top: -0.5%;
+}
+#btnAddProp{
+	position: absolute;
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
+/* MAIN PAGE - STARTS*/
+
+/* Button Styles */
+.btn
+{
+	color: #ffffff;
+	border-color: #008080;
+	background-color: #008080;
+	
+}
+
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  /*color: #ffffff;
+  text-decoration: none;*/
+
+  color: #008080;
+  border-color: #008080;
+  background-color: #ffffff;
+}
+
+/* Login and Sign Up Buttons - Div */
+/*.buttons
+{
+	position:fixed;
+	top: 40px;
+	right: 20px;
+} */
+
+/* Property Details-->*/
+#maindiv
+{
+    position: absolute;
+    margin-top: 14%;
+    margin-left: 6%;
+}
+
+#PDborder
+{
+   border:5px solid teal;
+    margin-right: 10px;
+    width: 30%;
+    height: 190px;
+}
+
+#propertyDeatailsHeafing
+{
+  position: absolute;
+  margin-top: 7%;
+  color: teal;
+  margin-left: 40%;
+  font-family: Gadugi; 
+     
+}
+
+#linkTOProperty
+{
+  position: absolute;
+  margin-bottom: 3%;  
+  color: white;
+  right: 7%;
+  bottom: 0
+}
+
+#linkTOProperty:hover
+{
+ color: teal;   
+}
+
+.changethisone span{
+    background-color: #FFF;
+}
+
+.changethisone input{
+    border-right-style:none;
+}

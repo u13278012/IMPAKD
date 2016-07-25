@@ -1,0 +1,95 @@
+<div id ="sides">
+<div id ="left" > <h1>Property Details</h1></div>
+<div id ="right">
+ <a href="homePage" id=""class="btn" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>   
+</div>
+</div>
+
+<div class="row" id="maindiv">
+ {{#each model as |detailObj|}} 
+  <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4 ">
+  
+ <table class="table table-hover">
+     <tr><td><h3>Property</h3></td></tr>    
+    <tr>
+        <td>Property name</td>
+        <td>{{detailObj.tax}}</td>
+    </tr>
+    <tr>
+        <td>Tax</td>
+        <td>{{detailObj.propertyName}}</td>
+    </tr> 
+    <tr>
+        <td>Inflation</td>
+        <td>{{detailObj.inflation}}</td>
+    </tr>
+    <tr>
+        <td width="10%">Annual maintance cost</td>
+        <td width="10%">{{detailObj.anualMantainance}}</td>
+    </tr>
+    <tr>
+        <td>Annual cost increase</td>
+        <td>{{detailObj.anualMantainance}}</td>
+    </tr>
+   </table>
+    
+  </div>
+  
+   <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4">
+    
+    <table class="table table-hover">
+         <tr><td><h3>Bond</h3></td></tr>    
+
+    <tr>
+        <td>Interest Rate</td>
+        <td>{{detailObj.interestRate}}</td>
+    </tr>
+    <tr>
+        <td>Deposit as percentage</td>
+        <td>{{detailObj.depositeASPercentage}}</td>
+    </tr> 
+    <tr>
+        <td>Propery value</td>
+        <td>{{detailObj.propertyValue}}</td>
+    </tr>
+
+    <tr>
+        <td>Number of years</td>
+        <td>{{detailObj.numberOfYears}}</td>
+    </tr>
+   </table>
+    
+   </div>
+  <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4" >
+    
+    <table class="table table-hover">
+     <tr><td><h3>Rental</h3></td></tr>    
+
+    <tr>
+        <td>Occupancy Rate</td>
+        <td>{{detailObj.occupancyRate}}</td>
+    </tr>
+    <tr>
+        <td width="10%">Agent Commission</td>
+        <td width="10%">{{detailObj.agentCommission}}</td>
+    </tr> 
+    <tr>
+        <td>Rental Amount</td>
+        <td>{{detailObj.rentalAmount}}</td>
+    </tr>
+ 
+  
+
+   </table>
+      
+    </div>
+     {{/each}} 
+   
+</div>
+<button id ="viewGraphPD" class ="btn"{{action 'addTask' class ="btn"}}>View Graph</button>
+ 
+<div id="chartContainer" style="height: 300px; width: 50%;">
+     
+
+	</div>
+

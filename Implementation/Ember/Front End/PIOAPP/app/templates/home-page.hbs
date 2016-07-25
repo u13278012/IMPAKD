@@ -1,0 +1,79 @@
+<!-- to show icon 
+<li><a id="logoutIcon" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+<p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="#" class="navbar-link">Jane Doe</a></p>
+-->
+<nav class="navbar navbar-inverse" id="navBarHome">
+  <div class="container-fluid" id="divBar">
+    <div class="navbar-header">
+      <p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="#" class="navbar-link">Jane Doe</a></p>
+    </div>
+    <ul class="nav navbar-nav listBar">
+      <li><a id="listItem" href="#">Report</a></li>
+      <li><a id="listItem" href="mainPage">Logout</a></li> 
+    </ul>
+  </div>
+</nav>
+
+<form action="addProperty">
+<div class="row" id="propertList">
+<div class="col-sm-12 col-md-11">
+<div class="thumbnail" >     
+	<div class="caption" id="propertyHeader">
+		<h1 id="propertyHead">Properties</h1>
+	</div>
+	<button id="btnAddProp" type="submit" class="btn">add Property</button>
+	
+		<hr id="line">
+	<div class="caption" id="noProperties">
+        <h1>No Properties added</h1>
+      </div>
+<table class="table table-hover tableOfProperties">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Property Name</th>
+      <th>Price</th>
+      <th>ROI</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |homeObj|}}
+		<tr>
+		  <th scope="row">{{homeObj.number}}</th>
+		  <a id="detailLink" href="propertyDetails"><td>{{homeObj.name}}</td></a>
+		  <td>{{homeObj.price}}</td>
+		  <td>{{homeObj.ROI}}</td>
+		</tr>
+	{{/each}}
+  </tbody>
+</table>
+</div>
+	  
+</div>
+	
+</div>
+
+
+<!--<div class="row" id="recentActivities">
+  <div class="col-sm-6 col-md-8">
+    <div class="thumbnail">
+		<div class="caption" id="properties">
+		<h2>Activities</h2>
+		</div>
+		<hr id="line">
+      <div class="caption" id="noActivities">
+        <h2>No Recent Activities</h2>
+      </div>
+		
+	  <div class="caption">
+        
+      </div>
+	  <div class="caption">
+        
+      </div>
+    </div>
+  </div>
+</div> -->
+</form>
+

@@ -1,30 +1,173 @@
 /* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+/* Login and Sign Up Buttons */
+.btn
+{
+    color: #ffffff;
+    border-color: #008080;
+    background-color: #008080;
+	
 }
 
-.menu:before {
-  content: "[";
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  color: teal;
+  border-color: #008080;
+  background-color: #ffffff;
 }
 
-.menu:after {
-  content: "]";
+/* For the Profile */
+.panel
+{
+	color: #ffffff;
+	background-color: #008080;
+	border-bottom-color: #008080;
 }
 
-.menu > li {
-  display: inline;
+#mainDiv
+{
+	width: 1366px;
+	height: 450px;
+	top: 25%;
+	margin: 0 auto;
+	position:absolute;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+/* Profile Page - End */
+
+#signUp
+{
+	position: absolute;
+	top: 40px;
+	right: 90px;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+#login
+{
+	position: absolute;
+	top: 40px;
+	right: 20px;
+}
+
+/*.carousel-inner > .item > img 
+{
+    /* margin: ; 0 auto 
+    color: #008080;
+	
+}*/
+
+
+#carousel-example-generic
+{
+    top: 18vh;
+}
+.carousel-inner 
+{
+    height: 100%;
+    top: -24.8%;
+}
+
+.item
+{
+	height:350px;
+	width:1340px;
+	margin: 0 auto;
+}
+
+.carousel
+{
+	width: 1340px;
+	height: 450px;
+	top: 0%;
+	margin: 0 auto;
+}
+.carousel-caption{
+    bottom: -35px;
+}
+.carousel-indicators {
+    bottom: 50px;
+}
+.carousel-control {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0);
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 128, 128, .5) 0%, rgba(0, 128, 128, .0001) 100%);
+  background-image:      -o-linear-gradient(left, rgba(0, 128, 128, .5) 0%, rgba(0, 128, 128, .0001) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 128, 128, .5)), to(rgba(0, 128, 128, .0001)));
+  background-image:         linear-gradient(to right, rgba(0, 128, 128, .5) 0%, rgba(0, 128, 128, .0001) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008080', endColorstr='#008080', GradientType=1);
+  background-repeat: repeat-x;
+}
+.carousel-control.right {
+  right: 0;
+  left: auto;
+  background-image: -webkit-linear-gradient(left, rgba(0, 128, 128, .0001) 0%, rgba(0, 128, 128, .5) 100%);
+  background-image:      -o-linear-gradient(left, rgba(0, 128, 128, .0001) 0%, rgba(0, 128, 128, .5) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 128, 128, .0001)), to(rgba(0, 128, 128, .5)));
+  background-image:         linear-gradient(to right, rgba(0, 128, 128, .0001) 0%, rgba(0, 128, 128, .5) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008080', endColorstr='#008080', GradientType=1);
+  background-repeat: repeat-x;
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  color: #008080;
+  text-decoration: none;
+  filter: alpha(opacity=90);
+  outline: 0;
+  opacity: .9;
+}
+
+.info
+{
+	padding-top: 150px;
+	width: 1340px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+.images
+{
+	height: 200px;
+	width:200px;
+}
+
+#view
+{
+	width: 400px;
+	float:left;
+	word-wrap: break-word;
+	margin: 20px;
+	text-align: center;
+        font-family: Gadugi;
+}
+
+#visualize
+{
+	width: 400px;
+	float:left;
+	margin: 20px;
+	word-wrap: break-word;
+	text-align: center;
+        font-family: Gadugi;
+}
+
+#compare
+{
+	width: 400px;
+	margin: 20px;
+	float:left;
+	word-wrap: break-word;
+	text-align: center;
+        font-family: Gadugi;
 }
