@@ -42,7 +42,13 @@
                     login.style.opacity = "1";
                     register.style.opacity = "0";
                 }
-            } 
+            };
+            function createAcc_onclick(){
+                window.location = "../login/login.html";
+            };
+            function LoginButton_onclick(){
+                window.location = "../home/home.html";
+            };
         </script>
 
         <link rel="stylesheet" type="text/css" href="register.css">
@@ -51,7 +57,7 @@
             <img alt="Brand"  ng-src="../images/Logo.png"/>
         </div> 
         
-        <form id="registerForm" action="../home/home.html">	
+        <form id="registerForm">	
             <ul class="nav nav-tabs" role="tablist" id="mainList">
                 <li class="nav-item">
                   <a class="nav-link" data-toggle="tab" href="#Login" onclick="reg_log('login')" role="tab" id="tab">Log In</a>
@@ -76,7 +82,7 @@
                             </span>
                             <input type="text" class="form-control" id="Password" placeholder="Password">
                     </div>
-                    <button type="submit" id="LoginButton" class="btn">Log In</button>
+                    <button onclick="return LoginButton_onclick()" type="submit" id="LoginButton" class="btn">Log In</button>
             </div>
 
             <!-- SignUp/Register Section-->
@@ -123,8 +129,8 @@
                 <input type="password" class="form-control" id="confrimPassword" placeholder="Confirm Password">
             </div>
 
-              <button type="submit" id="createAcc" class="btn">
-                    <a id="linking" href="../login/login.html">Create Account</a>
+              <button onclick="return createAcc_onclick()" type="submit" id="createAcc" class="btn">
+                    Create Account
               </button>
             </div>
             </div>	
