@@ -57,7 +57,7 @@
             <img alt="Brand"  ng-src="../images/Logo.png"/>
         </div> 
         
-        <form id="registerForm">	
+        <div id="registerForm">	
             <ul class="nav nav-tabs" role="tablist" id="mainList">
                 <li class="nav-item">
                   <a class="nav-link" data-toggle="tab" href="#Login" onclick="reg_log('login')" role="tab" id="tab">Log In</a>
@@ -66,75 +66,76 @@
                   <a class="nav-link active" data-toggle="tab" href="#register" onclick="reg_log('register')" role="tab" id="tab">Sign Up</a>
                 </li>
             </ul>	
-            <div class="tab-content" id="main_List">
+            <div class="tab-content" id="main_List">              
                     <!-- LogIn Section-->
-            <div class="tab-pane" id="Login" role="tabpanel">
-                    <div class="input-group">
-                            <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                            </span>
-                            <input type="text" class="form-control" id="UserName" placeholder="Username or email">
-                      </div>&nbsp;
+                <form class="tab-pane" id="Login" role="tabpanel" action="">
+                        <div class="input-group">
+                                <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                </span>
+                                <input type="text" class="form-control" id="UserName" placeholder="Username or email">
+                          </div>&nbsp;
 
-                    <div class="input-group">
-                            <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-lock"></i>
-                            </span>
-                            <input type="text" class="form-control" id="Password" placeholder="Password">
-                    </div>
-                    <button onclick="return LoginButton_onclick()" type="submit" id="LoginButton" class="btn">Log In</button>
-            </div>
-
+                        <div class="input-group">
+                                <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-lock"></i>
+                                </span>
+                                <input type="text" class="form-control" id="Password" placeholder="Password">
+                        </div>
+                        <button onclick="return LoginButton_onclick()" type="button" id="LoginButton" class="btn">Log In</button>
+                </form>
             <!-- SignUp/Register Section-->
-            <div class="tab-pane active" id="register" role="tabpanel">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-pencil"></i>
-                </span>
-                <input type="text" class="form-control" id="FirstName" placeholder="First Name">
-            </div>&nbsp;
+            
+                <form class="tab-pane active" id="register" role="tabpanel" action="">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </span>
+                    <input type="text" class="form-control" id="FirstName" placeholder="First Name">
+                </div>&nbsp;
 
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-pencil"></i>
-                </span>
-                <input type="text" class="form-control" id="LastName" placeholder="Last Name">
-            </div>&nbsp;
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </span>
+                    <input type="text" class="form-control" id="LastName" placeholder="Last Name">
+                </div>&nbsp;
 
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                </span>
-                <input type="text" class="form-control" id="UserName" placeholder="Username" >
-            </div>&nbsp;
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input type="text" class="form-control" id="UserName" placeholder="Username" >
+                </div>&nbsp;
 
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-envelope"></i>
-                </span>
-                <input type="email" class="form-control" id="Email" placeholder="Email">
-            </div>&nbsp;
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                    </span>
+                    <input type="email" class="form-control" id="Email" placeholder="Email">
+                </div>&nbsp;
 
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-lock"></i>
-                </span>
-                <input type="password" class="form-control" id="Password" placeholder="Password">
-            </div>&nbsp;
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </span>
+                    <input type="password" class="form-control" id="Password" placeholder="Password">
+                </div>&nbsp;
 
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-lock"></i>
-                </span>
-                <input type="password" class="form-control" id="confrimPassword" placeholder="Confirm Password">
-            </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </span>
+                    <input type="password" class="form-control" id="confrimPassword" placeholder="Confirm Password">
+                </div>
 
-              <button onclick="return createAcc_onclick()" type="submit" id="createAcc" class="btn">
-                    Create Account
-              </button>
-            </div>
+                  <button onclick="return createAcc_onclick()" type="button" id="createAcc" class="btn">
+                        Create Account
+                  </button>
+                </form>
+            
             </div>	
-        </form>
+        </div>
         <div id="barRegister"></div>
     </body>
 </html>
