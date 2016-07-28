@@ -7,6 +7,7 @@ package service;
 
 import com.impakd.backendpio.Profile;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,9 @@ import javax.ws.rs.core.MediaType;
 @Stateless
 @Path("profile")
 public class ProfileFacadeREST extends AbstractFacade<Profile> {
+
+    @EJB
+    private PIOBeanLocal pIOBean;
 
     @PersistenceContext(unitName = "com.IMPAKD_BackEndPIO_war_1.0-SNAPSHOTPU")
     private EntityManager em;
