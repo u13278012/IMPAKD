@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -92,4 +93,14 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         return em;
     }
     
+    @POST
+    @Path("create")
+    @Produces(MediaType.APPLICATION_FORM_URLENCODED)
+    public void createProfile(@FormParam("FirstName") String firstName, @FormParam("LastName") String lastName, @FormParam("UserName") String userName, @FormParam("Email") String email, @FormParam("Password") String password, @FormParam("confrimPassword") String confrimPassword) {
+        Profile p = new Profile();
+        p.setEmail(email);
+        p.setFirstName(firstName);
+        p.setSurname(lastName);
+        super.create(p);
+    }
 }
