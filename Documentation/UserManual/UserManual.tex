@@ -10,7 +10,11 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{makeidx}
 \usepackage{hyperref}
+\usepackage{float}
 \usepackage{verbatim}
+\usepackage[space]{grffile}
+\usepackage[export]{adjustbox}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -96,29 +100,70 @@
 For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \today
 \end{center}
+\cleardoublepage
+\thispagestyle{empty}
+\tableofcontents
+%\newpage
+%\tableofcontents{}
+
 \newpage
-\tableofcontents{}
-
-\newpage 
+\setcounter{page}{3} 
 \section{Introduction}
-
+This document is a user manual for a property visualizer investment web application. It was developed by team IMPAKD for CSIR at the University of Pretoria (2016). This serves at as a final year project for software development (COS 301). The code is available as open source on \href{https://github.com/u13278012/IMPAKD/}{gitHub}. Below is a walkthrough of installation and guidelines on how to use the application. Advanced users who are familiar with coding are more than welcome to use their own way of installation. 
 
 \section{Vision}
+The Property Investor Optimiser project is objective is to evaluate whether a certain rental property is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimise their investment strategy according to their portfolio.\\\\
+The project will assist the user by helping to answer the following questions:\begin{itemize}
+	\item Given a certain bond (interest rate, deposit as a percentage of property value), rental (occupancy rate, agent commission, rental amount) and environmental conditions (Interest rate, inflation) what is the ROI?
+	\item When is it better to pay a higher or lower deposit for a bond?
+	\item Between two rental scenarios which provides the greater ROI?
+	\item Is it better to try and pay off the bond as fast as possible by paying in extra capital?
+	\item How does purchasing another property influence a users’ ROI and at which point would this be a good idea?
+	\item At which point does it make sense to buy another property?
+	\item How much tax will the user have to pay?
+
+\end{itemize}
+
+\section{Background}
+The project was given to us by our client, CSIR, so that we can research how the ROI of different configurations of rental properties can answer the questions listed in the Vision section of this document. Answers to these questions can be used to help users of the system choose to buy the best property that fits their portfolio and requirements with the ease of not having to manually evaluate the property themselves. The project can also be used for property-related research.
 
 
 \section{System Overview}
 
-
+The property visualizer application is designed to assist the user know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate its ROI as well add it to his/her portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic easy to use functionality which are be explained below.
 \section{Installation}
 
 
 \section{Getting Started}
 
+\newpage
 
 \section{Using The System}
 
+%Main Page - Navigation Pane
+ 
+\subsection{Main Page - Navigation Pane}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/Navigation.PNG}\\[0.4cm]  
+		\caption{Main Page - Navigation Pane}
+	\end{figure}
+This page will be the first page the user will come across when visiting the website. It contains two buttons: One to "login" and another to "sign-up" so that the user can access and use the system. It also contains information about the purpose and the functionality of the website.
 
+%Register Page
+\subsection{Register Page}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/Register.PNG}\\[0.4cm]  
+		\caption{Register Page}
+	\end{figure}
+This page is shown when the user selects the "register" button on the aforementioned "main page". It is meant for people who do not have an account on the website and would like to use the system. This will enable the user to create a profile and will then be able to use the system . The user will use this page to gain access into the system and will be redirected to the "home page" once they have successfully registered.
 
+%Login Page
+\subsection{Login Page}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/Login.PNG}\\[0.4cm]  
+		\caption{Login Page}
+	\end{figure}
+This page is shown when the user selects the "login" button on the aforementioned "main page". It is meant for people who have already created an account and have a valid profile on the website. The user will use this page to gain access into the system and will be redirected to the "home page" once they have successfully logged in.
 
 \end{document}
 
