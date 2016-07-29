@@ -38,3 +38,11 @@ Documentation/UserManual/*.out
 Documentation/UserManual/*.synctex.gz
 Documentation/UserManual/*.synctex.gz(busy)
 Documentation/UserManual/*.toc
+
+Documentation/Testing/*.aux
+Documentation/Testing/*.idx
+Documentation/Testing/*.log
+Documentation/Testing/*.out
+Documentation/Testing/*.synctex.gz
+Documentation/Testing/*.synctex.gz(busy)
+Documentation/Testing/*.toc
