@@ -1,8 +1,8 @@
 'use strict';
 
-describe('myApp module', function() {
+describe('myApp.addProperty module', function() {
 
-  beforeEach(module('myApp'));
+  beforeEach(module('myApp.addProperty'));
 
   describe('addProperty controller', function(){
 
