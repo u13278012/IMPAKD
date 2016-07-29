@@ -102,13 +102,13 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \newpage
 %Kudzai's Section (Vision and Background) - Start 
 \section{Vision}
-The Property Investor Optimiser project is objective is to evaluate whether a certain rental property is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimise their investment strategy according to their portfolio.\\\\
+The Property Investor Optimizer project is objective is to evaluate whether a certain rental property is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimize their investment strategy according to their portfolio.\\\\
 The project will assist the user by helping to answer the following questions:\begin{itemize}
 	\item Given a certain bond (interest rate, deposit as a percentage of property value), rental (occupancy rate, agent commission, rental amount) and environmental conditions (Interest rate, inflation) what is the ROI?
 	\item When is it better to pay a higher or lower deposit for a bond?
 	\item Between two rental scenarios which provides the greater ROI?
 	\item Is it better to try and pay off the bond as fast as possible by paying in extra capital?
-	\item How does purchasing another property influence a users’ ROI and at which point would this be a good idea?
+	\item How does purchasing another property influence a user's ROI and at which point would this be a good idea?
 	\item At which point does it make sense to buy another property?
 	\item How much tax will the user have to pay?
 
@@ -127,7 +127,7 @@ The project was given to us by our client, CSIR, so that we can research how the
 \subsection{Architecture requirements}
 %Kudzai's Section (Architectural Scope and Quality requirements) - Start
 \subsubsection{Architectural scope}
-The project will be implemeneted using the Model View Controller, MVC, strucutural pattern.
+The project will be implemented using the Model View Controller, MVC, structural pattern.
 The system will consist of:\begin{itemize}
 	\item A website that the user will interact with in order to use the system.
 	\item A database that will be used to persist objects that need to be saved.
@@ -137,22 +137,21 @@ The system will consist of:\begin{itemize}
 \subsubsection{Quality requirements}
 	\begin{itemize}
 		\item{\bfseries \underline{Flexibility}}\\\\
-		The system must be be able to be accessed  by more than one access channel, mainly via a computer and a 		 		smartphone. It must also not be locked to any one persistence technology. We will be using Django as our persistence 			infrastructure.
-		
+		The system must be be able to be accessed  by more than one access channel, mainly via a computer and a 		 		smart phone. It must also not be locked to any one persistence technology. 
 		\item{\bfseries \underline{Maintainability}}\\\\
-		The system will be implemented with the Model View Controller structural pattern, which allows for modularisation. This 			allows the different components of the system to be maintained independently of each other. Ember.js, a 					widely-used technology with extensive support, will be used to implement MVC.
+		The system will be implemented with the Model View Controller structural pattern, which allows for modularisation. This 			allows the different components of the system to be maintained independently of each other. Angularjs, a 					widely-used technology with extensive support, will be used to implement MVC.
 		
 		\item{\bfseries \underline{Scalability}}\\\\
 		The system must be able to support as many users as possible since it is a website that will be available to a very large 			audience. Enterprise Java Beans (EJB) will be used because it can be used to develop scalable and robust enterprise 			level applications.
 		
 		\item{\bfseries \underline{Reliability}}\\\\
-		The webiste must have as little downtime as possible, and must display correct and accurate information at all times.
+		The website must have as little downtime as possible, and must display correct and accurate information at all times.
 		
 		\item{\bfseries \underline{Usability}}\\\\
-		Users of the system must find it very easy and intuitive to use, even to users without extnsive computer literacy. The 			system must be as efficient as possible. This will be done by implementing the latest trends in website user interface 			design.
+		Users of the system must find it very easy and intuitive to use, even to users without extensive computer literacy. The 			system must be as efficient as possible. This will be done by implementing the latest trends in website user interface 			design.
 		
 		\item{\bfseries \underline{Performance}}\\\\
-		The system must execute processes smoothly between users' actions and the website, along with the graphs and 			statisitcs it will provide, must respond in a reasonble amount of time.
+		The system must execute processes smoothly between users' actions and the website, along with the graphs and 			statistics it will provide, must respond in a reasonable amount of time.
 		
 		\item{\bfseries \underline{Security}}\\\\
 		There must be no direct manipulation of the database and the server. Users will be required to login or register to be 			able to use the system. The database will be backed up to a CSV file.
@@ -188,7 +187,7 @@ The system will consist of:\begin{itemize}
 
 		\item{\bfseries \underline{System Access Channel}}
 			\begin{itemize}
-				\item The Web-based component of the system will be implememted in "Ember.js" which utilises JavaScript, 				HTML and "Handlebar.js".  
+				\item The Web-based component of the system will be implemented in "Angularjs" which utilizes JavaScript, 				HTML and "Handlebar.js".  
 			\end{itemize}
 	\end{itemize}
 %Priscilla's Section - End
@@ -270,7 +269,7 @@ from the user and transforms these interactions into business logic.\\
 \begin{itemize}
 \item Django
 	\begin{itemize}
-		\item Our System is going to be web based, so Django is used for web development back end of the system. The structural pattern we are going to use is MVC and Django implements MVC
+		\item Our System is going to be web based, so Angularjs is used for web development front end of the system. The structural pattern we are going to use is MVC and Angularjs implements MVC
 	\end{itemize}
 \item JavaEE
 	\begin{itemize}
@@ -303,7 +302,7 @@ from the user and transforms these interactions into business logic.\\
 	\item \textit{EJBs:} It will be used to manage concurrency control in the system
 \end{itemize}
 \begin{itemize}
-	\item \textit{Ember.js:} To implement the MVC pattern
+	\item \textit{Angularjs:} To implement the MVC pattern
 \end{itemize}
 \begin{itemize}
 	\item \textit{CSS:} It will be used for the styling of the web page
@@ -322,6 +321,7 @@ from the user and transforms these interactions into business logic.\\
 	\item \textit{QUnits:} It is a powerful framework for javaScript unit testing, it is easy to use and It can test any generic javaScript code
 \end{itemize}
 %Sandile's Section End
+
 \section{Design overview}
 \includegraphics[width=1\textwidth]{./Images/Overview.png}
 
