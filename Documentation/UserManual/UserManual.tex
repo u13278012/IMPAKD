@@ -10,7 +10,11 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{makeidx}
 \usepackage{hyperref}
+\usepackage{float}
 \usepackage{verbatim}
+\usepackage[space]{grffile}
+\usepackage[export]{adjustbox}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -96,10 +100,14 @@
 For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \today
 \end{center}
-\newpage
-\tableofcontents{}
+\cleardoublepage
+\thispagestyle{empty}
+\tableofcontents
+%\newpage
+%\tableofcontents{}
 
-\newpage 
+\newpage
+\setcounter{page}{3} 
 \section{Introduction}
 
 
@@ -114,11 +122,34 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 
 \section{Getting Started}
 
+\newpage
 
 \section{Using The System}
 
+%Main Page - Navigation Pane
+ 
+\subsection{Main Page - Navigation Pane}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/Navigation.PNG}\\[0.4cm]  
+		\caption{Main Page - Navigation Pane}
+	\end{figure}
+This page will be the first page the user will come across when visiting the website. It contains two buttons: One to "login" and another to "sign-up" so that the user can access and use the system. It also contains information about the purpose and the functionality of the website.
 
+%Register Page
+\subsection{Register Page}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/Register.PNG}\\[0.4cm]  
+		\caption{Register Page}
+	\end{figure}
+This page is shown when the user selects the "register" button on the aforementioned "main page". It is meant for people who do not have an account on the website and would like to use the system. This will enable the user to create a profile and will then be able to use the system . The user will use this page to gain access into the system and will be redirected to the "home page" once they have successfully registered.
 
+%Login Page
+\subsection{Login Page}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/Login.PNG}\\[0.4cm]  
+		\caption{Login Page}
+	\end{figure}
+This page is shown when the user selects the "login" button on the aforementioned "main page". It is meant for people who have already created an account and have a valid profile on the website. The user will use this page to gain access into the system and will be redirected to the "home page" once they have successfully logged in.
 
 \end{document}
 
