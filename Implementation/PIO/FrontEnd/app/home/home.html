@@ -37,7 +37,7 @@
       </div>
     </nav>
 
-    <form action="../addProperty/addProperty.html">
+    <form action="../addProperty/addProperty.html" >
     <div class="row" id="propertList">
     <div class="col-sm-12 col-md-11">
     <div class="thumbnail" >     
@@ -76,7 +76,14 @@
             <td><a id="aLink" href="../propertyDetails/propertyDetails.html">3 Bedroom Townhouse</a></td>
             <td>R 1 250 000</td>
             <td>20%</td>
-          </tr>
+          </tr> 
+          
+          <!--<tr>
+            <th ng-repeat="(key, val) in propertyDetails[0]">{{key}}</th>
+           </tr>
+        <tr ng-repeat="propertyDetail in propertyDetails">
+            <td ng-repeat="(key, val) in propertyDetail">{{val}}</td>
+         </tr> -->
       </tbody>
     </table>
     </div>

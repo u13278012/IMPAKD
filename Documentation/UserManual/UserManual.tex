@@ -134,10 +134,6 @@ The property visualizer application is designed to assist the user know when is 
 \section{Installation}
 
 
-\section{Getting Started}
-
-\newpage
-
 \section{Using The System}
 
 %Main Page - Navigation Pane
@@ -165,5 +161,47 @@ This page is shown when the user selects the "register" button on the aforementi
 	\end{figure}
 This page is shown when the user selects the "login" button on the aforementioned "main page". It is meant for people who have already created an account and have a valid profile on the website. The user will use this page to gain access into the system and will be redirected to the "home page" once they have successfully logged in.
 
+%Home Page
+\subsection{Home Page}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/Home.PNG}\\[0.4cm]  
+		\caption{Home Page}
+	\end{figure}
+Once the user has successfully logged into the system, the user will see this page. This page facilitates the following functionalities:
+	\begin{enumerate}
+		\item{\underline{\bfseries Profile}}\\[0.2cm] 
+		When the user clicks their name, the system will navigate to the profile page that will display their personal details. 				The user can change his/her details accordingly. They will also be able to see the number of properties associated 				with their profile.
+		\bigskip
+		\item{\underline{\bfseries Report}}\\[0.2cm] 
+		This functionality will enable the user to generate a report about certain properties. Based on several calculations 				configured for certain properties, the report will contain the calculation results and display the Return of Interest based 			on the calculations. 
+		\bigskip
+		\item{\underline{\bfseries Logout}}\\[0.2cm] 
+		This button will log the user out of the system. Once this option has been selected, the user will not be able to use the 				system. They will be redirected to the "main page" where they will need to re-login should they want to use the system 				again. 
+		\bigskip
+		\item{\underline{\bfseries Add Property}}\\[0.2cm] 
+		This button will enable the user to add more details about a certain property. This information will be persisted and 				certain values will be calculated by the system dynamically as the user adds a certain property.
+		\bigskip
+		\item{\underline{\bfseries View Property Details}}\\[0.2cm] 
+		When the user clicks on one of the entries on the table, he/she will be redirected to a page that shows more information 		about the property they have selected.
+	\end{enumerate}
+
+%Add Property
+\subsection{Add Property}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/AddProperty.PNG}\\[0.4cm]  
+		\caption{Add Property}
+	\end{figure}
+As previously mentioned on the fifth point under the "home page" section, this page will enable the user to add a property to the system. Once validated, the details will then be added onto the system. The user needs to add a certain property once. Certain property details can be edited.  
+
+%Property Details
+\subsection{Property Details}
+	\begin{figure}[H]
+		\includegraphics[width=0.9\linewidth, center]{./System/PropertyDetails.PNG}\\[0.4cm]  
+		\caption{Property Details}
+	\end{figure}
+	As previously mentioned on the fifth point under the "home page" section, this page will enable the user see more details 			about the property they have selected on the "home page". The "ROI In Years" graph will be generated and more information 			pertaining to the property will be displayed.  
+	\begin{enumerate}
+		\item This button will enable the user to get back to the "home page".
+	\end{enumerate}
 \end{document}
 
