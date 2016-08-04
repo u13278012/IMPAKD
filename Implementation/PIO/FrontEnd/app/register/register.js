@@ -23,7 +23,7 @@ $scope.registerUser = function($http)
         
         $http({
             method:"POST",
-            url: 'http:localhost:8080/BackEndPIO/rs/profile',
+            url: 'http://localhost:51029/BackEnd/rs/login',
             data: angular.toJson($scope.profile),
             header: {
                         'Content-Type': 'application/json'

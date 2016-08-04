@@ -36,4 +36,7 @@ Documentation/UserManual/*.idx
 Documentation/UserManual/*.log
 Documentation/UserManual/*.out
 Documentation/UserManual/*.synctex.gz
+Documentation/UserManual/*.synctex.gz(busy)
 Documentation/UserManual/*.toc
+/Implementation/PIO/BackEnd/nbproject/private/
+/Implementation/PIO/BackEnd/build/

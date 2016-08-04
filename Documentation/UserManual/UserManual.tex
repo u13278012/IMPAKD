@@ -122,7 +122,7 @@ The project was given to us by our client, CSIR, so that we can research how the
 
 \section{System Overview}
 
-The property visualizer application is designed to assist the user know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate its ROI as well add it to his/her portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic easy to use functionality which are be explained below.
+The property visualizer application is designed to assist the user know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate its ROI as well add it to his/her portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic functionality, which is easy to use.
 \section{Installation}
 
 \subsection{Prerequisites}
@@ -195,10 +195,47 @@ You must first download the project from the following link: https://github.com/
 \end{enumerate}
 
 \subsubsection{Installing Netbeans}
-
+\begin{enumerate}
+\item Go to the following link: https://netbeans.org/downloads\\[0.2cm]
+\includegraphics[width=0.9\linewidth, center]{./Installation/mavenlink.PNG}\\[0.4cm] 
+ 
+\item download this version\\
+\includegraphics[width=0.9\linewidth, center]{./Installation/maven.PNG}\\[0.4cm] 
+ 
+\item run the downloaded .exe file and follow the prompts to install it\\
+\end{enumerate}
 \subsubsection{Installing Node.js}
 
+\begin{enumerate}
+\item Go to the following link: https://nodejs.org/en/\\[0.2cm]
+\includegraphics[width=0.9\linewidth, center]{./Installation/nodejs_website.PNG}\\[0.4cm] 
+ 
+\item download the desired version preferable the recommend one.See picture below \\
+\includegraphics[width=0.9\linewidth, center]{./Installation/nodejs.PNG}\\[0.4cm] 
+ 
+\item run the downloaded .exe file and follow the prompts to install it\\
+\end{enumerate}
 \subsubsection{Installing PostgreSQL}
+
+\begin{enumerate}
+\item You need to download the installer from PostgreSQL Official website.
+\item Go to the PostgreSQL official website, download section for Windows http://www.postgresql.org/download/windows/
+\item Click on the download installer from EnterpriseDB
+\item Choose the latest version to download. It takes few minutes to complete the download.
+\item Double click the installer\\
+\includegraphics[width=0.9\linewidth, center]{./Installation/postGresql1.PNG}\\[0.4cm]
+\item Enter the password for the database superuser and service account. \\ 
+\includegraphics[width=0.9\linewidth, center]{./Installation/postGresql2.PNG}\\[0.4cm]
+\item Enter the port for PostgreSQL. Make sure that no other applications are using this port. Leave it as default if you are unsure \\ 
+\includegraphics[width=0.9\linewidth, center]{./Installation/postGresql3.PNG}\\[0.4cm]
+\item Choose the default locale used by the database. \\ 
+\includegraphics[width=0.9\linewidth, center]{./Installation/postGresql4.PNG}\\[0.4cm]
+\item Wait for it to finish installing \\ 
+\includegraphics[width=0.9\linewidth, center]{./Installation/postGresql5.PNG}\\[0.4cm] 
+\item Click finish \\
+\includegraphics[width=0.9\linewidth, center]{./Installation/postGresql6.PNG}\\[0.4cm] 
+
+\end{enumerate}
 
 \subsection{Setting up the System}
 Open Netbeans and open the 'BackEndPIO' netbeans project from the project folder. Once opened, run the project in order to start the Glassfish serve.BackEndPIO runs on port 8080.
