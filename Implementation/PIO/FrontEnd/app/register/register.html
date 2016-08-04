@@ -86,50 +86,50 @@
                 </form>
             <!-- SignUp/Register Section-->
             
-                <form class="tab-pane active" id="register" role="tabpanel" action="http:localhost:8080/BackEndPIO/rs/profile/create" >
+                <form class="tab-pane active" id="register" role="tabpanel" method="POST" action="http://localhost:51029/BackEnd/rs/profile/register" >
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </span>
-                    <input type="text" class="form-control" id="FirstName" placeholder="First Name">
+                    <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First Name">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </span>
-                    <input type="text" class="form-control" id="LastName" placeholder="Last Name">
+                    <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-user"></i>
                     </span>
-                    <input type="text" class="form-control" id="UserName" placeholder="Username" >
+                    <input type="text" class="form-control" id="UserName" name="UserName" placeholder="Username" >
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-envelope"></i>
                     </span>
-                    <input type="email" class="form-control" id="Email" placeholder="Email">
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-lock"></i>
                     </span>
-                    <input type="password" class="form-control" id="Password" placeholder="Password">
+                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-lock"></i>
                     </span>
-                    <input type="password" class="form-control" id="confrimPassword" placeholder="Confirm Password">
+                    <input type="password" class="form-control" id="confrimPassword" name="confrimPassword" placeholder="Confirm Password">
                 </div>
 
-                  <button onclick="return createAcc_onclick()" type="button" id="createAcc" class="btn">
+                  <button  type="submit" id="createAcc" class="btn">
                         Create Account
                   </button>
                 </form>
