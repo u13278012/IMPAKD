@@ -38,5 +38,16 @@ Documentation/UserManual/*.out
 Documentation/UserManual/*.synctex.gz
 Documentation/UserManual/*.synctex.gz(busy)
 Documentation/UserManual/*.toc
+<<<<<<< HEAD
 /Implementation/PIO/BackEnd/nbproject/private/
 /Implementation/PIO/BackEnd/build/
+=======
+
+Documentation/Testing/*.aux
+Documentation/Testing/*.idx
+Documentation/Testing/*.log
+Documentation/Testing/*.out
+Documentation/Testing/*.synctex.gz
+Documentation/Testing/*.synctex.gz(busy)
+Documentation/Testing/*.toc
+>>>>>>> a853aefdb928a34a45c655d4291f8638e1b79b3d
