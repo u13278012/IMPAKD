@@ -7,6 +7,7 @@ package service;
 
 import Entities.Profile;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,8 +30,13 @@ import javax.ws.rs.core.MediaType;
 @Path("profile")
 public class ProfileFacadeREST extends AbstractFacade<Profile> {
 
+    @EJB
+    private PIOBeanLocal pIOBean;
+
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
+    
+    
 
     public ProfileFacadeREST() {
         super(Profile.class);
@@ -103,8 +109,8 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
          p.setFirstName(FirstName);
          p.setSurname(lastname);
          p.setContactDetails(Email);
-         super.create(p);
-
+//         super.create(p);
+         pIOBean.register(p);
       
     }
     
