@@ -544,7 +544,14 @@ from the user and transforms these interactions into business logic.\\
 \textbf{\large{calculateStatistics}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+		\item the user must be logged in
+		\item user defined values as well as pre-existing values in the system should be valid
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+		\item the statistics should be calculated and returned to for the requested report
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{calucalateROI}}
