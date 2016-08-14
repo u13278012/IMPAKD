@@ -516,7 +516,15 @@ from the user and transforms these interactions into business logic.\\
 \textbf{\large{displayGraphs}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+		\item the user must be logged in
+		\item there should be valid statistics
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+		\item the graph should be generated and displayed
+		\item the user should be able to see the graph
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{displayStatistics}}
