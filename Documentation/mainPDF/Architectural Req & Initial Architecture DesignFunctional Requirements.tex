@@ -530,7 +530,15 @@ from the user and transforms these interactions into business logic.\\
 \textbf{\large{displayStatistics}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+		\item the user must be logged in
+		\item the required statistics should be in the system
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+		\item the statistics should be displayed
+		\item the user should see the statistics
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{calculateStatistics}}
