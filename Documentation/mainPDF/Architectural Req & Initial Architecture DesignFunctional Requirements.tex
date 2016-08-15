@@ -516,25 +516,56 @@ from the user and transforms these interactions into business logic.\\
 \textbf{\large{displayGraphs}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+		\item the user must be logged in
+		\item there should be valid statistics
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+		\item the graph should be generated and displayed
+		\item the user should be able to see the graph
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{displayStatistics}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+		\item the user must be logged in
+		\item the required statistics should be in the system
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+		\item the statistics should be displayed
+		\item the user should see the statistics
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{calculateStatistics}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+		\item the user must be logged in
+		\item user defined values as well as pre-existing values in the system should be valid
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+		\item the statistics should be calculated and returned to for the requested report
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 \textbf{\large{calucalateROI}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+		\item the user must be logged in
+		\item obtain the pre-existing default values from the system should be valid
+		\end{itemize}
 		\item \textit{Post-Conditions:}
+		\begin{itemize}
+		\item the should be a valid ROI
+		\item the ROI should be returned 
+		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
 
