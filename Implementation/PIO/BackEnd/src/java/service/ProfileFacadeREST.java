@@ -102,13 +102,12 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
      @FormParam("FirstName") String FirstName, @FormParam("Email") String Email,
              @FormParam("Password") String Password, @FormParam("confrimPassword") String confrimPassword) 
      {
-        
-         System.out.print(username);
-         System.out.print(FirstName);
          Profile p = new Profile();
          p.setFirstName(FirstName);
          p.setSurname(lastname);
-         p.setContactDetails(Email);
+         p.setEmail(Email);
+         p.setUsername(username);
+         p.setPassword(Password);
 //         super.create(p);
          pIOBean.register(p);
       
