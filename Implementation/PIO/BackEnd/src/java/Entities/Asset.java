@@ -12,7 +12,7 @@ import javax.persistence.Id;
  * @author Priscilla
  */
 @Entity
-public class Reserves implements Serializable {
+public class Asset implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -20,32 +20,42 @@ public class Reserves implements Serializable {
     private Long id;
     
     @Column
-    private double maintenacePerYear;
+    private double capital;
 
-    public double getMaintenacePerYear() {
-        return maintenacePerYear;
+    public double getCapital() {
+        return capital;
     }
 
-    public void setMaintenacePerYear(double maintenacePerYear) {
-        this.maintenacePerYear = maintenacePerYear;
+    public void setCapital(double capital) {
+        this.capital = capital;
     }
 
-    public double getRunningTotal() {
-        return runningTotal;
+    public double getCapitalGains() {
+        return capitalGains;
     }
 
-    public void setRunningTotal(double runningTotal) {
-        this.runningTotal = runningTotal;
+    public void setCapitalGains(double capitalGains) {
+        this.capitalGains = capitalGains;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
     
     @Column
-    private double runningTotal;
+    private double capitalGains;
     
+    @Column
+    private double total;
     
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -60,10 +70,10 @@ public class Reserves implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Reserves)) {
+        if (!(object instanceof Asset)) {
             return false;
         }
-        Reserves other = (Reserves) object;
+        Asset other = (Asset) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -72,7 +82,7 @@ public class Reserves implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.Reserves[ id=" + id + " ]";
+        return "Entities.Asset[ id=" + id + " ]";
     }
     
 }
