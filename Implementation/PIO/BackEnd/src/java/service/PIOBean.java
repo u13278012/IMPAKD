@@ -31,5 +31,10 @@ public class PIOBean implements PIOBeanLocal {
     public void register(Profile profile) {
         persist(profile);
     }
+
+    @Override
+    public Profile login(String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
