@@ -21,14 +21,14 @@ $scope.registerUser = function($http)
         contactDetails: document.getElementById("contacDetails").value
     };
         
-        $http({
-            method:"POST",
-            url: 'http://localhost:51029/BackEnd/rs/login',
-            data: angular.toJson($scope.profile),
-            header: {
-                        'Content-Type': 'application/json'
-            }
-            });
+//        $http({
+//            method:"POST",
+//            url: 'http://localhost:51029/BackEnd/rs/login',
+//            data: angular.toJson($scope.profile),
+//            header: {
+//                        'Content-Type': 'application/json'
+//            }
+//            });
     
 };
 }]);
