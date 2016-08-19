@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author Priscilla
  */
 @Entity
-public class Reserves implements Serializable {
+public class Liabilities implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -20,32 +21,42 @@ public class Reserves implements Serializable {
     private Long id;
     
     @Column
-    private double maintenacePerYear;
+    private double principalDebt;
 
-    public double getMaintenacePerYear() {
-        return maintenacePerYear;
+    public double getPrincipalDebt() {
+        return principalDebt;
     }
 
-    public void setMaintenacePerYear(double maintenacePerYear) {
-        this.maintenacePerYear = maintenacePerYear;
+    public void setPrincipalDebt(double principalDebt) {
+        this.principalDebt = principalDebt;
     }
 
-    public double getRunningTotal() {
-        return runningTotal;
+    public double getOwnerEquity() {
+        return ownerEquity;
     }
 
-    public void setRunningTotal(double runningTotal) {
-        this.runningTotal = runningTotal;
+    public void setOwnerEquity(double ownerEquity) {
+        this.ownerEquity = ownerEquity;
+    }
+
+    public Asset getAsset() {
+        return asset;
+    }
+
+    public void setAsset(Asset asset) {
+        this.asset = asset;
     }
     
     @Column
-    private double runningTotal;
+    private double ownerEquity;
     
+    @OneToOne
+    private Asset asset;
     
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -60,10 +71,10 @@ public class Reserves implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Reserves)) {
+        if (!(object instanceof Liabilities)) {
             return false;
         }
-        Reserves other = (Reserves) object;
+        Liabilities other = (Liabilities) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -72,7 +83,7 @@ public class Reserves implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.Reserves[ id=" + id + " ]";
+        return "Entities.Liabilities[ id=" + id + " ]";
     }
     
 }

@@ -40,7 +40,7 @@ public class Property implements Serializable {
     private UpFrontCosts upFrontCosts;
     
     @OneToOne
-    private Reserves reserves;
+    private PropertyReserves reserves;
     
     @OneToOne
     private Expenses expenses;
@@ -62,11 +62,11 @@ public class Property implements Serializable {
         this.upFrontCosts = upFrontCosts;
     }
 
-    public Reserves getReserves() {
+    public PropertyReserves getReserves() {
         return reserves;
     }
 
-    public void setReserves(Reserves reserves) {
+    public void setReserves(PropertyReserves reserves) {
         this.reserves = reserves;
     }
 

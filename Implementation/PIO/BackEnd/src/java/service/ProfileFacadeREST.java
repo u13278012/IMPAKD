@@ -11,6 +11,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
@@ -111,6 +112,21 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
 //         super.create(p);
          pIOBean.register(p);
       
+    }
+    
+     @GET
+    @Path("login/{UserName}/{Password}") //path for html
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
+    @Produces({MediaType.APPLICATION_XML})
+    public Profile login(@PathParam("UserName") String UserName, @PathParam("Password") String password) {
+        TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.username = '"+UserName + "'AND a.password= '"+password+"'",Profile.class);
+        Profile profile = query.getSingleResult(); //gets the object containing the username and password
+        if(profile == null){
+            return profile;
+        }
+        else{
+            return profile;
+        }
     }
     
 }
