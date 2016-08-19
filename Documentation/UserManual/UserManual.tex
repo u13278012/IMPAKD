@@ -101,18 +101,18 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 
 \newpage 
 \section{Introduction}
-This document is a user manual for a property visualizer investment web application. It was developed by team IMPAKD for CSIR at the University of Pretoria (2016). This serves at as a final year project for software development (COS 301). The code is available as open source on \href{https://github.com/u13278012/IMPAKD/}{gitHub}. Below is a walkthrough of installation and guidelines on how to use the application. Advanced users who are familiar with coding are more than welcome to use their own way of installation. 
+This document is a user manual for a Property Investor Optimizer web application. It was developed by team IMPAKD for CSIR at the University of Pretoria (2016).The code is available as open source on \href{https://github.com/u13278012/IMPAKD/}{gitHub}. Below is a walk through of the installation and guidelines on how to use the application. Advanced users who are familiar with coding are more than welcome to use their own way of installation. 
 
 \section{Vision}
-The Property Investor Optimiser project is objective is to evaluate whether a certain rental property is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimise their investment strategy according to their portfolio.\\\\
+The Property Investor Optimizer application's objective is to evaluate whether a certain rental property is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimize their investment strategy according to their portfolio.\\\\
 The project will assist the user by helping to answer the following questions:\begin{itemize}
 	\item Given a certain bond (interest rate, deposit as a percentage of property value), rental (occupancy rate, agent commission, rental amount) and environmental conditions (Interest rate, inflation) what is the ROI?
 	\item When is it better to pay a higher or lower deposit for a bond?
 	\item Between two rental scenarios which provides the greater ROI?
 	\item Is it better to try and pay off the bond as fast as possible by paying in extra capital?
-	\item How does purchasing another property influence a users’ ROI and at which point would this be a good idea?
+	\item How does purchasing another property influence a user's ROI and at which point would this be a good idea?
 	\item At which point does it make sense to buy another property?
-	\item How much tax will the user have to pay?
+	\item How much tax will the user have to pay?s
 
 \end{itemize}
 
@@ -122,42 +122,44 @@ The project was given to us by our client, CSIR, so that we can research how the
 
 \section{System Overview}
 
-The property visualizer application is designed to assist the user know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate its ROI as well add it to his/her portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic functionality, which is easy to use.
+The Property Investor Optimizer application is designed to assist the user to know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate the property's ROI which is then added to the user's portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic functionality, which is easy to use.
 \section{Installation}
 
 \subsection{Prerequisites}
-In order to use the Property Investment Optimiser system, you must install the following the technologies:
+In order to use the Property Investment Optimizer system, you must install the following the technologies:
 \begin{itemize}
-\item{AngularJS - https://angularjs.org/}
-\item{Apache Maven - https://maven.apache.org/download.cgi}
-\item{Glassfish Server - https://glassfish.java.net/download.html}
-\item{Java JDK - http://www.oracle.com/technetwork/java/javase/downloads/index.html}
-\item{Netbeans - https://netbeans.org/downloads/}
-\item{Node.js - https://nodejs.org/en/download/}
-\item{PostgreSQL - https://www.postgresql.org/download/}
+\item{AngularJS - \href{https://angularjs.org/}{link}}
+\item{Apache Maven - \href{https://maven.apache.org/download.cgi}{link}}
+\item{Glassfish Server - \href{https://glassfish.java.net/download.html}{link}}
+\item{Java JDK - \href{http://www.oracle.com/technetwork/java/javase/downloads/index.html}{link}}
+\item{Netbeans - \href{https://netbeans.org/downloads/}{link}}
+\item{Node.js - \href{https://nodejs.org/en/download/}{link}}
+\item{PostgreSQL - \href{https://www.postgresql.org/download/}{link}}
 \end{itemize}
-You must first download the project from the following link: https://github.com/u13278012/IMPAKD. After you have downloaded the project, follow the instructions below to install the required technology.
+You must first download the project from the following link: \href{https://github.com/u13278012/IMPAKD}{Github}. After you have downloaded the project, follow the instructions below to install the required technology.
 
 
-
+\newpage
 \subsubsection{Installing Apache Maven}
 \begin{enumerate}
-\item Go to the following link: https://maven.apache.org/download.cgi\\[0.2cm]
+\item Go to the following link: \href{https://maven.apache.org/download.cgi}{apacheMaven link}\\[0.2cm]
 \includegraphics[width=0.9\linewidth, center]{./Installation/maven_download_1.PNG}\\[0.4cm] 
  
 \item Click your preferred download link under the the 'Files' Section of the page\\[0.2cm]
 
 \includegraphics[width=0.9\linewidth, center]{./Installation/maven_download_2.PNG}\\[0.4cm] 
 
+\newpage
 \item Open the command prompt by pressing the windows key together with the letter 'r', win+R, and type 'cmd'.
 
 \includegraphics[width=0.9\linewidth, center]{./Installation/maven_download_3.PNG}\\[0.4cm] 
  
-\item Once open, type the following command: unzip apache-maven-3.3.9-bin.zip, in the folder that contains the download, to extract the data.
+\item Once open, type the following command: unzip Apache-maven-3.3.9-bin.zip, in the folder that contains the download, to extract the data.
 \item Open the Control Panel.
 
 \includegraphics[width=0.9\linewidth, center]{./Installation/maven_download_4.PNG}\\[0.4cm]
 
+\newpage
 \item Select System and Security.
 \item Select System.
 \item Select Advanced System Settings
@@ -169,9 +171,10 @@ You must first download the project from the following link: https://github.com/
 \item Add the file directory path of the 'bin' folder for Apache Maven and click OK.
 \end{enumerate}
 
+\newpage
 \subsubsection{Installing Glassfish Server}
 \begin{enumerate}
-\item Go to the following link:https://glassfish.java.net/download.html\\[0.2cm]
+\item Go to the following link: \href{https://glassfish.java.net/download.html}{glassfishServer link}\\[0.2cm]
 \includegraphics[width=0.9\linewidth, center]{./Installation/glassfish_download_1.PNG}\\[0.4cm]
 \item Click the Download link
 
@@ -180,9 +183,10 @@ You must first download the project from the following link: https://github.com/
 \item Download  the 'Java EE 7 Full Platform' link and follow the instructions on the page.
 \end{enumerate}
 
+\newpage
 \subsubsection{Installing Java JDK}
 \begin{enumerate}
-\item  Go to the following link: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+\item  Go to the following link: \href{http://www.oracle.com/technetwork/java/javase/downloads/index.html}{javaJDK link}
 
 \includegraphics[width=0.9\linewidth, center]{./Installation/Java_download_1.PNG}\\[0.4cm]
 
@@ -194,12 +198,13 @@ You must first download the project from the following link: https://github.com/
 \item Once downloaded, open the installation file and follow the prompts to install it.
 \end{enumerate}
 
+\newpage
 \subsubsection{Installing Netbeans}
 \begin{enumerate}
-\item Go to the following link: https://netbeans.org/downloads\\[0.2cm]
+\item Go to the following link: \href{https://netbeans.org/downloads}{Netbeans link}\\[0.2cm]
 \includegraphics[width=0.9\linewidth, center]{./Installation/mavenlink.PNG}\\[0.4cm] 
  
-\item download this version\\
+\item download this version\\\\
 \includegraphics[width=0.9\linewidth, center]{./Installation/maven.PNG}\\[0.4cm] 
  
 \item run the downloaded .exe file and follow the prompts to install it\\
@@ -207,29 +212,32 @@ You must first download the project from the following link: https://github.com/
 \subsubsection{Installing Node.js}
 
 \begin{enumerate}
-\item Go to the following link: https://nodejs.org/en/\\[0.2cm]
+\item Go to the following link: \href{https://nodejs.org/en/}{Node.js link}\\[0.2cm]
 \includegraphics[width=0.9\linewidth, center]{./Installation/nodejs_website.PNG}\\[0.4cm] 
  
-\item download the desired version preferable the recommend one.See picture below \\
+\item download the desired version preferably the recommended one. See picture below \\
 \includegraphics[width=0.9\linewidth, center]{./Installation/nodejs.PNG}\\[0.4cm] 
  
 \item run the downloaded .exe file and follow the prompts to install it\\
 \end{enumerate}
-\subsubsection{Installing PostgreSQL}
 
+\subsubsection{Installing PostgreSQL}
 \begin{enumerate}
 \item You need to download the installer from PostgreSQL Official website.
-\item Go to the PostgreSQL official website, download section for Windows http://www.postgresql.org/download/windows/
+\item Go to the PostgreSQL official website, download section for Windows\\
+\href{http://www.postgresql.org/download/windows/}{PostgreSQL Link}.
 \item Click on the download installer from EnterpriseDB
 \item Choose the latest version to download. It takes few minutes to complete the download.
 \item Double click the installer\\
 \includegraphics[width=0.9\linewidth, center]{./Installation/postGresql1.PNG}\\[0.4cm]
 \item Enter the password for the database superuser and service account. \\ 
 \includegraphics[width=0.9\linewidth, center]{./Installation/postGresql2.PNG}\\[0.4cm]
+\newpage
 \item Enter the port for PostgreSQL. Make sure that no other applications are using this port. Leave it as default if you are unsure \\ 
 \includegraphics[width=0.9\linewidth, center]{./Installation/postGresql3.PNG}\\[0.4cm]
 \item Choose the default locale used by the database. \\ 
 \includegraphics[width=0.9\linewidth, center]{./Installation/postGresql4.PNG}\\[0.4cm]
+\newpage
 \item Wait for it to finish installing \\ 
 \includegraphics[width=0.9\linewidth, center]{./Installation/postGresql5.PNG}\\[0.4cm] 
 \item Click finish \\
@@ -238,21 +246,13 @@ You must first download the project from the following link: https://github.com/
 \end{enumerate}
 
 \subsection{Setting up the System}
-Open Netbeans and open the 'BackEndPIO' netbeans project from the project folder. Once opened, run the project in order to start the Glassfish serve.BackEndPIO runs on port 8080.
-
+Open Netbeans and open the 'BackEndPIO' netbeans project from the project folder. Once opened, run the project in order to start the Glassfish serve. BackEndPIO runs on port 8080.\\
 Once 'BackEndPIO' is running, open the 'FrontEnd' netbeans project from the project folder. Once opened, run the project. 'FrontEnd' runs on port 8383.
 
 \section{Using The System}
-
-
-
-
 %Home Page
 \subsection{Home Page}
-	\begin{figure}[H]
 		\includegraphics[width=0.9\linewidth, center]{./System/Home.PNG}\\[0.4cm]  
-		\caption{Home Page}
-	\end{figure}
 Once the user has successfully logged into the system, the user will see this page. This page facilitates the following functionalities:
 	\begin{enumerate}
 		\item{\underline{\bfseries Profile}}\\[0.2cm] 
@@ -262,7 +262,7 @@ Once the user has successfully logged into the system, the user will see this pa
 		This functionality will enable the user to generate a report about certain properties. Based on several calculations 				configured for certain properties, the report will contain the calculation results and display the Return of Interest based 			on the calculations. 
 		\bigskip
 		\item{\underline{\bfseries Logout}}\\[0.2cm] 
-		This button will log the user out of the system. Once this option has been selected, the user will not be able to use the 				system. They will be redirected to the "main page" where they will need to re-login should they want to use the system 				again. 
+		This button will log the user out of the system. Once this option has been selected, the user will not be able to use the 				system. They will be redirected to the "main page" where they will need to log in again should they want to use the system 				again. 
 		\bigskip
 		\item{\underline{\bfseries Add Property}}\\[0.2cm] 
 		This button will enable the user to add more details about a certain property. This information will be persisted and 				certain values will be calculated by the system dynamically as the user adds a certain property.
@@ -273,18 +273,14 @@ Once the user has successfully logged into the system, the user will see this pa
 
 %Add Property
 \subsection{Add Property}
-	\begin{figure}[H]
 		\includegraphics[width=0.9\linewidth, center]{./System/AddProperty.PNG}\\[0.4cm]  
 		\caption{Add Property}
-	\end{figure}
 As previously mentioned on the fifth point under the "home page" section, this page will enable the user to add a property to the system. Once validated, the details will then be added onto the system. The user needs to add a certain property once. Certain property details can be edited.  
 
 %Property Details
 \subsection{Property Details}
-	\begin{figure}[H]
 		\includegraphics[width=0.9\linewidth, center]{./System/PropertyDetails.PNG}\\[0.4cm]  
 		\caption{Property Details}
-	\end{figure}
 	As previously mentioned on the fifth point under the "home page" section, this page will enable the user see more details 			about the property they have selected on the "home page". The "ROI In Years" graph will be generated and more information 			pertaining to the property will be displayed.  
 	\begin{enumerate}
 		\item This button will enable the user to get back to the "home page".

@@ -7,9 +7,11 @@ package service;
 
 import Entities.Profile;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
@@ -29,8 +31,13 @@ import javax.ws.rs.core.MediaType;
 @Path("profile")
 public class ProfileFacadeREST extends AbstractFacade<Profile> {
 
+    @EJB
+    private PIOBeanLocal pIOBean;
+
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
+    
+    
 
     public ProfileFacadeREST() {
         super(Profile.class);
@@ -96,16 +103,30 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
      @FormParam("FirstName") String FirstName, @FormParam("Email") String Email,
              @FormParam("Password") String Password, @FormParam("confrimPassword") String confrimPassword) 
      {
-        
-         System.out.print(username);
-         System.out.print(FirstName);
          Profile p = new Profile();
          p.setFirstName(FirstName);
          p.setSurname(lastname);
-         p.setContactDetails(Email);
-         super.create(p);
-
+         p.setEmail(Email);
+         p.setUsername(username);
+         p.setPassword(Password);
+//         super.create(p);
+         pIOBean.register(p);
       
+    }
+    
+     @GET
+    @Path("login/{UserName}/{Password}") //path for html
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
+    @Produces({MediaType.APPLICATION_XML})
+    public Profile login(@PathParam("UserName") String UserName, @PathParam("Password") String password) {
+        TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.username = '"+UserName + "'AND a.password= '"+password+"'",Profile.class);
+        Profile profile = query.getSingleResult(); //gets the object containing the username and password
+        if(profile == null){
+            return profile;
+        }
+        else{
+            return profile;
+        }
     }
     
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entities;
 
 import java.io.Serializable;
@@ -11,79 +6,46 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Khumalo
+ * @author Priscilla
  */
 @Entity
-@XmlRootElement
 public class Reserves implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column
-    private double maintanance;
     
     @Column
-    private int renovation;
+    private double maintenacePerYear;
+
+    public double getMaintenacePerYear() {
+        return maintenacePerYear;
+    }
+
+    public void setMaintenacePerYear(double maintenacePerYear) {
+        this.maintenacePerYear = maintenacePerYear;
+    }
+
+    public double getRunningTotal() {
+        return runningTotal;
+    }
+
+    public void setRunningTotal(double runningTotal) {
+        this.runningTotal = runningTotal;
+    }
     
     @Column
-    private double deviance;
+    private double runningTotal;
     
-    @Column
-    private double rentInsurance;
     
-    @Column
-    private double minReserves;
-
-    public double getMaintanance() {
-        return maintanance;
-    }
-
-    public void setMaintanance(double maintanance) {
-        this.maintanance = maintanance;
-    }
-
-    public int getRenovation() {
-        return renovation;
-    }
-
-    public void setRenovation(int renovation) {
-        this.renovation = renovation;
-    }
-
-    public double getDeviance() {
-        return deviance;
-    }
-
-    public void setDeviance(double deviance) {
-        this.deviance = deviance;
-    }
-
-    public double getRentInsurance() {
-        return rentInsurance;
-    }
-
-    public void setRentInsurance(double rentInsurance) {
-        this.rentInsurance = rentInsurance;
-    }
-
-    public double getMinReserves() {
-        return minReserves;
-    }
-
-    public void setMinReserves(double minReserves) {
-        this.minReserves = minReserves;
-    }
     public Long getId() {
         return id;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -110,7 +72,7 @@ public class Reserves implements Serializable {
 
     @Override
     public String toString() {
-        return "ejb.Reserves[ id=" + id + " ]";
+        return "Entities.Reserves[ id=" + id + " ]";
     }
     
 }
