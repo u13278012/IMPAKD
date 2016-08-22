@@ -93,9 +93,12 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_JSON)
- public void login(@FormParam("username") String username){
-     System.out.print(username);
-
+ public void login(@FormParam("propertyName") String propertyName,@FormParam("marketPriceAdjustment") String marketPriceAdjustment
+ ,@FormParam("capitalGains") String capitalGains){
+     System.out.print(propertyName);
+     System.out.print(marketPriceAdjustment);
+      System.out.print(capitalGains);
+    
       
  }
     
