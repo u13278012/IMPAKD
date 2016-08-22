@@ -24,7 +24,7 @@ and open the template in the editor.
             
           </div>
         
-        <form action="../home/home.html" id="addProperty" style="align:center">
+        <form ng-submit="submitFunction()" ng-controller="AddPropertyCtrl" id="addProperty" style="align:center">
             <h1 id="propertyHeader">Add Property</h1>
 
             <div id="property">
@@ -32,11 +32,11 @@ and open the template in the editor.
                     <h3 id="miniHeading">Property Details</h3>
                 </div>
                 <fieldset class="form-group">
-                 <input type="text" class="form-control" id="propertyName" placeholder="Name">
+                 <input type="text" class="form-control" id="propertyName" placeholder="Name"  ng-model="password">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="marketPriceAdjustment" placeholder="Market Price Adjustment">
+                    <input type="text" class="form-control" id="marketPriceAdjustment" placeholder="Market Price Adjustment" ng-model="userName">
                 </fieldset>
 
                 <fieldset class="form-group">

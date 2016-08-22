@@ -26,10 +26,12 @@ import javax.ws.rs.core.UriInfo;
 public class logIn {
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
- public void login(@FormParam("UserName") String username){
+ @Produces("text/html")
+ public String login(@FormParam("username") String username){
      System.out.print(username);
      if(username.equals("Sandile")){
     
      }
+     return "HEllo";
  }
 }

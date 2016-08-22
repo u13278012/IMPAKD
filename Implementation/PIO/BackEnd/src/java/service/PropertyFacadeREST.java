@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -25,7 +26,7 @@ import javax.ws.rs.core.MediaType;
  * @author Khumalo
  */
 @Stateless
-@Path("entities.property")
+@Path("property")
 public class PropertyFacadeREST extends AbstractFacade<Property> {
 
     @PersistenceContext(unitName = "BackEndPU")
@@ -87,5 +88,15 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
     protected EntityManager getEntityManager() {
         return em;
     }
+  
+ @Path("/addProperty")
+ @POST
+ @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+ @Produces(MediaType.APPLICATION_JSON)
+ public void login(@FormParam("username") String username){
+     System.out.print(username);
+
+      
+ }
     
 }
