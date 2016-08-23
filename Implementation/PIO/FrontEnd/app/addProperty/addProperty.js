@@ -33,12 +33,12 @@ angular.module('myApp', ['ngRoute'])
             encodeURIComponent($scope.numberOfYears) +
             '&bondRepaymnet=' +
             encodeURIComponent($scope.bondRepaymnet) +
-            '&occupancyRate=' +
-            encodeURIComponent($scope.occupancyRate) +
-            '&agentCommission=' +
-            encodeURIComponent($scope.agentCommission) +
-            '&rentalAmount=' +
-            encodeURIComponent($scope.rentalAmount) +
+            '&Period=' +
+            encodeURIComponent($scope.Period) +
+            '&additionalCash=' +
+            encodeURIComponent($scope.additionalCash) +
+            '&onceOffPayment=' +
+            encodeURIComponent($scope.onceOffPayment) +
             '&maintenance=' +
             encodeURIComponent($scope.maintenance) +
             '&renovation=' +
@@ -69,20 +69,18 @@ angular.module('myApp', ['ngRoute'])
             encodeURIComponent($scope.rentIncrease) +
             '&ratesIncrease=' +
             encodeURIComponent($scope.ratesIncrease) +
-            '&marketPriceAdjustment=' +
-            encodeURIComponent($scope.marketPriceAdjustment)+
-            '&marketPriceAdjustment=' +
-            encodeURIComponent($scope.marketPriceAdjustment)+
-            '&marketPriceAdjustment=' +
-            encodeURIComponent($scope.marketPriceAdjustment)+
-            '&marketPriceAdjustment=' +
-            encodeURIComponent($scope.marketPriceAdjustment)+
-            '&marketPriceAdjustment=' +
-            encodeURIComponent($scope.marketPriceAdjustment)+
-            '&marketPriceAdjustment=' +
-            encodeURIComponent($scope.marketPriceAdjustment)+
-            '&marketPriceAdjustment=' +
-            encodeURIComponent($scope.marketPriceAdjustment);
+            '&taxIncrease=' +
+            encodeURIComponent($scope.taxIncrease)+
+            '&bondFeeIncrease=' +
+            encodeURIComponent($scope.bondFeeIncrease)+
+            '&levyIncrease=' +
+            encodeURIComponent($scope.levyIncrease)+
+            '&occupancyRate=' +
+            encodeURIComponent($scope.occupancyRate)+
+            '&agentCommission=' +
+            encodeURIComponent($scope.agentCommission)+
+            '&rentalAmount=' +
+            encodeURIComponent($scope.rentalAmount);
        
             alert(encodedString);
             $http({

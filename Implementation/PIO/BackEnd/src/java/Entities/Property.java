@@ -128,27 +128,27 @@ public class Property implements Serializable {
         this.propertyName = propertyName;
     }
 
-    public int getAnnualMaintenanceCost() {
+    public double getAnnualMaintenanceCost() {
         return annualMaintenanceCost;
     }
 
-    public void setAnnualMaintenanceCost(int annualMaintenanceCost) {
+    public void setAnnualMaintenanceCost(double annualMaintenanceCost) {
         this.annualMaintenanceCost = annualMaintenanceCost;
     }
 
-    public int getAnnualCostIncrease() {
+    public double getAnnualCostIncrease() {
         return annualCostIncrease;
     }
 
-    public void setAnnualCostIncrease(int annualCostIncrease) {
+    public void setAnnualCostIncrease(double annualCostIncrease) {
         this.annualCostIncrease = annualCostIncrease;
     }
     
     @Column
-    private int annualMaintenanceCost;
+    private double annualMaintenanceCost;
     
     @Column
-    private int annualCostIncrease;
+    private double annualCostIncrease;
     
     
     public Long getId() {

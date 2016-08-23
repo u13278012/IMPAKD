@@ -93,11 +93,31 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_JSON)
- public void login(@FormParam("propertyName") String propertyName,@FormParam("marketPriceAdjustment") String marketPriceAdjustment
- ,@FormParam("capitalGains") String capitalGains){
+ public void login(@FormParam("propertyName") String propertyName,@FormParam("marketPriceAdjustment") double marketPriceAdjustment
+  ,@FormParam("capitalGains") double capitalGains,@FormParam("annualMaintenanceCost") double annualMaintenanceCost,@FormParam("annualCostIncrease") double annualCostIncrease
+  ,@FormParam("interestRate") String interestRate,@FormParam("deposit") String deposit
+  ,@FormParam("propertyValue") String propertyValue,@FormParam("numberOfYears") String numberOfYears
+  ,@FormParam("bondRepaymnet") String bondRepaymnet,@FormParam("Period") String Period
+  ,@FormParam("additionalCash") String additionalCash,@FormParam("onceOffPayment") String onceOffPayment
+  ,@FormParam("maintenance") String maintenance,@FormParam("renovation") String renovation
+  ,@FormParam("deviance") String deviance,@FormParam("rentInsurance") String rentInsurance
+  ,@FormParam("conveyancingFees") String conveyancingFees,@FormParam("vatDebit") String vatDebit
+  ,@FormParam("deedsFee") String deedsFee,@FormParam("initiationFee") String initiationFee
+  ,@FormParam("tax") String tax,@FormParam("rates") String rates
+ ,@FormParam("levy") String levy,@FormParam("inflation") String inflation
+ ,@FormParam("propertyValueIncrease") String propertyValueIncrease,@FormParam("rentIncrease") String rentIncrease
+ ,@FormParam("ratesIncrease") String ratesIncrease,@FormParam("taxIncrease") String taxIncrease
+ ,@FormParam("bondFeeIncrease") String bondFeeIncrease,@FormParam("levyIncrease") String levyIncrease
+ ,@FormParam("occupancyRate") String occupancyRate,@FormParam("agentCommission") String agentCommission
+ ,@FormParam("rentalAmount") String rentalAmount){
      System.out.print(propertyName);
      System.out.print(marketPriceAdjustment);
-      System.out.print(capitalGains);
+      Property propertyObj = new Property();
+      propertyObj.setPropertyName(propertyName);
+      propertyObj.setMarketPriceAdjustment(marketPriceAdjustment);
+      propertyObj.setCapitalGains(capitalGains);
+      propertyObj.setAnnualMaintenanceCost(annualMaintenanceCost);
+      propertyObj.setAnnualCostIncrease(annualCostIncrease);
     
       
  }
