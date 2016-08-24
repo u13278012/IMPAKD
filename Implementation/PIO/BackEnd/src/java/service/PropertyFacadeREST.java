@@ -6,6 +6,8 @@
 package service;
 
 import Entities.Property;
+import Entities.Reserves;
+import Entities.UpFrontCosts;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -95,29 +97,44 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @Produces(MediaType.APPLICATION_JSON)
  public void login(@FormParam("propertyName") String propertyName,@FormParam("marketPriceAdjustment") double marketPriceAdjustment
   ,@FormParam("capitalGains") double capitalGains,@FormParam("annualMaintenanceCost") double annualMaintenanceCost,@FormParam("annualCostIncrease") double annualCostIncrease
-  ,@FormParam("interestRate") String interestRate,@FormParam("deposit") String deposit
-  ,@FormParam("propertyValue") String propertyValue,@FormParam("numberOfYears") String numberOfYears
-  ,@FormParam("bondRepaymnet") String bondRepaymnet,@FormParam("Period") String Period
-  ,@FormParam("additionalCash") String additionalCash,@FormParam("onceOffPayment") String onceOffPayment
-  ,@FormParam("maintenance") String maintenance,@FormParam("renovation") String renovation
-  ,@FormParam("deviance") String deviance,@FormParam("rentInsurance") String rentInsurance
-  ,@FormParam("conveyancingFees") String conveyancingFees,@FormParam("vatDebit") String vatDebit
-  ,@FormParam("deedsFee") String deedsFee,@FormParam("initiationFee") String initiationFee
-  ,@FormParam("tax") String tax,@FormParam("rates") String rates
- ,@FormParam("levy") String levy,@FormParam("inflation") String inflation
- ,@FormParam("propertyValueIncrease") String propertyValueIncrease,@FormParam("rentIncrease") String rentIncrease
- ,@FormParam("ratesIncrease") String ratesIncrease,@FormParam("taxIncrease") String taxIncrease
- ,@FormParam("bondFeeIncrease") String bondFeeIncrease,@FormParam("levyIncrease") String levyIncrease
- ,@FormParam("occupancyRate") String occupancyRate,@FormParam("agentCommission") String agentCommission
- ,@FormParam("rentalAmount") String rentalAmount){
+  ,@FormParam("interestRate") double interestRate,@FormParam("deposit") double deposit
+  ,@FormParam("propertyValue") double propertyValue,@FormParam("numberOfYears") int numberOfYears
+  ,@FormParam("bondRepaymnet") double bondRepaymnet,@FormParam("Period") int Period
+  ,@FormParam("additionalCash") double additionalCash,@FormParam("onceOffPayment") double onceOffPayment
+  ,@FormParam("maintenance") double maintenance,@FormParam("renovation") double renovation
+  ,@FormParam("deviance") double deviance,@FormParam("rentInsurance") double rentInsurance
+  ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
+  ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
+  ,@FormParam("tax") double tax,@FormParam("rates") double rates
+ ,@FormParam("levy") double levy,@FormParam("inflation") double inflation
+ ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
+ ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
+ ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
+ ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
+ ,@FormParam("rentalAmount") double rentalAmount){
      System.out.print(propertyName);
      System.out.print(marketPriceAdjustment);
       Property propertyObj = new Property();
+      
       propertyObj.setPropertyName(propertyName);
       propertyObj.setMarketPriceAdjustment(marketPriceAdjustment);
       propertyObj.setCapitalGains(capitalGains);
-      propertyObj.setAnnualMaintenanceCost(annualMaintenanceCost);
-      propertyObj.setAnnualCostIncrease(annualCostIncrease);
+    //propertyObj.setAnnualMaintenanceCost(annualMaintenanceCost);
+    //propertyObj.setAnnualCostIncrease(annualCostIncrease);
+      
+      UpFrontCosts upFrontCostsObj = new UpFrontCosts();
+      
+      upFrontCostsObj.setConveyancingFees(conveyancingFees);
+      upFrontCostsObj.setVatDebit(vatDebit);
+      upFrontCostsObj.setDeedsFees(deedsFee);
+      upFrontCostsObj.setInitiationFee(initiationFee);
+      
+      Reserves reservesObj = new Reserves();
+      reservesObj.setMaintenacePerYear(maintenance);
+      
+      
+     
+
     
       
  }
