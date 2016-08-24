@@ -36,14 +36,14 @@ public class Bond implements Serializable {
     @Column
     private Double depositInRands;
     
-     @Column
+    @Column
     private Double bondRepayment;
     
     @Column
-    private int numberOfYears;
+    private Double depositPercentage;
     
-    @OneToOne
-    private AdditionalBondRepayment additionalBondRepayment;
+    @Column
+    private int numberOfYears;
 
     public Double getDepositInRands() {
         return depositInRands;
@@ -60,16 +60,6 @@ public class Bond implements Serializable {
     public void setBondRepayment(Double bondRepayment) {
         this.bondRepayment = bondRepayment;
     }
-
-    public AdditionalBondRepayment getAdditionalBondRepayment() {
-        return additionalBondRepayment;
-    }
-
-    public void setAdditionalBondRepayment(AdditionalBondRepayment additionalBondRepayment) {
-        this.additionalBondRepayment = additionalBondRepayment;
-    }
-    
-   
 
     public Double getInterestRate() {
         return interestRate;

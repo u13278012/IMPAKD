@@ -31,7 +31,6 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         
          resources.add(Entities.NewCrossOriginResourceSharingFilter.class);
-        resources.add(service.AdditionalBondRepaymentFacadeREST.class);
         resources.add(service.AuthenticationFacadeREST.class);
         resources.add(service.BondFacadeREST.class);
         resources.add(service.ExpensesFacadeREST.class);
