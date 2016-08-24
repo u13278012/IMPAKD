@@ -5,6 +5,11 @@
  */
 package service;
 
+<<<<<<< HEAD
+import Entities.Expenses;
+=======
+import Entities.Bond;
+>>>>>>> master
 import Entities.Profile;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,7 +21,10 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class PIOBean implements PIOBeanLocal {
-
+    
+    //Bond Object
+    Bond bond;
+    
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
@@ -37,4 +45,19 @@ public class PIOBean implements PIOBeanLocal {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+<<<<<<< HEAD
+    public void Expenses(){
+        Expenses expenses = new Expenses();
+        expenses.getRates_Taxes();
+        expenses.getLevy();
+        expenses.getManagementFee();       
+    }  
+=======
+    //Bond Functions
+    public double calculateDepositInRands()
+    {
+        
+    }
+    
+>>>>>>> master
 }
