@@ -5,6 +5,7 @@
  */
 package service;
 
+import Entities.Bond;
 import Entities.Profile;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,7 +17,10 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class PIOBean implements PIOBeanLocal {
-
+    
+    //Bond Object
+    Bond bond;
+    
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
@@ -35,6 +39,12 @@ public class PIOBean implements PIOBeanLocal {
     @Override
     public Profile login(String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    //Bond Functions
+    public double calculateDepositInRands()
+    {
+        
     }
     
 }

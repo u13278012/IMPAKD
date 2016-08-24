@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Kudzai Muranga
  */
+
 @Entity
 @XmlRootElement
 public class Property implements Serializable {
