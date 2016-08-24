@@ -26,23 +26,13 @@ public class Expenses implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    public double getTax() {
-        return tax;
+    
+    public void setRates_Taxes(double rate_taxes){
+       this.rates_taxes = rate_taxes;
     }
-
-    public void setTax(double tax) {
-        this.tax = tax;
+    public double getRates_Taxes(){
+        return rates_taxes;
     }
-
-    public double getRates() {
-        return rates;
-    }
-
-    public void setRates(double rates) {
-        this.rates = rates;
-    }
-
     public double getLevy() {
         return levy;
     }
@@ -60,10 +50,7 @@ public class Expenses implements Serializable {
     }
 
     @Column
-    private double tax;
-    
-    @Column
-    private double rates;
+    private double rates_taxes;
     
     @Column
     private double levy;

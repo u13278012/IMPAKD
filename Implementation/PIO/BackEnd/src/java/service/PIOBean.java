@@ -5,6 +5,7 @@
  */
 package service;
 
+import Entities.Expenses;
 import Entities.Profile;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -37,4 +38,10 @@ public class PIOBean implements PIOBeanLocal {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public void Expenses(){
+        Expenses expenses = new Expenses();
+        expenses.getRates_Taxes();
+        expenses.getLevy();
+        expenses.getManagementFee();       
+    }  
 }
