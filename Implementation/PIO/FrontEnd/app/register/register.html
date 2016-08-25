@@ -86,7 +86,7 @@
                 </form>
             <!-- SignUp/Register Section-->
             
-                <form class="tab-pane active" id="register" role="tabpanel" ng-submit="submitFunction()" ng-controller="RegisterCtrl">
+                <form class="tab-pane active" id="register" role="tabpanel" ng-submit="validation()" ng-controller="RegisterCtrl">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-pencil"></i>
@@ -129,7 +129,7 @@
                     <input type="password" class="form-control" id="confrimPassword" name="confrimPassword" placeholder="Confirm Password" ng-model="confrimPassword">
                 </div>
 
-                <button  type="submit" id="createAcc" class="btn" onclick="window.location = '../login/login.html';">
+                <button  type="submit" id="createAcc" class="btn">
                         Create Account
                   </button>
                 </form>

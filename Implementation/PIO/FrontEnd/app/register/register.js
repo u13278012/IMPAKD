@@ -11,6 +11,23 @@ angular.module('myApp', ['ngRoute'])
 
 .controller('RegisterCtrl', ["$scope", "$window", "$http", function($scope, $window, $http){
         
+$scope.validation = function()
+{
+    if($scope.Email === "" || $scope.FirstName === "" || $scope.LastName === "" || $scope.UserName === "" || $scope.Password === "" || $scope.confrimPassword === "")
+    {
+        alert("Please complete the entire form");
+    }
+    else if($scope.Password !== $scope.confrimPassword)
+    {
+        alert("The passwords do not match");
+    }
+    else
+    {
+        $scope.submitFunction();
+    }
+};
+
+
 $scope.submitFunction = function() 
     {
             var encodedString = 'FirstName=' +
