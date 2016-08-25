@@ -55,92 +55,178 @@ public class Property implements Serializable {
     @OneToOne
     private Bond bond;
 
+    /**
+     *
+     * @return
+     */
     public UpFrontCosts getUpFrontCosts() {
         return upFrontCosts;
     }
 
+    /**
+     *
+     * @param upFrontCosts
+     */
     public void setUpFrontCosts(UpFrontCosts upFrontCosts) {
         this.upFrontCosts = upFrontCosts;
     }
 
+    /**
+     *
+     * @return
+     */
     public PropertyReserves getReserves() {
         return reserves;
     }
 
+    /**
+     *
+     * @param reserves
+     */
     public void setReserves(PropertyReserves reserves) {
         this.reserves = reserves;
     }
 
+    /**
+     *
+     * @return
+     */
     public Expenses getExpenses() {
         return expenses;
     }
 
+    /**
+     *
+     * @param expenses
+     */
     public void setExpenses(Expenses expenses) {
         this.expenses = expenses;
     }
 
+    /**
+     *
+     * @return
+     */
     public Increases getInceases() {
         return increases;
     }
 
+    /**
+     *
+     * @param inceases
+     */
     public void setInceases(Increases inceases) {
         this.increases = inceases;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getMarketPriceAdjustment() {
         return marketPriceAdjustment;
     }
 
+    /**
+     *
+     * @param marketPriceAdjustment
+     */
     public void setMarketPriceAdjustment(double marketPriceAdjustment) {
         this.marketPriceAdjustment = marketPriceAdjustment;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getCapitalGains() {
         return capitalGains;
     }
 
+    /**
+     *
+     * @param capitalGains
+     */
     public void setCapitalGains(double capitalGains) {
         this.capitalGains = capitalGains;
     }
 
+    /**
+     *
+     * @return
+     */
     public Bond getBond() {
         return bond;
     }
 
+    /**
+     *
+     * @param bond
+     */
     public void setBond(Bond bond) {
         this.bond = bond;
     }
 
+    /**
+     *
+     * @return
+     */
     public Rental getRental() {
         return rental;
     }
 
+    /**
+     *
+     * @param rental
+     */
     public void setRental(Rental rental) {
         this.rental = rental;
     }
     
-    
-
+    /**
+     *
+     * @return
+     */
     public String getPropertyName() {
         return propertyName;
     }
 
+    /**
+     *
+     * @param propertyName
+     */
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAnnualMaintenanceCost() {
         return annualMaintenanceCost;
     }
 
+    /**
+     *
+     * @param annualMaintenanceCost
+     */
     public void setAnnualMaintenanceCost(int annualMaintenanceCost) {
         this.annualMaintenanceCost = annualMaintenanceCost;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getAnnualCostIncrease() {
         return annualCostIncrease;
     }
 
+    /**
+     *
+     * @param annualCostIncrease
+     */
     public void setAnnualCostIncrease(int annualCostIncrease) {
         this.annualCostIncrease = annualCostIncrease;
     }
@@ -151,11 +237,18 @@ public class Property implements Serializable {
     @Column
     private int annualCostIncrease;
     
-    
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

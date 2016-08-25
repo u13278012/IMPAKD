@@ -32,34 +32,66 @@ public class IncomeStatement implements Serializable {
     @OneToOne
     private Liabilities liabilities;
 
+    /**
+     *
+     * @return
+     */
     public Asset getAsset() {
         return asset;
     }
 
+    /**
+     *
+     * @param asset
+     */
     public void setAsset(Asset asset) {
         this.asset = asset;
     }
 
+    /**
+     *
+     * @return
+     */
     public Reserves getReserves() {
         return reserves;
     }
 
+    /**
+     *
+     * @param reserves
+     */
     public void setReserves(Reserves reserves) {
         this.reserves = reserves;
     }
 
+    /**
+     *
+     * @return
+     */
     public Liabilities getLiabilities() {
         return liabilities;
     }
 
+    /**
+     *
+     * @param liabilities
+     */
     public void setLiabilities(Liabilities liabilities) {
         this.liabilities = liabilities;
     }
 
+    /**
+     *
+     * @return
+     */
     public CashFlowStatement getCashFlowStatement() {
         return cashFlowStatement;
     }
 
+    /**
+     *
+     * @param cashFlowStatement
+     */
     public void setCashFlowStatement(CashFlowStatement cashFlowStatement) {
         this.cashFlowStatement = cashFlowStatement;
     }
@@ -67,26 +99,50 @@ public class IncomeStatement implements Serializable {
     @OneToOne
     private CashFlowStatement cashFlowStatement;
 
+    /**
+     *
+     * @return
+     */
     public double getGrossProfit() {
         return grossProfit;
     }
 
+    /**
+     *
+     * @param grossProfit
+     */
     public void setGrossProfit(double grossProfit) {
         this.grossProfit = grossProfit;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getRent() {
         return rent;
     }
 
+    /**
+     *
+     * @param rent
+     */
     public void setRent(double rent) {
         this.rent = rent;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getInterest() {
         return interest;
     }
 
+    /**
+     *
+     * @param interest
+     */
     public void setInterest(double interest) {
         this.interest = interest;
     }
@@ -98,10 +154,18 @@ public class IncomeStatement implements Serializable {
     @Column
     private double interest;
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
