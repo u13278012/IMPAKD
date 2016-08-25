@@ -52,4 +52,8 @@ Documentation/Testing/*.synctex.gz(busy)
 Documentation/Testing/*.toc
 >>>>>>> a853aefdb928a34a45c655d4291f8638e1b79b3d
 /Implementation/PIO/OLD bakend/BackEnd/nbproject/private/
+<<<<<<< HEAD
 Implementation/PIO/BackEnd/src/conf/persistence.xml
+=======
+/Implementation/PIO/BackEnd/dist/
+>>>>>>> origin/master

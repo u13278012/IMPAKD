@@ -23,26 +23,50 @@ public class Liabilities implements Serializable {
     @Column
     private double principalDebt;
 
+    /**
+     *
+     * @return
+     */
     public double getPrincipalDebt() {
         return principalDebt;
     }
 
+    /**
+     *
+     * @param principalDebt
+     */
     public void setPrincipalDebt(double principalDebt) {
         this.principalDebt = principalDebt;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getOwnerEquity() {
         return ownerEquity;
     }
 
+    /**
+     *
+     * @param ownerEquity
+     */
     public void setOwnerEquity(double ownerEquity) {
         this.ownerEquity = ownerEquity;
     }
 
+    /**
+     *
+     * @return
+     */
     public Asset getAsset() {
         return asset;
     }
 
+    /**
+     *
+     * @param asset
+     */
     public void setAsset(Asset asset) {
         this.asset = asset;
     }
@@ -53,10 +77,18 @@ public class Liabilities implements Serializable {
     @OneToOne
     private Asset asset;
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

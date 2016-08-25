@@ -7,7 +7,10 @@ package service;
 
 
 import Entities.Expenses;
+<<<<<<< HEAD
 import Entities.Increases;
+=======
+>>>>>>> origin/master
 import Entities.Bond;
 import Entities.Profile;
 import javax.ejb.Stateless;
@@ -27,6 +30,10 @@ public class PIOBean implements PIOBeanLocal {
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
+    /**
+     *
+     * @param object
+     */
     public void persist(Object object) {
         em.persist(object);
     }
@@ -34,17 +41,35 @@ public class PIOBean implements PIOBeanLocal {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 
+    /**
+     *
+     * @param profile
+     */
+
     @Override
     public void register(Profile profile) {
         persist(profile);
     }
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     @Override
     public Profile login(String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+<<<<<<< HEAD
     
 
+=======
+
+    /**
+     *
+     */
+>>>>>>> origin/master
     public void Expenses(){
         double rates_taxes, levy, managementFee;
         Expenses expenses = new Expenses();       
@@ -80,8 +105,18 @@ public class PIOBean implements PIOBeanLocal {
     }  
 
     //Bond Functions
+
+    /**
+     *
+     * @return
+     */
     public double calculateDepositInRands()
     {
         return 0.0;
     }
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> origin/master
 }

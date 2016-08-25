@@ -31,10 +31,17 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
+    /**
+     *
+     */
     public PropertyFacadeREST() {
         super(Property.class);
     }
 
+    /**
+     *
+     * @param entity
+     */
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -42,6 +49,11 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         super.create(entity);
     }
 
+    /**
+     *
+     * @param id
+     * @param entity
+     */
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -49,12 +61,21 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         super.edit(entity);
     }
 
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -62,6 +83,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return super.find(id);
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -69,6 +94,12 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return super.findAll();
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @return
+     */
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -76,6 +107,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return super.findRange(new int[]{from, to});
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
@@ -83,6 +118,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return String.valueOf(super.count());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected EntityManager getEntityManager() {
         return em;

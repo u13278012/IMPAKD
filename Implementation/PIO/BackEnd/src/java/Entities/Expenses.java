@@ -27,20 +27,57 @@ public class Expenses implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    /**
+     *
+     * @param rate_taxes
+     */
     public void setRates_Taxes(double rate_taxes){
        this.rates_taxes = rate_taxes;
     }
+
+    /**
+     *
+     * @return
+     */
     public double getRates_Taxes(){
         return rates_taxes;
     }
+
+    /**
+     *
+     * @return
+     */
     public double getLevy() {
         return levy;
     }
 
+    /**
+     *
+     * @param levy
+     */
     public void setLevy(double levy) {
         this.levy = levy;
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     *
+     * @return
+     */
+    public double getManagementFee() {
+        return managementFee;
+    }
+
+    /**
+     *
+     * @param managementFee
+     */
+    public void setManagementFee(double managementFee) {
+        this.managementFee = managementFee;
+    }
+
+>>>>>>> origin/master
     @Column
     private double rates_taxes;
     
@@ -48,10 +85,18 @@ public class Expenses implements Serializable {
     private double levy;
     
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

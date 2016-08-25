@@ -37,12 +37,17 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
     
-    
-
+    /**
+     *
+     */
     public ProfileFacadeREST() {
         super(Profile.class);
     }
 
+    /**
+     *
+     * @param entity
+     */
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_JSON})
@@ -50,6 +55,11 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         super.create(entity);
     }
 
+    /**
+     *
+     * @param id
+     * @param entity
+     */
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -57,12 +67,21 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         super.edit(entity);
     }
 
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -70,6 +89,10 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         return super.find(id);
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -77,6 +100,12 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         return super.findAll();
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @return
+     */
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -84,6 +113,10 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         return super.findRange(new int[]{from, to});
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
@@ -91,11 +124,24 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         return String.valueOf(super.count());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
     
+    /**
+     *
+     * @param username
+     * @param lastname
+     * @param FirstName
+     * @param Email
+     * @param Password
+     * @param confrimPassword
+     */
     @Path("register")
      @POST
      @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -114,7 +160,13 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
       
     }
     
-     @GET
+    /**
+     *
+     * @param UserName
+     * @param password
+     * @return
+     */
+    @GET
     @Path("login/{UserName}/{Password}") //path for html
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
     @Produces({MediaType.APPLICATION_XML})
