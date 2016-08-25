@@ -50,20 +50,12 @@ public class Increases implements Serializable {
         this.rent = rent;
     }
 
-    public double getRates() {
-        return rates;
+    public double getRates_taxes() {
+        return rates_taxes;
     }
 
-    public void setRates(double rates) {
-        this.rates = rates;
-    }
-
-    public double getTax() {
-        return tax;
-    }
-
-    public void setTax(double tax) {
-        this.tax = tax;
+    public void setRates_taxes(double rates_taxes) {
+        this.rates_taxes = rates_taxes;
     }
 
     public double getBondFee() {
@@ -92,10 +84,7 @@ public class Increases implements Serializable {
     private double rent;
     
     @Column
-    private double rates;
-    
-    @Column
-    private double tax;
+    private double rates_taxes;
     
     @Column
     private double bondFee;

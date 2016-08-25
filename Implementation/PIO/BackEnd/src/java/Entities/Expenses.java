@@ -41,22 +41,12 @@ public class Expenses implements Serializable {
         this.levy = levy;
     }
 
-    public double getManagementFee() {
-        return managementFee;
-    }
-
-    public void setManagementFee(double managementFee) {
-        this.managementFee = managementFee;
-    }
-
     @Column
     private double rates_taxes;
     
     @Column
     private double levy;
     
-    @Column
-    private double managementFee;
     
     public Long getId() {
         return id;

@@ -5,11 +5,10 @@
  */
 package service;
 
-<<<<<<< HEAD
+
 import Entities.Expenses;
-=======
+import Entities.Increases;
 import Entities.Bond;
->>>>>>> master
 import Entities.Profile;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -45,19 +44,44 @@ public class PIOBean implements PIOBeanLocal {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-<<<<<<< HEAD
+
     public void Expenses(){
-        Expenses expenses = new Expenses();
-        expenses.getRates_Taxes();
-        expenses.getLevy();
-        expenses.getManagementFee();       
+        double rates_taxes, levy, managementFee;
+        Expenses expenses = new Expenses();       
+        Increases increasesPerYear = new Increases();
+        
+        rates_taxes = expenses.getRates_Taxes();
+        levy = expenses.getLevy();    
+        
+        int arrayRates_Taxes[] = new int[20];
+        int arrayLevy[] = new int[20];
+        //int arrayManagementFee[] = new int[20];
+        
+        // array for rates & taxes
+        for(int i=0; i< 20; i++){
+            if( i == 0){
+                arrayRates_Taxes[i] = (int) rates_taxes; 
+            }
+            else{
+                arrayRates_Taxes[i] = (int) rates_taxes * (int) increasesPerYear.getRates_taxes();
+            }
+        }
+        
+        //array for levy
+        for(int i =0; i<20; i++){
+            if( i == 0){
+                arrayLevy[i] = (int) levy; 
+            }
+            else{
+                arrayLevy[i] = (int) levy * (int) increasesPerYear.getLevy();
+            }
+        }
+ 
     }  
-=======
+
     //Bond Functions
     public double calculateDepositInRands()
     {
-        
+        return 0.0;
     }
-    
->>>>>>> master
 }
