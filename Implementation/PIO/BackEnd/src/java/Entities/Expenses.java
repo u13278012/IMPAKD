@@ -59,6 +59,8 @@ public class Expenses implements Serializable {
         this.levy = levy;
     }
 
+<<<<<<< HEAD
+=======
     /**
      *
      * @return
@@ -75,14 +77,13 @@ public class Expenses implements Serializable {
         this.managementFee = managementFee;
     }
 
+>>>>>>> origin/master
     @Column
     private double rates_taxes;
     
     @Column
     private double levy;
     
-    @Column
-    private double managementFee;
     
     /**
      *
