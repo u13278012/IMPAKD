@@ -61,6 +61,8 @@ angular.module('myApp', ['ngRoute'])
             encodeURIComponent($scope.rates) +
             '&levy=' +
             encodeURIComponent($scope.levy) +
+            '&managementFee=' +
+            encodeURIComponent($scope.managementFee) +
             '&inflation=' +
             encodeURIComponent($scope.inflation) +
             '&propertyValueIncrease=' +

@@ -5,10 +5,15 @@
  */
 package service;
 
+import Entities.Expenses;
+import Entities.Increases;
 import Entities.Property;
+import Entities.PropertyReserves;
+import Entities.Rental;
 import Entities.Reserves;
 import Entities.UpFrontCosts;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,7 +35,10 @@ import javax.ws.rs.core.MediaType;
 @Stateless
 @Path("property")
 public class PropertyFacadeREST extends AbstractFacade<Property> {
-
+   
+    @EJB
+    private PIOBeanLocal pIOBean;
+    
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
@@ -95,7 +103,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_JSON)
- public void login(@FormParam("propertyName") String propertyName,@FormParam("marketPriceAdjustment") double marketPriceAdjustment
+ public void addProperty(@FormParam("propertyName") String propertyName,@FormParam("marketPriceAdjustment") double marketPriceAdjustment
   ,@FormParam("capitalGains") double capitalGains,@FormParam("annualMaintenanceCost") double annualMaintenanceCost,@FormParam("annualCostIncrease") double annualCostIncrease
   ,@FormParam("interestRate") double interestRate,@FormParam("deposit") double deposit
   ,@FormParam("propertyValue") double propertyValue,@FormParam("numberOfYears") int numberOfYears
@@ -106,22 +114,18 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
   ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
   ,@FormParam("tax") double tax,@FormParam("rates") double rates
- ,@FormParam("levy") double levy,@FormParam("inflation") double inflation
+ ,@FormParam("levy") double levy,@FormParam("managementFee") double managementFee,@FormParam("inflation") double inflation
  ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
  ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
  ,@FormParam("rentalAmount") double rentalAmount){
-     System.out.print(propertyName);
+     System.out.print(managementFee);
      System.out.print(marketPriceAdjustment);
+     
       Property propertyObj = new Property();
       
-      propertyObj.setPropertyName(propertyName);
-      propertyObj.setMarketPriceAdjustment(marketPriceAdjustment);
-      propertyObj.setCapitalGains(capitalGains);
-    //propertyObj.setAnnualMaintenanceCost(annualMaintenanceCost);
-    //propertyObj.setAnnualCostIncrease(annualCostIncrease);
-      
+
       UpFrontCosts upFrontCostsObj = new UpFrontCosts();
       
       upFrontCostsObj.setConveyancingFees(conveyancingFees);
@@ -129,8 +133,44 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       upFrontCostsObj.setDeedsFees(deedsFee);
       upFrontCostsObj.setInitiationFee(initiationFee);
       
-      Reserves reservesObj = new Reserves();
-      reservesObj.setMaintenacePerYear(maintenance);
+      PropertyReserves reservesObj = new PropertyReserves();
+      reservesObj.setMaintenance(maintenance);
+      reservesObj.setRenovation(renovation);
+      reservesObj.setDeviance(deviance);
+      reservesObj.setRentInsurance(rentInsurance);
+       reservesObj.setMinReserves(maintenance);// minireserves is missing from the html page
+      
+      Expenses expensesObj = new Expenses();
+      expensesObj.setTax(tax);
+      expensesObj.setRates(rates);
+      expensesObj.setLevy(levy);
+      expensesObj.setManagementFee(managementFee);
+      
+      Rental rentalObj = new Rental();
+      rentalObj.setOccupancyRate(occupancyRate);
+      rentalObj.setOnceOffAgentFee(onceOffPayment);// onceOffPayment is missing from the html page
+      rentalObj.setRentalAmount(rentalAmount);
+      rentalObj.setTotalRent(rentalAmount); // total rent is missing from the html page
+      rentalObj.setAgentCommission(agentCommission);
+      
+      Increases increasesObj = new Increases();
+      increasesObj.setInflation(inflation);
+      increasesObj.setLevy(levyIncrease);
+      increasesObj.setTax(taxIncrease);
+      increasesObj.setPropertyValue(propertyValueIncrease);
+      increasesObj.setRates(ratesIncrease);
+      increasesObj.setBondFee(bondFeeIncrease);
+      increasesObj.setRent(rentIncrease);
+      
+      propertyObj.setPropertyName(propertyName);
+      propertyObj.setMarketPriceAdjustment(marketPriceAdjustment);
+      propertyObj.setCapitalGains(capitalGains);
+      propertyObj.setUpFrontCosts(upFrontCostsObj);
+      propertyObj.setReserves(reservesObj);
+      propertyObj.setRental(rentalObj);
+      pIOBean.persist(propertyObj);
+      
+      
       
       
      
