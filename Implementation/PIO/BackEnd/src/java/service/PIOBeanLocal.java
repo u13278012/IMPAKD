@@ -15,8 +15,18 @@ import javax.ejb.Local;
 @Local
 public interface PIOBeanLocal {
 
+    /**
+     *
+     * @param profile
+     */
     void register(Profile profile);
 
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     Profile login(String username, String password);
     
 }
