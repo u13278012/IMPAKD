@@ -27,42 +27,82 @@ public class PropertyReserves implements Serializable {
     @Column
     private double maintenance;
 
+    /**
+     *
+     * @return
+     */
     public double getMaintenance() {
         return maintenance;
     }
 
+    /**
+     *
+     * @param maintenance
+     */
     public void setMaintenance(double maintenance) {
         this.maintenance = maintenance;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getRenovation() {
         return renovation;
     }
 
+    /**
+     *
+     * @param renovation
+     */
     public void setRenovation(double renovation) {
         this.renovation = renovation;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getDeviance() {
         return deviance;
     }
 
+    /**
+     *
+     * @param deviance
+     */
     public void setDeviance(double deviance) {
         this.deviance = deviance;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getRentInsurance() {
         return rentInsurance;
     }
 
+    /**
+     *
+     * @param rentInsurance
+     */
     public void setRentInsurance(double rentInsurance) {
         this.rentInsurance = rentInsurance;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getMinReserves() {
         return minReserves;
     }
 
+    /**
+     *
+     * @param minReserves
+     */
     public void setMinReserves(double minReserves) {
         this.minReserves = minReserves;
     }
@@ -79,10 +119,18 @@ public class PropertyReserves implements Serializable {
     @Column
     private double minReserves;
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

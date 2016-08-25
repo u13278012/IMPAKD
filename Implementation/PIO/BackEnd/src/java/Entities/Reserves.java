@@ -22,18 +22,34 @@ public class Reserves implements Serializable {
     @Column
     private double maintenacePerYear;
 
+    /**
+     *
+     * @return
+     */
     public double getMaintenacePerYear() {
         return maintenacePerYear;
     }
 
+    /**
+     *
+     * @param maintenacePerYear
+     */
     public void setMaintenacePerYear(double maintenacePerYear) {
         this.maintenacePerYear = maintenacePerYear;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getRunningTotal() {
         return runningTotal;
     }
 
+    /**
+     *
+     * @param runningTotal
+     */
     public void setRunningTotal(double runningTotal) {
         this.runningTotal = runningTotal;
     }
@@ -41,11 +57,18 @@ public class Reserves implements Serializable {
     @Column
     private double runningTotal;
     
-    
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
     
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

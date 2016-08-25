@@ -26,58 +26,114 @@ public class Increases implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    /**
+     *
+     * @return
+     */
     public double getInflation() {
         return inflation;
     }
 
+    /**
+     *
+     * @param inflation
+     */
     public void setInflation(double inflation) {
         this.inflation = inflation;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getPropertyValue() {
         return propertyValue;
     }
 
+    /**
+     *
+     * @param propertyValue
+     */
     public void setPropertyValue(double propertyValue) {
         this.propertyValue = propertyValue;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getRent() {
         return rent;
     }
 
+    /**
+     *
+     * @param rent
+     */
     public void setRent(double rent) {
         this.rent = rent;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getRates() {
         return rates;
     }
 
+    /**
+     *
+     * @param rates
+     */
     public void setRates(double rates) {
         this.rates = rates;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getTax() {
         return tax;
     }
 
+    /**
+     *
+     * @param tax
+     */
     public void setTax(double tax) {
         this.tax = tax;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getBondFee() {
         return bondFee;
     }
 
+    /**
+     *
+     * @param bondFee
+     */
     public void setBondFee(double bondFee) {
         this.bondFee = bondFee;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getLevy() {
         return levy;
     }
 
+    /**
+     *
+     * @param levy
+     */
     public void setLevy(double levy) {
         this.levy = levy;
     }
@@ -103,10 +159,18 @@ public class Increases implements Serializable {
     @Column
     private double levy;
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

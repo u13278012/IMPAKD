@@ -32,28 +32,51 @@ public class Statistics implements Serializable {
     @Column
     private Property propertyList[];
 
-    
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Property[] getPropertyList() {
         return propertyList;
     }
 
+    /**
+     *
+     * @param propertyList
+     */
     public void setPropertyList(Property[] propertyList) {
         this.propertyList = propertyList;
     }
 
+    /**
+     *
+     * @return
+     */
     public int[] getTime() {
         return time;
     }
 
+    /**
+     *
+     * @param time
+     */
     public void setTime(int[] time) {
         this.time = time;
     }
 
+    /**
+     *
+     * @return
+     */
     public int[] getROI() {
         return ROI;
     }
 
+    /**
+     *
+     * @param ROI
+     */
     public void setROI(int[] ROI) {
         this.ROI = ROI;
     }
@@ -63,10 +86,18 @@ public class Statistics implements Serializable {
     @Column
     private int ROI[];
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

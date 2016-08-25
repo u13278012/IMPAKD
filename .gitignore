@@ -52,3 +52,4 @@ Documentation/Testing/*.synctex.gz(busy)
 Documentation/Testing/*.toc
 >>>>>>> a853aefdb928a34a45c655d4291f8638e1b79b3d
 /Implementation/PIO/OLD bakend/BackEnd/nbproject/private/
+/Implementation/PIO/BackEnd/dist/
