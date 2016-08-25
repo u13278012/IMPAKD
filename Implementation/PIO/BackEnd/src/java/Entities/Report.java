@@ -33,19 +33,35 @@ public class Report implements Serializable {
     @JoinColumn
     private Statistics  statistics;
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Statistics getStatistics() {
         return statistics;
     }
 
+    /**
+     *
+     * @param statistics
+     */
     public void setStatistics(Statistics statistics) {
         this.statistics = statistics;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

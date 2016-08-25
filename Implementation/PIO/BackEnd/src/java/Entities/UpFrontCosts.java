@@ -38,41 +38,82 @@ public class UpFrontCosts implements Serializable {
     @Column
     private double initiationFee;
 
+    /**
+     *
+     * @return
+     */
     public double getInitiationFee() {
         return initiationFee;
     }
 
+    /**
+     *
+     * @param initiationFee
+     */
     public void setInitiationFee(double initiationFee) {
         this.initiationFee = initiationFee;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getDeedsFees() {
         return deedsFees;
     }
 
+    /**
+     *
+     * @param deedsFees
+     */
     public void setDeedsFees(double deedsFees) {
         this.deedsFees = deedsFees;
     }
     
+    /**
+     *
+     * @return
+     */
     public double getVatDebit() {
         return vatDebit;
     }
 
+    /**
+     *
+     * @param vatDebit
+     */
     public void setVatDebit(double vatDebit) {
         this.vatDebit = vatDebit;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getConveyancingFees() {
         return conveyancingFees;
     }
 
+    /**
+     *
+     * @param conveyancingFees
+     */
     public void setConveyancingFees(double conveyancingFees) {
         this.conveyancingFees = conveyancingFees;
     }
+
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
