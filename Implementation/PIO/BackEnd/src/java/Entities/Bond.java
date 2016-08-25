@@ -45,52 +45,98 @@ public class Bond implements Serializable {
     @Column
     private int numberOfYears;
 
+    /**
+     *
+     * @return
+     */
     public Double getDepositInRands() {
         return depositInRands;
     }
 
+    /**
+     *
+     * @param depositInRands
+     */
     public void setDepositInRands(Double depositInRands) {
         this.depositInRands = depositInRands;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getBondRepayment() {
         return bondRepayment;
     }
 
+    /**
+     *
+     * @param bondRepayment
+     */
     public void setBondRepayment(Double bondRepayment) {
         this.bondRepayment = bondRepayment;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getInterestRate() {
         return interestRate;
     }
 
+    /**
+     *
+     * @param interestRate
+     */
     public void setInterestRate(Double interestRate) {
         this.interestRate = interestRate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getPropertyValue() {
         return propertyValue;
     }
 
+    /**
+     *
+     * @param propertyValue
+     */
     public void setPropertyValue(Double propertyValue) {
         this.propertyValue = propertyValue;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumberOfYears() {
         return numberOfYears;
     }
 
+    /**
+     *
+     * @param numberOfYears
+     */
     public void setNumberOfYears(int numberOfYears) {
         this.numberOfYears = numberOfYears;
     }
     
-    
-
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

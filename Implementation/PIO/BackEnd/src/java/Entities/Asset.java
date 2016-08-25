@@ -22,26 +22,50 @@ public class Asset implements Serializable {
     @Column
     private double capital;
 
+    /**
+     *
+     * @return
+     */
     public double getCapital() {
         return capital;
     }
 
+    /**
+     *
+     * @param capital
+     */
     public void setCapital(double capital) {
         this.capital = capital;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getCapitalGains() {
         return capitalGains;
     }
 
+    /**
+     *
+     * @param capitalGains
+     */
     public void setCapitalGains(double capitalGains) {
         this.capitalGains = capitalGains;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getTotal() {
         return total;
     }
 
+    /**
+     *
+     * @param total
+     */
     public void setTotal(double total) {
         this.total = total;
     }
@@ -52,10 +76,18 @@ public class Asset implements Serializable {
     @Column
     private double total;
     
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
