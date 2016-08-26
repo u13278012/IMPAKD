@@ -74,45 +74,12 @@ public class Increases implements Serializable {
         this.rent = rent;
     }
 
-<<<<<<< HEAD
     public double getRates_taxes() {
         return rates_taxes;
     }
 
     public void setRates_taxes(double rates_taxes) {
         this.rates_taxes = rates_taxes;
-=======
-    /**
-     *
-     * @return
-     */
-    public double getRates() {
-        return rates;
-    }
-
-    /**
-     *
-     * @param rates
-     */
-    public void setRates(double rates) {
-        this.rates = rates;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public double getTax() {
-        return tax;
-    }
-
-    /**
-     *
-     * @param tax
-     */
-    public void setTax(double tax) {
-        this.tax = tax;
->>>>>>> origin/master
     }
 
     /**
