@@ -59,25 +59,6 @@ public class Expenses implements Serializable {
         this.levy = levy;
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     *
-     * @return
-     */
-    public double getManagementFee() {
-        return managementFee;
-    }
-
-    /**
-     *
-     * @param managementFee
-     */
-    public void setManagementFee(double managementFee) {
-        this.managementFee = managementFee;
-    }
-
->>>>>>> origin/master
     @Column
     private double rates_taxes;
     
