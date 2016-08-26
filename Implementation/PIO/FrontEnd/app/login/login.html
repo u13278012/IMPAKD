@@ -74,17 +74,16 @@
                     <span class="input-group-addon">
                             <i class="glyphicon glyphicon-user"></i>
                     </span>
-                    <input type="text" class="form-control" name="UserName" id="UserName" placeholder="Username or email">
+                    <input type="text" class="form-control" name="UserName" id="UserName" ng-model="loginUserName" placeholder="Username or email">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                             <i class="glyphicon glyphicon-lock"></i>
                     </span>
-                    <input type="text" class="form-control" id="Password" name="Password" placeholder="Password">
+                    <input type="text" class="form-control" id="Password" name="Password" ng-model="loginPassword" placeholder="Password">
                 </div>
                 <button  type="Submit" id="LoginButton" class="btn">Log In</button>
-                <p>profile: {{$Scope.newProfile.username}}</p>
             </form>
             
             
