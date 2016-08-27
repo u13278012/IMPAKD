@@ -7,6 +7,7 @@ package service;
 
 import Entities.Bond;
 import Entities.Profile;
+import Entities.Property;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,6 +36,10 @@ public class PIOBean implements PIOBeanLocal {
     public void register(Profile profile) {
         persist(profile);
     }
+    
+ 
+ 
+    
 
     @Override
     public Profile login(String username, String password) {
@@ -44,7 +49,9 @@ public class PIOBean implements PIOBeanLocal {
     //Bond Functions
     public double calculateDepositInRands()
     {
-        
+        return 0.0;
     }
+
+ 
     
 }
