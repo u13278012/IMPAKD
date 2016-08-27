@@ -23,7 +23,9 @@ public class PIOBean implements PIOBeanLocal {
     
     //Bond Object
     Bond bond;
-    
+    public static void main(String[] args) {
+        Expenses();
+    }
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
@@ -63,38 +65,77 @@ public class PIOBean implements PIOBeanLocal {
     /**
      *
      */
-    public void Expenses(){
-        double rates_taxes, levy, managementFee;
+    static public void Expenses(){
+        double rates_taxes, levy, bondFee;
         Expenses expenses = new Expenses();       
         Increases increasesPerYear = new Increases();
         
         rates_taxes = expenses.getRates_Taxes();
-        levy = expenses.getLevy();    
+        levy = expenses.getLevy(); 
+        bondFee = expenses.getBondFee();
         
-        int arrayRates_Taxes[] = new int[20];
-        int arrayLevy[] = new int[20];
-        //int arrayManagementFee[] = new int[20];
+        double arrayRates_Taxes[] = new double[20];
+        double arrayLevy[] = new double[20];
+        double arrayBondFee[] = new double[20];
+        double arrayTotalExpeneses[] = new double[20]; 
         
-        // array for rates & taxes
+        double totalRates_Taxes[] = new double[20];
+        double totalLevy[] = new double[20];
+        double totalBondFee[] = new double[20];
+        
+        //increases per year for rates&taxes
         for(int i=0; i< 20; i++){
             if( i == 0){
-                arrayRates_Taxes[i] = (int) rates_taxes; 
+                arrayRates_Taxes[i] = rates_taxes; 
             }
             else{
-                arrayRates_Taxes[i] = (int) rates_taxes * (int) increasesPerYear.getRates_taxes();
+                arrayRates_Taxes[i] =  arrayRates_Taxes[i-1] * increasesPerYear.getRates_taxes() + arrayRates_Taxes[i-1];
             }
+        }
+        //total rates&taxes for each year
+        for(int i=0; i<20; i++){
+           // System.out.println(i + " " + Math.round(arrayRates_Taxes[i] * 12));
+           totalRates_Taxes[i] = Math.round(arrayRates_Taxes[i] * 12);
         }
         
-        //array for levy
+        //increases per year for levy 
         for(int i =0; i<20; i++){
             if( i == 0){
-                arrayLevy[i] = (int) levy; 
+                arrayLevy[i] = levy; 
             }
             else{
-                arrayLevy[i] = (int) levy * (int) increasesPerYear.getLevy();
+                arrayLevy[i] = arrayLevy[i-1] * increasesPerYear.getLevy() + arrayLevy[i-1];
             }
         }
- 
+        //total levy for each year
+        for(int i=0; i<20; i++){
+           // System.out.println(i + " " + Math.round(arrayLevy[i] * 12));
+              totalLevy[i] = Math.round(arrayLevy[i] * 12);
+        }
+        
+        //increases per year for bondFee
+        for(int i =0; i<20; i++){
+            if( i == 0){
+                arrayBondFee[i] = bondFee; 
+            }
+            else{
+                arrayBondFee[i] = arrayBondFee[i-1] * increasesPerYear.getBondFee() + arrayBondFee[i-1];
+            }
+        }
+        //total bondFee for each year
+        for(int i=0; i<20; i++){
+            //System.out.println(i + " " + Math.round(arrayBondFee[i] * 12));
+            totalBondFee[i] = Math.round(arrayBondFee[i] * 12);
+        }
+        
+        //total expenses yearly
+        for(int i=0; i< 20; i++){
+            arrayTotalExpeneses[i] = totalLevy[i] + totalBondFee[i] + totalRates_Taxes[i];
+        }
+        //display totalExpenses
+//         for(int i=0; i< 20; i++){
+//             System.out.println(i + " " + arrayTotalExpeneses[i]);
+//         }
     }  
 
     //Bond Functions
