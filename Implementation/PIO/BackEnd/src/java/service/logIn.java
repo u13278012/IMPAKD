@@ -24,7 +24,12 @@ import javax.ws.rs.core.UriInfo;
  */
 @Path("login")
 public class logIn {
- @POST
+
+    /**
+     *
+     * @param username
+     */
+    @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces("text/html")
  public String login(@FormParam("username") String username){

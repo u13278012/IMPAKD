@@ -17,6 +17,11 @@ import javax.ws.rs.ext.Provider;
 @Provider
 public class NewCrossOriginResourceSharingFilter implements ContainerResponseFilter {
 
+    /**
+     *
+     * @param requestContext
+     * @param response
+     */
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext response) {
         response.getHeaders().putSingle("Access-Control-Allow-Origin", "*");

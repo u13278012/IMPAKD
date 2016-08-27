@@ -26,55 +26,78 @@ public class Expenses implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    public double getTax() {
-        return tax;
+    
+    /**
+     *
+     * @param rate_taxes
+     */
+    public void setRates_Taxes(double rate_taxes){
+       this.rates_taxes = rate_taxes;
     }
 
-    public void setTax(double tax) {
-        this.tax = tax;
+    /**
+     *
+     * @return
+     */
+    public double getRates_Taxes(){
+        return rates_taxes;
     }
 
-    public double getRates() {
-        return rates;
-    }
-
-    public void setRates(double rates) {
-        this.rates = rates;
-    }
-
+    /**
+     *
+     * @return
+     */
     public double getLevy() {
         return levy;
     }
 
+    /**
+     *
+     * @param levy
+     */
     public void setLevy(double levy) {
         this.levy = levy;
     }
-
-    public double getManagementFee() {
-        return managementFee;
+    
+     /**
+     *
+     * @return
+     */
+    public double getBondFee() {
+        return bondFee;
     }
-
-    public void setManagementFee(double managementFee) {
-        this.managementFee = managementFee;
+    
+    /**
+     *
+     * @param bondFee
+     */
+    public void setBondFee(double bondFee) {
+        this.bondFee = bondFee;
     }
+    
+    @Column
+    private double rates_taxes = 370.00;
+    
+    @Column
+    private double levy = 534.50;
+    
+     @Column
+    private double bondFee = 57.00;
 
-    @Column
-    private double tax;
+
     
-    @Column
-    private double rates;
-    
-    @Column
-    private double levy;
-    
-    @Column
-    private double managementFee;
-    
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

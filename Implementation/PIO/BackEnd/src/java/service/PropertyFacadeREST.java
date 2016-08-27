@@ -45,10 +45,17 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
+    /**
+     *
+     */
     public PropertyFacadeREST() {
         super(Property.class);
     }
 
+    /**
+     *
+     * @param entity
+     */
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -56,6 +63,11 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         super.create(entity);
     }
 
+    /**
+     *
+     * @param id
+     * @param entity
+     */
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -63,12 +75,21 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         super.edit(entity);
     }
 
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -76,6 +97,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return super.find(id);
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -83,6 +108,12 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return super.findAll();
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @return
+     */
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -90,6 +121,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return super.findRange(new int[]{from, to});
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
@@ -97,6 +132,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         return String.valueOf(super.count());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected EntityManager getEntityManager() {
         return em;
@@ -144,10 +183,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       reservesObj.setMinReserves(maintenance);// minireserves is missing from the html page
       
       Expenses expensesObj = new Expenses();
-      expensesObj.setTax(tax);
-      expensesObj.setRates(rates);
+      expensesObj.setRates_Taxes(tax);
+      
       expensesObj.setLevy(levy);
-      expensesObj.setManagementFee(managementFee);
+      
       
       Rental rentalObj = new Rental();
       rentalObj.setOccupancyRate(occupancyRate);
@@ -159,9 +198,8 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       Increases increasesObj = new Increases();
       increasesObj.setInflation(inflation);
       increasesObj.setLevy(levyIncrease);
-      increasesObj.setTax(taxIncrease);
+      increasesObj.setRates_taxes(taxIncrease);
       increasesObj.setPropertyValue(propertyValueIncrease);
-      increasesObj.setRates(ratesIncrease);
       increasesObj.setBondFee(bondFeeIncrease);
       increasesObj.setRent(rentIncrease);
       

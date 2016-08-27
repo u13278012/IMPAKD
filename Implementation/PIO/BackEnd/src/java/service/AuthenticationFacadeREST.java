@@ -31,10 +31,17 @@ public class AuthenticationFacadeREST extends AbstractFacade<Authentication> {
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
 
+    /**
+     *
+     */
     public AuthenticationFacadeREST() {
         super(Authentication.class);
     }
 
+    /**
+     *
+     * @param entity
+     */
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -42,6 +49,11 @@ public class AuthenticationFacadeREST extends AbstractFacade<Authentication> {
         super.create(entity);
     }
 
+    /**
+     *
+     * @param id
+     * @param entity
+     */
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -49,12 +61,21 @@ public class AuthenticationFacadeREST extends AbstractFacade<Authentication> {
         super.edit(entity);
     }
 
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -62,6 +83,10 @@ public class AuthenticationFacadeREST extends AbstractFacade<Authentication> {
         return super.find(id);
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -69,6 +94,12 @@ public class AuthenticationFacadeREST extends AbstractFacade<Authentication> {
         return super.findAll();
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @return
+     */
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -76,6 +107,10 @@ public class AuthenticationFacadeREST extends AbstractFacade<Authentication> {
         return super.findRange(new int[]{from, to});
     }
 
+    /**
+     *
+     * @return
+     */
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
@@ -83,6 +118,10 @@ public class AuthenticationFacadeREST extends AbstractFacade<Authentication> {
         return String.valueOf(super.count());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     protected EntityManager getEntityManager() {
         return em;

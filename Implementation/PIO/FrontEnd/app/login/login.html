@@ -69,23 +69,28 @@
 
             <div class="tab-content" id="main_List">
             <!-- LogIn Section-->
-            <form class="tab-pane active" id="Login" method ="GET" role="tabpanel" action="http://localhost:51029/BackEnd/rs/profile/login/s.k/Sandile">
+
+            <form class="tab-pane active" id="Login" method ="GET" role="tabpanel" action="">
+
+            <form class="tab-pane active" id="Login" ng-submit="validation()" ng-controller="LoginCtrl"  role="tabpanel">
                 <div class="input-group">
                     <span class="input-group-addon">
                             <i class="glyphicon glyphicon-user"></i>
                     </span>
-                    <input type="text" class="form-control" name="UserName" id="UserName" placeholder="Username or email">
+                    <input type="text" class="form-control" name="loginEmail" id="loginEmail" ng-model="loginEmail" placeholder="Email">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                             <i class="glyphicon glyphicon-lock"></i>
                     </span>
-                    <input type="text" class="form-control" id="Password" name="Password" placeholder="Password">
+                    <input type="password" class="form-control" id="loginPassword" name="loginPassword" ng-model="loginPassword" placeholder="Password">
                 </div>
                 <button  type="Submit" id="LoginButton" class="btn">Log In</button>
             </form>
-
+            
+            
+            
             <!-- SignUp/Register Section-->
             <form class="tab-pane" id="register" role="tabpanel" action="">
                 <div class="input-group">

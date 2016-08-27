@@ -26,87 +26,124 @@ public class Increases implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    /**
+     *
+     * @return
+     */
     public double getInflation() {
         return inflation;
     }
 
+    /**
+     *
+     * @param inflation
+     */
     public void setInflation(double inflation) {
         this.inflation = inflation;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getPropertyValue() {
         return propertyValue;
     }
 
+    /**
+     *
+     * @param propertyValue
+     */
     public void setPropertyValue(double propertyValue) {
         this.propertyValue = propertyValue;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getRent() {
         return rent;
     }
 
+    /**
+     *
+     * @param rent
+     */
     public void setRent(double rent) {
         this.rent = rent;
     }
 
-    public double getRates() {
-        return rates;
+    public double getRates_taxes() {
+        return rates_taxes;
     }
 
-    public void setRates(double rates) {
-        this.rates = rates;
+    public void setRates_taxes(double rates_taxes) {
+        this.rates_taxes = rates_taxes;
     }
 
-    public double getTax() {
-        return tax;
-    }
-
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
-
+    /**
+     *
+     * @return
+     */
     public double getBondFee() {
         return bondFee;
     }
 
+    /**
+     *
+     * @param bondFee
+     */
     public void setBondFee(double bondFee) {
         this.bondFee = bondFee;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getLevy() {
         return levy;
     }
 
+    /**
+     *
+     * @param levy
+     */
     public void setLevy(double levy) {
         this.levy = levy;
     }
     
     @Column
-    private double inflation;
+    private double inflation = 7.00/100.00;
     
     @Column
-    private double propertyValue;
+    private double propertyValue = 5.00/100.00;
     
     @Column
-    private double rent;
+    private double rent = 6.00/100.00;
     
     @Column
-    private double rates;
+    private double rates_taxes = 8.00/100.00;
     
     @Column
-    private double tax;
+    private double bondFee = 7.00/100.00;
     
     @Column
-    private double bondFee;
+    private double levy = 8.00/100.00;
     
-    @Column
-    private double levy;
-    
+    /**
+     *
+     * @return
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }

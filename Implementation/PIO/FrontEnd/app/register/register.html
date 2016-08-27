@@ -86,50 +86,50 @@
                 </form>
             <!-- SignUp/Register Section-->
             
-                <form class="tab-pane active" id="register" role="tabpanel" method="POST" action="http://localhost:8080/BackEnd/rs/profile/register" >
+                <form class="tab-pane active" id="register" role="tabpanel" ng-submit="validation()" ng-controller="RegisterCtrl">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </span>
-                    <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First Name">
+                    <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First Name" ng-model="FirstName">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </span>
-                    <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name">
+                    <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" ng-model="LastName">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-user"></i>
                     </span>
-                    <input type="text" class="form-control" id="UserName" name="UserName" placeholder="Username" >
+                    <input type="text" class="form-control" id="UserName" name="UserName" placeholder="Username" ng-model="UserName">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-envelope"></i>
                     </span>
-                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Email" ng-model="Email">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-lock"></i>
                     </span>
-                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
+                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" ng-model="Password">
                 </div>&nbsp;
 
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-lock"></i>
                     </span>
-                    <input type="password" class="form-control" id="confrimPassword" name="confrimPassword" placeholder="Confirm Password">
+                    <input type="password" class="form-control" id="confrimPassword" name="confrimPassword" placeholder="Confirm Password" ng-model="confrimPassword">
                 </div>
 
-                  <button  type="submit" id="createAcc" class="btn">
+                <button  type="submit" id="createAcc" class="btn">
                         Create Account
                   </button>
                 </form>
