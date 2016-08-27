@@ -20,6 +20,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
@@ -234,7 +235,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
 
       pIOBean.persist(propertyObj);
       
-      
+       TypedQuery<Property> query = em.createQuery("SELECT c FROM Property c", Property.class);
+       Property results = query.getSingleResult();
+       
+      // return results;
       
       
      
