@@ -13,36 +13,43 @@ angular.module('myApp', ['ngRoute'])
 
 $scope.validation = function()
 {
-    if($scope.loginUserName === "" || $scope.loginPassword === "")
+    if($scope.loginEmail == undefined || $scope.loginPassword == undefined)
     {
-        alert("Please complete the entire form");
+        alert("Please fill in all fields");
     }
     else
     {
+        alert($scope.loginEmail+','+$scope.loginPassword);
         $scope.submitFunction();
     }
 };
 
 $scope.submitFunction = function() 
     {
-            var encodedString = 'UserName=' +
-            encodeURIComponent($scope.UserName) +
-            '&Password='+
-            encodeURIComponent($scope.Password);
+            var encodedString = 'loginEmail=' +
+            encodeURIComponent($scope.loginEmail) +
+            '&loginPassword='+
+            encodeURIComponent($scope.loginPassword);
        
 
             $http({
-                method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/profile/login/'+$scope.loginUserName/+$scope.loginPassword,
+                method: 'GET',
+                url: 'http://localhost:8080/BackEnd/rs/profile/login/'+$scope.loginEmail+'/'+$scope.loginPassword
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
+                       
+                    $scope.a = response.data;
+                    alert($scope.a);
                     window.location = "../home/home.html"; 
 
                 }).
                 error(function(response)
                 {
-                    $window.alert(response.status);
+                    
+                    $window.alert('The username or password is incorrect.');
+                    
+                                
                 });
 
         };
