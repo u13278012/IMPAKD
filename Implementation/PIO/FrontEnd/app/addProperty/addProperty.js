@@ -22,7 +22,7 @@ angular.module('myApp', ['ngRoute'])
             '&annualMaintenanceCost=' +
             encodeURIComponent($scope.annualMaintenanceCost) +
             '&annualCostIncrease=' +
-            encodeURIComponent($scope.annualCostIncrease) +
+            encodeURIComponent($scope.annualCostIncrease)+
             '&interestRate=' +
             encodeURIComponent($scope.interestRate) +
             '&deposit=' +
