@@ -115,22 +115,22 @@ public class Increases implements Serializable {
     }
     
     @Column
-    private double inflation;
+    private double inflation = 7.00/100.00;
     
     @Column
-    private double propertyValue;
+    private double propertyValue = 5.00/100.00;
     
     @Column
-    private double rent;
+    private double rent = 6.00/100.00;
     
     @Column
-    private double rates_taxes;
+    private double rates_taxes = 8.00/100.00;
     
     @Column
-    private double bondFee;
+    private double bondFee = 7.00/100.00;
     
     @Column
-    private double levy;
+    private double levy = 8.00/100.00;
     
     /**
      *
