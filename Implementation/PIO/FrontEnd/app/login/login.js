@@ -1,26 +1,57 @@
 'use strict';
 
-var app = angular.module('myApp', ['ngRoute']);
+angular.module('myApp', ['ngRoute'])
 
-app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/login', {
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/home', {
     templateUrl: 'login/login.html',
     controller: 'LoginCtrl'
   });
+}])
+
+.controller('LoginCtrl', ["$scope", "$window", "$http", function($scope, $window, $http){
+
+$scope.validation = function()
+{
+    if($scope.loginEmail == undefined || $scope.loginPassword == undefined)
+    {
+        alert("Please fill in all fields");
+    }
+    else
+    {
+        alert($scope.loginEmail+','+$scope.loginPassword);
+        $scope.submitFunction();
+    }
+};
+
+$scope.submitFunction = function() 
+    {
+            var encodedString = 'loginEmail=' +
+            encodeURIComponent($scope.loginEmail) +
+            '&loginPassword='+
+            encodeURIComponent($scope.loginPassword);
+       
+
+            $http({
+                method: 'GET',
+                url: 'http://localhost:8080/BackEnd/rs/profile/login/'+$scope.loginEmail+'/'+$scope.loginPassword
+               // data: encodedString,
+                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+                       
+                    $scope.a = response.data;
+                    alert($scope.a);
+                    window.location = "../home/home.html"; 
+
+                }).
+                error(function(response)
+                {
+                    
+                    $window.alert('The username or password is incorrect.');
+                    
+                                
+                });
+
+        };
+
 }]);
-
-
-
-app.controller('login',['$Scope', '$http','X2JS', function($Scope, $http, X2JS) {
-    $Scope.username = document.getElementById('UserName').value;
-    $Scope.password = document.getElementById('Password').value;
-    
-    $http.get("http://localhost:8080/BackEnd/rs/profile/login/"+$Scope.username+"/"+$Scope.password)
-    .success(function(data) {
-        var x2js = new X2JS(); 
-        var json = x2js.xml_str2json( data );
-        $Scope.newProfile = json;
-    });
-}]);
-
-
