@@ -59,11 +59,22 @@ public class Expenses implements Serializable {
         this.levy = levy;
     }
 
+    public double getBondFee() {
+        return bondFee;
+    }
+
+    public void setBondFee(double bondFee) {
+        this.bondFee = bondFee;
+    }
+
     @Column
-    private double rates_taxes;
+    private double rates_taxes = 370.00;
     
     @Column
-    private double levy;
+    private double levy = 534.50;
+    
+    @Column
+    private double bondFee = 57.00;
     
     
     /**
