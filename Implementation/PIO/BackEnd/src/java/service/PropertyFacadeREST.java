@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package service;
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import Entities.Bond;
 import Entities.Expenses;
 import Entities.Increases;
 import Entities.Property;
@@ -120,10 +123,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
  ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
  ,@FormParam("rentalAmount") double rentalAmount){
-     System.out.print(managementFee);
+     System.out.print(propertyName);
      System.out.print(marketPriceAdjustment);
      
-      Property propertyObj = new Property();
+     Property propertyObj = new Property();
       
 
       UpFrontCosts upFrontCostsObj = new UpFrontCosts();
@@ -138,7 +141,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       reservesObj.setRenovation(renovation);
       reservesObj.setDeviance(deviance);
       reservesObj.setRentInsurance(rentInsurance);
-       reservesObj.setMinReserves(maintenance);// minireserves is missing from the html page
+      reservesObj.setMinReserves(maintenance);// minireserves is missing from the html page
       
       Expenses expensesObj = new Expenses();
       expensesObj.setTax(tax);
@@ -162,12 +165,35 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       increasesObj.setBondFee(bondFeeIncrease);
       increasesObj.setRent(rentIncrease);
       
+      Bond bondObj = new Bond();
+      bondObj.setBondRepayment(bondRepaymnet);
+      bondObj.setDepositInRands(deposit);
+      bondObj.setInterestRate(interestRate);
+      bondObj.setNumberOfYears(numberOfYears);
+      bondObj.setPropertyValue(propertyValue);
+     
+      
+      
       propertyObj.setPropertyName(propertyName);
       propertyObj.setMarketPriceAdjustment(marketPriceAdjustment);
       propertyObj.setCapitalGains(capitalGains);
+     
+      pIOBean.persist(upFrontCostsObj);
+      pIOBean.persist(reservesObj);
+      pIOBean.persist(expensesObj);
+      pIOBean.persist(rentalObj);
+      pIOBean.persist(bondObj);
+      pIOBean.persist(increasesObj);
+
+      propertyObj.setIncreases(increasesObj);
       propertyObj.setUpFrontCosts(upFrontCostsObj);
       propertyObj.setReserves(reservesObj);
       propertyObj.setRental(rentalObj);
+      propertyObj.setBond(bondObj);
+      propertyObj.setExpenses(expensesObj);
+      
+     // System.out.print(propertyObj.getId());
+
       pIOBean.persist(propertyObj);
       
       
