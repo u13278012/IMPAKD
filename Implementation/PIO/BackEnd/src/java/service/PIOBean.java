@@ -10,6 +10,7 @@ import Entities.Expenses;
 import Entities.Increases;
 import Entities.Bond;
 import Entities.Profile;
+import Entities.Rental;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -24,7 +25,11 @@ public class PIOBean implements PIOBeanLocal {
     //Bond Object
     Bond bond;
     public static void main(String[] args) {
-        Expenses();
+        double arrayTotalExpeneses[] = new double[20];
+        Expenses(arrayTotalExpeneses);
+//        for(int i =0; i< 20; i++){
+//            System.out.println(arrayTotalExpeneses[i]);
+//        }
     }
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
@@ -63,21 +68,23 @@ public class PIOBean implements PIOBeanLocal {
 
 
     /**
-     *
+     * @param arrayTotalExpeneses[]
+     * @return
      */
-    static public void Expenses(){
-        double rates_taxes, levy, bondFee;
+    static public double[] Expenses(double arrayTotalExpeneses[]){
+        //double rates_taxes, levy, bondFee;
         Expenses expenses = new Expenses();       
         Increases increasesPerYear = new Increases();
+        double rates_taxes, levy, bondFee;
         
         rates_taxes = expenses.getRates_Taxes();
         levy = expenses.getLevy(); 
-        bondFee = expenses.getBondFee();
+        bondFee = expenses.getBondFee(); 
         
         double arrayRates_Taxes[] = new double[20];
         double arrayLevy[] = new double[20];
         double arrayBondFee[] = new double[20];
-        double arrayTotalExpeneses[] = new double[20]; 
+       // arrayTotalExpeneses[20];// = new double[20]; 
         
         double totalRates_Taxes[] = new double[20];
         double totalLevy[] = new double[20];
@@ -136,8 +143,22 @@ public class PIOBean implements PIOBeanLocal {
 //         for(int i=0; i< 20; i++){
 //             System.out.println(i + " " + arrayTotalExpeneses[i]);
 //         }
+         return arrayTotalExpeneses;
     }  
-
+    
+    static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
+        Rental rent = new Rental();
+        
+        totalRent = rent.getTotalRent();
+        occupancyRate = rent.getOccupancyRate();
+        rentalAmount = rent.getRentalAmount();
+        onceOffAgentFee = rent.getOnceOffAgentFee();
+        
+        totalRent = rentalAmount * (12.00 * occupancyRate);
+        
+        return totalRent;
+        
+    }
     //Bond Functions
 
     /**
