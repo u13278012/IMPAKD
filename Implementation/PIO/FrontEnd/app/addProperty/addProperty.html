@@ -24,7 +24,7 @@ and open the template in the editor.
             
           </div>
         
-        <form action="../home/home.html" id="addProperty" style="align:center">
+        <form ng-submit="submitFunction()" ng-controller="AddPropertyCtrl" id="addProperty" style="align:center">
             <h1 id="propertyHeader">Add Property</h1>
 
             <div id="property">
@@ -32,23 +32,23 @@ and open the template in the editor.
                     <h3 id="miniHeading">Property Details</h3>
                 </div>
                 <fieldset class="form-group">
-                 <input type="text" class="form-control" id="propertyName" placeholder="Name">
+                 <input type="text" class="form-control" id="propertyName" placeholder="Name"  ng-model="propertyName">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="marketPriceAdjustment" placeholder="Market Price Adjustment">
+                    <input type="text" class="form-control" id="marketPriceAdjustment" placeholder="Market Price Adjustment" ng-model="marketPriceAdjustment">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="capitalGains" placeholder="Capital Gains">
+                    <input type="text" class="form-control" id="capitalGains" placeholder="Capital Gains" ng-model ="capitalGains">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="annualMaintenanceCost" placeholder="Annual Maintenance Cost">
+                    <input type="text" class="form-control" id="annualMaintenanceCost" placeholder="Annual Maintenance Cost" ng-model="annualMaintenanceCost">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="annualCostIncrease" placeholder="Annual Cost Increase">
+                    <input type="text" class="form-control" id="annualCostIncrease" placeholder="Annual Cost Increase" ng-model ="annualCostIncrease">
                 </fieldset>
             </div>
 
@@ -57,23 +57,23 @@ and open the template in the editor.
                     <h3 id="miniHeading">Bond Details</h3>
                 </div>
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="interestRate" placeholder="Interest Rate">
+                    <input type="text" class="form-control" id="interestRate" placeholder="Interest Rate" ng-model="interestRate">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="deposit" placeholder="Deposit">
+                    <input type="text" class="form-control" id="deposit" placeholder="Deposit" ng-model="deposit">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="propertyValue" placeholder="Property Value">
+                    <input type="text" class="form-control" id="propertyValue" placeholder="Property Value" ng-model="propertyValue">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="numberOfYears" placeholder="Number Of Years">
+                    <input type="text" class="form-control" id="numberOfYears" placeholder="Number Of Years" ng-model ="numberOfYears">
                 </fieldset>
                 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="bondRepaymnet" placeholder="Bond Repayment">
+                    <input type="text" class="form-control" id="bondRepaymnet" placeholder="Bond Repayment" ng-model ="bondRepaymnet">
                 </fieldset>
             </div>
             
@@ -83,15 +83,15 @@ and open the template in the editor.
                 </div>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="occupancyRate" placeholder="Period">
+                    <input type="text" class="form-control" id="Period" placeholder="Period" ng-model="Period">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="agentCommission" placeholder="Additional Cash">
+                    <input type="text" class="form-control" id="additionalCash" placeholder="Additional Cash" ng-model="additionalCash">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="rentalAmount" placeholder="Once-Off Payment" style="width:35%">
+                    <input type="text" class="form-control" id="onceOffPayment" placeholder="Once-Off Payment" style="width:35%" ng-model="onceOffPayment">
                 </fieldset>
             </div>
             
@@ -100,19 +100,19 @@ and open the template in the editor.
                     <h3 id="miniHeading">Reserves</h3>
                 </div>
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="maintenance" placeholder="Maintenance">
+                    <input type="text" class="form-control" id="maintenance" placeholder="Maintenance" ng-model="maintenance">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="renovation" placeholder="Renovation">
+                    <input type="text" class="form-control" id="renovation" placeholder="Renovation" ng-model ="renovation">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="deviance" placeholder="Deviance">
+                    <input type="text" class="form-control" id="deviance" placeholder="Deviance" ng-model="deviance">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="rentInsurance" placeholder="Rent Insurance">
+                    <input type="text" class="form-control" id="rentInsurance" placeholder="Rent Insurance" ng-model="rentInsurance">
                 </fieldset>
             </div>
 
@@ -121,19 +121,19 @@ and open the template in the editor.
                     <h3 id="miniHeading">Up-Front Costs</h3>
                 </div>
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="conveyancingFees" placeholder="Conveyancing Fees">
+                    <input type="text" class="form-control" id="conveyancingFees" placeholder="Conveyancing Fees" ng-model="conveyancingFees">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="vatDebit" placeholder="VAT Debit">
+                    <input type="text" class="form-control" id="vatDebit" placeholder="VAT Debit" ng-model="vatDebit">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="deedsFee" placeholder="Deeds Fee">
+                    <input type="text" class="form-control" id="deedsFee" placeholder="Deeds Fee" ng-model="deedsFee">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="initiationFee" placeholder="Initiation Fee">
+                    <input type="text" class="form-control" id="initiationFee" placeholder="Initiation Fee" ng-model ="initiationFee">
                 </fieldset>
             </div>
             
@@ -142,19 +142,19 @@ and open the template in the editor.
                     <h3 id="miniHeading">Expenses</h3>
                 </div>
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="tax" placeholder="Tax">
+                    <input type="text" class="form-control" id="tax" placeholder="Tax" ng-model ="tax">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="rates" placeholder="Rates">
+                    <input type="text" class="form-control" id="rates" placeholder="Rates" ng-model="rates">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="levy" placeholder="Levy">
+                    <input type="text" class="form-control" id="levy" placeholder="Levy" ng-model="levy">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="managementFee" placeholder="Management Fee">
+                    <input type="text" class="form-control" id="managementFee" placeholder="Management Fee" ng-model="managementFee">
                 </fieldset>
             </div>
             
@@ -163,31 +163,31 @@ and open the template in the editor.
                     <h3 id="miniHeading">Increases</h3>
                 </div>
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="inflation" placeholder="Inflation">
+                    <input type="text" class="form-control" id="inflation" placeholder="Inflation" ng-model ="inflation">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="propertyValueIncrease" placeholder="Property Value">
+                    <input type="text" class="form-control" id="propertyValueIncrease" placeholder="Property Value" ng-model="propertyValueIncrease">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="rentIncrease" placeholder="Rent">
+                    <input type="text" class="form-control" id="rentIncrease" placeholder="Rent" ng-model ="rentIncrease">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="ratesIncrease" placeholder="Rates">
+                    <input type="text" class="form-control" id="ratesIncrease" placeholder="Rates" ng-model="ratesIncrease">
                 </fieldset>
                 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="taxIncrease" placeholder="Tax">
+                    <input type="text" class="form-control" id="taxIncrease" placeholder="Tax" ng-model="taxIncrease">
                 </fieldset>
                 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="bondFeeIncrease" placeholder="Bond Fee">
+                    <input type="text" class="form-control" id="bondFeeIncrease" placeholder="Bond Fee" ng-model ="bondFeeIncrease">
                 </fieldset>
                 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="levyIncrease" placeholder="Levy">
+                    <input type="text" class="form-control" id="levyIncrease" placeholder="Levy" ng-model="levyIncrease">
                 </fieldset>
             </div>
             
@@ -197,15 +197,15 @@ and open the template in the editor.
                 </div>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="occupancyRate" placeholder="Occupancy Rate">
+                    <input type="text" class="form-control" id="occupancyRate" placeholder="Occupancy Rate" ng-model="occupancyRate">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="agentCommission" placeholder="Agent Commission">
+                    <input type="text" class="form-control" id="agentCommission" placeholder="Agent Commission" ng-model="agentCommission">
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <input type="text" class="form-control" id="rentalAmount" placeholder="Rental Amount" style="width:35%">
+                    <input type="text" class="form-control" id="rentalAmount" placeholder="Rental Amount" style="width:35%" ng-model="rentalAmount">
                 </fieldset>
 
 

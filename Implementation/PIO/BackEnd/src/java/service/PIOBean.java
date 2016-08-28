@@ -10,6 +10,7 @@ import Entities.Expenses;
 import Entities.Increases;
 import Entities.Bond;
 import Entities.Profile;
+import Entities.Property;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -49,6 +50,10 @@ public class PIOBean implements PIOBeanLocal {
     public void register(Profile profile) {
         persist(profile);
     }
+    
+ 
+ 
+    
 
     /**
      *
@@ -148,4 +153,5 @@ public class PIOBean implements PIOBeanLocal {
     {
         return 0.0;
     }
+
 }

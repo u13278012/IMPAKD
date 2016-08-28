@@ -6,6 +6,7 @@
 package service;
 
 import Entities.Profile;
+import Entities.Property;
 import javax.ejb.Local;
 
 /**
@@ -28,5 +29,7 @@ public interface PIOBeanLocal {
      * @return
      */
     Profile login(String username, String password);
+
+    public void persist(Object object);
     
 }
