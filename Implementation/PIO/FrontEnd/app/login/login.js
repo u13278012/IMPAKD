@@ -38,15 +38,15 @@ $scope.submitFunction = function()
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
-                       
-                    $scope.a = response.data;
-                    alert($scope.a);
-                    window.location = "../home/home.html"; 
+                    var x2js = new X2JS();
+                    var x = x2js.xml_str2json(response);
+                    $scope.a = x;
+                        alert(x.email);
+//                  window.location = "../home/home.html"; 
 
                 }).
                 error(function(response)
                 {
-                    
                     $window.alert('The username or password is incorrect.');
                     
                                 
