@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -54,6 +55,28 @@ public class Property implements Serializable {
     
     @OneToOne
     private Bond bond;
+
+
+    public Increases getIncreases() {
+        return increases;
+    }
+
+    public void setIncreases(Increases increases) {
+        this.increases = increases;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+    
+    @ManyToOne
+    private Profile profile;
+    
+
 
     /**
      *
@@ -198,6 +221,7 @@ public class Property implements Serializable {
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
     }
+
 
     /**
      *

@@ -172,15 +172,15 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
     @Path("login/{Email}/{Password}") //path for html
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
     @Produces({MediaType.APPLICATION_XML})
+
+
+
     public Profile login(@PathParam("Email") String loginEmail, @PathParam("Password") String loginPassword) {
         TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.email = '"+loginEmail + "'AND a.password= '"+loginPassword+"'",Profile.class);
         Profile profile = query.getSingleResult(); //gets the object containing the username and password
-        if(profile == null){
+        
             return profile;
-        }
-        else{
-            return profile;
-        }
+        
     }
     
 }
