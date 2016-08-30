@@ -28,7 +28,7 @@
                 login = document.getElementById("Login");
                 register = document.getElementById("register");
             };
-            function reg_log(id)
+           /* function reg_log(id)
             {
                 if (id === "register")
                 {
@@ -42,13 +42,11 @@
                     login.style.opacity = "1";
                     register.style.opacity = "0";
                 }
-            };
+            };*/
             function createAcc_onclick(){
                 window.location = "../login/login.html";
             };
-            function LoginButton_onclick(){
-                window.location = "../home/home.html";
-            };
+          
         </script>
 
         <link rel="stylesheet" type="text/css" href="register.css">
@@ -60,30 +58,14 @@
         <div id="registerForm">	
             <ul class="nav nav-tabs" role="tablist" id="mainList">
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#Login" onclick="reg_log('login')" role="tab" id="tab">Log In</a>
+                  <a class="nav-link" data-toggle="tab" href="#Login" onclick="createAcc_onclick()" role="tab" id="tab">Log In</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link active" data-toggle="tab" href="#register" onclick="reg_log('register')" role="tab" id="tab">Sign Up</a>
+                  <a class="nav-link active" data-toggle="tab" href="#register"  role="tab" id="tab">Sign Up</a>
                 </li>
             </ul>	
             <div class="tab-content" id="main_List">              
-                    <!-- LogIn Section-->
-                <form class="tab-pane" id="Login" role="tabpanel" action="">
-                        <div class="input-group">
-                                <span class="input-group-addon">
-                                        <i class="glyphicon glyphicon-user"></i>
-                                </span>
-                                <input type="text" class="form-control" id="UserName" placeholder="Username or email">
-                          </div>&nbsp;
-
-                        <div class="input-group">
-                                <span class="input-group-addon">
-                                        <i class="glyphicon glyphicon-lock"></i>
-                                </span>
-                                <input type="text" class="form-control" id="Password" placeholder="Password">
-                        </div>
-                        <button onclick="return LoginButton_onclick()" type="button" id="LoginButton" class="btn">Log In</button>
-                </form>
+               
             <!-- SignUp/Register Section-->
             
                 <form class="tab-pane active" id="register" role="tabpanel" ng-submit="validation()" ng-controller="RegisterCtrl">
