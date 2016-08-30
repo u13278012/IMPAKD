@@ -103,7 +103,11 @@ public class PIOBeanTest {
     @Test
     public void testExpenses() throws Exception {
         System.out.println("Expenses");
+<<<<<<< HEAD
 //        PIOBean.Expenses();
+=======
+       // PIOBean.Expenses();
+>>>>>>> master
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
