@@ -10,11 +10,8 @@ import Entities.Expenses;
 import Entities.Increases;
 import Entities.Bond;
 import Entities.Profile;
-<<<<<<< HEAD
 import Entities.Property;
-=======
 import Entities.Rental;
->>>>>>> 941e04cc0d05b30d4dc3486545a7a28ea455ee4e
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
