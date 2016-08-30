@@ -11,6 +11,7 @@
         <script src="../bower_components/angular-route/angular-route.js"></script>
         <script src="login.js"></script>
         <script src="xml2json.js"></script>
+        <script src="angular-cookies.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -29,7 +30,7 @@
                 login = document.getElementById("Login");
                 register = document.getElementById("register");
             };
-            function reg_log(id)
+           /* function reg_log(id)
             {
                 if (id === "register")
                 {
@@ -43,12 +44,10 @@
                     login.style.opacity = "1";
                     register.style.opacity = "0";
                 }
-            }; 
-            function createAcc_onclick(){
-                window.location = "../login/login.html";
-            };
-            function LoginButton_onclick(){
-                window.location = "../home/home.html";
+            }; */
+    
+            function registerButton_onclick(){
+                window.location = "../register/register.html";
             }; 
         </script>
         
@@ -61,17 +60,17 @@
         <div id="registerForm">
             <ul class="nav nav-tabs" role="tablist" id="mainList">
               <li class="nav-item active">
-                  <a class="nav-link active" data-toggle="tab" href="#Login" onclick="reg_log('login')" role="tab" id="tab">Log In</a>
+                  <a class="nav-link active" data-toggle="tab" href="#Login"  role="tab" id="tab">Log In</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#register" onclick="reg_log('register')" role="tab" id="tab">Sign Up</a>
+                <a class="nav-link" data-toggle="tab" href="#register" onclick="registerButton_onclick()" role="tab" id="tab">Sign Up</a>
               </li>
             </ul>
 
             <div class="tab-content" id="main_List">
             <!-- LogIn Section-->
 
-            <form class="tab-pane active" id="Login" method ="GET" role="tabpanel" action="">
+
 
             <form class="tab-pane active" id="Login" ng-submit="validation()" ng-controller="LoginCtrl"  role="tabpanel">
                 <div class="input-group">
@@ -88,58 +87,6 @@
                     <input type="password" class="form-control" id="Password" name="loginPassword" ng-model="loginPassword" placeholder="Password">
                 </div>
                 <button  type="Submit" id="LoginButton" class="btn">Log In</button>
-                <p>firstname: {{b}}</p>
-            </form>
-            
-            
-            
-            <!-- SignUp/Register Section-->
-            <form class="tab-pane" id="register" role="tabpanel" action="">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                    </span>
-                    <input type="text" class="form-control" id="FirstName" placeholder="First Name">
-                </div>&nbsp;
-
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-pencil"></i>
-                    </span>
-                    <input type="text" class="form-control" id="LastName" placeholder="Last Name">
-                </div>&nbsp;
-
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-user"></i>
-                    </span>
-                    <input type="text" class="form-control" id="UserName" placeholder="Username" >
-                </div>&nbsp;
-
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-envelope"></i>
-                    </span>
-                    <input type="email" class="form-control" id="Email" placeholder="Email">
-                </div>&nbsp;
-
-                <div class="input-group">
-                    <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-lock"></i>
-                    </span>
-                    <input type="password" class="form-control" id="Password" placeholder="Password">
-                </div>&nbsp;
-
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-lock"></i>
-                    </span>
-                    <input type="password" class="form-control" id="confrimPassword" placeholder="Confirm Password">
-                </div>
-
-                  <button onclick="return createAcc_onclick()" type="button" id="createAcc" class="btn">
-                      Create Account
-                  </button>
             </form>
             </div>
         </div>
