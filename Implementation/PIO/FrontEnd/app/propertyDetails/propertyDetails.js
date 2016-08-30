@@ -16,7 +16,8 @@ angular.module('myApp', ['ngRoute'])
 var app = angular.module('myApp', []);
 app.controller('PropertyDetailsCtrl', function($scope) {
     $scope.show = function () {
-            
+                    
+             var session = localStorage.getItem("session");
 		var chart = new CanvasJS.Chart("chartContainer",
 		{
 			title:{
