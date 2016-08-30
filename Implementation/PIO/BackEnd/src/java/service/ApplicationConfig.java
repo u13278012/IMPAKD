@@ -47,6 +47,7 @@ public class ApplicationConfig extends Application {
         resources.add(service.ReservesFacadeREST.class);
         resources.add(service.StatisticsFacadeREST.class);
         resources.add(service.UpFrontCostsFacadeREST.class);
+        resources.add(service.logIn.class);
 
 
     }
