@@ -41,10 +41,18 @@ $scope.submitFunction = function()
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.a = x;
-                        console.log(x);
-                        alert(x.profile.username);
 
-//                  window.location = "../home/home.html"; 
+                    if (typeof(Storage) !== "undefined") {
+                        // Store
+                        localStorage.setItem("session", x.profile.id);
+                        // Retrieve
+                        var session = localStorage.getItem("session");
+                    } else {
+                        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                    }
+
+                  window.location = "../home/home.html"; 
+                       
 
                 }).
                 error(function(response)
