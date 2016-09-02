@@ -37,6 +37,17 @@ public class Property implements Serializable {
     
     @Column
     private double capitalGains;
+
+    public int getProfileID() {
+        return profileID;
+    }
+
+    public void setProfileID(int profileID) {
+        this.profileID = profileID;
+    }
+    
+    @Column
+    private int profileID;
     
     @OneToOne
     private UpFrontCosts upFrontCosts;
@@ -221,45 +232,8 @@ public class Property implements Serializable {
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
     }
-
-
-    /**
-     *
-     * @return
-     */
-    public int getAnnualMaintenanceCost() {
-        return annualMaintenanceCost;
-    }
-
-    /**
-     *
-     * @param annualMaintenanceCost
-     */
-    public void setAnnualMaintenanceCost(int annualMaintenanceCost) {
-        this.annualMaintenanceCost = annualMaintenanceCost;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getAnnualCostIncrease() {
-        return annualCostIncrease;
-    }
-
-    /**
-     *
-     * @param annualCostIncrease
-     */
-    public void setAnnualCostIncrease(int annualCostIncrease) {
-        this.annualCostIncrease = annualCostIncrease;
-    }
     
-    @Column
-    private int annualMaintenanceCost;
-    
-    @Column
-    private int annualCostIncrease;
+
     
     /**
      *
