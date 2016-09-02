@@ -241,10 +241,12 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
        
       // return results;
     }
-  @Path("/getPropertyDetails")
+ @Path("/getPropertyDetails")
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_JSON)
-  public void addProperty(@FormParam("profileID") int profileID){}
+  public void addProperty(@FormParam("profileID") int profileID){
+  System.out.print(profileID);
+  }
     
 }

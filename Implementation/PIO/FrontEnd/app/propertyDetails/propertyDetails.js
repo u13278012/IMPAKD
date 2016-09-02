@@ -33,7 +33,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
             alert(encodedString);
             $http({
                 method: 'POST',
-                url: 'http://localhost:51029/BackEnd/rs/property/addProperty',
+                url: 'http://localhost:51029/BackEnd/rs/property/addProperty/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
