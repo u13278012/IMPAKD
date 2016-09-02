@@ -240,6 +240,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
        Property results = query.getSingleResult();
        
       // return results;
+<<<<<<< HEAD
     }
  @Path("/getPropertyDetails")
  @POST
@@ -249,4 +250,19 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   System.out.print(profileID);
   }
     
+=======
+      
+      
+     
+
+    
+      
+ }
+  @GET
+  @Path("{id}")
+  @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+  public Property retrieveProperties(@PathParam("id") Long id) {
+      return super.find(id);
+  }  
+>>>>>>> master
 }

@@ -35,12 +35,6 @@ public class Profile implements Serializable {
     
     @Column
     private String username;
-        
-    @Column
-    private String firstName;
-    
-    @Column
-    private String surname;
     
     @Column
     private String password;
@@ -97,21 +91,6 @@ public class Profile implements Serializable {
         this.properties = properties;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getSurname() {
-        return surname;
-    }
-
-    /**
-     *
-     * @param surname
-     */
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
     /**
      *
@@ -129,21 +108,6 @@ public class Profile implements Serializable {
         this.email = email;
     }
   
-    /**
-     *
-     * @return
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     *
-     * @param firstName
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     /**
      *
