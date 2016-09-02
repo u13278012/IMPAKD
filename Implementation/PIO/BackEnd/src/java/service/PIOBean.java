@@ -25,9 +25,12 @@ import Entities.Property;
 import Entities.Rental;
 
 
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> master
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -71,12 +74,7 @@ public class PIOBean implements PIOBeanLocal {
     public void register(Profile profile) {
         persist(profile);
     }
-    
- 
- 
-    
-
-    /**
+     /**
      *
      * @param username
      * @param password

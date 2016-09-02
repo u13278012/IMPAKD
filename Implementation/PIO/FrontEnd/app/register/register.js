@@ -13,7 +13,7 @@ angular.module('myApp', ['ngRoute'])
         
 $scope.validation = function()
 {
-    if($scope.Email == undefined || $scope.FirstName == undefined || $scope.LastName == undefined || $scope.UserName == undefined || $scope.Password == undefined || $scope.confrimPassword == undefined)
+    if($scope.Email == undefined || $scope.UserName == undefined || $scope.Password == undefined || $scope.confrimPassword == undefined)
     {
         alert("Please complete the entire form");
     }
@@ -43,7 +43,7 @@ $scope.submitFunction = function()
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/profile/register',
+                url: 'http://localhost:51029/BackEnd/rs/profile/register',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {

@@ -247,7 +247,7 @@ public class ProfileFacadeRESTTest {
         String confrimPassword = "";
         EJBContainer container = javax.ejb.embeddable.EJBContainer.createEJBContainer();
         ProfileFacadeREST instance = (ProfileFacadeREST)container.getContext().lookup("java:global/classes/ProfileFacadeREST");
-        instance.login(username, lastname, FirstName, Email, Password, confrimPassword);
+//        instance.login(username, lastname, FirstName, Email, Password, confrimPassword);
         container.close();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
