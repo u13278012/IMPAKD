@@ -145,13 +145,10 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
     @Path("register")
      @POST
      @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-     public void login(@FormParam("UserName") String username, @FormParam("LastName") String lastname,
-     @FormParam("FirstName") String FirstName, @FormParam("Email") String Email,
+     public void login(@FormParam("UserName") String username, @FormParam("Email") String Email,
              @FormParam("Password") String Password, @FormParam("confrimPassword") String confrimPassword) 
      {
          Profile p = new Profile();
-         p.setFirstName(FirstName);
-         p.setSurname(lastname);
          p.setEmail(Email);
          p.setUsername(username);
          p.setPassword(Password);
