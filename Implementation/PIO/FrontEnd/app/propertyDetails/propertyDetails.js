@@ -9,15 +9,56 @@ angular.module('myApp', ['ngRoute'])
   });
 }])
 
-.controller('PropertyDetailsCtrl', [function() {
+//.controller('PropertyDetailsCtrl', [function() {
+.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
+
 
 }]);*/
 
 var app = angular.module('myApp', []);
-app.controller('PropertyDetailsCtrl', function($scope) {
+app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
+//app.controller('PropertyDetailsCtrl', function($scope) {
+
+    $scope.getProfileID = function(var session) 
+    {
+            var session  = localStorage.getItem("session");
+           /* if (typeof(Storage) === "undefined") {
+            alert("You're not logged in");
+            window.location = "../login/login.html";     
+            }*/
+        
+            var encodedString = 'profileID=' +
+            encodeURIComponent(session);
+            //51029
+            alert(encodedString);
+            $http({
+                method: 'POST',
+                url: 'http://localhost:51029/BackEnd/rs/property/addProperty/getPropertyDetails',
+                data: encodedString,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+                   // window.location = "admin.html"; 
+                              alert(response);
+
+                }).
+                error(function(response)
+                {
+                   // $window.alert("Server error..request not sent");
+                     alert(response);
+                                         // alert('loaded');
+
+                });
+
+        };
+
     $scope.show = function () {
-                    
-             var session = localStorage.getItem("session");
+         var session  = localStorage.getItem("session");
+             if (typeof(Storage) === "undefined") {
+         alert("You're not logged in");
+         window.location = "../login/login.html";     
+        }
+
+         alert(session);
 		var chart = new CanvasJS.Chart("chartContainer",
 		{
 			title:{
@@ -109,4 +150,4 @@ chart.render();
                 
 				};
                                 
-});
+}]);

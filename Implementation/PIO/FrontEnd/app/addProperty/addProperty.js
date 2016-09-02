@@ -13,6 +13,12 @@ angular.module('myApp', ['ngRoute'])
 
     $scope.submitFunction = function() 
     {
+            var session  = localStorage.getItem("session");
+            if (typeof(Storage) === "undefined") {
+            alert("You're not logged in");
+            window.location = "../login/login.html";     
+            }
+        
             var encodedString = 'propertyName=' +
             encodeURIComponent($scope.propertyName) +
             '&marketPriceAdjustment=' +
@@ -82,12 +88,14 @@ angular.module('myApp', ['ngRoute'])
             '&agentCommission=' +
             encodeURIComponent($scope.agentCommission)+
             '&rentalAmount=' +
-            encodeURIComponent($scope.rentalAmount);
+            encodeURIComponent($scope.rentalAmount)+
+            '&profileID=' +
+            encodeURIComponent(session);
             //51029
             alert(encodedString);
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/property/addProperty',
+                url: 'http://localhost:51029/BackEnd/rs/property/addProperty',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -99,7 +107,7 @@ angular.module('myApp', ['ngRoute'])
                 {
                    // $window.alert("Server error..request not sent");
                      alert(response);
-                                          alert('loaded');
+                                         // alert('loaded');
 
                 });
 

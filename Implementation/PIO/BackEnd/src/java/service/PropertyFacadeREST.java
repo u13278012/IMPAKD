@@ -162,8 +162,8 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
  ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
- ,@FormParam("rentalAmount") double rentalAmount){
-     System.out.print(propertyName);
+ ,@FormParam("rentalAmount") double rentalAmount,@FormParam("profileID") int profileID){
+     System.out.print(profileID);
      System.out.print(marketPriceAdjustment);
      
      Property propertyObj = new Property();
@@ -216,6 +216,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       propertyObj.setPropertyName(propertyName);
       propertyObj.setMarketPriceAdjustment(marketPriceAdjustment);
       propertyObj.setCapitalGains(capitalGains);
+      propertyObj.setProfileID(profileID);
      
       pIOBean.persist(upFrontCostsObj);
       pIOBean.persist(reservesObj);
@@ -239,6 +240,17 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
        Property results = query.getSingleResult();
        
       // return results;
+<<<<<<< HEAD
+    }
+ @Path("/getPropertyDetails")
+ @POST
+ @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+ @Produces(MediaType.APPLICATION_JSON)
+  public void addProperty(@FormParam("profileID") int profileID){
+  System.out.print(profileID);
+  }
+    
+=======
       
       
      
@@ -255,4 +267,5 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       
       return p;
   }  
+>>>>>>> master
 }

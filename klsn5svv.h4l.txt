@@ -1,0 +1,37 @@
+﻿Merge branch 'master' into Sandile
+
+# Conflicts:
+#	Implementation/PIO/BackEnd/src/java/service/PIOBean.java
+#	Implementation/PIO/BackEnd/src/java/service/PropertyFacadeREST.java
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch Sandile
+# Your branch is up-to-date with 'origin/Sandile'.
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Implementation/PIO/BackEnd/src/conf/persistence.xml
+#	modified:   Implementation/PIO/BackEnd/src/java/Entities/Profile.java
+#	modified:   Implementation/PIO/BackEnd/src/java/service/PIOBean.java
+#	modified:   Implementation/PIO/BackEnd/src/java/service/ProfileFacadeREST.java
+#	modified:   Implementation/PIO/BackEnd/src/java/service/PropertyFacadeREST.java
+#	modified:   Implementation/PIO/BackEnd/web/index.html
+#	modified:   Implementation/PIO/FrontEnd/app/home/home.html
+#	modified:   Implementation/PIO/FrontEnd/app/home/home.js
+#	modified:   Implementation/PIO/FrontEnd/app/index.html
+#	modified:   Implementation/PIO/FrontEnd/app/login/login.html
+#	modified:   Implementation/PIO/FrontEnd/app/register/register.css
+#	modified:   Implementation/PIO/FrontEnd/app/register/register.html
+#	modified:   Implementation/PIO/FrontEnd/app/register/register.js
+#	modified:   Implementation/PIO/FrontEnd/nbproject/private/private.xml
+#	modified:   Implementation/PIO/FrontEnd/nbproject/project.xml
+#
+
