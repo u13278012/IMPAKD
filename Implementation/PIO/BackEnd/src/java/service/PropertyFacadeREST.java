@@ -246,5 +246,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
     
       
  }
-    
+  @GET
+  @Path("{id}")
+  @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+  public Property retrieveProperties(@PathParam("id") Long id) {
+      return super.find(id);
+  }  
 }
