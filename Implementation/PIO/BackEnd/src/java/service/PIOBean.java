@@ -25,12 +25,12 @@ import Entities.Property;
 import Entities.Rental;
 
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> master
+
+
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
