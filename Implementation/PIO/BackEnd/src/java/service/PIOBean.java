@@ -25,6 +25,12 @@ import Entities.Property;
 import Entities.Rental;
 
 
+
+
+
+
+
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

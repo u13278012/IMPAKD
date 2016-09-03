@@ -9,24 +9,41 @@ angular.module('myApp', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', [function() {
-//        $scope.propertyDetails = [
-//            {
-//                number: '1',
-//                name: '3 Bedroom House',
-//                price: 'R 1 995 000',
-//                ROI: '15%'
-//
-//            },{
-//                number: '2',
-//                name: '1.5 Bedroom Apartment',
-//                price: 'R 330 000',
-//                ROI: '5%'
-//            },{
-//                number: '3',
-//                name: '3 Bedroom Townhouse',
-//                price: 'R 1 250 000',
-//                ROI: '20%'
-//            }	
-//        ];
+.controller('HomeCtrl',["$scope", "$window", "$http", function($scope, $window, $http ) {
+$scope.populate = function()
+{
+    //get sesion
+    var session = localStorage.getItem("session");
+    //check if not empty
+    if(session === null)
+    {
+        alert('You are not logged in.');
+        window.location = "../index.html";
+    }
+    else
+    {
+        $http({
+                method: 'GET',
+                url: 'http://localhost:51029/BackEnd/rs/property/retrieveProperties/'+session
+               // data: encodedString,
+                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+                    var x2js = new X2JS();
+                    var x = x2js.xml_str2json(response);
+                    $scope.a = x;
+
+                    console.log(response)
+                       
+
+                }).
+                error(function(response)
+                {
+                    $window.alert('The username or password is incorrect.');
+                    
+                                
+                });
+    }
+
+};
+
 }]);

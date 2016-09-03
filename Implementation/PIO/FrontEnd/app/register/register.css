@@ -5,7 +5,7 @@
 #barRegister{
     display:  block;
     position: absolute;
-    height: 475px;
+    height: 370px;
     width: 400px;
     left: calc(50vw - 200px);
     top: calc(50vh - 200px);

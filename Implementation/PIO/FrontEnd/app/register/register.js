@@ -13,7 +13,7 @@ angular.module('myApp', ['ngRoute'])
         
 $scope.validation = function()
 {
-    if($scope.Email == undefined || $scope.FirstName == undefined || $scope.LastName == undefined || $scope.UserName == undefined || $scope.Password == undefined || $scope.confrimPassword == undefined)
+    if($scope.Email == undefined || $scope.UserName == undefined || $scope.Password == undefined || $scope.confrimPassword == undefined)
     {
         alert("Please complete the entire form");
     }
@@ -30,11 +30,8 @@ $scope.validation = function()
 
 $scope.submitFunction = function() 
     {
-            var encodedString = 'FirstName=' +
-            encodeURIComponent($scope.FirstName) +
-            '&LastName=' +
-            encodeURIComponent($scope.LastName) +
-            '&UserName='+
+            var encodedString = 
+            'UserName='+
             encodeURIComponent($scope.UserName)+
             '&Email='+
             encodeURIComponent($scope.Email)+
