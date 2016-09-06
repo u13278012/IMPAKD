@@ -41,6 +41,7 @@ public class ApplicationConfig extends Application {
         resources.add(service.IncreasesFacadeREST.class);
         resources.add(service.NewCrossOriginResourceSharingFilter.class);
         resources.add(service.ProfileFacadeREST.class);
+        resources.add(service.PropertyFacadeREST.class);
         resources.add(service.RentalFacadeREST.class);
         resources.add(service.ReportFacadeREST.class);
         resources.add(service.ReservesFacadeREST.class);
