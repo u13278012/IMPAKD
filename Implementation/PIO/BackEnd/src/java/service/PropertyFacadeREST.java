@@ -253,7 +253,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   public void addProperty(@FormParam("profileID") int profileID){
   System.out.print(profileID);
   
-   TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile_id= '"+profileID+"'",Property.class);
+   TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id '"+profileID+"'",Property.class);
    List<Property> p = query.getResultList();
       
   }
@@ -268,7 +268,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
   @Produces({MediaType.APPLICATION_XML})
   public List<Property> retrieveProperties(@PathParam("id") Long id) {
-      TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile_id= '"+id+"'",Property.class);
+      TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
       List<Property> p = query.getResultList();
       
       return p;

@@ -10,21 +10,6 @@ angular.module('myApp', ['ngRoute'])
 }])
 
 .controller('HomeCtrl',["$scope", "$window", "$http", function($scope, $window, $http ) {
-//$scope.init = function(){
-// //your code
-//                   alert('works');
-//    populate();
-//};
-//
-//$timeout($scope.init);      
-//
-//$scope.$on('$viewContentLoaded', function() 
-//{
-//                    alert('works');
-//    populate();
-//});
-
-
  $scope.populate = function()
 {
     alert('yess00');
@@ -55,7 +40,7 @@ angular.module('myApp', ['ngRoute'])
                 }).
                 error(function(response)
                 {
-                    $window.alert('Failed to load properties.');
+                    $window.alert(response);
                     
                                 
                 });
