@@ -47,9 +47,9 @@ public class PIOBean implements PIOBeanLocal {
     public static void main(String[] args) {
         double arrayTotalExpeneses[] = new double[20];
         Expenses(arrayTotalExpeneses);
-//        for(int i =0; i< 20; i++){
-//            System.out.println(arrayTotalExpeneses[i]);
-//        }
+        for(int i =0; i< 20; i++){
+            System.out.println(arrayTotalExpeneses[i]);
+        }
     }
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
@@ -87,16 +87,19 @@ public class PIOBean implements PIOBeanLocal {
 
 
     /**
-     * @param arrayTotalExpeneses[]
+     * @param arrayTotalExpeneses
+     * //@param obj
      * @return
      */
-    static public double[] Expenses(double arrayTotalExpeneses[]){
+    //@Override
+    static public double[] Expenses(double arrayTotalExpeneses[]/*Property obj */){
         //double rates_taxes, levy, bondFee;
+        //double arrayTotalExpeneses[] = new double[20];
         Expenses expenses = new Expenses();       
         Increases increasesPerYear = new Increases();
         double rates_taxes, levy, bondFee;
         
-        rates_taxes = expenses.getRates_Taxes();
+        rates_taxes = expenses.getRates_Taxes();/*obj.getExpenses().getRates_Taxes(); */
         levy = expenses.getLevy(); 
         bondFee = expenses.getBondFee(); 
         
@@ -168,7 +171,7 @@ public class PIOBean implements PIOBeanLocal {
     static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
         Rental rent = new Rental();
         
-        totalRent = rent.getTotalRent();
+        //totalRent = rent.getTotalRent();
         occupancyRate = rent.getOccupancyRate();
         rentalAmount = rent.getRentalAmount();
         onceOffAgentFee = rent.getOnceOffAgentFee();
