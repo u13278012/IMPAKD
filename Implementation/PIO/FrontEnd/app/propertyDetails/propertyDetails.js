@@ -19,26 +19,25 @@ var app = angular.module('myApp', []);
 app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
 //app.controller('PropertyDetailsCtrl', function($scope) {
 
-    $scope.getProfileID = function(var session) 
+
+   $scope.getProfileID = function() 
     {
+
             var session  = localStorage.getItem("session");
-           /* if (typeof(Storage) === "undefined") {
-            alert("You're not logged in");
-            window.location = "../login/login.html";     
-            }*/
-        
+
+           
             var encodedString = 'profileID=' +
             encodeURIComponent(session);
             //51029
             alert(encodedString);
             $http({
                 method: 'POST',
-                url: 'http://localhost:51029/BackEnd/rs/property/addProperty/getPropertyDetails',
+                url: 'http://localhost:8080/BackEnd/rs/property/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
                    // window.location = "admin.html"; 
-                              alert(response);
+                              alert("ok");
 
                 }).
                 error(function(response)
@@ -52,13 +51,16 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
         };
 
     $scope.show = function () {
+        alert("i am here");
          var session  = localStorage.getItem("session");
              if (typeof(Storage) === "undefined") {
          alert("You're not logged in");
-         window.location = "../login/login.html";     
+         //go to login
+           
         }
+    
+      $scope.getProfileID();
 
-         alert(session);
 		var chart = new CanvasJS.Chart("chartContainer",
 		{
 			title:{
