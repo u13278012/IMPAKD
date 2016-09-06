@@ -28,19 +28,19 @@ public class Bond implements Serializable {
     private Long id;
     
     @Column
-    private Double interestRate;
+    private Double interestRate = 9.50/100.00;
     
     @Column
-    private Double propertyValue;
+    private Double propertyValue = 799000.00;
     
     @Column
     private Double depositInRands;
     
     @Column
-    private Double bondRepayment;
+    private Double bondRepayment = 5958.00;
     
     @Column
-    private Double depositPercentage;
+    private Double depositPercentage = 20.00/100.00;
     
     @Column
     private int numberOfYears;
