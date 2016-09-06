@@ -10,8 +10,9 @@ angular.module('myApp', ['ngRoute'])
 }])
 
 .controller('HomeCtrl',["$scope", "$window", "$http", function($scope, $window, $http ) {
-$scope.populate = function()
+ $scope.populate = function()
 {
+    alert('yess00');
     //get sesion
     var session = localStorage.getItem("session");
     //check if not empty
@@ -22,9 +23,10 @@ $scope.populate = function()
     }
     else
     {
+                        alert(session);
         $http({
                 method: 'GET',
-                url: 'http://localhost:51029/BackEnd/rs/property/retrieveProperties/'+session
+                url: 'http://localhost:8080/BackEnd/rs/property/retrieveProperties/'+session
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -32,13 +34,13 @@ $scope.populate = function()
                     var x = x2js.xml_str2json(response);
                     $scope.a = x;
 
-                    console.log(response)
+                    console.log(x)
                        
 
                 }).
                 error(function(response)
                 {
-                    $window.alert('The username or password is incorrect.');
+                    $window.alert(response);
                     
                                 
                 });

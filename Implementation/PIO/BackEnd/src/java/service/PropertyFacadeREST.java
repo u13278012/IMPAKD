@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 import Entities.Bond;
 import Entities.Expenses;
 import Entities.Increases;
+import Entities.Profile;
 import Entities.Property;
 import Entities.PropertyReserves;
 import Entities.Rental;
@@ -162,7 +163,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
  ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
- ,@FormParam("rentalAmount") double rentalAmount,@FormParam("profileID") int profileID){
+ ,@FormParam("rentalAmount") double rentalAmount,@FormParam("profileID") Long profileID){
      System.out.print(profileID);
      System.out.print(marketPriceAdjustment);
      
@@ -216,7 +217,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       propertyObj.setPropertyName(propertyName);
       propertyObj.setMarketPriceAdjustment(marketPriceAdjustment);
       propertyObj.setCapitalGains(capitalGains);
-      propertyObj.setProfileID(profileID);
+    //  propertyObj.setProfileID(profileID);
      
       pIOBean.persist(upFrontCostsObj);
       pIOBean.persist(reservesObj);
@@ -224,6 +225,9 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       pIOBean.persist(rentalObj);
       pIOBean.persist(bondObj);
       pIOBean.persist(increasesObj);
+      TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.id= "+profileID+" ",Profile.class);
+       Profile profile = query.getSingleResult();
+      
 
       propertyObj.setIncreases(increasesObj);
       propertyObj.setUpFrontCosts(upFrontCostsObj);
@@ -231,13 +235,13 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       propertyObj.setRental(rentalObj);
       propertyObj.setBond(bondObj);
       propertyObj.setExpenses(expensesObj);
+      propertyObj.setProfile(profile);
+     // propertyObj.seProfile
       
      // System.out.print(propertyObj.getId());
 
       pIOBean.persist(propertyObj);
-      
-       TypedQuery<Property> query = em.createQuery("SELECT c FROM Property c", Property.class);
-       Property results = query.getSingleResult();
+
        
       // return results;
 
@@ -247,7 +251,17 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_JSON)
   public void addProperty(@FormParam("profileID") int profileID){
+  System.out.print("we get here");    
   System.out.print(profileID);
+  
+<<<<<<< HEAD
+  // TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile_id= '"+profileID+"'",Property.class);
+  // List<Property> p = query.getResultList();
+=======
+   TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id '"+profileID+"'",Property.class);
+   List<Property> p = query.getResultList();
+>>>>>>> master
+      
   }
     
 
@@ -260,13 +274,13 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
   @Produces({MediaType.APPLICATION_XML})
   public List<Property> retrieveProperties(@PathParam("id") Long id) {
-      TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile_id= '"+id+"'",Property.class);
-        List<Property> p = query.getResultList();
+      TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
+      List<Property> p = query.getResultList();
       
       return p;
   }  
       
- }
+}
  
 
 
