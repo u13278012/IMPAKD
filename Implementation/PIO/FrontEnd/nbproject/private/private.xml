@@ -7,11 +7,15 @@
 =======
         <group>
 <<<<<<< HEAD
+            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.html</file>
+=======
+<<<<<<< HEAD
             <file>file:/C:/Users/Diana/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/addProperty/addProperty.js</file>
             <file>file:/C:/Users/Diana/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.js</file>
 =======
             <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.html</file>
             <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.js</file>
+>>>>>>> master
             <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.js</file>
 >>>>>>> master
         </group>

@@ -269,7 +269,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   @Produces({MediaType.APPLICATION_XML})
   public List<Property> retrieveProperties(@PathParam("id") Long id) {
       TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile_id= '"+id+"'",Property.class);
-        List<Property> p = query.getResultList();
+      List<Property> p = query.getResultList();
       
       return p;
   }  
