@@ -19,7 +19,7 @@ var app = angular.module('myApp', []);
 app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
 //app.controller('PropertyDetailsCtrl', function($scope) {
 
-
+   
    $scope.getProfileID = function() 
     {
 
@@ -29,7 +29,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
             var encodedString = 'profileID=' +
             encodeURIComponent(session);
             //51029
-            alert(encodedString);
+        
             $http({
                 method: 'POST',
                 url: 'http://localhost:51029/BackEnd/rs/property/getPropertyDetails',
@@ -38,32 +38,28 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
             }).success(function(response) {
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
-                    $scope.a = x;
-
-                    console.log(x) 
-                             // alert("response");
+                    $scope.propertyresults = x;
+                    console.log(x);
+                   
 
                 }).
                 error(function(response)
                 {
-                   // $window.alert("Server error..request not sent");
                      alert(response);
-                                         // alert('loaded');
 
                 });
 
         };
 
     $scope.show = function () {
-        alert("i am here");
+     
          var session  = localStorage.getItem("session");
              if (typeof(Storage) === "undefined") {
          alert("You're not logged in");
          //go to login
            
         }
-    
-      $scope.getProfileID();
+
 
 		var chart = new CanvasJS.Chart("chartContainer",
 		{
