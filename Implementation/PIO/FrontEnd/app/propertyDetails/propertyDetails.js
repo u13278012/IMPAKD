@@ -56,7 +56,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
              if (typeof(Storage) === "undefined") {
          alert("You're not logged in");
          //go to login
-           
+                
         }
     
       $scope.getProfileID();
@@ -151,5 +151,10 @@ chart.render();
                 
                 
 				};
+    $scope.back = function()
+    {
+        localStorage.removeItem("property");
+        window.location = "../home/home.html";
+    };
                                 
 }]);

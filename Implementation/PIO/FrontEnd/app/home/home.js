@@ -12,7 +12,7 @@ angular.module('myApp', ['ngRoute'])
 .controller('HomeCtrl',["$scope", "$window", "$http", function($scope, $window, $http ) {
  $scope.populate = function()
 {
-    alert('yess00');
+    
     //get sesion
     var session = localStorage.getItem("session");
     //check if not empty
@@ -23,7 +23,7 @@ angular.module('myApp', ['ngRoute'])
     }
     else
     {
-                        alert(session);
+                        
         $http({
                 method: 'GET',
                 url: 'http://localhost:8080/BackEnd/rs/property/retrieveProperties/'+session
@@ -35,8 +35,7 @@ angular.module('myApp', ['ngRoute'])
                     $scope.results = x.properties;
 
                     
-                    console.log($scope.results)
-                    alert($scope.results.property[0].propertyName);
+                    console.log($scope.results);
                        
 
                 }).
@@ -49,5 +48,12 @@ angular.module('myApp', ['ngRoute'])
     }
 
 };
+
+$scope.goToPropertyDetails = function(el)
+{
+
+    localStorage.setItem("property", el.id);
+    window.location = "../propertyDetails/propertyDetails.html";
+}
 
 }]);
