@@ -236,14 +236,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       propertyObj.setBond(bondObj);
       propertyObj.setExpenses(expensesObj);
       propertyObj.setProfile(profile);
-     // propertyObj.seProfile
-      
-     // System.out.print(propertyObj.getId());
-
       pIOBean.persist(propertyObj);
-
-       
-      // return results;
 
     }
  @Path("/getPropertyDetails")
@@ -251,8 +244,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_XML)
   public  List<Property> addProperty(@FormParam("profileID") int profileID){
-     
-  System.out.print(profileID);
+
   TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+profileID+"",Property.class);
       List<Property> p = query.getResultList();
       
