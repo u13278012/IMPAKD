@@ -31,12 +31,15 @@ angular.module('myApp', ['ngRoute'])
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.results = x.properties;
+                    if ($scope.results.property instanceof Array == false)
+                    {
+                        $scope.results.property = [$scope.results.property];
+                    }
+                    console.log($scope.results);
                 }).
                 error(function(response)
                 {
-                    $window.alert(response);
-                    
-                                
+                    $window.alert(response);             
                 });
     }
 
