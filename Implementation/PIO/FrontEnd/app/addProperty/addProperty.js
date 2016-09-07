@@ -95,7 +95,7 @@ angular.module('myApp', ['ngRoute'])
             alert(encodedString);
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/property/addProperty',
+                url: 'http://localhost:51029/BackEnd/rs/property/addProperty',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
