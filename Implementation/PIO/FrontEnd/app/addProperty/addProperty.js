@@ -101,7 +101,6 @@ angular.module('myApp', ['ngRoute'])
             }).success(function(response) {
                    // window.location = "admin.html"; 
                               alert(response);
-                              window.location = "../home/home.html";
 
                 }).
                 error(function(response)
