@@ -26,18 +26,18 @@
 
 
     </head>
-    <body>
+    <body ng-controller="PropertyDetailsCtrl">
       <div class="navbar-header" id="Logo">
         <img alt="Brand"  ng-src="../images/Logo.png"/>
     </div> 
        <div id ="sides">
 <div id ="left" > <h1>Property Details</h1></div>
 <div id ="right">
- <a href="../home/home.html" id ="linkTOProperty" class="btn btn-default" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>   
+    <a ng-click="back()" id ="linkTOProperty" class="btn btn-default" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>   
 </div>
 </div>
 
-<div class="row" id="maindiv" ng-controller="PropertyDetailsCtrl">
+<div class="row" id="maindiv" >
  
   <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4 ">
 

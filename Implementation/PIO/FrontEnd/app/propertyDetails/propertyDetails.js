@@ -152,4 +152,10 @@ chart.render();
                 
 				};
                                 
+   $scope.back = function()
+   {
+       localStorage.removeItem("property");
+       window.location = "../home/home.html";
+   }
+                                
 }]);

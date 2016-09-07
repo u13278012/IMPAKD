@@ -13,11 +13,11 @@ angular.module('myApp', ['ngRoute'])
         
 $scope.validation = function()
 {
-    if($scope.Email == undefined || $scope.UserName == undefined || $scope.Password == undefined || $scope.confrimPassword == undefined)
-    {
-        alert("Please complete the entire form");
-    }
-    else if($scope.Password !== $scope.confrimPassword)
+//    if($scope.Email == undefined || $scope.UserName == undefined || $scope.Password == undefined || $scope.confrimPassword == undefined)
+//    {
+//        alert("Please complete the entire form");
+//    }
+    if($scope.Password !== $scope.confrimPassword)
     {
         alert("The passwords do not match");
     }

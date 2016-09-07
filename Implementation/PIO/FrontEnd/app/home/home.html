@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body ng-controller="HomeCtrl" onload="populate()">
+    <body ng-controller="HomeCtrl" >
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
@@ -53,32 +53,19 @@
             <table class="table table-hover tableOfProperties" >
       <thead>
         <tr>
-          <th>#</th>
+          <th></th>
           <th>Property Name</th>
           <th>Price</th>
-          <th>ROI</th>
+          <th>Rent Charged</th>
         </tr>
       </thead>
       <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td><a id="aLink" href="../propertyDetails/propertyDetails.html">3 Bedroom House</a></td>
-            <td>1 995 000</td>
-            <td>15%</td>
+          <tr  ng-repeat="x in results.property" ng-click="homeTodetails(this.x)" style="cursor: pointer;">
+            <th scope="row">{{results.property.indexOf(x)+1}}</th>
+            <td><a id="aLink"  >{{x.propertyName}}</a></td>
+            <td>R{{x.bond.propertyValue}}</td>
+            <td>R{{x.rental.rentalAmount}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td><a id="aLink" href="../propertyDetails/propertyDetails.html">1.5 Bedroom Apartment</a></td>
-            <td>R 330 000</td>
-            <td>5%</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td><a id="aLink" href="../propertyDetails/propertyDetails.html">3 Bedroom Townhouse</a></td>
-            <td>R 1 250 000</td>
-            <td>20%</td>
-          </tr> 
-          
           <!--<tr>
             <th ng-repeat="(key, val) in propertyDetails[0]">{{key}}</th>
            </tr>
