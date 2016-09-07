@@ -10,27 +10,7 @@ import Entities.Expenses;
 import Entities.Increases;
 import Entities.Bond;
 import Entities.Profile;
-
-
-import Entities.Property;
 import Entities.Rental;
-
-
-import Entities.Property;
-import Entities.Rental;
-
-
-import Entities.Property;
-
-import Entities.Rental;
-
-
-
-
-
-
-
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -39,6 +19,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author Kudzai
  */
+
 @Stateless
 public class PIOBean implements PIOBeanLocal {
     
@@ -180,16 +161,6 @@ public class PIOBean implements PIOBeanLocal {
         
         return totalRent;
         
-    }
-    //Bond Functions
-
-    /**
-     *
-     * @return
-     */
-    public double calculateDepositInRands()
-    {
-        return 0.0;
     }
 
 }
