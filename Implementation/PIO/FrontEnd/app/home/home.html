@@ -60,9 +60,9 @@
         </tr>
       </thead>
       <tbody>
-          <tr  ng-repeat="x in results.property">
+          <tr  ng-repeat="x in results.property" ng-click="homeTodetails(this.x)" style="cursor: pointer;">
             <th scope="row">{{results.property.indexOf(x)+1}}</th>
-            <td><a id="aLink" href="../propertyDetails/propertyDetails.html">{{x.propertyName}}</a></td>
+            <td><a id="aLink"  >{{x.propertyName}}</a></td>
             <td>R{{x.bond.propertyValue}}</td>
             <td>R{{x.rental.rentalAmount}}</td>
           </tr>
