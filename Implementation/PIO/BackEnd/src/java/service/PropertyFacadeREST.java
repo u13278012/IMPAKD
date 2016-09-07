@@ -252,11 +252,15 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       return p;
 <<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
 
 =======
 <<<<<<< HEAD
 =======
 
+>>>>>>> master
 >>>>>>> master
 >>>>>>> master
       
