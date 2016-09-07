@@ -76,13 +76,13 @@ public class Expenses implements Serializable {
     }
     
     @Column
-    private double rates_taxes = 370.00;
+    private double rates_taxes;
     
     @Column
-    private double levy = 534.50;
+    private double levy;
     
      @Column
-    private double bondFee = 57.00;
+    private double bondFee;
 
 
     
