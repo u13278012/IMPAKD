@@ -52,4 +52,10 @@ $scope.homeTodetails = function(el)
     window.location = "../propertyDetails/propertyDetails.html";
 }
 
+$scope.logout = function()
+{
+    localStorage.clear();
+    window.location = "../index.html";
+}
+
 }]);
