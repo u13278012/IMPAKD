@@ -20,6 +20,7 @@ angular.module('myApp', ['ngRoute'])
         alert('You are not logged in.');
         window.location = "../index.html";
     }
+     //51029
     else
     {
         $http({
@@ -49,6 +50,12 @@ $scope.homeTodetails = function(el)
 {
     localStorage.setItem("property", el.id)
     window.location = "../propertyDetails/propertyDetails.html";
+}
+
+$scope.logout = function()
+{
+    localStorage.clear();
+    window.location = "../index.html";
 }
 
 }]);
