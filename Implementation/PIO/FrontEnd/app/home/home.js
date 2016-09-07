@@ -31,7 +31,6 @@ angular.module('myApp', ['ngRoute'])
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.results = x.properties;
-
                 }).
                 error(function(response)
                 {

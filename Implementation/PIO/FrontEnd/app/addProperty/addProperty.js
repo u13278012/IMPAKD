@@ -99,8 +99,9 @@ angular.module('myApp', ['ngRoute'])
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
-                   // window.location = "admin.html"; 
+                   
                               alert(response);
+                               window.location = "../home/home.html"; 
 
                 }).
                 error(function(response)
