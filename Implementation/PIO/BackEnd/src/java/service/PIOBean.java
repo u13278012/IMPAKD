@@ -127,6 +127,7 @@ public class PIOBean implements PIOBeanLocal {
     {
         TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
         property = query.getSingleResult();
+      
     }
 
 }

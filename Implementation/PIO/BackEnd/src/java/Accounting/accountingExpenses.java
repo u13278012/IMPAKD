@@ -17,24 +17,26 @@ public class accountingExpenses {
      
     
         public static void main(String[] args) {
-        //Tax_DeductibleExpenses();
+            Property obj = new Property();
+        Tax_DeductibleExpenses(obj);
 //        Expenses(arrayTotalExpeneses);
 //        for(int i =0; i< 20; i++){
 //            System.out.println(arrayTotalExpeneses[i]);
 //        }
     }
-   static  public double[] Tax_DeductibleExpenses(Object obj){
+   static  public double[] Tax_DeductibleExpenses(Property obj){
        // Property propertyObj = new Property();
-        Expenses expenses = new Expenses();      
-        Increases increasesPerYear = new Increases();
-        Bond bond = new Bond();
-        int yearsToPayOffBond = bond.getNumberOfYears();
-        double arrayTotalExpeneses[] = new double[bond.getNumberOfYears()];
+//        Expenses expenses = new Expenses();      
+//        Increases increasesPerYear = new Increases();
+//        Bond bond = new Bond();
+
+        int yearsToPayOffBond = 20;//bond.getNumberOfYears();
+        double arrayTotalExpeneses[] = new double[yearsToPayOffBond];
         double rates_taxes, levy, bondFee;
        
-        rates_taxes = expenses.getRates_Taxes();/*obj.getExpenses().getRates_Taxes(); */
-        levy = expenses.getLevy(); 
-        bondFee = expenses.getBondFee(); 
+        rates_taxes = 370;//obj.getExpenses().getRates_Taxes();
+        levy = 534.50;//obj.getExpenses().getLevy();//expenses.getLevy(); 
+        bondFee = 57;//obj.getExpenses().getBondFee();//expenses.getBondFee(); 
         
         double arrayRates_Taxes[] = new double[yearsToPayOffBond];
         double arrayLevy[] = new double[yearsToPayOffBond];
@@ -50,7 +52,7 @@ public class accountingExpenses {
                 arrayRates_Taxes[i] = rates_taxes; 
             }
             else{
-                arrayRates_Taxes[i] =  arrayRates_Taxes[i-1] * increasesPerYear.getRates_taxes() + arrayRates_Taxes[i-1];
+                arrayRates_Taxes[i] =  arrayRates_Taxes[i-1] * 8.00/100.00/*obj.getIncreases().getRates_taxes() */ + arrayRates_Taxes[i-1];
             }
         }
         //total rates&taxes for each year
@@ -65,7 +67,7 @@ public class accountingExpenses {
                 arrayLevy[i] = levy; 
             }
             else{
-                arrayLevy[i] = arrayLevy[i-1] * increasesPerYear.getLevy() + arrayLevy[i-1];
+                arrayLevy[i] = arrayLevy[i-1] * 8.00/100.00/*obj.getIncreases().getRates_taxes() */ + arrayLevy[i-1];
             }
         }
         //total levy for each year
@@ -80,7 +82,7 @@ public class accountingExpenses {
                 arrayBondFee[i] = bondFee; 
             }
             else{
-                arrayBondFee[i] = arrayBondFee[i-1] * increasesPerYear.getBondFee() + arrayBondFee[i-1];
+                arrayBondFee[i] = arrayBondFee[i-1] * 7.00/100.00/*obj.getIncreases().getRates_taxes()*/ + arrayBondFee[i-1];
             }
         }
         //total bondFee for each year
