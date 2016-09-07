@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.html</file>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/propertyDetails/propertyDetails.html</file>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.html</file>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.js</file>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/addProperty/addProperty.js</file>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/register/register.js</file>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.js</file>
-            <file>file:/C:/Users/Kudzai/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/propertyDetails/propertyDetails.js</file>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Diana/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/addProperty/addProperty.js</file>
+            <file>file:/C:/Users/Diana/Documents/GitHub/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.js</file>
+=======
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/propertyDetails/propertyDetails.html</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/propertyDetails/propertyDetails.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.js</file>
+>>>>>>> master
         </group>
     </open-files>
 </project-private>

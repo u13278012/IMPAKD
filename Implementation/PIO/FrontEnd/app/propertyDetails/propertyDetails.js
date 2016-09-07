@@ -19,47 +19,52 @@ var app = angular.module('myApp', []);
 app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
 //app.controller('PropertyDetailsCtrl', function($scope) {
 
-
+   
    $scope.getProfileID = function() 
     {
 
             var session  = localStorage.getItem("session");
+            var propertyid  = localStorage.getItem("property");
 
-           
+
+           property
             var encodedString = 'profileID=' +
-            encodeURIComponent(session);
+            encodeURIComponent(session)+
+            '&propertyid=' +
+            encodeURIComponent(propertyid);
             //51029
             alert(encodedString);
+        
             $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/property/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
-                   // window.location = "admin.html"; 
-                              alert("ok");
+                    var x2js = new X2JS();
+                    var x = x2js.xml_str2json(response);
+                    $scope.propertyresults = x;
+                    console.log(x);
+                   
 
                 }).
                 error(function(response)
                 {
-                   // $window.alert("Server error..request not sent");
                      alert(response);
-                                         // alert('loaded');
 
                 });
 
         };
 
     $scope.show = function () {
-        alert("i am here");
+     
          var session  = localStorage.getItem("session");
              if (typeof(Storage) === "undefined") {
          alert("You're not logged in");
          //go to login
            
         }
-    
-      $scope.getProfileID();
+
 
 		var chart = new CanvasJS.Chart("chartContainer",
 		{
