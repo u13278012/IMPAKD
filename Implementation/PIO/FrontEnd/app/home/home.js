@@ -20,6 +20,7 @@ angular.module('myApp', ['ngRoute'])
         alert('You are not logged in.');
         window.location = "../index.html";
     }
+     //51029
     else
     {
         $http({
