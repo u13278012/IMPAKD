@@ -4,16 +4,27 @@
  * and open the template in the editor.
  */
 package service;
-
-
-import Entities.Expenses;
-import Entities.Increases;
-import Entities.Bond;
-import Entities.Profile;
-import Entities.Rental;
+import Entities.*;
+import Accounting.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
@@ -25,6 +36,9 @@ public class PIOBean implements PIOBeanLocal {
     
     //Bond Object
     Bond bond;
+    Property property;
+    accountingIncomeStatement incomeStatement;
+    
     public static void main(String[] args) {
         double arrayTotalExpeneses[] = new double[20];
         Expenses(arrayTotalExpeneses);
@@ -55,6 +69,12 @@ public class PIOBean implements PIOBeanLocal {
     public void register(Profile profile) {
         persist(profile);
     }
+    
+    //Generate the income statement
+    public void generateIncomeStatement(Property property)
+    {
+       incomeStatement = new accountingIncomeStatement(property);
+    }
      /**
      *
      * @param username
@@ -65,13 +85,16 @@ public class PIOBean implements PIOBeanLocal {
     public Profile login(String username, String password) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
 
     /**
+     * @param id
      * @param arrayTotalExpeneses
      * //@param obj
      * @return
      */
+    
     //@Override
     static public double[] Expenses(double arrayTotalExpeneses[]/*Property obj */){
         //double rates_taxes, levy, bondFee;
@@ -161,6 +184,13 @@ public class PIOBean implements PIOBeanLocal {
         
         return totalRent;
         
+    }
+    
+    @Override
+    public void retrieveProperty(Long id)
+    {
+        TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
+        property = query.getSingleResult();
     }
 
 }
