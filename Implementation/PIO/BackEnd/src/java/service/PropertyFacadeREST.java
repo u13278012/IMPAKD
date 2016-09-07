@@ -250,7 +250,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       List<Property> p = query.getResultList();
       
       return p;
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
       
   }
     
