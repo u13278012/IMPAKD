@@ -32,12 +32,16 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
             alert(encodedString);
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/property/getPropertyDetails',
+                url: 'http://localhost:51029/BackEnd/rs/property/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
-                   // window.location = "admin.html"; 
-                              alert("ok");
+                    var x2js = new X2JS();
+                    var x = x2js.xml_str2json(response);
+                    $scope.a = x;
+
+                    console.log(x) 
+                             // alert("response");
 
                 }).
                 error(function(response)
