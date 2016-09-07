@@ -32,9 +32,11 @@ angular.module('myApp', ['ngRoute'])
             }).success(function(response) {
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
-                    $scope.a = x;
+                    $scope.results = x.properties;
 
-                    console.log(x)
+                    
+                    console.log($scope.results)
+                    alert($scope.results.property[0].propertyName);
                        
 
                 }).
