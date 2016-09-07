@@ -8,5 +8,6 @@ import Entities.*;
 
 public class accountingIncome 
 {
+    Rental rent;
     
 }

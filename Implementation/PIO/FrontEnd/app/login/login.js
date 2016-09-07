@@ -13,15 +13,15 @@ angular.module('myApp', ['ngRoute'])
 
 $scope.validation = function()
 {
-    if($scope.loginEmail == undefined || $scope.loginPassword == undefined)
-    {
-        alert("Please fill in all fields");
-    }
-    else
-    {
+//    if($scope.loginEmail == undefined || $scope.loginPassword == undefined)
+//    {
+//        alert("Please fill in all fields");
+//    }
+//    else
+//    {
         alert($scope.loginEmail+','+$scope.loginPassword);
         $scope.submitFunction();
-    }
+//    }
 };
 
 $scope.submitFunction = function() 
