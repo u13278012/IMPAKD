@@ -1,5 +1,6 @@
 /* Button Styles */
-.btn
+    
+#submit
 {
 	color: #ffffff;
 	border-color: #008080;
@@ -7,9 +8,17 @@
 	
 }
 
-.btn:hover,
-.btn:focus,
-.btn.focus {
+#Logo
+{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#submit:hover,
+#submit:focus,
+#submit.focus {
   /*color: #ffffff;
   text-decoration: none;*/
 
@@ -18,277 +27,120 @@
   background-color: #ffffff;
 }
 
-
-#addProperty
-{
-    position: absolute;
-    margin-top: 7%;
-    margin-left: 40%;
-    width: 50%;
-    font-family:Gadugi;
-    color: teal;
-    text-align: center;
-}
 #propertyHeader
 {
     font-family:Gadugi;
     color: teal;
-    margin-right: 65%; 
 }
+
 #miniHeading
 {
-   	font-family:Gadugi;
-    color: white;
-    margin-right: 63%;
-    align-content: center;
-    border: 2px solid teal;
-    width: 44%;
-    background-color: teal;
-    height: 30%;
 }
-#miniHeadingDiv
+#addProperty
+{
+    position: static;    
+    margin: 0 auto;
+    
+    min-height: 800px;
+    margin-top: 150px;
+    height: auto;
+    width: 350px;
+    font-family:Gadugi;
+    color: teal;
+    text-align: center;
+  margin-bottom: 25px;
+}
+
+.tile
+{
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 75px;
+    width: 100%;
+    transition: all 0.5s;
+}
+    .tile * {transition: all 0.5s;}
+    .tile > *
+    {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        line-height: 50px;
+	font-family:Calibri Light;
+    }
+    .tile > h3
+    {
+        margin: 0;
+        text-align: left;
+        font-size: 18px;
+        padding-left: 20px;
+        font-family: Gadugi;
+        color: white;
+        align-content: center;
+        background-color: teal;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+        .tile > h3:after
+        {
+            display: block;
+            position: absolute;
+            right: 0px;
+            height: 50px;
+            top: 0px;
+            width: 50px;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            font-size: 40px;
+        }
+    .tile > fieldset > input,
+    .tile > fieldset > label
+    {
+        position: absolute;
+        height: 75%;
+        top: 12.5%;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 0;
+        font-size: 18px;
+    }
+    .tile > fieldset > input{
+        border: solid 1px white;
+        border-bottom: solid 1px teal;
+        width: 65%;
+        right: 0px;
+        padding-left: 10px;
+    }
+    .tile > fieldset > label{        
+        width: 33%;
+        left: 0px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+.tile.open
 {
     position: relative;
-   
-    width: 80%;
-    text-align: center;
 }
+    .tile.open > *
+    {
+        opacity: 1;
+        height: 50px;
+    }
+    .tile.open > h3:after { content: "-"; }
 
+    .tile.closed *
+    {
+        opacity: 0;
+        height: 0px;
+    }
+    .tile.closed > h3
+    {
+        opacity: 1;
+        height: 50px;
+    }
+    .tile.closed > h3:after { content: "+"; }
 
-#propertyName
-{
-      width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#marketPriceAdjustment
-{
-      width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#capitalGains
-{
-    width:35%;
-    font-size: 20px;
-    font-family:Calibri Light;
-}
-#annualMaintenanceCost
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#annualCostIncrease
-{
-      width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#interestRate
-{
-      width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#deposit
-{
-      width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#propertyValue
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#numberOfYears
-{
-      width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#occupancyRate
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#agentCommission
-{
-    width:35%;
-    font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#rentalAmount
-{
-    width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#submit
-{
-    margin-left:-65%;
-    margin-top: 1%;
-}
-
-#property
-{
-    background-color: white;
-}
-
-#rentInsurance
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#deviance
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#renovation
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#maintenance
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#conveyancingFees
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#vatDebit
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#deedsFee
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#initiationFee
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#tax
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#rates
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#levy
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#managementFee
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#inflation
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#propertyValueIncrease
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#rentIncrease
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#ratesIncrease
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#taxIncrease
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#bondFeeIncrease
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-
-#levyIncrease
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}
-#Period{
-    width:35%;
-    font-size: 20px;
-   font-family:Calibri Light;
-
-}
-#additionalCash{
-     width:35%;
-    font-size: 20px;
-   font-family:Calibri Light;
-
-}
-
-#bondRepaymnet
-{
-       width:35%;
-	font-size: 20px;
-	font-family:Calibri Light;
-}

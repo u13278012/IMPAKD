@@ -52,6 +52,42 @@ $scope.homeTodetails = function(el)
     window.location = "../propertyDetails/propertyDetails.html";
 }
 
+ $scope.deleteProperty = function(el) 
+    {
+            var session  = localStorage.getItem("session");
+            var propertyid  = el.id;
+            var encodedString = 'profileID=' +
+            encodeURIComponent(session)+
+            '&propertyid=' +
+            encodeURIComponent(propertyid);
+ 
+            //51029
+           
+        
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8080/BackEnd/rs/property/deleteProperty',
+                data: encodedString,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+                    var x2js = new X2JS();
+                    var x = x2js.xml_str2json(response);
+                    $scope.propertyresults = x;
+                     window.location = "../home/home.html"; 
+
+                   
+
+                }).
+                error(function(response)
+                {
+                     alert(response);
+
+                });
+
+        };
+   
+
+
 $scope.logout = function()
 {
     localStorage.clear();

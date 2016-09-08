@@ -19,7 +19,7 @@ $scope.validation = function()
 //    }
 //    else
 //    {
-        alert($scope.loginEmail+','+$scope.loginPassword);
+       
         $scope.submitFunction();
 //    }
 };

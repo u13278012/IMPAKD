@@ -57,14 +57,18 @@
           <th>Property Name</th>
           <th>Price</th>
           <th>Rent Charged</th>
+      
         </tr>
       </thead>
       <tbody>
-          <tr  ng-repeat="x in results.property" ng-click="homeTodetails(this.x)" style="cursor: pointer;">
+          <tr  ng-repeat="x in results.property"  style="cursor: pointer;">
             <th scope="row">{{results.property.indexOf(x)+1}}</th>
-            <td><a id="aLink"  >{{x.propertyName}}</a></td>
-            <td>R{{x.bond.propertyValue}}</td>
-            <td>R{{x.rental.rentalAmount}}</td>
+            <td ng-click="homeTodetails(this.x)"><a id="aLink"  >{{x.propertyName}}</a></td>
+            <td ng-click="homeTodetails(this.x)">R{{x.bond.propertyValue}}</td>
+            <td ng-click="homeTodetails(this.x)">R{{x.rental.rentalAmount}}</td>
+            <td ng-click ="deleteProperty(this.x)"><span class="glyphicon glyphicon-remove-sign"></span></td>
+            <td ng-click ="updatePage()"><span class="glyphicon glyphicon-pencil"></span></td>
+
           </tr>
           <!--<tr>
             <th ng-repeat="(key, val) in propertyDetails[0]">{{key}}</th>

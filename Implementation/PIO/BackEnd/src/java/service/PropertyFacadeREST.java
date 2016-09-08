@@ -242,7 +242,6 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @Path("/getPropertyDetails")
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-
  @Produces(MediaType.APPLICATION_XML)
   public  List<Property> addProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
  System.out.print(propertyid);
@@ -251,6 +250,22 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       List<Property> p = query.getResultList();
       
       return p;
+
+
+      
+  }
+  
+ @Path("/deleteProperty")
+ @POST
+ @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+ @Produces(MediaType.APPLICATION_XML)
+  public  void deleteProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
+ 
+  int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
+  
+ 
+
+
       
   }
     
