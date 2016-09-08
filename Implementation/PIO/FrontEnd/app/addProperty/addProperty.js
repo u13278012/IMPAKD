@@ -18,6 +18,7 @@ angular.module('myApp', ['ngRoute'])
             alert("You're not logged in");
             window.location = "../login/login.html";     
             }
+            
         
             var encodedString = 'propertyName=' +
             encodeURIComponent($scope.propertyName) +
@@ -113,7 +114,23 @@ angular.module('myApp', ['ngRoute'])
                 });
 
         };
-
+$scope.default = function()
+{
+    $scope.inflation = 7;
+    $scope.rentIncrease = 6;
+    $scope.bondFeeIncrease = 7;
+    $scope.levyIncrease = 8;
+    $scope.propertyValueIncrease = 5;
+    $scope.bondFeeIncrease = 7;
+    $scope.taxIncrease = 8;
+    
+    
+    $scope.ratesIncrease = 0;
+    $scope.rates = 0;
+    $scope.Period = 0;
+    $scope.additionalCash = 0;
+    $scope.onceOffPayment = 0;
+}
 
 }]);
 
@@ -121,8 +138,15 @@ angular.module('myApp', ['ngRoute'])
 function grow(id)
 {
     var div = document.getElementById(id);
+    
     if (div.className === "tile open")
+    {
+        div.style.height = "75px";
         div.className = "tile closed";
+    }
     else
+    {
+        div.style.height = 75 + (div.children.length * 50) + "px";
         div.className = "tile open";
+    }
 }
