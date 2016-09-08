@@ -52,15 +52,15 @@ $scope.homeTodetails = function(el)
     window.location = "../propertyDetails/propertyDetails.html";
 }
 
- $scope.deleteProperty = function() 
+ $scope.deleteProperty = function(el) 
     {
-
             var session  = localStorage.getItem("session");
-            var propertyid  = localStorage.getItem("property");
+            var propertyid  = el.id;
             var encodedString = 'profileID=' +
             encodeURIComponent(session)+
             '&propertyid=' +
             encodeURIComponent(propertyid);
+ 
             //51029
            
         
