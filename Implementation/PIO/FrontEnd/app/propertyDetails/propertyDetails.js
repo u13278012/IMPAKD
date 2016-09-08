@@ -25,15 +25,12 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
 
             var session  = localStorage.getItem("session");
             var propertyid  = localStorage.getItem("property");
-
-
-           property
             var encodedString = 'profileID=' +
             encodeURIComponent(session)+
             '&propertyid=' +
             encodeURIComponent(propertyid);
             //51029
-            alert(encodedString);
+           
         
             $http({
                 method: 'POST',
