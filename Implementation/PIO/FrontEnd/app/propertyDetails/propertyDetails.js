@@ -1,24 +1,8 @@
-/*'use strict';
-
-angular.module('myApp', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/propertyDetails', {
-    templateUrl: 'propertyDetails/propertyDetails.html',
-    controller: 'PropertyDetailsCtrl'
-  });
-}])
-
-//.controller('PropertyDetailsCtrl', [function() {
-.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
-
-
-}]);*/
-
+/*'use strict';*/
 var app = angular.module('myApp', []);
 app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
-//app.controller('PropertyDetailsCtrl', function($scope) {
 
+     
    
    $scope.getProfileID = function() 
     {
