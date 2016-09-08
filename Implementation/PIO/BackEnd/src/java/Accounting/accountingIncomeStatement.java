@@ -9,11 +9,19 @@ import Entities.Property;
 public class accountingIncomeStatement 
 {
     double[] rentIncome;
+    double[] interestIncome;
+    double[] grossProfit;
+    double[] ratesAndtaxes;
+    double[] levy;
+    double[] bondFee;
+    double[] maintenance;
+    
+    
+    Property property;
     
     public accountingIncomeStatement(Property property) 
     {
-//        rentIncome = new double[bond.getNumberOfYears()];
-
+        this.property = property;
     }
     
     
