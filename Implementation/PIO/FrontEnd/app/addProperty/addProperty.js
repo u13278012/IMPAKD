@@ -118,3 +118,11 @@ angular.module('myApp', ['ngRoute'])
 }]);
 
 
+function grow(id)
+{
+    var div = document.getElementById(id);
+    if (div.className === "tile open")
+        div.className = "tile closed";
+    else
+        div.className = "tile open";
+}
