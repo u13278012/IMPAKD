@@ -20,6 +20,7 @@ angular.module('myApp', ['ngRoute'])
         alert('You are not logged in.');
         window.location = "../index.html";
     }
+     //51029
     else
     {
         $http({
@@ -31,13 +32,15 @@ angular.module('myApp', ['ngRoute'])
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.results = x.properties;
-
+                    if ($scope.results.property instanceof Array == false)
+                    {
+                        $scope.results.property = [$scope.results.property];
+                    }
+                    console.log($scope.results);
                 }).
                 error(function(response)
                 {
-                    $window.alert(response);
-                    
-                                
+                    $window.alert(response);             
                 });
     }
 
@@ -47,6 +50,12 @@ $scope.homeTodetails = function(el)
 {
     localStorage.setItem("property", el.id)
     window.location = "../propertyDetails/propertyDetails.html";
+}
+
+$scope.logout = function()
+{
+    localStorage.clear();
+    window.location = "../index.html";
 }
 
 }]);
