@@ -1,5 +1,5 @@
 /* Button Styles */
-.btn
+#submit
 {
 	color: #ffffff;
 	border-color: #008080;
@@ -7,9 +7,9 @@
 	
 }
 
-.btn:hover,
-.btn:focus,
-.btn.focus {
+#submit:hover,
+#submit:focus,
+#submit.focus {
   /*color: #ffffff;
   text-decoration: none;*/
 
@@ -18,34 +18,111 @@
   background-color: #ffffff;
 }
 
-
-#addProperty
-{
-    position: absolute;
-    margin-top: 7%;
-    margin-left: 40%;
-    width: 50%;
-    font-family:Gadugi;
-    color: teal;
-    text-align: center;
-}
 #propertyHeader
 {
     font-family:Gadugi;
     color: teal;
     margin-right: 65%; 
 }
+
 #miniHeading
 {
-   	font-family:Gadugi;
-    color: white;
-    margin-right: 63%;
-    align-content: center;
-    border: 2px solid teal;
-    width: 44%;
-    background-color: teal;
-    height: 30%;
 }
+#addProperty
+{
+    position: static;    
+    margin: 0 auto;
+    
+    width: 350px;
+    font-family:Gadugi;
+    color: teal;
+    text-align: center;
+}
+
+.tile
+{
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+}
+    .tile > *
+    {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        line-height: 50px;
+    }
+    .tile > h3
+    {
+        margin: 0;
+        text-align: left;
+        font-size: 18px;
+        padding-left: 20px;
+        font-family: Gadugi;
+        color: white;
+        align-content: center;
+        background-color: teal;
+        margin-bottom: 15px;
+    }
+        .tile > h3:after
+        {
+            display: block;
+            position: absolute;
+            right: 0px;
+            height: 50px;
+            top: 0px;
+            width: 50px;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            font-size: 40px;
+        }
+    .tile > fieldset > input
+    {
+        position: absolute;
+        height: 75%;
+        top: 12.5%;
+        width: 100%;
+        left: 0px;
+        padding-left: 10px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 0;
+        border: solid 1px white;
+        border-bottom: solid 1px teal;
+    }
+
+.tile.open
+{
+    position: relative;
+}
+    .tile.open > *
+    {
+        display: block;
+        height: 50px;
+    }
+    .tile.open > h3:after { content: "-"; }
+
+.tile.closed
+{
+    position: relative;
+}
+    .tile.closed *
+    {
+        display: none;
+        height: 0px;
+    }
+    .tile.closed > h3
+    {
+        display: block;
+        height: 50px;
+    }
+    .tile.closed > h3:after { content: "+"; }
+
+/*
 #miniHeadingDiv
 {
     position: relative;
@@ -292,3 +369,4 @@
 	font-size: 20px;
 	font-family:Calibri Light;
 }
+*/
