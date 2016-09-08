@@ -251,7 +251,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       
       return p;
 
-<<<<<<< HEAD
+
       
   }
   
@@ -265,8 +265,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   
  
 
-=======
->>>>>>> master
+
       
   }
     
