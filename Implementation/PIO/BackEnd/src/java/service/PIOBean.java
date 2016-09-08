@@ -39,7 +39,7 @@ public class PIOBean implements PIOBeanLocal {
     Property property;
     accountingIncomeStatement incomeStatement;
     
-    public static void main(String[] args) {
+    public void main(String[] args) {
         double arrayTotalExpeneses[] = new double[20];
 //        Expenses(arrayTotalExpeneses);
 //        for(int i =0; i< 20; i++){
@@ -96,7 +96,7 @@ public class PIOBean implements PIOBeanLocal {
      */
     
     //@Override
-    static public double[] Expenses(/*Property obj */){
+    public double[] Expenses(/*Property obj */){
         //double rates_taxes, levy, bondFee;
         //double arrayTotalExpeneses[] = new double[20];
         double arrayTotalExpeneses[] = new double[20];
@@ -108,7 +108,7 @@ public class PIOBean implements PIOBeanLocal {
          return arrayTotalExpeneses;
     }  
     
-    static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
+    double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
         Rental rent = new Rental();
         
         //totalRent = rent.getTotalRent();
