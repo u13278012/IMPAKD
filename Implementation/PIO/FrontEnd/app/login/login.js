@@ -34,7 +34,7 @@ $scope.submitFunction = function()
 //51029
             $http({
                 method: 'GET',
-                url: 'http://localhost:8080/BackEnd/rs/profile/login/'+$scope.loginEmail+'/'+$scope.loginPassword
+                url: 'http://localhost:51029/BackEnd/rs/profile/login/'+$scope.loginEmail+'/'+$scope.loginPassword
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
