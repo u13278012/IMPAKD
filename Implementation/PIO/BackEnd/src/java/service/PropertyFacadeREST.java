@@ -250,6 +250,8 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       List<Property> p = query.getResultList();
       
       return p;
+<<<<<<< HEAD
+=======
 
 
       
@@ -266,13 +268,10 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  
 
 
+>>>>>>> refs/remotes/origin/master
       
   }
-    
-
-      
-      
-    
+  
   @GET
   @Path("retrieveProperties/{id}")
   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
