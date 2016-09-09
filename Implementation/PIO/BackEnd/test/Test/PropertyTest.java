@@ -27,7 +27,7 @@ public void initialiseproperty(){
 @Test (expected = NullPointerException.class)
 public void deletePropertyUnitTest() throws Exception{
     Property p;
-    p = property.find((long)2);
+    p = property.find((long)1);
     
   //s  assertEquals("check if it returns the right property", null,p);
 
