@@ -146,7 +146,7 @@ function grow(id)
     }
     else
     {
-        div.style.height = 75 + (div.children.length * 50) + "px";
+        div.style.height = 100 + (div.children.length * 50) + "px";
         div.className = "tile open";
     }
 }
