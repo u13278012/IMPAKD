@@ -328,7 +328,7 @@ from the user and transforms these interactions into business logic.\\
 \newpage
 \section{Functional requirements and application design}
 
-% Diana's Section  - start
+% Priscilla's Section  - START
 \subsection{Use case prioritization}
  \underline{\textbf{Critical:}}
 	\begin{itemize}
@@ -351,11 +351,12 @@ from the user and transforms these interactions into business logic.\\
 		\item generateReport	
 	\end{itemize}
 
-% Diana's Section  - end
+% Priscilla's Section  - END
 
-% Priscilla's Section - Start
+% Diana Section - START
 \subsection{Use case/Services contracts}
-\textbf{\large{login}}
+\subsubsection{Profile}
+\textbf{{login}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -371,7 +372,7 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{register}}
+\textbf{{register}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -385,7 +386,7 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{logout}}
+\textbf{{logout}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -399,7 +400,7 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{viewProfile}}
+\textbf{{viewProfile}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -412,9 +413,25 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
+\textbf{{updateProfile}}
+	\begin{itemize}
+		\item \textit{Pre-Conditions:}
+		\begin{itemize}
+			\item user must be logged in
+			\item user's profile must match with the one used to log in
+		\end{itemize}
+		\item \textit{Post-Conditions:}
+		\begin{itemize}
+			\item database is updated with edited user profile information
+			\item user's profile is edited
+		\end{itemize}
+		\item \textit{Request and Results Data Structures:}
+	\end{itemize}
 
-% Priscilla's Section - End
-% Diana's Section - start
+% Diana Section - END
+
+% Kudzai's Section - START
+\subsubsection{Property}
 \textbf{\large{updateProperty}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
@@ -428,7 +445,7 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{deleteProperty}}
+\textbf{{deleteProperty}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -442,7 +459,7 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{addProperty}}
+\textbf{{addProperty}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -457,23 +474,8 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-% Diana's Section - end
-% Kudzai's Section - Start
-\textbf{\large{updateProfile}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-			\item user must be logged in
-			\item user's profile must match with the one used to log in
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-			\item database is updated with edited user profile information
-			\item user's profile is edited
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{compareTwoProperties}}
+\textbf{{viewProperty}}\\
+\textbf{{compareTwoProperties}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 		\begin{itemize}
@@ -486,7 +488,11 @@ from the user and transforms these interactions into business logic.\\
 		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{generateReport}}
+% Kudzai's Section - START
+
+%Sandile's Section - START
+\subsubsection{Report}
+\textbf{{generateReport}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 		\begin{itemize}
@@ -499,62 +505,13 @@ from the user and transforms these interactions into business logic.\\
 		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{getDefaultValues}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-			\item user must be logged in
-			\item default values must existi in the system
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-			\item default values are retrieved
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-% Kudzai's Section - end
-\textbf{\large{displayGraphs}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item there should be valid statistics
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the graph should be generated and displayed
-		\item the user should be able to see the graph
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{displayStatistics}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item the required statistics should be in the system
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the statistics should be displayed
-		\item the user should see the statistics
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{calculateStatistics}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item user defined values as well as pre-existing values in the system should be valid
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the statistics should be calculated and returned to for the requested report
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{calucalateROI}}
+\textbf{{viewReport}}\\
+\textbf{{generatePDF}}\\
+%Sandile's Section - END
+
+%Priscilla's Section - START
+\subsubsection{Accounting}
+\textbf{{calucalateROI}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 		\begin{itemize}
@@ -568,6 +525,8 @@ from the user and transforms these interactions into business logic.\\
 		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
+\textbf{{calucalateNPV}}
+%Priscilla's Section - END
 
 \subsection{Required functionality}
 %Priscilla's Section - Start
