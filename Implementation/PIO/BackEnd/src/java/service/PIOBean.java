@@ -143,24 +143,14 @@ public class PIOBean implements PIOBeanLocal {
     
 
     /**
-     * @param id
-     * @param arrayTotalExpeneses
-     * //@param obj
+     * @param obj
      * @return
      */
     
     //@Override
-    static public double[] Expenses(/*Property obj */){
-        //double rates_taxes, levy, bondFee;
-        //double arrayTotalExpeneses[] = new double[20];
-        double arrayTotalExpeneses[] = new double[20];
-        
-        //display totalExpenses
-//         for(int i=0; i< 20; i++){
-//             System.out.println(i + " " + arrayTotalExpeneses[i]);
-//         }
-         return arrayTotalExpeneses;
-    }  
+//    static public double[] Expenses(Property obj){
+//        
+//    }  
     
     static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
         Rental rent = new Rental();

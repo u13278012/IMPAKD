@@ -56,6 +56,10 @@ overflow:hidden;
   background-color: teal;
  
 }
+#deleteProperty
+{
+    margin: 0px;
+}
 
 #linkTOProperty:hover
 {
