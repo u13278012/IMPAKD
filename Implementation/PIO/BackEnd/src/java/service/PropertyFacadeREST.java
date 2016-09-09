@@ -251,30 +251,9 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       List<Property> p = query.getResultList();
       
       return p;
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> master
->>>>>>> master
->>>>>>> master
->>>>>>> master
       
   }
-    
-
-      
-      
-    
+  
   @GET
   @Path("retrieveProperties/{id}")
   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
