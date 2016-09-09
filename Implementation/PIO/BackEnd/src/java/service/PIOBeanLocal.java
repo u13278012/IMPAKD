@@ -33,5 +33,7 @@ public interface PIOBeanLocal {
     public void persist(Object object);
 
     public void retrieveProperty(Long id);
+
+    public double[] generateIncomeStatement(Property property);
     
 }
