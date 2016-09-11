@@ -5,12 +5,21 @@
  */
 package service;
 
-import Entities.Profile;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.embeddable.EJBContainer;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,6 +28,8 @@ import static org.junit.Assert.*;
  * @author Diana
  */
 public class PIOBeanTest {
+
+    PIOBean pIOBean = lookupPIOBeanBean();
     
     public PIOBeanTest() {
     }
@@ -100,9 +111,9 @@ public class PIOBeanTest {
     /**
      * Test of Expenses method, of class PIOBean.
      */
-    @Test
-    public void testExpenses() throws Exception {
-        System.out.println("Expenses");
+   // @Test
+//    public void testExpenses() throws Exception {
+//        System.out.println("Expenses");
 
 
 //        PIOBean.Expenses();
@@ -114,11 +125,12 @@ public class PIOBeanTest {
        // PIOBean.Expenses();
 
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of calculateDepositInRands method, of class PIOBean.
+     * @throws java.lang.Exception
      */
    /* @Test
     public void testCalculateDepositInRands() throws Exception {
@@ -131,4 +143,47 @@ public class PIOBeanTest {
         fail("The test case is a prototype.");
     } */
     
+    @Test
+    public void avoidAnnoyingErrorMessageWhenRunningTestsInAnt() {
+    assertTrue(true); // do nothing;
 }
+    
+    @Test
+    public void testGenerateIncomeStatement() throws Exception {
+    System.out.println("Generate Rent Income Values");
+   
+    
+            double[] expResult = new double[20];
+            PIOBean instance = lookupPIOBeanBean();
+            
+            //Put Values in expResults
+            for(int i = 0; i < 20; i++)
+            {
+                for(int j = 0; j < 12; j++)
+                {
+                    if(i == 0)
+                    {
+                        expResult[i] = 6700.0;
+                    }
+                    else
+                    {
+                        expResult[i] = expResult[i-1] + (expResult[i-1] * 6/100);
+                    }
+                }
+            }
+            
+            double[] result = instance.generateIncomeStatement(instance.property);
+            assertTrue(Arrays.equals(expResult, result));
+        }
+
+    private PIOBean lookupPIOBeanBean() {
+        try {
+            Context c = new InitialContext();
+            return (PIOBean) c.lookup("");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+}
+    

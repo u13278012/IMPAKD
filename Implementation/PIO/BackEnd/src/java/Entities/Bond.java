@@ -44,6 +44,22 @@ public class Bond implements Serializable {
     
     @Column
     private int numberOfYears;
+    
+    
+    /**
+     *
+     * @param depositPercentage
+     */
+    public void setDepositPercentage(Double depositPercentage){
+        this.depositPercentage = depositPercentage;
+    } 
+     /**
+     *
+     * @return
+     */
+    public Double getDepositPercentage() {
+        return depositPercentage;
+    }
 
     /**
      *
