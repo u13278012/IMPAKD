@@ -328,7 +328,7 @@ from the user and transforms these interactions into business logic.\\
 \newpage
 \section{Functional requirements and application design}
 
-% Diana's Section  - start
+% Priscilla's Section  - START
 \subsection{Use case prioritization}
  \underline{\textbf{Critical:}}
 	\begin{itemize}
@@ -351,70 +351,16 @@ from the user and transforms these interactions into business logic.\\
 		\item generateReport	
 	\end{itemize}
 
-% Diana's Section  - end
+% Priscilla's Section  - END
 
-% Priscilla's Section - Start
+% Diana Section - START
 \subsection{Use case/Services contracts}
-\textbf{\large{login}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-			\begin{itemize}
-				\item The user must not be logged in.
-				\item The user must have already registered.
-				\item The login details must match the details that exist in the database.
-			\end{itemize}
-		\item \textit{Post-Conditions:}
-			\begin{itemize}
-				\item The user will be logged into the system.
-				\item The user will be able to use the system.
-				\item The activity will be logged automatically.
-			\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{register}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-			\begin{itemize}
-				\item The specified username (email address) and password fields must not exist in the system.
-				\item The user must not be logged in.
-			\end{itemize}
-		\item \textit{Post-Conditions:}
-			\begin{itemize}
-				\item The specified user details will be added into the system.
-				\item The system will send an email to verify the email address specified.
-			\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{logout}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-			\begin{itemize}
-				\item The user must be logged in.
-			\end{itemize}
-		\item \textit{Post-Conditions:}
-			\begin{itemize}
-				\item The session must end.
-				\item The user should not be logged in.
-				\item The user should be redirected to the login page.
-			\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{viewProfile}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-			\begin{itemize}
-				\item The user must be logged in.
-				\item The user profile must correspond with the credentials of the user logged in.
-			\end{itemize}
-		\item \textit{Post-Conditions:}
-			\begin{itemize}
-				\item The profile information requested should be returned.
-			\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
+\subsubsection{Profile}
+	\includegraphics[width=1\textwidth]{./Images/newDiagrams/serviceContract/ServiceContract.png}
+% Diana Section - END
 
-% Priscilla's Section - End
-% Diana's Section - start
+% Kudzai's Section - START
+\subsubsection{Property}
 \textbf{\large{updateProperty}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
@@ -428,7 +374,7 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{deleteProperty}}
+\textbf{{deleteProperty}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -442,7 +388,7 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{addProperty}}
+\textbf{{addProperty}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 			\begin{itemize}
@@ -457,23 +403,8 @@ from the user and transforms these interactions into business logic.\\
 			\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-% Diana's Section - end
-% Kudzai's Section - Start
-\textbf{\large{updateProfile}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-			\item user must be logged in
-			\item user's profile must match with the one used to log in
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-			\item database is updated with edited user profile information
-			\item user's profile is edited
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{compareTwoProperties}}
+\textbf{{viewProperty}}\\
+\textbf{{compareTwoProperties}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 		\begin{itemize}
@@ -486,7 +417,11 @@ from the user and transforms these interactions into business logic.\\
 		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{generateReport}}
+% Kudzai's Section - START
+
+%Sandile's Section - START
+\subsubsection{Report}
+\textbf{{generateReport}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 		\begin{itemize}
@@ -499,62 +434,13 @@ from the user and transforms these interactions into business logic.\\
 		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
-\textbf{\large{getDefaultValues}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-			\item user must be logged in
-			\item default values must existi in the system
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-			\item default values are retrieved
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-% Kudzai's Section - end
-\textbf{\large{displayGraphs}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item there should be valid statistics
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the graph should be generated and displayed
-		\item the user should be able to see the graph
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{displayStatistics}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item the required statistics should be in the system
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the statistics should be displayed
-		\item the user should see the statistics
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{calculateStatistics}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item user defined values as well as pre-existing values in the system should be valid
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the statistics should be calculated and returned to for the requested report
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{\large{calucalateROI}}
+\textbf{{viewReport}}\\
+\textbf{{generatePDF}}\\
+%Sandile's Section - END
+
+%Priscilla's Section - START
+\subsubsection{Accounting}
+\textbf{{calucalateROI}}
 	\begin{itemize}
 		\item \textit{Pre-Conditions:}
 		\begin{itemize}
@@ -568,72 +454,80 @@ from the user and transforms these interactions into business logic.\\
 		\end{itemize}
 		\item \textit{Request and Results Data Structures:}
 	\end{itemize}
+\textbf{{calucalateNPV}}
+%Priscilla's Section - END
 
 \subsection{Required functionality}
-%Priscilla's Section - Start
+%Diana's Section - Start
 \subsubsection{Login}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/Priscilla/Login.jpg}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Diana/login.png}
 \subsubsection{Logout}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/Priscilla/Logout.jpg}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Diana/logout.png}
 \subsubsection{Register}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/Priscilla/Register.jpg}
-%Priscilla's Setion - End
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Diana/register.png}
+\subsubsection{updateProfile}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Diana/updateProfile.png}
+%Diana's Setion - End
 
-% Diana's Section - starts
+% Kudzai's Section - starts
 \subsubsection{addProperty}
 \includegraphics[width=1\textwidth]{./Images/requiredFunctionality/addProperty.png}
 \subsubsection{deleteProperty}
 \includegraphics[width=1\textwidth]{./Images/requiredFunctionality/deleteProperty.png}
 \subsubsection{updateProperty}
-\includegraphics[width=1\textwidth]{./Images/requiredFunctionality/updateProperty.png}
-% Diana's Section - end
-% Kudzai's Section - starts
 \subsubsection{compareTwoProperties}
 \includegraphics[width=1\textwidth]{./Images/requiredFunctionality/compareTwoProperties.png}
-\subsubsection{generateReport}
-\includegraphics[width=1\textwidth]{./Images/requiredFunctionality/generateReport.png}
-\subsubsection{getDefaultValues}
-\includegraphics[width=1\textwidth]{./Images/requiredFunctionality/getDefaultValues.png}
+\subsubsection{viewProperty}
 % Kudzai's Section - end
 
-% Sandile's Section - starts
-\subsubsection{Display Statistics}
-\includegraphics[width=1\textwidth]{./Images/requiredFunctionality/displayStatsUseCase.jpg}
-\subsubsection{Display Graph}
-\includegraphics[width=1\textwidth]{./Images/requiredFunctionality/displayGraphRequestUseCase.jpg}
+%Priscilla's Section - START
+\subsubsection{calucalateROI}
+\subsubsection{calucalateNPV}
+%Priscilla's Section - END
 
+% Sandile's Section - starts
+\subsubsection{generateReport}
+\includegraphics[width=1\textwidth]{./Images/requiredFunctionality/generateReport.png}
+\subsubsection{viewReport}
+\subsubsection{generatePDF}
 % Sandile's Section - end
 
+
+
 \subsection{Process specifications}
-%Priscilla's Section - Start
+%Diana's Section - Start
 \subsubsection{Login}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/Priscilla/loginRequest.jpg}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Diana/login.png}
 \subsubsection{Logout}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/Priscilla/logoutRequest.jpg}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Diana/logout.png}
 \subsubsection{Register}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/Priscilla/registerRequest.jpg}
-%Priscilla's Section - End
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Diana/register.png}
+\subsubsection{updateProfile}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Diana/updateProfile.png}
+%Diana's Section - End
+
+% Kudzai's Section - starts
 \subsubsection{addProperty}
 \includegraphics[width=1\textwidth]{./Images/processSpecification/addProperty.png}
 \subsubsection{deleteProperty}
 \includegraphics[width=1\textwidth]{./Images/processSpecification/deleteProperty.png}
 \subsubsection{updateProperty}
 \includegraphics[width=1\textwidth]{./Images/processSpecification/updateProperty.png}
-% Kudzai's Section - starts
 \subsubsection{compareTwoProperties}
 \includegraphics[width=1\textwidth]{./Images/processSpecification/compareTwoProperties.png}
-\subsubsection{generateReport}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/generateReport.png}
-\subsubsection{setDefaultValue}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/setDefaultValue.png}
+\subsubsection{viewProperty}
 % Kudzai's Section - end
 
-% Sandile's Section - starts
-\subsubsection{Display Statistics}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/displayStatsActivity.jpg}
-\subsubsection{displayGraphRequest}
-\includegraphics[width=1\textwidth]{./Images/processSpecification/displayGraphRequestActivity.jpg}
+%Priscilla's Section - START
+\subsubsection{calucalateROI}
+\subsubsection{calucalateNPV}
+%Priscilla's Section - END
 
+% Sandile's Section - starts
+\subsubsection{generateReport}
+\includegraphics[width=1\textwidth]{./Images/processSpecification/generateReport.png}
+\subsubsection{viewReport}
+\subsubsection{generatePDF}
 % Sandile's Section - end
 
 \subsection{Domain Model}
