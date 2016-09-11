@@ -119,9 +119,10 @@ The project was given to us by our client, CSIR, so that we can research how the
 
 %Kudzai's Section (Vision and Background) - Stop
 
-%Priscilla's Section - Scope
+%Priscilla's Section (Scope) - Start
 \section{Scope}
 \includegraphics[width=1\textwidth]{./Images/newDiagrams/Scope/Priscilla/Scope.jpg}
+%Priscilla's Section (Scope) - End
 
 \newpage
 \section{Software Architecture}
@@ -329,30 +330,48 @@ from the user and transforms these interactions into business logic.\\
 \newpage
 \section{Functional requirements and application design}
 
-% Priscilla's Section  - START
+% Priscilla's Section (Use Case Prioritization) - Start
 \subsection{Use case prioritization}
  \underline{\textbf{Critical:}}
 	\begin{itemize}
-		\item calculateROI
-	\end{itemize}
-\underline{\textbf{Important:}}
-	\begin{itemize}
-		\item Register
-		\item Login
-		\item logout
-		\item addProperty
-		\item updateProperty	
-		\item deleteProperty
-		\item displayGraphs
-		\item displayStatistics	
-	\end{itemize}
-\underline{\textbf{Nice-to-have:}}
-	\begin{itemize}
-		\item updateProfile
-		\item generateReport	
+		\item \underline{Property}
+			\begin{enumerate}
+				\item updateProperty
+				\item addProperty
+				\item deleteProperty
+				\item viewProperty
+				\item compareTwoProperties
+			\end{enumerate}
+		\item \underline{Accounting}
+			\begin{enumerate}
+				\item calculateNPV
+				\item calculateROI
+			\end{enumerate}
 	\end{itemize}
 
-% Priscilla's Section  - END
+\underline{\textbf{Important:}}
+	\begin{itemize}
+		\item \underline{Profile}
+			\begin{enumerate}
+				\item login
+				\item logout
+				\item register
+				\item viewProfile
+				\item updateProfile
+			\end {enumerate}
+
+	\end{itemize}
+
+\underline{\textbf{Nice-to-have:}}
+	\begin{itemize}
+		\item \underline{Report}
+			\begin{enumerate}
+				\item generateReport
+				\item producePDF
+				\item viewReport
+			\end{enumerate}
+	\end{itemize}
+% Priscilla's Section (Use Case Prioritization) - End
 
 % Diana Section - START
 \subsection{Use case/Services contracts}
@@ -364,6 +383,11 @@ from the user and transforms these interactions into business logic.\\
 \subsubsection{Property}
 \includegraphics[width=1\textwidth]{./Images/newDiagrams/serviceContract/Property.png} 
 % Kudzai's Section - START
+
+%Priscilla's Section (Service Contracts) - Start
+\subsubsection{Accounting}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/serviceContract/Priscilla/serviceContract.jpg}
+%Priscilla's Section (Service Contracts) - End
 
 %Sandile's Section - START
 \subsubsection{Report}
@@ -383,25 +407,6 @@ from the user and transforms these interactions into business logic.\\
 \textbf{{viewReport}}\\
 \textbf{{generatePDF}}\\
 %Sandile's Section - END
-
-%Priscilla's Section - START
-\subsubsection{Accounting}
-\textbf{{calucalateROI}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item obtain the pre-existing default values from the system should be valid
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the should be a valid ROI
-		\item the ROI should be returned 
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{{calucalateNPV}}
-%Priscilla's Section - END
 
 \subsection{Required functionality}
 %Diana's Section - Start
