@@ -361,62 +361,7 @@ from the user and transforms these interactions into business logic.\\
 
 % Kudzai's Section - START
 \subsubsection{Property}
-\textbf{\large{updateProperty}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-			\begin{itemize}
-				\item user must be logged in 
-			\end{itemize}
-		\item \textit{Post-Conditions:}
-			\begin{itemize}
-				\item the property page and associated fields must be updated
-				\item database should be updated 
-			\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{{deleteProperty}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-			\begin{itemize}
-				\item user must be logged in 
-				\item property must exist
-			\end{itemize}
-		\item \textit{Post-Conditions:}
-			\begin{itemize}
-				\item property is deleted
-				\item user must not see deleted property anymore
-			\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{{addProperty}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-			\begin{itemize}
-				\item user must be logged in
-				\item user must be navigated to the addProperty page 
-				\item no duplicate properties
-			\end{itemize}
-		\item \textit{Post-Conditions:}
-			\begin{itemize}
-				\item property is added
-				\item user should be able to view addProperty
-			\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{{viewProperty}}\\
-\textbf{{compareTwoProperties}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-			\item user must be logged in
-			\item ROI of both properties must be calculated
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-			\item property with greater ROI indicated
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/serviceContract/Property.png} 
 % Kudzai's Section - START
 
 %Sandile's Section - START
@@ -461,6 +406,7 @@ from the user and transforms these interactions into business logic.\\
 \subsubsection{deleteProperty}
 \includegraphics[width=1\textwidth]{./Images/requiredFunctionality/deleteProperty.png}
 \subsubsection{updateProperty}
+\includegraphics[width=1\textwidth]{./Images/requiredFunctionality/updateProperty.png}
 \subsubsection{compareTwoProperties}
 \includegraphics[width=1\textwidth]{./Images/requiredFunctionality/compareTwoProperties.png}
 \subsubsection{viewProperty}
