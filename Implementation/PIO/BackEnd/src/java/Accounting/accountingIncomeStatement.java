@@ -31,6 +31,7 @@ public class accountingIncomeStatement
      * Defines a constant value for the number of months in a year
      */
     public static final double numberOfMonths = 12;
+    public static final double hundredPercent = 100;
     
     public accountingIncomeStatement(Property property) 
     {
@@ -50,7 +51,7 @@ public class accountingIncomeStatement
                }
                else
                {
-                    rentIncome[i] = rentIncome[i-1] + (rentIncome[i-1] * (property.getIncreases().getRent()/100));
+                    rentIncome[i] = rentIncome[i-1] + (rentIncome[i-1] * (property.getIncreases().getRent()/hundredPercent));
                }
            }
         }
@@ -69,6 +70,41 @@ public class accountingIncomeStatement
             System.out.println(rentIncome[i]);
         }
     }
+    
+    //Calculate Rates & Taxes
+    public void generateRatesAndTaxes()
+    {
+        for(int i = 0; i < property.getBond().getNumberOfYears(); i++)
+        {
+           for(int j = 0; j < numberOfMonths; j++)
+           {
+               if(i == 0)
+               {
+                    ratesAndtaxes[i] = property.getExpenses().getRates_Taxes();
+               }
+               else
+               {
+                    ratesAndtaxes[i] = ratesAndtaxes[i-1] + (ratesAndtaxes[i-1] * (property.getIncreases().getRates_taxes()/hundredPercent));
+               }
+           }
+        }
+    }
+    
+    public double[] getRatesAndTaxes()
+    {
+        generateRatesAndTaxes();
+        return ratesAndtaxes;
+    }
+    
+    public void printRatesAndTaxes()
+    {
+        for(int i = 0; i < ratesAndtaxes.length; i++)
+        {
+            System.out.println(ratesAndtaxes[i]);
+        }
+    }
+    
+    
     
     
     
