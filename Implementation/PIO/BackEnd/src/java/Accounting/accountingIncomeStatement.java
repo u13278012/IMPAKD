@@ -131,13 +131,44 @@ public class accountingIncomeStatement
     
     public void printLevy()
     {
-        for(int i = 0; i < ratesAndtaxes.length; i++)
+        for(int i = 0; i < levy.length; i++)
         {
-            System.out.println(ratesAndtaxes[i]);
+            System.out.println(levy[i]);
         }
     }
     
+    //Calculate BondFee
+    public void generateBondFee()
+    {
+        for(int i = 0; i < property.getBond().getNumberOfYears(); i++)
+        {
+           for(int j = 0; j < numberOfMonths; j++)
+           {
+               if(i == 0)
+               {
+                    bondFee[i] = property.getExpenses().getBondFee();
+               }
+               else
+               {
+                    bondFee[i] = bondFee[i-1] + (bondFee[i-1] * (property.getIncreases().getBondFee()/hundredPercent));
+               }
+           }
+        }
+    }
     
+    public double[] getBondFee()
+    {
+        generateBondFee();
+        return bondFee;
+    }
+    
+    public void printBondFee()
+    {
+        for(int i = 0; i < bondFee.length; i++)
+        {
+            System.out.println(bondFee[i]);
+        }
+    }
     
     
     
