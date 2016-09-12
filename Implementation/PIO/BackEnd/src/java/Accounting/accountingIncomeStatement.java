@@ -104,7 +104,38 @@ public class accountingIncomeStatement
         }
     }
     
+    //Calculate Levy
+    public void generateLevy()
+    {
+        for(int i = 0; i < property.getBond().getNumberOfYears(); i++)
+        {
+           for(int j = 0; j < numberOfMonths; j++)
+           {
+               if(i == 0)
+               {
+                    levy[i] = property.getExpenses().getLevy();
+               }
+               else
+               {
+                    levy[i] = levy[i-1] + (levy[i-1] * (property.getIncreases().getLevy()/hundredPercent));
+               }
+           }
+        }
+    }
     
+    public double[] getLevy()
+    {
+        generateLevy();
+        return levy;
+    }
+    
+    public void printLevy()
+    {
+        for(int i = 0; i < ratesAndtaxes.length; i++)
+        {
+            System.out.println(ratesAndtaxes[i]);
+        }
+    }
     
     
     
