@@ -152,52 +152,7 @@ $scope.default = function()
 
    
     //Property Details
-   /* $scope.propertyName = 9;
-    $scope.marketPriceAdjustment = 6;
-    $scope.capitalGains = 7;
-    $scope.annualMaintenanceCost = 8;
-    $scope.annualCostIncrease = 5;
-    //bond
-    $scope.interestRate = 7;
-    $scope.deposit = 8;
-    $scope.propertyValue = 0;
-    $scope.numberOfYears = 0;
-    $scope.bondRepaymnet = 0;
-    //Additional Bond Repayment
-    $scope.Period = 0;
-    $scope.additionalCash = 0;
-    $scope.onceOffPayment = 7;
-    //Reserves
-    $scope.maintenance = 6;
-    $scope.renovation = 7;
-    $scope.deviance = 8;
-    $scope.rentInsurance = 5;
-    //Conveyancing Fees
-    $scope.conveyancingFees = 7;
-    $scope.vatDebit = 8;
-    $scope.deedsFee = 0;
-    $scope.initiationFee = 0;
-    //Expenses
-    $scope.tax = 0;
-    $scope.rates = 0;
-    $scope.levy = 0;
-    //increases
-    $scope.inflation = 7;
-    $scope.rentIncrease = 6;
-    $scope.bondFeeIncrease = 7;
-    $scope.levyIncrease = 8;
-    $scope.propertyValueIncrease = 5;
-    $scope.bondFeeIncrease = 7;
-    $scope.taxIncrease = 8;
-    $scope.ratesIncrease = 0;
-    $scope.rates = 0;
-    $scope.Period = 0;
-    $scope.additionalCash = 0;
-    $scope.onceOffPayment = 0;
-    //Rental Information
-    $scope.occupancyRate = 0;
-    $scope.agentCommission = 0;
-    $scope.rentalAmount = 0;*/
+   /* */
 }
 
 }]);
@@ -209,11 +164,50 @@ function update($scope)
     else
     {
            //Property Details
+  
     $scope.propertyName = property.properties.property.propertyName;
-    $scope.marketPriceAdjustment = 6;
-    $scope.capitalGains = 7;
+    $scope.marketPriceAdjustment = property.properties.property.marketPriceAdjustment;
+    $scope.capitalGains = property.properties.property.capitalGains;
     $scope.annualMaintenanceCost = 8;
     $scope.annualCostIncrease = 5;
+    //bond
+    $scope.interestRate = property.properties.property.bond.interestRate;
+    $scope.deposit = property.properties.property.bond.depositInRands;
+    $scope.propertyValue = property.properties.property.bond.propertyValue;
+    $scope.numberOfYears = property.properties.property.bond.numberOfYears;
+    $scope.bondRepaymnet = property.properties.property.bond.bondRepayment;
+    //Additional Bond Repayment
+    $scope.Period = property.properties.property.bond.Period;
+    $scope.additionalCash = property.properties.property.bond.additionalCash;
+    $scope.onceOffPayment = property.properties.property.bond.onceOffPayment;
+    //Reserves
+    $scope.maintenance = property.properties.property.reserves.maintenance;
+    $scope.renovation = property.properties.property.reserves.renovation;
+    $scope.deviance = property.properties.property.reserves.deviance;
+    $scope.rentInsurance = property.properties.property.reserves.rentInsurance;
+    //Conveyancing Fees
+    $scope.conveyancingFees = property.properties.property.upFrontCosts.conveyancingFees;
+    $scope.vatDebit = property.properties.property.upFrontCosts.vatDebit;
+    $scope.deedsFee = property.properties.property.upFrontCosts.deedsFees;
+    $scope.initiationFee = property.properties.property.upFrontCosts.initiationFee;
+    //Expenses
+    $scope.bondFee = property.properties.property.expenses.bondFee;
+    $scope.rates_Taxes = property.properties.property.expenses.rates_Taxes;
+    $scope.levy = property.properties.property.expenses.levy;
+    //increases
+
+    $scope.propertyValueIncrease =  property.properties.property.increases.propertyValue;
+    $scope.rentIncrease =  property.properties.property.increases.rentIncrease;
+    $scope.ratesAnstaxes =  property.properties.property.increases.rates_taxes;
+    $scope.bondFeeIncrease =  property.properties.property.increases.bondFee;
+    $scope.levyIncrease =  property.properties.property.increases.levy;
+    $scope.rentIncrease =  property.properties.property.increases.rent;
+    $scope.inflation =  property.properties.property.increases.inflation;
+
+    //Rental Information
+    $scope.occupancyRate =  property.properties.property.rental.occupancyRate;
+    $scope.agentCommission =  property.properties.property.rental.agentCommission;
+    $scope.rentalAmount =  property.properties.property.rental.rentalAmount;
 
     }
 }

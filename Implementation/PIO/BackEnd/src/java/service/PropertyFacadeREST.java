@@ -157,7 +157,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   ,@FormParam("deviance") double deviance,@FormParam("rentInsurance") double rentInsurance
   ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
   ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
-  ,@FormParam("tax") double tax,@FormParam("rates") double rates
+  ,@FormParam("tax") double tax,@FormParam("rates") double bondFee
  ,@FormParam("levy") double levy,@FormParam("managementFee") double managementFee,@FormParam("inflation") double inflation
  ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
@@ -186,7 +186,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       
       Expenses expensesObj = new Expenses();
       expensesObj.setRates_Taxes(tax);
-      
+      expensesObj.setBondFee(bondFee);
       expensesObj.setLevy(levy);
       
       
