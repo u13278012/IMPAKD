@@ -6,7 +6,6 @@
 package Accounting;
 
 import static Accounting.accountingExpenses.propertyValue;
-import static Accounting.accountingExpenses.yearsToPayOffBond;
 import Entities.Property;
 
 /**
@@ -34,8 +33,10 @@ public class AmortizationTableBond {
     
     public static void main(String[] args) {
         //getPrincipleDebt();
-        setAmortizationTableBond(obj);
-        getAmortizationTableBond();
+//        setAmortizationTableBond(obj);
+//        getAmortizationTableBond();
+        //getArrayBalance();
+        test();
     }
     /**
      *
@@ -110,24 +111,60 @@ public class AmortizationTableBond {
             }
             else{
                 arrayInterest[i] =  Math.round(arrayBalance[i-1]*((interestRate/100.00)/12.00));
-               // System.out.println(arrayInterest[i]);
+               //System.out.println(arrayInterest[i]);
                 arrayPrinciple[i] =  Math.round(paymentPerMonth - arrayInterest[i]);
                 //System.out.println(arrayPrinciple[i]);
                 arrayBalance[i] =  Math.round(arrayBalance[i-1] - arrayPrinciple[i]);
-                System.out.println(arrayBalance[i]);
+                //System.out.println(arrayBalance[i]);
             }
-        }
-        
+        }   
     }
     /**
      *
      * @return
      */
-    public static double[] getAmortizationTableBond(){
+    public static double[] getArrayInterest(){
         setAmortizationTableBond(obj);
 //        for(int i=0; i<yearsToPayOffBond*12; i++){
-//            System.out.println(Math.round(arrayBalance[i]));
+//            System.out.println(i + " " + Math.round(arrayInterest[i]));
 //        }
+        return arrayInterest;
+    }
+    public static double[] getArrayPrinciple(){
+        setAmortizationTableBond(obj);
+//        for(int i=0; i<yearsToPayOffBond*12; i++){
+//            System.out.println(i + " " + Math.round(arrayPrinciple[i]));
+//        }
+        return arrayPrinciple;
+    }
+    public static double[] getArrayBalance(){
+       setAmortizationTableBond(obj);
+//       for(int i=0; i<yearsToPayOffBond*12; i++){
+//            System.out.println(i + " " + Math.round(arrayBalance[i]));
+//        }
+       return arrayBalance;
+    }  
+    
+    public static double[] test(){
+        getArrayInterest();
+        int number = 1;
+        int count = 0;
+        for(int i=1; i<yearsToPayOffBond*12; i++){
+            if(i< 12*number+1){
+                count += count++;
+                arrayInterest[i] += arrayInterest[i];
+                viewArray[i] = arrayInterest[i];
+                if(count == 12){
+                    count = 0;
+                    number++;
+                    i = 12*number+1;
+                }
+            }        
+        }
+        
+        for(int i=0; i<yearsToPayOffBond*12; i++){
+            System.out.println(i + " " + Math.round(viewArray[i]));
+        }
         return viewArray;
     }
 }
