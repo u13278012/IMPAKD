@@ -270,7 +270,9 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
 
 
 
+
       
+>>>>>>> origin/master
   }
   
  @Path("/deleteProperty")
@@ -285,7 +287,13 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
       }
 
+<<<<<<< HEAD
        
+=======
+
+
+      
+>>>>>>> master
   }
   
   @GET
