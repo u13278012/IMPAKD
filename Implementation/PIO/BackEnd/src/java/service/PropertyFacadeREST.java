@@ -253,7 +253,9 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
 
 
 
+
       
+>>>>>>> origin/master
   }
   
  @Path("/deleteProperty")

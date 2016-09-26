@@ -31,7 +31,11 @@ $scope.validation = function()
 $scope.submitFunction = function() 
     {
             var encodedString = 
-            'UserName='+
+            'firstName='+
+            encodeURIComponent($scope.Password)+
+            '&lastName='+
+            encodeURIComponent($scope.Password)+
+            '&UserName='+
             encodeURIComponent($scope.UserName)+
             '&Email='+
             encodeURIComponent($scope.Email)+
@@ -52,7 +56,7 @@ $scope.submitFunction = function()
                 }).
                 error(function(response)
                 {
-                    $window.alert(response);
+                    $window.alert(response+" fail");
                 });
 
         };
