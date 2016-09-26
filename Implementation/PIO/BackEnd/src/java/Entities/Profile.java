@@ -31,6 +31,28 @@ public class Profile implements Serializable {
     private Long id;
 
     @Column
+    private String firstname;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
+    @Column
+    private String lastName;
+    
+    @Column
     private String email;
     
     @Column
