@@ -27,7 +27,7 @@ public void initialiseproperty(){
 @Test (expected = NullPointerException.class)
 public void findProperty() throws Exception{
     Property p;
-    p = property.find((long)1);
+    p = property.find((long)33);
     
 }
 
