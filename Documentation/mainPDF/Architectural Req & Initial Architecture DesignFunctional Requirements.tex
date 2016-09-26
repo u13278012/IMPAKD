@@ -119,8 +119,10 @@ The project was given to us by our client, CSIR, so that we can research how the
 
 %Kudzai's Section (Vision and Background) - Stop
 
+%Priscilla's Section (Scope) - Start
 \section{Scope}
-\includegraphics[width=1\textwidth]{./Images/Scope.png}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/Scope/Priscilla/Scope.jpg}
+%Priscilla's Section (Scope) - End
 
 \newpage
 \section{Software Architecture}
@@ -328,30 +330,48 @@ from the user and transforms these interactions into business logic.\\
 \newpage
 \section{Functional requirements and application design}
 
-% Priscilla's Section  - START
+% Priscilla's Section (Use Case Prioritization) - Start
 \subsection{Use case prioritization}
  \underline{\textbf{Critical:}}
 	\begin{itemize}
-		\item calculateROI
-	\end{itemize}
-\underline{\textbf{Important:}}
-	\begin{itemize}
-		\item Register
-		\item Login
-		\item logout
-		\item addProperty
-		\item updateProperty	
-		\item deleteProperty
-		\item displayGraphs
-		\item displayStatistics	
-	\end{itemize}
-\underline{\textbf{Nice-to-have:}}
-	\begin{itemize}
-		\item updateProfile
-		\item generateReport	
+		\item \underline{Property}
+			\begin{enumerate}
+				\item updateProperty
+				\item addProperty
+				\item deleteProperty
+				\item viewProperty
+				\item compareTwoProperties
+			\end{enumerate}
+		\item \underline{Accounting}
+			\begin{enumerate}
+				\item calculateNPV
+				\item calculateROI
+			\end{enumerate}
 	\end{itemize}
 
-% Priscilla's Section  - END
+\underline{\textbf{Important:}}
+	\begin{itemize}
+		\item \underline{Profile}
+			\begin{enumerate}
+				\item login
+				\item logout
+				\item register
+				\item viewProfile
+				\item updateProfile
+			\end {enumerate}
+
+	\end{itemize}
+
+\underline{\textbf{Nice-to-have:}}
+	\begin{itemize}
+		\item \underline{Report}
+			\begin{enumerate}
+				\item generateReport
+				\item producePDF
+				\item viewReport
+			\end{enumerate}
+	\end{itemize}
+% Priscilla's Section (Use Case Prioritization) - End
 
 % Diana Section - START
 \subsection{Use case/Services contracts}
@@ -364,43 +384,15 @@ from the user and transforms these interactions into business logic.\\
 \includegraphics[width=1\textwidth]{./Images/newDiagrams/serviceContract/Property.png} 
 % Kudzai's Section - START
 
+%Priscilla's Section (Service Contracts) - Start
+\subsubsection{Accounting}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/serviceContract/Priscilla/serviceContract.jpg}
+%Priscilla's Section (Service Contracts) - End
+
 %Sandile's Section - START
 \subsubsection{Report}
-\textbf{{generateReport}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-			\item user must be logged in
-			\item statistics for the report must have been retrived from database
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-			\item report generated and displayed
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{{viewReport}}\\
-\textbf{{generatePDF}}\\
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/serviceContract/ReportServiceContract.png}
 %Sandile's Section - END
-
-%Priscilla's Section - START
-\subsubsection{Accounting}
-\textbf{{calucalateROI}}
-	\begin{itemize}
-		\item \textit{Pre-Conditions:}
-		\begin{itemize}
-		\item the user must be logged in
-		\item obtain the pre-existing default values from the system should be valid
-		\end{itemize}
-		\item \textit{Post-Conditions:}
-		\begin{itemize}
-		\item the should be a valid ROI
-		\item the ROI should be returned 
-		\end{itemize}
-		\item \textit{Request and Results Data Structures:}
-	\end{itemize}
-\textbf{{calucalateNPV}}
-%Priscilla's Section - END
 
 \subsection{Required functionality}
 %Diana's Section - Start
@@ -426,19 +418,22 @@ from the user and transforms these interactions into business logic.\\
 \subsubsection{viewProperty}
 % Kudzai's Section - end
 
-%Priscilla's Section - START
-\subsubsection{calucalateROI}
+%Priscilla's Section (Required Functionality) - Start
 \subsubsection{calucalateNPV}
-%Priscilla's Section - END
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Priscilla/requiredFunctionalityNPV.jpg}
+\subsubsection{calucalateROI}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Priscilla/requiredFunctionalityROI.jpg}
+%Priscilla's Section (Required Functionality) - End
 
 % Sandile's Section - starts
 \subsubsection{generateReport}
 \includegraphics[width=1\textwidth]{./Images/requiredFunctionality/generateReport.png}
 \subsubsection{viewReport}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Sandile/viewReportFR.png}
 \subsubsection{generatePDF}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/requiredFunctionality/Sandile/producePDFFR.png}
+
 % Sandile's Section - end
-
-
 
 \subsection{Process specifications}
 %Diana's Section - Start
@@ -464,16 +459,20 @@ from the user and transforms these interactions into business logic.\\
 \subsubsection{viewProperty}
 % Kudzai's Section - end
 
-%Priscilla's Section - START
-\subsubsection{calucalateROI}
+%Priscilla's Section (Process Specification) - Start
 \subsubsection{calucalateNPV}
-%Priscilla's Section - END
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Priscilla/calculateNPV.jpg}
+\subsubsection{calucalateROI}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Priscilla/calculateROI.jpg}
+%Priscilla's Section (Process Specification) - End
 
 % Sandile's Section - starts
 \subsubsection{generateReport}
 \includegraphics[width=1\textwidth]{./Images/processSpecification/generateReport.png}
 \subsubsection{viewReport}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Sandile/viewReport.png}
 \subsubsection{generatePDF}
+\includegraphics[width=1\textwidth]{./Images/newDiagrams/processSpecification/Sandile/ProducePdfRequest.png}
 % Sandile's Section - end
 
 \subsection{Domain Model}
@@ -482,8 +481,9 @@ from the user and transforms these interactions into business logic.\\
 
 \newpage
 \section{Open Issues}
-
-
-
+\begin{itemize}
+	\item An appropriate Particle Swarm Optimization algorithm API and a Hill Climbing API is needed to optimize the Net Present Value calculation. 
+	\item We still need to get the EJB Container and JNDI lookup to work with our system.
+\end{itemize}
 \end{document}
 
