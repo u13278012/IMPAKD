@@ -25,7 +25,7 @@ angular.module('myApp', ['ngRoute'])
     {
         $http({
                 method: 'GET',
-                url: 'http://localhost:51029/BackEnd/rs/property/retrieveProperties/'+session
+                url: 'http://localhost:8080/BackEnd/rs/property/retrieveProperties/'+session
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -66,7 +66,7 @@ $scope.homeTodetails = function(el)
         
             $http({
                 method: 'POST',
-                url: 'http://localhost:51029/BackEnd/rs/property/deleteProperty',
+                url: 'http://localhost:8080/BackEnd/rs/property/deleteProperty',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
