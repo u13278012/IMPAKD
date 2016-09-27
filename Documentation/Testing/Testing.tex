@@ -186,7 +186,7 @@ discusses and concludes on the results of the tests, respectively.
 \paragraph{Input:} Negative values are used as input , -1\\
 \includegraphics[width=1\textwidth]{./Images/input3.png}
 
-\paragraph{Outcome: } The function will throw a ArithmeticException
+\paragraph{Outcome: } The function will throw an ArithmeticException
 
 \subsection{Test Case 4: Delete a property with an none-existing ID}
 \subsubsection{Condition 1: Back-End Server must be running}
@@ -194,7 +194,7 @@ discusses and concludes on the results of the tests, respectively.
 \paragraph{Input:}Nonexisting , negative values such  -1\\
 \includegraphics[width=1\textwidth]{./Images/input4.png}
 
-\paragraph{Outcome: } The function will throw a ArithmeticException
+\paragraph{Outcome: } The function will throw an ArithmeticException
 
 \subsection{Test Case 5: Find a property that does not exist}
 \subsubsection{Condition 1: Back-End Server must be running}
@@ -234,16 +234,16 @@ FindProperty
 \end{itemize}
 Test the encoded String 
 \begin{itemize}
- \item the must values in the string
+ \item the must be values in the string
 \end{itemize}
 Add Property front-end 
 \begin{itemize}
- \item The must values in the string
+ \item the must be values in the string
  \item session ID must be initialised
 \end{itemize}
 Retrieve a property
 \begin{itemize}
- \item the back end server must be running
+ \item the back-end server must be running
  \item the property must not exist in the database
  \item the input in the parameters must be valid
 \end{itemize}
@@ -262,10 +262,10 @@ Artefacts to be produced as part of unit testing include the following:
 \end{center}
 \section{Detailed Test Results}
 \subsection{Overview of Test Results}
-The test that were done were mostly on the back-end.This is where we validate our values before they are inserted into the database.all the test we did passed even those that would cause the systems fail. This was done by handling the system failure correctly,anticipating what would go wrong and handling that failure in a correct way through try and catch blocks. Junit spring framework was used for unit testing in the back-end. The front-end test where done to the test the system in a wider scope because the front-end is depended on the back-end.when a test that sends a request to the back-end passes, it also assures that the function in the back-end are working correctly.We used Karma and Jasmine framework to conduct unit test in javascript.
+The test that were done were mostly on the back-end.This is where we validate our values before they are inserted into the database.all the test we did passed even those that would normally cause the systems fail. This was done by handling the system failure correctly,anticipating what would go wrong and handling that failure in a correct way through try and catch blocks. Junit spring framework was used for unit testing in the back-end. The front-end test where done to the test the system in a wider scope because the front-end is dependent on the back-end.when a test that sends a request to the back-end passes, it also assures that the function in the back-end are working correctly.We used Karma and Jasmine framework to conduct unit test in javascript.
 
 \subsection{Functional Requirements Test Results}
-The tests we have created for this module are contained within the file   \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/BackEnd/test/Test/PropertyTest.java}{PropertyTest}, \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/FrontEnd/app/addProperty/addProperty_test.js}{Font-End Test} and \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
+The tests we have created for this module are contained within the files   \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/BackEnd/test/Test/PropertyTest.java}{PropertyTest}, \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/FrontEnd/app/addProperty/addProperty_test.js}{Font-End Test} and \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 
 \subsubsection{Test Case 1 (TC 4.1)}
 The correct information was passed to the \$http request
@@ -276,11 +276,11 @@ The property list was returned and the name was extracted
 \paragraph{Result: Pass.}
 
 \subsubsection{Test Case 3 (TC 4.3)}
-The invalid value was handled though a try and catch block by throwing an ArithmeticException 
+An ArithmeticException was thrown and the invalid value was handled though a try and catch block 
 
 \paragraph{Result: Pass.}
 \subsubsection{Test Case 4 (TC 4.4)}
-The invalid value was handled though a try and catch block by throwing an ArithmeticException 
+An ArithmeticException was thrown and the invalid value was handled though a try and catch block 
 
 \paragraph{Result: Pass.}
 
@@ -300,7 +300,7 @@ Back-End Test results \\
 
 
 \section{Conclusions and Recommendations}
-Test were done on the back-end to test for security features implemented as the application allows users to input data.Parameters are passed though the url to the back-end. So regardless of the validation we have in the font-end, malicious users might pass in  malicious code after the validation in the front-end through the url, so it is important for the application to handle both user errors and malicious code, the test have assured that the countermeasures implemented work correctly.
+Test were done in the back-end to test for security features implemented as the application allows users to input data.Parameters are passed though the url to the back-end. So regardless of the validation we have in the font-end, malicious users might pass in  malicious code after the validation in the front-end through the url, so it is important for the application to handle both user errors and malicious code, the test have assured that the countermeasures implemented work correctly.
 
 \end{document}
 
