@@ -25,7 +25,7 @@ angular.module('myApp', ['ngRoute'])
             {
                 $http({
                         method: 'GET',
-                        url: 'http://localhost:51029/BackEnd/rs/profile/retrieveProfile/'+session
+                        url: 'http://localhost:8080/BackEnd/rs/profile/retrieveProfile/'+session
                        // data: encodedString,
                         //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                     }).success(function(response) {
