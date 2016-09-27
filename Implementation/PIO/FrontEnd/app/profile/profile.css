@@ -1,0 +1,95 @@
+/* home page */
+#navBarHome{
+    position: absolute;
+    margin-top: 8%;
+    width: 99.8%;
+    border-color: teal;
+    height: 5%;
+	
+}
+#divBar{
+    background-color: teal;
+    font-family: Calibri Light;
+    font-size: 23px;
+    height: 100%;	
+}
+#listItem{
+    color:aliceblue;
+}
+#nameLabel{
+    color:aliceblue;
+}
+#name{
+    color: #2B2D42;
+    font-family: Gadugi;
+}
+.listBar{
+    margin-left: 25%;	
+}
+.thumbnail{
+    border:2px solid teal;
+    /*background-color: #2B2D42; */
+}
+#propertList{
+    padding-top: 14%;
+    margin-left: 6%;
+}
+#propertyItem{
+    text-decoration: none;
+    color: teal;
+}
+#noProperties{
+    margin-top: 10%;
+    color: #C0392B;
+    visibility: hidden;
+    font-family:Calibri Light;
+}
+.tableOfProperties{
+    /*visibility: hidden; */
+    margin-top: -11%;
+    color: teal;
+    font-family: Calibri Light;
+    font-size: 25px;
+}
+#propertyHeader{
+    margin-top: -2%;
+    margin-left: 40%;
+    color: teal;
+	
+}
+#propertyHead{
+    font-family:sans-serif;
+}
+#line{
+    border:1px solid teal;
+    margin-top: -0.5%;
+}
+#btnAddProp{
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+/* Button Styles */
+.btn
+{
+    color: #ffffff;
+    border-color: #008080;
+    background-color: #008080;
+	
+}
+#aLink{
+    text-decoration: none;
+    color: teal;
+}
+
+
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  /*color: #ffffff;
+  text-decoration: none;*/
+
+  color: #008080;
+  border-color: #008080;
+  background-color: #ffffff;
+}
