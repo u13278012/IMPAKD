@@ -13,15 +13,18 @@ angular.module('myApp', ['ngRoute'])
 
     $scope.submitFunction = function() 
     {
-            var session  = localStorage.getItem("session");
+            $scope.session  = localStorage.getItem("session");
+            
             if (typeof(Storage) === "undefined") {
             alert("You're not logged in");
-            window.location = "../login/login.html";     
+            	    localStorage.setItem("session", 1);
+
+            //window.location = "../login/login.html";     
             }
             
         
-            var encodedString = 'propertyName=' +
-            encodeURIComponent($scope.propertyName) +
+            $scope.encodedString = 'propertyName=' +
+            encodeURIComponent($scope.propertyName) +//
             '&marketPriceAdjustment=' +
             encodeURIComponent($scope.marketPriceAdjustment) +
             '&capitalGains=' +
@@ -91,23 +94,26 @@ angular.module('myApp', ['ngRoute'])
             '&rentalAmount=' +
             encodeURIComponent($scope.rentalAmount)+
             '&profileID=' +
-            encodeURIComponent(session);
+            encodeURIComponent($scope.session);
             //51029
-            alert(encodedString);
+            $scope.addedProperty = true;
+
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/property/addProperty',
-                data: encodedString,
+                url: 'http://localhost:51029/BackEnd/rs/property/addProperty',
+                data:  $scope.encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
                    
-                              alert(response);
-                               window.location = "../home/home.html"; 
+                               $scope.addedProperty = true;
+                            //  window.location = "../home/home.html"; 
 
                 }).
                 error(function(response)
                 {
                    // $window.alert("Server error..request not sent");
+                     $scope.addedProperty = true;
+
                      alert(response);
                                          // alert('loaded');
 
