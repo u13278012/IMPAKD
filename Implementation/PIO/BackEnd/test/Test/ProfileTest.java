@@ -29,7 +29,7 @@ public class ProfileTest {
 
     }
     @Test (expected = NullPointerException.class)
-    public void findProperty() throws Exception{
+    public void findProfile() throws Exception{
         Profile p;
         p = profile.find((long)33);
 
