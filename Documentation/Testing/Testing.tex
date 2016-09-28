@@ -39,7 +39,7 @@
 {\LARGE IMPAKD}\\[0.8cm]
 {\LARGE Project $\>$ $\>$   COS 301 Main Project}\\[0.5cm]
 {\LARGE Product $\>$ $\>$  Test Plan and Report}\\[0.8cm]
-{\LARGE Version $\>$ $\>$  1.0}\\
+{\LARGE Version $\>$ $\>$  1.2}\\
 \HRule \\[4cm]  
 
 % Group Members 
@@ -138,7 +138,12 @@ discusses and concludes on the results of the tests, respectively.
 \begin{center}
  \begin{tabular}{||c| c| c| c||} 
  \hline
- Feature ID & RDS Source & Summary & Test Case ID \\ [0.5ex] 
+ Feature ID & RDS Source & Summary & Test Case ID \\ [0.5ex]
+ 1 & Implementation.PIO.BackEnd.test.Test & Passed & 01 \\
+ 2 & Implementation.PIO.BackEnd.test.Test & Passed & 02 \\
+ 3 & Implementation.PIO.BackEnd.test.Test & Passed & 03 \\
+ 4 & Implementation.PIO.BackEnd.test.Test & Passed & 04 \\
+
  \hline\hline
  %1 & 6 & 87837 & 787 \\ 
  %\hline
@@ -162,11 +167,53 @@ discusses and concludes on the results of the tests, respectively.
 
 \subsubsection{Condition 2:}
 
-\section{Item Pass/Fail Criteria}
-Each item tested must meet a certain criteria in order to pass. These criteria are as follows:
+\subsection{Test Case 2: Add a property with negative ID}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to check how the validation of add property works when invalid values are injected 
+\paragraph{Input:} Negative values are used as input , -1
+\paragraph{Outcome: } The function will throw a ArithmeticException
 
+\subsection{Test Case 3: Delete a property with negative ID}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to check how the validation of add property works when invalid values are injected 
+\paragraph{Input:} Negative values are used as input , -1
+\paragraph{Outcome: } The function will throw a ArithmeticException
+
+\subsection{Test Case 4: Find a property that does not exist}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to test how the function handles a request when an id of a none-existing property is sent
+\paragraph{Input:} Any propertyID Value that is not in the database , 33
+\paragraph{Outcome: } The function will throw a NullPointerException
+
+\section{Item Pass/Fail Criteria}
+Each item tested must meet a certain criteria in order to pass. These criteria are as follows:\\
+Back-End
+\begin{itemize}
+ \item the back end server must be running
+\end{itemize}
+AddPropertyValidation
+\begin{itemize}
+ \item the property must not exist in the database
+ \item the input in the parameters must be invalid
+\end{itemize}
+DeletepropertyValidation
+\begin{itemize}
+ \item the property must not exist in the database
+ \item the input in the parameters must be invalid
+\end{itemize}
+FindProperty
+\begin{itemize}
+ \item the back end server must be running
+ \item the property must not exist in the database
+ \item the input in the parameters must be valid
+\end{itemize}
 \section{Test Deliverables}
 Artefacts to be produced as part of unit testing include the following:
+\begin{itemize}
+\item Test Plan
+\item Test Report
+\item Link to Test Code
+\end{itemize}
 
 %Unit test Report page
 \newpage
@@ -175,28 +222,33 @@ Artefacts to be produced as part of unit testing include the following:
 \end{center}
 \section{Detailed Test Results}
 \subsection{Overview of Test Results}
+The test that were done were mostly on the back-end.This is where we validate our values before they are inserted into the database.all the test we did passed even those that would cause the systems fail. This was done by handling the system failure correctly,anticipating what would go wrong and handling that failure in a correct way through try and catch blocks.The tests expected the system to fail and the error to be handled ,so once it it handled in the expected way, the test pass. Junit spring framework was used for unit testing in the backend 
 
 \subsection{Functional Requirements Test Results}
-The tests we have created for this module are contained within the file provideLinkHere and provideGitLinkHereToo.
+The tests we have created for this module are contained within the file   \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/BackEnd/test/Test/PropertyTest.java}{PropertyTest}. and \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 
 \subsubsection{Test Case 1 (TC 4.1.1)}
 The following results were obtained from the tests conducted. The tests to produce the
 following results have passed/failed and the reasons are stated below.
 \paragraph{Result: Pass/ Fail.}
 
-\subsubsection{Test Case 2 (TC 4.1.2)}
-\paragraph{Result: Pass/ Fail.}
+\subsubsection{Test Case 2 (TC 4.2)}
+The invalid value was handled though a try and catch block by throwing an ArithmeticException 
 
-\subsubsection{Test Case 3 (TC 6.1.3)}
-\paragraph{Result: Pass/ Fail.}
+\paragraph{Result: Pass.}
+\subsubsection{Test Case 3 (TC 4.3)}
+The invalid value was handled though a try and catch block by throwing an ArithmeticException 
 
-\subsubsection{Test Case 4 (TC 6.1.4)}
-\paragraph{Result: Pass/ Fail.}
+\paragraph{Result: Pass.}
+
+\subsubsection{Test Case 4 (TC 4.4)}
+The invalid value was handled though a try and catch block 
+\paragraph{Result: Pass.}
 
 \section{Other}
 
 \section{Conclusions and Recommendations}
-
+Test were done on the back-end to test for security features implemented as the application allows users to input data.Parameters are passed though the url to the back-end. So regardless of the validation we have in the font-end, malicious users might pass in  malicious code after the validation in the front-end through the url, so it is important for the application to handle both user errors and malicious code, the test have assured that the countermeasures implemented work correctly.
 
 \end{document}
 
