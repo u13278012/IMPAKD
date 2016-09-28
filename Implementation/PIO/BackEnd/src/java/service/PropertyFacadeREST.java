@@ -260,7 +260,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_XML)
-  public  List<Property> addProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
+  public  List<Property> getProperties(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
  System.out.print(propertyid);
   System.out.print(profileID);
   TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class);
@@ -270,6 +270,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
 
   }
   
+ 
  @Path("/deleteProperty")
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -284,6 +285,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
 
 
   }
+  
   
   @GET
   @Path("retrieveProperties/{id}")

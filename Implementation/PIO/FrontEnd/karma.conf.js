@@ -10,14 +10,17 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'components/**/*.js',
       
-	   'home/**/*.js'
+	   'home/**/*.js',
+	   'addProperty/**/*.js'
+   //"prestart": "npm install",
     ],
-//  'view*/**/*.js',
+
     autoWatch: true,
 
     frameworks: ['jasmine'],
 
     browsers: ['Chrome'],
+	reporters: ['dots'],
 
     plugins: [
       'karma-chrome-launcher',
