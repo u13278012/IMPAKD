@@ -10,6 +10,8 @@ angular.module('myApp', ['ngRoute'])
 }])
 
 .controller('HomeCtrl',["$scope", "$window", "$http", function($scope, $window, $http ) {
+	
+	
  $scope.populate = function()
 {
     //get sesion

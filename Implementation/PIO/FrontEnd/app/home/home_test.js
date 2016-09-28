@@ -3,14 +3,32 @@
 describe('myApp module', function() {
 
   beforeEach(module('myApp'));
+  
+  
+  var $controller;
 
-  describe('home controller', function(){
+  beforeEach(inject(function(_$controller_){
+    $controller = _$controller_;
+  }));
+  
+   
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var homeCtrl = $controller('HomeCtrl');
-      expect(homeCtrl).toBeDefined();
-    }));
+  describe('HomeCtrl test', function() {
+   var $scope, controller;
 
-  });
+    beforeEach(function() {
+      $scope = {};
+	  
+      controller = $controller('HomeCtrl', { $scope: $scope });
+    });
+  
+   
+   //it('should return 4',function() {
+		 //s var controller = $controller('HomeCtrl', { $scope: $scope });
+        // expect($scope.add()).toEqual("Hello");
+		 
+   // });
+  
+ 
+    });
 });
