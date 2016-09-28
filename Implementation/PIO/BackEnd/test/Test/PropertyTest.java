@@ -25,13 +25,26 @@ public void initialiseproperty(){
   
 }
 @Test (expected = NullPointerException.class)
-public void deletePropertyUnitTest() throws Exception{
+public void findProperty() throws Exception{
     Property p;
     p = property.find((long)1);
     
-  //s  assertEquals("check if it returns the right property", null,p);
-
 }
 
+@Test(expected = ArithmeticException.class)
+public void deleteProperty() throws Exception{
+    Property p;
+   
+     property.deleteProperty(-1, (long)44);
+    
+}
+
+@Test(expected = ArithmeticException.class)
+public void addPropertyValidation() throws Exception{
+    Property p;
+    String propertyName ="University Of pretoria";
+     property.addProperty(propertyName, -1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (long)1);
+    
+}
 
 }

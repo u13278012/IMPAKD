@@ -93,5 +93,8 @@ $scope.logout = function()
     localStorage.clear();
     window.location = "../index.html";
 }
-
+ $scope.updatePage= function(el)
+{
+     window.location = "../updateProperty/updateProperty.html";
+}
 }]);

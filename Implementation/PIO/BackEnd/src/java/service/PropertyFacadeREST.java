@@ -157,16 +157,33 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   ,@FormParam("deviance") double deviance,@FormParam("rentInsurance") double rentInsurance
   ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
   ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
-  ,@FormParam("tax") double tax,@FormParam("rates") double rates
+  ,@FormParam("tax") double tax,@FormParam("rates") double bondFee
  ,@FormParam("levy") double levy,@FormParam("managementFee") double managementFee,@FormParam("inflation") double inflation
  ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
  ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
  ,@FormParam("rentalAmount") double rentalAmount,@FormParam("profileID") Long profileID){
-     System.out.print(profileID);
-     System.out.print(marketPriceAdjustment);
      
+     if( marketPriceAdjustment < 0 || capitalGains < 0 || annualMaintenanceCost
+        < 0 || annualCostIncrease < 0 || interestRate < 0 || deposit 
+        < 0 || propertyValue < 0 || numberOfYears
+        < 0 || bondRepaymnet < 0 || Period
+        < 0 || additionalCash < 0 || onceOffPayment
+        < 0 || maintenance < 0 || renovation
+        < 0 || deviance < 0 || rentInsurance
+        < 0 || conveyancingFees < 0 || vatDebit
+        < 0 || deedsFee < 0 || initiationFee < 0 || levy < 0 || managementFee < 0 || inflation
+        < 0 || propertyValueIncrease < 0 || rentIncrease
+        < 0 || ratesIncrease < 0 || taxIncrease
+        < 0 || bondFeeIncrease < 0 || levyIncrease
+        < 0 || occupancyRate < 0 || agentCommission
+        < 0 || rentalAmount < 0 || profileID < 0){
+         
+         throw new ArithmeticException("invalid input"); }
+   
+
+     else{
      Property propertyObj = new Property();
       
 
@@ -186,7 +203,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       
       Expenses expensesObj = new Expenses();
       expensesObj.setRates_Taxes(tax);
-      
+      expensesObj.setBondFee(bondFee);
       expensesObj.setLevy(levy);
       
       
@@ -237,7 +254,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       propertyObj.setExpenses(expensesObj);
       propertyObj.setProfile(profile);
       pIOBean.persist(propertyObj);
-
+     }
     }
  @Path("/getPropertyDetails")
  @POST
@@ -263,14 +280,20 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_XML)
   public  void deleteProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
- 
-  int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
   
- 
+      if(profileID < 0)
+        throw new ArithmeticException("invalid input");     
+      else{
+        int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
+      }
 
+<<<<<<< HEAD
+       
+=======
 
 
       
+>>>>>>> master
   }
   
   @GET
