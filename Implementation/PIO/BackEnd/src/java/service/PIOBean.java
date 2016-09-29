@@ -1,6 +1,7 @@
 package service;
 import Entities.*;
 import Accounting.*;
+import static Accounting.accountingExpenses.Tax_DeductibleExpenses;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,15 +33,11 @@ public class PIOBean implements PIOBeanLocal {
     
     //Bond Object
     Bond bond;
-    Property property;
+    static Property property;
     accountingIncomeStatement incomeStatement;
     
     public static void main(String[] args) {
-        double arrayTotalExpeneses[] = new double[20];
-//        Expenses(arrayTotalExpeneses);
-//        for(int i =0; i< 20; i++){
-//            System.out.println(arrayTotalExpeneses[i]);
-//        }
+           Expenses(property);
     }
 
     public PIOBean() 
@@ -62,9 +59,9 @@ public class PIOBean implements PIOBeanLocal {
         reserves.setRentInsurance(0);
       
         Expenses expenses = new Expenses();
-        expenses.setRates_Taxes(370.0);
-      
+        expenses.setRates_Taxes(370.0);  
         expenses.setLevy(534.5);
+        expenses.setBondFee(57);
       
       
         Rental rental = new Rental();
@@ -146,11 +143,9 @@ public class PIOBean implements PIOBeanLocal {
      * @param obj
      * @return
      */
-    
-    //@Override
-//    static public double[] Expenses(Property obj){
-//        
-//    }  
+    static public double[] Expenses(Property obj){
+        return Tax_DeductibleExpenses();
+    }  
     
     static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
         Rental rent = new Rental();
