@@ -5,7 +5,11 @@
  */
 package Accounting;
 
+import static Accounting.accountingExpenses.getArrayBondFee;
+import static Accounting.accountingExpenses.getArrayLevy;
+import static Accounting.accountingExpenses.getArrayRates_Taxes;
 import Entities.Property;
+import java.lang.reflect.Array;
 
 /**
  *
@@ -28,6 +32,7 @@ public class AmortizationTableBond {
      static double arrayBalance[] = new double[yearsToPayOffBond*12];
     
      static double viewArray[] = new double[yearsToPayOffBond];
+     static  double arrayTotalExpeneses[] = new double[yearsToPayOffBond];
      static double arrayInterestPerYear = 0.00;
      static double propertyValue = 0;
     
@@ -39,7 +44,8 @@ public class AmortizationTableBond {
        //getAmortizationTableBond();
         //getArrayBalance();
        // getArrayInterest();
-        getArrayInterestTotalPerYear();
+        //getArrayInterestTotalPerYear();
+        getTotalExpenses();
     }
     /**
      *
@@ -158,11 +164,10 @@ public class AmortizationTableBond {
      * @param obj
     */ 
     public static void setArrayInterestTotalPerYear(Property obj){
-        getArrayInterest();
+        getArrayInterest();   
         int number = 1;
         int count = 0;
         int k=1;
-        
         /*calculate Interest per year from arrayInterest that calculated interest per month */
         for(int i=1; i<yearsToPayOffBond*12;i++){ 
             if(i< 12*number+1){
@@ -183,9 +188,37 @@ public class AmortizationTableBond {
     }
     public static double[] getArrayInterestTotalPerYear(){
         setArrayInterestTotalPerYear(obj);
-//                for(int i=1; i<yearsToPayOffBond; i++){
-//            System.out.println(i + " " + Math.round(viewArray[i]));
+//                for(int k=1; k<yearsToPayOffBond; k++){
+//            System.out.println(k + " " + Math.round(viewArray[k]));
 //        }
         return viewArray;
+    }
+     /**
+     *
+     * @param obj
+    */
+    public static void setTotalExpenses(Property obj){
+        //total expenses yearly
+        getArrayInterestTotalPerYear();
+        for(int i=0; i< yearsToPayOffBond; i++){
+//            for(int k=1; k<yearsToPayOffBond;k++){
+//               System.out.println(viewArray[k]); 
+//            }
+           // for(int k=1; k<yearsToPayOffBond;k++){
+                arrayTotalExpeneses[i] = viewArray[i] +  Array.getDouble(getArrayLevy(),i) + Array.getDouble(getArrayBondFee(),i) + Array.getDouble(getArrayRates_Taxes(),i);
+            //}
+        }
+    }
+     /**
+     *
+     * @return
+     */
+    public static double[] getTotalExpenses(){
+        setTotalExpenses(obj);
+        // display totalExpenses
+         for(int i=0; i< yearsToPayOffBond; i++){
+             System.out.println(i + " " + arrayTotalExpeneses[i]);
+         }
+        return arrayTotalExpeneses;
     }
 }
