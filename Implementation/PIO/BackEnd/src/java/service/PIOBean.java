@@ -144,7 +144,7 @@ public class PIOBean implements PIOBeanLocal {
      * @return
      */
     static public double[] Expenses(Property obj){
-        return Tax_DeductibleExpenses();
+        return Tax_DeductibleExpenses(obj);
     }  
     
     static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
