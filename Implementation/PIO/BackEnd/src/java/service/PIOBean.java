@@ -1,6 +1,8 @@
 package service;
 import Entities.*;
 import Accounting.*;
+import static Accounting.accountingAsset.getCapitalGains;
+import static Accounting.accountingAsset.getTotal;
 import static Accounting.accountingExpenses.Tax_DeductibleExpenses;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -37,7 +39,9 @@ public class PIOBean implements PIOBeanLocal {
     accountingIncomeStatement incomeStatement;
     
     public static void main(String[] args) {
-           Expenses(property);
+        //Expenses(property);
+        //AssetTotal(property);
+        //AssetCapitalGains(property);
     }
 
     public PIOBean() 
@@ -143,11 +147,38 @@ public class PIOBean implements PIOBeanLocal {
      * @param obj
      * @return
      */
-    static public double[] Expenses(Property obj){
+    @Override
+    public double[] Expenses(Property obj){
         return Tax_DeductibleExpenses(obj);
-    }  
+    } 
     
-    static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
+    /**
+     * @param obj
+     * @return
+     */
+    @Override
+    public double[] AssetCapitalGains(Property obj){
+        return getCapitalGains(obj);
+    }
+    
+     /**
+     * @param obj
+     * @return
+     */
+    @Override
+    public double[] AssetTotal(Property obj){
+        return getTotal(obj);
+
+    }
+    
+      /**
+     * @param double
+     * @param double
+     * @param double
+     * @param double
+     * @return
+     */
+    double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
         Rental rent = new Rental();
         
         //totalRent = rent.getTotalRent();
