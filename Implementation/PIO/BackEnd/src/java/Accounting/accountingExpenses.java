@@ -6,6 +6,7 @@
 package Accounting;
 import static Accounting.AmortizationTableBond.getTotalExpenses;
 import Entities.Property;
+
 /**
  *
  * @author Diana
@@ -17,18 +18,17 @@ public class accountingExpenses {
     static double levy = 534.50;//obj.getExpenses().getLevy();//expenses.getLevy();
     static double bondFee = 57;//obj.getExpenses().getBondFee();//expenses.getBondFee();
 
-    static double arrayRates_Taxes[] = new double[yearsToPayOffBond];
-    static  double arrayLevy[] = new double[yearsToPayOffBond];
-    static  double arrayBondFee[] = new double[yearsToPayOffBond];
+    static double arrayRates_Taxes[] = new double[yearsToPayOffBond+1];
+    static  double arrayLevy[] = new double[yearsToPayOffBond+1];
+    static  double arrayBondFee[] = new double[yearsToPayOffBond+1];
     
-    static   double totalRates_Taxes[] = new double[yearsToPayOffBond];
-    static   double totalLevy[] = new double[yearsToPayOffBond];
-    static  double totalBondFee[] = new double[yearsToPayOffBond];
+    static   double totalRates_Taxes[] = new double[yearsToPayOffBond+1];
+    static   double totalLevy[] = new double[yearsToPayOffBond+1];
+    static  double totalBondFee[] = new double[yearsToPayOffBond+1];
    
     public  static void main(String[] args) {
-        //getPaymentPerMonth();
-      // Tax_DeductibleExpenses();
-       //getArrayBondFee();
+//        Property obj = new Property();
+//        Tax_DeductibleExpenses(obj);
     }
       
     /**
@@ -37,7 +37,7 @@ public class accountingExpenses {
     */
     public static void setArrayRates_Taxes(Property obj){  
         //increases per year for rates&taxes
-        for(int i=1; i< yearsToPayOffBond; i++){
+        for(int i=1; i< yearsToPayOffBond+1; i++){
             if( i == 1){
                 arrayRates_Taxes[i] = rates_taxes; 
             }
@@ -47,8 +47,7 @@ public class accountingExpenses {
         }    
         
         //total rates&taxes for each year
-        for(int i=1; i<yearsToPayOffBond; i++){
-           // System.out.println(i + " " + Math.round(arrayRates_Taxes[i] * 12));
+        for(int i=1; i<yearsToPayOffBond+1; i++){
            totalRates_Taxes[i] = Math.round(arrayRates_Taxes[i] * 12);
         }
     }
@@ -69,7 +68,7 @@ public class accountingExpenses {
     */
     public static void setArrayLevy(Property obj){     
         //increases per year for levy 
-        for(int i =1; i<yearsToPayOffBond; i++){
+        for(int i =1; i<yearsToPayOffBond+1; i++){
             if( i == 1){
                 arrayLevy[i] = levy; 
             }
@@ -78,9 +77,8 @@ public class accountingExpenses {
             }
         }
         //total levy for each year
-        for(int i=1; i<yearsToPayOffBond; i++){
-           // System.out.println(i + " " + Math.round(arrayLevy[i] * 12));
-              totalLevy[i] = Math.round(arrayLevy[i] * 12);
+        for(int i=1; i<yearsToPayOffBond+1; i++){
+            totalLevy[i] = Math.round(arrayLevy[i] * 12);
         }
         
     }
@@ -100,7 +98,7 @@ public class accountingExpenses {
     */
     public static void setArrayBondFee(Property obj){
         //increases per year for bondFee
-        for(int i = 1; i<yearsToPayOffBond; i++){
+        for(int i = 1; i<yearsToPayOffBond+1; i++){
             if( i == 1){
                 arrayBondFee[i] = bondFee; 
             }
@@ -109,8 +107,7 @@ public class accountingExpenses {
             }
         }
         //total bondFee for each year
-        for(int i=0; i<yearsToPayOffBond; i++){
-            //System.out.println(i + " " + Math.round(arrayBondFee[i] * 12));
+        for(int i=0; i<yearsToPayOffBond+1; i++){
             totalBondFee[i] = Math.round(arrayBondFee[i] * 12);
         }       
     }
@@ -122,9 +119,6 @@ public class accountingExpenses {
      */
     public static double[] getArrayBondFee(Property obj){
         setArrayBondFee(obj);
-//        for(int i=0; i<yearsToPayOffBond; i++){
-//            System.out.println(i + " "+ totalBondFee[i]);
-//        }
         return totalBondFee;
     }
     
