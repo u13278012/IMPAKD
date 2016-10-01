@@ -5,47 +5,50 @@
  */
 package Accounting;
 
-import static Accounting.accountingExpenses.propertyValue;
+import static Accounting.accountingExpenses.getArrayBondFee;
+import static Accounting.accountingExpenses.getArrayLevy;
+import static Accounting.accountingExpenses.getArrayRates_Taxes;
 import Entities.Property;
+import java.lang.reflect.Array;
 
 /**
  *
- * @author Priscilla
+ * @author Diana
  */
-public class AmortizationTableBond {
-    static Property obj = new Property();
-    
-    static int yearsToPayOffBond = 20;//bond.getNumberOfYears();
-    static double interestRate = 0;
+public class AmortizationTableBond {   
+    static final int yearsToPayOffBond = 20;//bond.getNumberOfYears();
+    static double interestRate = 9.5;//obj.getBond().getInterestRate();
     static double depositInRands = 0;
     static double principleDebt = 0;
-    static double depositePercentage = 0;
-    static double interest = 0;
-    static double paymentPerMonth = 0;
-    
+    static double depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
+    static double paymentPerMonth = 5958;//obj.getBond().getBondRepayment();
+
     static double arrayPaymentPerMonth[] = new double[yearsToPayOffBond*12];
     static double arrayInterest[] = new double[yearsToPayOffBond*12];
     static double arrayPrinciple[] = new double[yearsToPayOffBond*12];
     static double arrayBalance[] = new double[yearsToPayOffBond*12];
-    
-    static double viewArray[] = new double[yearsToPayOffBond*12];
+
+    static double arrayInterestPerYear[] = new double[yearsToPayOffBond];
+    static  double arrayTotalExpeneses[] = new double[yearsToPayOffBond];
+    static double interestPerYear = 0.00;
+    static double propertyValue = 799000;//obj.getBond().getPropertyValue();
     
     
     public static void main(String[] args) {
         //getPrincipleDebt();
-//        setAmortizationTableBond(obj);
-//        getAmortizationTableBond();
+       //setAmortizationTableBond(obj);
+       // getArrayInterest();
+       //getAmortizationTableBond();
         //getArrayBalance();
-        test();
+       // getArrayInterest();
+        //getArrayInterestTotalPerYear();
+        //getTotalExpenses(obj);
     }
     /**
      *
      * @param obj
     */ 
     public static void setDepositInRands(Property obj){
-        propertyValue = 799000;//obj.getBond().getPropertyValue();
-        depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
-        //interestRate = 9.5;//obj.getBond().getInterestRate();
         depositInRands = propertyValue * (depositePercentage/100);    
     }
      /**
@@ -53,7 +56,6 @@ public class AmortizationTableBond {
      * @param obj
     */
     public static void setPaymentPerMonth(Property obj){
-        paymentPerMonth = 5958;//obj.getBond().getBondRepayment();
         for(int i=0; i<yearsToPayOffBond*12; i++){
             arrayPaymentPerMonth[i] = paymentPerMonth;
         }   
@@ -61,23 +63,23 @@ public class AmortizationTableBond {
     
     /**
      *
+     * @param obj
      * @return
      */
-    public static double[] getPaymentPerMonth(){
+    public static double[] getPaymentPerMonth(Property obj){
         setPaymentPerMonth(obj);
 //        for(int i=0; i<yearsToPayOffBond*12;i++){
 //            System.out.println(i + " " + arrayPaymentPerMonth[i]);
-//        }
-        
+//        }        
         return arrayPaymentPerMonth;
     }
     /**
      *
+     * @param obj
      * @return
      */
-    public static double getDepositInRands(){
+    public static double getDepositInRands(Property obj){
         setDepositInRands(obj);
-        //System.out.println(depositInRands);
         return depositInRands;
     }
     /**
@@ -85,16 +87,15 @@ public class AmortizationTableBond {
      * @param obj
     */ 
     public static void setPrincipleDebt(Property obj){
-        propertyValue = 799000;//obj.getBond().getPropertyValue();
-        principleDebt = propertyValue - getDepositInRands();
+        principleDebt = propertyValue - getDepositInRands(obj);
     }
     /**
      *
+     * @param obj
      * @return
      */
-    public static double getPrincipleDebt(){
+    public static double getPrincipleDebt(Property obj){
         setPrincipleDebt(obj);
-        //System.out.println(principleDebt);
         return principleDebt;
     }
     
@@ -102,69 +103,103 @@ public class AmortizationTableBond {
      *
      * @param obj
     */ 
-    public static void setAmortizationTableBond(Property obj){
-        interestRate = 9.5;//obj.getBond().getInterestRate();
-        paymentPerMonth = 5958;//obj.getBond().getBondRepayment();
+    public static void setAmortizationTableBond(Property obj){            
         for(int i =0; i<yearsToPayOffBond*12; i++){
             if(i == 0){
-                arrayBalance[i] = getPrincipleDebt();
+                arrayBalance[i] = getPrincipleDebt(obj);
             }
             else{
-                arrayInterest[i] =  Math.round(arrayBalance[i-1]*((interestRate/100.00)/12.00));
-               //System.out.println(arrayInterest[i]);
+                /* EndingBalance * interestRate/12  */
+                arrayInterest[i] =  Math.round(arrayBalance[i-1]*((interestRate/100.00)/12.00)); 
+                
+                /* payment Per Month - arrayInterest */
                 arrayPrinciple[i] =  Math.round(paymentPerMonth - arrayInterest[i]);
-                //System.out.println(arrayPrinciple[i]);
+                
+                /* previous years ending balance - principle */
                 arrayBalance[i] =  Math.round(arrayBalance[i-1] - arrayPrinciple[i]);
-                //System.out.println(arrayBalance[i]);
             }
         }   
     }
     /**
      *
+     * @param obj
      * @return
      */
-    public static double[] getArrayInterest(){
+    public static double[] getArrayInterest(Property obj){
         setAmortizationTableBond(obj);
-//        for(int i=0; i<yearsToPayOffBond*12; i++){
-//            System.out.println(i + " " + Math.round(arrayInterest[i]));
-//        }
         return arrayInterest;
     }
-    public static double[] getArrayPrinciple(){
+    /**
+     *
+     * @param obj
+     * @return
+     */
+    public static double[] getArrayPrinciple(Property obj){
         setAmortizationTableBond(obj);
-//        for(int i=0; i<yearsToPayOffBond*12; i++){
-//            System.out.println(i + " " + Math.round(arrayPrinciple[i]));
-//        }
         return arrayPrinciple;
     }
-    public static double[] getArrayBalance(){
+    /**
+     *
+     * @param obj
+     * @return
+     */
+    public static double[] getArrayBalance(Property obj){
        setAmortizationTableBond(obj);
-//       for(int i=0; i<yearsToPayOffBond*12; i++){
-//            System.out.println(i + " " + Math.round(arrayBalance[i]));
-//        }
        return arrayBalance;
     }  
-    
-    public static double[] test(){
-        getArrayInterest();
+    /**
+     *
+     * @param obj
+    */ 
+    public static void setArrayInterestTotalPerYear(Property obj){
+        getArrayInterest(obj);   
         int number = 1;
         int count = 0;
-        for(int i=1; i<yearsToPayOffBond*12; i++){
+        int k=1;
+        /*calculate Interest per year from arrayInterest that calculated interest per month */
+        for(int i=1; i<yearsToPayOffBond*12;i++){ 
             if(i< 12*number+1){
-                count += count++;
-                arrayInterest[i] += arrayInterest[i];
-                viewArray[i] = arrayInterest[i];
+                count = count +1;
+                interestPerYear += arrayInterest[i];
                 if(count == 12){
-                    count = 0;
+                    count = 0;                    
+                    if(k < yearsToPayOffBond){
+                        arrayInterestPerYear[k] = interestPerYear;
+                    }
                     number++;
-                    i = 12*number+1;
+                    k++;
+                    interestPerYear = 0;
                 }
-            }        
+            }          
         }
-        
-        for(int i=0; i<yearsToPayOffBond*12; i++){
-            System.out.println(i + " " + Math.round(viewArray[i]));
+
+    }
+    public static double[] getArrayInterestTotalPerYear(Property obj){
+        setArrayInterestTotalPerYear(obj);
+        return arrayInterestPerYear;
+    }
+     /**
+     *
+     * @param obj
+    */
+    public static void setTotalExpenses(Property obj){
+        //total expenses yearly
+        getArrayInterestTotalPerYear(obj);
+        for(int i=0; i< yearsToPayOffBond; i++){
+            arrayTotalExpeneses[i] = arrayInterestPerYear[i] +  Array.getDouble(getArrayLevy(obj),i) + Array.getDouble(getArrayBondFee(obj),i) + Array.getDouble(getArrayRates_Taxes(obj),i);
         }
-        return viewArray;
+    }
+     /**
+     *
+     * @param obj
+     * @return
+     */
+    public static double[] getTotalExpenses(Property obj){
+        setTotalExpenses(obj);
+        // display totalExpenses
+         for(int i=0; i< yearsToPayOffBond; i++){
+             System.out.println(i + " " + arrayTotalExpeneses[i]);
+         }
+        return arrayTotalExpeneses;
     }
 }
