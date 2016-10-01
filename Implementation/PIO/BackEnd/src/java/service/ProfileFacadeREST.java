@@ -188,9 +188,28 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces({MediaType.APPLICATION_XML})
     public Profile retrieveProperties(@PathParam("id") Long id) {
+        
+        if(id == -1)
+            throw new ArithmeticException("invalid input");
+        
         TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.id = "+id+"",Profile.class);
         Profile p = query.getSingleResult();
 
         return p;
     }  
+    
+    @Path("/deleteProfile")
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_XML)
+     public  void deleteProfile(@FormParam("profileID") int profileID){
+
+         if(profileID < 0)
+           throw new ArithmeticException("invalid input");     
+         else{
+           int  query = em.createQuery("DELETE FROM Property a WHERE a.id = "+profileID+"",Profile.class).executeUpdate();
+         }
+
+
+     }
 }
