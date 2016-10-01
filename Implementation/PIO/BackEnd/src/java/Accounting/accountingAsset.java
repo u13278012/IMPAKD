@@ -23,10 +23,10 @@ public class accountingAsset {
     static double total[] = new double[yearsToPayOffBond];
     
     public static void main(String[] args) {
-        Property obj = new Property();
+        //Property obj = new Property();
         //getCapital(obj);
         //getCapitalGains(obj);
-    getTotal(obj);
+        //getTotal(obj);
     }
     
      /**
@@ -60,7 +60,7 @@ public class accountingAsset {
         for(int i=0; i<yearsToPayOffBond; i++){
             if(i==0){
                 capitalGains[i] = 0.00;
-                total[i] = propertyValue;
+                total[i] = Math.round(propertyValue);
             }
             else{
                 capitalGains[i] = Math.round(capitalGains[i-1] + (total[i-1]*propertyValueInc));
@@ -89,9 +89,9 @@ public class accountingAsset {
      */
     public static double[] getTotal(Property obj){
         setAssset(obj);       
-       // df.setMaximumFractionDigits(0);
+       //df.setMaximumFractionDigits(9);
         for(int i=0; i<yearsToPayOffBond;i++){
-            System.out.println(i + " " + df.format(total[i]));
+            System.out.println(i + " " + /*df.format(*/total[i]);
         }        
         return total;
     }
