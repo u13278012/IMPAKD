@@ -147,7 +147,8 @@ public class PIOBean implements PIOBeanLocal {
      * @param obj
      * @return
      */
-    static public double[] Expenses(Property obj){
+    @Override
+    public double[] Expenses(Property obj){
         return Tax_DeductibleExpenses(obj);
     } 
     
@@ -155,7 +156,8 @@ public class PIOBean implements PIOBeanLocal {
      * @param obj
      * @return
      */
-    static public double[] AssetCapitalGains(Property obj){
+    @Override
+    public double[] AssetCapitalGains(Property obj){
         return getCapitalGains(obj);
     }
     
@@ -163,11 +165,20 @@ public class PIOBean implements PIOBeanLocal {
      * @param obj
      * @return
      */
-    static public double[] AssetTotal(Property obj){
+    @Override
+    public double[] AssetTotal(Property obj){
         return getTotal(obj);
 
     }
-    static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
+    
+      /**
+     * @param double
+     * @param double
+     * @param double
+     * @param double
+     * @return
+     */
+    double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
         Rental rent = new Rental();
         
         //totalRent = rent.getTotalRent();
