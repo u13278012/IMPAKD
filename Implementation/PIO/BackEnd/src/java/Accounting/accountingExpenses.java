@@ -12,26 +12,19 @@ import Entities.Property;
  */
 public class accountingExpenses {
     
-    static int yearsToPayOffBond = 20;//bond.getNumberOfYears();
-    static double rates_taxes, levy, bondFee, paymentPerMonth;
-    
+    static final int yearsToPayOffBond = 20;//bond.getNumberOfYears();
+    static double rates_taxes = 370;//obj.getExpenses().getRates_Taxes();
+    static double levy = 534.50;//obj.getExpenses().getLevy();//expenses.getLevy();
+    static double bondFee = 57;//obj.getExpenses().getBondFee();//expenses.getBondFee();
+
     static double arrayRates_Taxes[] = new double[yearsToPayOffBond];
     static  double arrayLevy[] = new double[yearsToPayOffBond];
     static  double arrayBondFee[] = new double[yearsToPayOffBond];
     
-
-    static double propertyValue = 0;
-    static double depositePercentage = 0;
-    static double depositInRands = 0;
-    static  double principleDebt = 0;
-
     static   double totalRates_Taxes[] = new double[yearsToPayOffBond];
     static   double totalLevy[] = new double[yearsToPayOffBond];
     static  double totalBondFee[] = new double[yearsToPayOffBond];
-    
-    //static  Property obj = new Property();
-    static AmortizationTableBond test = new AmortizationTableBond();
-    
+   
     public  static void main(String[] args) {
         //getPaymentPerMonth();
       // Tax_DeductibleExpenses();
@@ -42,9 +35,7 @@ public class accountingExpenses {
      *
      * @param obj
     */
-    public static void setArrayRates_Taxes(Property obj){
-        rates_taxes = 370;//obj.getExpenses().getRates_Taxes();
-        
+    public static void setArrayRates_Taxes(Property obj){  
         //increases per year for rates&taxes
         for(int i=1; i< yearsToPayOffBond; i++){
             if( i == 1){
@@ -76,9 +67,7 @@ public class accountingExpenses {
      *
      * @param obj
     */
-    public static void setArrayLevy(Property obj){
-        levy = 534.50;//obj.getExpenses().getLevy();//expenses.getLevy();
-        
+    public static void setArrayLevy(Property obj){     
         //increases per year for levy 
         for(int i =1; i<yearsToPayOffBond; i++){
             if( i == 1){
@@ -110,8 +99,6 @@ public class accountingExpenses {
      * @param obj
     */
     public static void setArrayBondFee(Property obj){
-        bondFee = 57;//obj.getExpenses().getBondFee();//expenses.getBondFee();
-        
         //increases per year for bondFee
         for(int i = 1; i<yearsToPayOffBond; i++){
             if( i == 1){
