@@ -97,6 +97,7 @@ $scope.logout = function()
 }
  $scope.updatePage= function(el)
 {
-     window.location = "../updateProperty/updateProperty.html";
+    localStorage.setItem("propertyID", el.id)
+    window.location = "../updateProperty/updateProperty.html";
 }
 }]);
