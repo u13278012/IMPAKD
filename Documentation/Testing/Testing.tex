@@ -6,6 +6,7 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \makeindex
 
+\usepackage{titlesec}
 \usepackage{longtable}
 \usepackage[pdftex]{graphicx}
 \usepackage{makeidx}
@@ -31,61 +32,70 @@
 \begin{center}
 % Upper part of the page       
 \includegraphics[width=1\textwidth]{./University_of_Pretoria_Logo.PNG}\\[0.4cm]  
-\textsc{\LARGE COS 301}\\[0.9cm]
-\textsc{\LARGE Department Of Computer Science}\\[0.3cm]
 
 %Title
 
 \HRule \\[0.4cm]
-{ \huge \bfseries Testing Document}\\[0.1cm]
-\HRule \\[0.4cm]  
+{\LARGE IMPAKD}\\[0.8cm]
+{\LARGE Project $\>$ $\>$   COS 301 Main Project}\\[0.5cm]
+{\LARGE Product $\>$ $\>$  Test Plan and Report}\\[0.8cm]
+{\LARGE Version $\>$ $\>$  1.2}\\
+\HRule \\[4cm]  
 
 % Group Members 
 
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft} \large
+%\begin{minipage}{0.4\textwidth}
+%\begin{flushleft} \large
 
-\emph{\Large Group Members:}\\[0.4cm]    
-\emph{}\\
-{\Large Diana {Obo}} \\
-\emph{}\\
-\emph{}\\
-{\Large Priscilla {Madigoe}}\\
-\emph{}\\
-\emph{}\\
-{\Large Kudzai {Muranga}} \\
-\emph{}\\
-\emph{}\\
-{\Large Sandile {Khumalo}}\\
-\emph{}\\
-\emph{}\\
+%\emph{\Large Group Members:}\\[0.4cm]    
+%\emph{}\\
+%{\Large Diana {Obo}} \\
+%\emph{}\\
+%\emph{}\\
+%{\Large Priscilla {Madigoe}}\\
+%\emph{}\\
+%\emph{}\\
+%{\Large Kudzai {Muranga}} \\
+%\emph{}\\
+%\emph{}\\
+%{\Large Sandile {Khumalo}}\\
+%\emph{}\\
+%\emph{}\\
 
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
+%\end{flushleft}
+%\end{minipage}
+%\begin{minipage}{0.4\textwidth}
+%\begin{flushright} \large
 
-\emph{ \Large Student numbers:} \\[0.4cm]  
-\emph{}\\
-{\Large u13134885}\\
-\emph{}\\
-\emph{}\\
-{\Large u13049128}\\
-\emph{}\\
-\emph{}\\
-{\Large u13278012}\\
-\emph{}\\
-\emph{}\\
-{\Large u12031748}\\
-\emph{}\\
-\emph{}\\
+%\emph{ \Large Student numbers:} \\[0.4cm]  
+%\emph{}\\
+%{\Large u13134885}\\
+%\emph{}\\
+%\emph{}\\
+%{\Large u13049128}\\
+%\emph{}\\
+%\emph{}\\
+%{\Large u13278012}\\
+%\emph{}\\
+%\emph{}\\
+%{\Large u12031748}\\
+%\emph{}\\
+%\emph{}\\
 
-\end{flushright}
-\end{minipage}
+%\end{flushright}
+%\end{minipage}
 
-% bottom section of title page
+{ \huge \bfseries Unit Test Plan and Report}\\[4cm]
 
-{\large \today}
+% bottom right section of title page
+
+\hfill{\large Prepared by:}\\[0.5cm]
+\hfill{\large Sandile Khumalo - 12031748}\\[0.1cm]
+\hfill{\large Kudzai Muranga - 13278012}\\[0.1cm]
+\hfill{\large Diana Obo - 13134885}\\[0.1cm]
+\hfill{\large Priscilla Madigoe - 13049128}\\[0.5cm]
+\hfill{\large \today}
+
 \end{center}
 \end{titlepage}
 \renewcommand{\thesection}{\arabic{section}}
@@ -99,17 +109,281 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \newpage
 \tableofcontents{}
 
+\setcounter{secnumdepth}{4}
+
 \newpage
-\section{addPropertyTest.js file}
-\includegraphics[width=1\textwidth]{./addProperty_test.PNG}\\[0.4cm] 
+\section{Introduction}
+\subsection{Purpose}
+The Property Investment Optimiser's purpose is to assist the user by optimising their investments in the rental property space. The purpose of this document is to list the tests we have put in place to ensure the functionality of the project. Test driven development was used to ensure that we spend less time debugging the code while creating a detailed specification of what functionality is required for the project.
 
-\section{homeTest.js file}
-\includegraphics[width=1\textwidth]{./home_test.PNG}\\[0.4cm]
+\subsection{Scope}
+This document will be used to elaborate and substantiate the unit tests conducted for the various use
+cases of the Property Investment Optimiser project. Unit test, with mock objects, will be used to ensure the correct functionality of each use case's implementation. These unit tests are done on the server side.
 
-\section{propertyDetailsTest file}
-\includegraphics[width=1\textwidth]{./propertyDetails_test.PNG}\\[0.4cm]
+\subsection{Test Environment}
+Junit was used to implement the tests for each test case. Also, EJBContainers were used to test functionality that requires JPA and Enterprise Java Beans.
 
-\section{Terminal to run test}
-\includegraphics[width=1\textwidth]{./karma.PNG}\\[0.4cm]
+%\subsection{Assumptions and Dependencies}
+
+%Unit test Plan page
+\newpage
+\begin{center}
+{\huge \bfseries Unit Test Plan}\\[0.5cm]
+\end{center}
+\section{Test Items}
+
+\section{Functional Features to be Tested}
+\begin{center}
+ \begin{tabular}{||c| c| c| c||} 
+ \hline
+ Feature ID & RDS Source & Summary & Test Case ID \\ [0.5ex]
+ 1 & Implementation.PIO.FrontEnd.app.addProperty & Passed & 01 \\
+ 2 & Implementation.PIO.BackEnd.test.Test & Passed & 02 \\
+ 3 & Implementation.PIO.BackEnd.test.Test & Passed & 03 \\
+ 4 & Implementation.PIO.BackEnd.test.Test & Passed & 04 \\
+ 5 & Implementation.PIO.BackEnd.test.Test & Passed & 05 \\
+<<<<<<< HEAD
+ 6 & Implementation.PIO.BackEnd.test.Test & Passed & 06 \\
+=======
+ 6 & Implementation.PIO.FrontEnd.app.addProperty & Passed & 06 \\
+
+
+>>>>>>> master
+
+ \hline\hline
+ %1 & 6 & 87837 & 787 \\ 
+ %\hline
+ %2 & 7 & 78 & 5415 \\
+ %\hline
+ %3 & 545 & 778 & 7507 \\
+ %\hline
+ %4 & 545 & 18744 & 7560 \\
+ %\hline
+ %5 & 88 & 788 & 6344 \\ [1ex] 
+ %\hline
+\end{tabular}
+\end{center}
+
+\section{Test Cases}
+<<<<<<< HEAD
+\subsubsection{Condition 1:AddProperty}
+
+\subsection{Test Case 1: Add a property with negative ID}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to check how the validation of add property works when invalid values are injected. 
+\paragraph{Input:} Negative values are used as input , -1.
+\paragraph{Outcome: } The function will throw a ArithmeticException.
+
+\subsection{Test Case 2: Delete a property with negative ID}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to check how the validation of add property works when invalid values are injected.
+\paragraph{Input:} Negative values are used as input , -1.
+\paragraph{Outcome: } The function will throw a ArithmeticException.
+
+\subsection{Test Case 3: Find a property that does not exist}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to test how the function handles a request when an id of a none-existing property is sent
+\paragraph{Input:} Any propertyID Value that is not in the database , 33.
+\paragraph{Outcome: } The function will throw a NullPointerException.
+
+\subsection{Test Case 4: Find a profile that does not exist}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The test must return an exception if the given profileID is not found in the database.
+\paragraph{Input:} Any profileID Value that is not in the database , 33.
+\paragraph{Outcome: } The function will throw a NullPointerException.
+
+\subsection{Test Case 5: Delete a profile that does not exist}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The test must return an exception if the given profileID to be deleted is not fond in the database.
+\paragraph{Input:} Any profileID Value that is not in the database , 33
+\paragraph{Outcome: } The function will throw a NullPointerException.
+
+\subsection{Test Case 6: Delete properties that are associated with a profile that do not exist}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The test must return an exception if the given profileID does not have any properties associated with it.
+\paragraph{Input:} Any profileID Value that does not have any properties associated with it
+\paragraph{Outcome: } The function will throw a NullPointerException.
+=======
+\subsection{Test Case 1: Test if the encoded string sent to the back-end contains the right information}
+\subsubsection{Condition 1: session is created}
+\paragraph{Objective:}The purpose of this test is to test if the infomation being passed by the \$http request is correct 
+\paragraph{Input:}The following inputs will be used to test this functionality:\\
+\includegraphics[width=1\textwidth]{./Images/input.png}
+
+\paragraph{Outcome: }The mocked user input will have to match the equivalent encoded string provided in the expected parameter\\
+\includegraphics[width=1\textwidth]{./Images/expectedCase1.png}
+
+\subsection{Test Case 2: Retrieve a property and test if the Property name is as expected}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to test the getProperties function is it returns the correct property
+\paragraph{Input:} user profile ID and a property ID , (1 ,8)\\
+\includegraphics[width=1\textwidth]{./Images/expectedCase2.png}
+
+\paragraph{Outcome: } The function will throw a ArithmeticException
+
+\subsection{Test Case 3: Add a property with negative ID}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to check how the validation of add property works when invalid values are injected 
+\paragraph{Input:} Negative values are used as input , -1\\
+\includegraphics[width=1\textwidth]{./Images/input3.png}
+
+\paragraph{Outcome: } The function will throw an ArithmeticException
+
+\subsection{Test Case 4: Delete a property with an none-existing ID}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to check how the validation of delete property works when invalid values are injected 
+\paragraph{Input:}Nonexisting , negative values such  -1\\
+\includegraphics[width=1\textwidth]{./Images/input4.png}
+
+\paragraph{Outcome: } The function will throw an ArithmeticException
+
+\subsection{Test Case 5: Find a property that does not exist}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this test is to test how the function handles a request when an id of a none-existing property is sent
+\paragraph{Input:} Any propertyID Value that is not in the database , 33\\
+\includegraphics[width=1\textwidth]{./Images/input5.png}
+
+\paragraph{Outcome: } The function will throw a NullPointerException
+>>>>>>> master
+
+\subsection{Test Case 6: Set AddedProperty boolean to true if property has been inserted}
+\subsubsection{Condition 1: Back-End Server must be running}
+\paragraph{Objective:}The purpose of this function is to test in the front-end application whether the property was successful sent to the back-end and persisted in the database, the \$http request's success function initialises the boolean to true if it was successful otherwise it is initialised to false by the error function
+\paragraph{Input:} endcoded String\\
+\includegraphics[width=1\textwidth]{./Images/input6.png}
+
+\paragraph{Outcome: } The function will throw a NullPointerException
+
+
+\section{Item Pass/Fail Criteria}
+Each item tested must meet a certain criteria in order to pass. These criteria are as follows:\\
+
+AddPropertyValidation
+\begin{itemize}
+ \item the property must not exist in the database
+ \item the input in the parameters must be invalid
+\end{itemize}
+DeletepropertyValidation
+\begin{itemize}
+ \item the property must not exist in the database
+ \item the input in the parameters must be invalid
+\end{itemize}
+FindProperty
+\begin{itemize}
+ \item the back end server must be running
+ \item the property must not exist in the database
+ \item the input in the parameters must be valid
+\end{itemize}
+<<<<<<< HEAD
+FindProfile
+\begin{itemize}
+ \item the back end server must be running
+ \item the profile must not exist in the database
+ \item the input in the parameters must be valid
+\end{itemize}
+DeleteProfile
+\begin{itemize}
+ \item the back end server must be running
+ \item the profile must not exist in the database
+ \item the input in the parameters must be valid
+\end{itemize}
+RetrievePropertiesTestValidation
+\begin{itemize}
+ \item the back end server must be running
+ \item the profile must not have any properties associated with it in the database
+=======
+Test the encoded String 
+\begin{itemize}
+ \item the must be values in the string
+\end{itemize}
+Add Property front-end 
+\begin{itemize}
+ \item the must be values in the string
+ \item session ID must be initialised
+\end{itemize}
+Retrieve a property
+\begin{itemize}
+ \item the back-end server must be running
+ \item the property must not exist in the database
+>>>>>>> master
+ \item the input in the parameters must be valid
+\end{itemize}
+\section{Test Deliverables}
+Artefacts to be produced as part of unit testing include the following:
+\begin{itemize}
+\item Test Plan
+\item Test Report
+\item Link to Test Code
+\end{itemize}
+
+%Unit test Report page
+\newpage
+\begin{center}
+{\huge \bfseries Unit Test Report}\\[0.5cm]
+\end{center}
+\section{Detailed Test Results}
+\subsection{Overview of Test Results}
+<<<<<<< HEAD
+The test that were done were mostly on the back-end.This is where we validate our values before they are inserted into the database.all the test we did passed even those that would cause the systems fail. This was done by handling the system failure correctly,anticipating what would go wrong and handling that failure in a correct way through try and catch blocks.The tests expected the system to fail and the error to be handled ,so once it it handled in the expected way, the test pass. Junit spring framework was used for unit testing in the backend. 
+
+\subsection{Functional Requirements Test Results}
+The tests we have created for this module are contained within the files   \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/BackEnd/test/Test/PropertyTest.java}{PropertyTest} and  \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/BackEnd/test/Test/ProfileTest.java}{ProfileTest} . and \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
+=======
+The test that were done were mostly on the back-end.This is where we validate our values before they are inserted into the database.all the test we did passed even those that would normally cause the systems fail. This was done by handling the system failure correctly,anticipating what would go wrong and handling that failure in a correct way through try and catch blocks. Junit spring framework was used for unit testing in the back-end. The front-end test where done to the test the system in a wider scope because the front-end is dependent on the back-end.when a test that sends a request to the back-end passes, it also assures that the function in the back-end are working correctly.We used Karma and Jasmine framework to conduct unit test in javascript.
+
+\subsection{Functional Requirements Test Results}
+The tests we have created for this module are contained within the files   \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/BackEnd/test/Test/PropertyTest.java}{PropertyTest}, \href{https://github.com/u13278012/IMPAKD/blob/master/Implementation/PIO/FrontEnd/app/addProperty/addProperty_test.js}{Font-End Test} and \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
+>>>>>>> master
+
+\subsubsection{Test Case 1 (TC 4.1)}
+The correct information was passed to the \$http request
+\paragraph{Result: Pass.}
+
+\subsubsection{Test Case 2 (TC 4.2)}
+The property list was returned and the name was extracted
+\paragraph{Result: Pass.}
+
+\subsubsection{Test Case 3 (TC 4.3)}
+An ArithmeticException was thrown and the invalid value was handled though a try and catch block 
+
+\paragraph{Result: Pass.}
+\subsubsection{Test Case 4 (TC 4.4)}
+An ArithmeticException was thrown and the invalid value was handled though a try and catch block 
+
+\paragraph{Result: Pass.}
+
+\subsubsection{Test Case 5 (TC 4.5)}
+The invalid value was handled though a try and catch block 
+\paragraph{Result: Pass.}
+
+<<<<<<< HEAD
+\subsubsection{Test Case 5 (TC 4.5)}
+The invalid value was handled though a try and catch block 
+\paragraph{Result: Pass.}
+
+\subsubsection{Test Case 6 (TC 4.6)}
+The invalid value was handled though a try and catch block 
+\paragraph{Result: Pass.}
+
+
+\section{Other}
+The service contracts ensure that our tests would test that the functionality would return relevant and accurate data.
+=======
+\subsubsection{Test Case 6 (TC 4.6)}
+The function returned true, hence it successfully persisted in the database
+\paragraph{Result: Pass.}
+\section{Other}
+\includegraphics[width=1\textwidth]{./Images/AddPropertyKarmaTest.png}\\
+Front-End Test results \\
+
+\includegraphics[width=1\textwidth]{./Images/testResults.png}\\
+Back-End Test results \\
+
+>>>>>>> master
+
+The different use cases do allow for the application to be deployed into an application server because they cover all the functionality that is required of the application.
+\section{Conclusions and Recommendations}
+Test were done in the back-end to test for security features implemented as the application allows users to input data.Parameters are passed though the url to the back-end. So regardless of the validation we have in the font-end, malicious users might pass in  malicious code after the validation in the front-end through the url, so it is important for the application to handle both user errors and malicious code, the test have assured that the countermeasures implemented work correctly.
+
 \end{document}
 

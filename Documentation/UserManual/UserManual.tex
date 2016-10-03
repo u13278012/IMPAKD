@@ -101,10 +101,10 @@ For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 
 \newpage 
 \section{Introduction}
-This document is a user manual for a Property Investor Optimizer web application. It was developed by team IMPAKD for CSIR at the University of Pretoria (2016).The code is available as open source on \href{https://github.com/u13278012/IMPAKD/}{gitHub}. Below is a walk through of the installation and guidelines on how to use the application. Advanced users who are familiar with coding are more than welcome to use their own way of installation. 
+This document is a user manual for a Property Investment Optimizer web application. It was developed by team IMPAKD for CSIR at the University of Pretoria (2016).The code is available as open source on \href{https://github.com/u13278012/IMPAKD/}{gitHub}. Below is a walk through of the installation and guidelines on how to use the application. Advanced users who are familiar with coding are more than welcome to use their own way of installation. 
 
 \section{Vision}
-The Property Investor Optimizer application's objective is to evaluate whether a certain rental property is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimize their investment strategy according to their portfolio.\\\\
+The Property Investment Optimizer application's objective is to evaluate whether a certain rental property is worth buying. It does this by calculating the Return of Investment (ROI) of a property, which can be compared with another property's ROI, to assist a user to optimize their investment strategy according to their portfolio.\\\\
 The project will assist the user by helping to answer the following questions:\begin{itemize}
 	\item Given a certain bond (interest rate, deposit as a percentage of property value), rental (occupancy rate, agent commission, rental amount) and environmental conditions (Interest rate, inflation) what is the ROI?
 	\item When is it better to pay a higher or lower deposit for a bond?
@@ -122,7 +122,7 @@ The project was given to us by our client, CSIR, so that we can research how the
 
 \section{System Overview}
 
-The Property Investor Optimizer application is designed to assist the user to know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate the property's ROI which is then added to the user's portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic functionality, which is easy to use.
+The Property Investment Optimizer application is designed to assist the user to know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate the property's ROI which is then added to the user's portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic functionality, which is easy to use.
 \section{Installation}
 
 \subsection{Prerequisites}
@@ -269,6 +269,12 @@ Once the user has successfully logged into the system, the user will see this pa
 		\bigskip
 		\item{\underline{\bfseries View Property Details}}\\[0.2cm] 
 		When the user clicks on one of the entries on the table, he/she will be redirected to a page that shows more information 		about the property they have selected.
+		\bigskip
+		\item{\underline{\bfseries Delete Property}}\\[0.2cm] 
+		This button will delete the relevant property from the database. The page will reload and show the updated list.
+		\bigskip
+		\item{\underline{\bfseries Update Property Details}}\\[0.2cm] 
+		This button will allow the user to change the details for a property that has already been added to the list.
 	\end{enumerate}
 
 %Add Property
@@ -285,5 +291,10 @@ As previously mentioned on the fifth point under the "home page" section, this p
 	\begin{enumerate}
 		\item This button will enable the user to get back to the "home page".
 	\end{enumerate}
+	
+\subsection{Profile}
+		\includegraphics[width=0.9\linewidth, center]{./System/Profile.PNG}\\[0.4cm]  
+		\caption{Profile}
+This page will allow the user to change their login details and also to add extra details if they wish, like their full names and a profile picture.
 \end{document}
 

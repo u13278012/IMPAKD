@@ -145,13 +145,16 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
     @Path("register")
      @POST
      @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-     public void login(@FormParam("UserName") String username, @FormParam("Email") String Email,
+     public void register(@FormParam("firstName") String firstName,@FormParam("lastName") String lastName,@FormParam("UserName") String username, @FormParam("Email") String Email,
              @FormParam("Password") String Password, @FormParam("confrimPassword") String confrimPassword) 
      {
          Profile p = new Profile();
          p.setEmail(Email);
          p.setUsername(username);
          p.setPassword(Password);
+         p.setFirstname(lastName);
+         p.setLastName(firstName);
+         
 //         super.create(p);
          pIOBean.register(p);
       
@@ -180,4 +183,33 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
         
     }
     
+    @GET
+    @Path("retrieveProfile/{id}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces({MediaType.APPLICATION_XML})
+    public Profile retrieveProperties(@PathParam("id") Long id) {
+        
+        if(id == -1)
+            throw new ArithmeticException("invalid input");
+        
+        TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.id = "+id+"",Profile.class);
+        Profile p = query.getSingleResult();
+
+        return p;
+    }  
+    
+    @Path("/deleteProfile")
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces(MediaType.APPLICATION_XML)
+     public  void deleteProfile(@FormParam("profileID") int profileID){
+
+         if(profileID < 0)
+           throw new ArithmeticException("invalid input");     
+         else{
+           int  query = em.createQuery("DELETE FROM Property a WHERE a.id = "+profileID+"",Profile.class).executeUpdate();
+         }
+
+
+     }
 }

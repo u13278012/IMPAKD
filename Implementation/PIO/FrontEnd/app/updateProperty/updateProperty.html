@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en" ng-app="myApp">
+    <head>
+        <title>Update Property</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="updateProperty.css">
+         <script src="../xml2json.js"></script>
+
+      
+    </head>
+    <body>
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
+        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="updateProperty.js"></script>
+        
+        <div class="navbar-header" id="Logo">
+                  <img alt="Brand" ng-src="../images/Logo.png">
+            
+          </div>
+        
+        <form ng-submit="submitFunction()" ng-controller="UpdatePropertyCtrl" ng-init="default()"id="addProperty" style="align:center">
+            <h1 id="propertyHeader">Update Property</h1>
+
+            <div id="property" class="tile closed">
+                <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Property Details</h3>
+                <fieldset class="form-group">
+                    <label>Property Name:</label> <input type="text" id="propertyName" placeholder="Name"  ng-model="propertyName">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Market Price Adjustment:</label> <input type="text" id="marketPriceAdjustment" placeholder="Market Price Adjustment" ng-model="marketPriceAdjustment">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Capital Gains:</label> <input type="text" id="capitalGains" placeholder="Capital Gains" ng-model ="capitalGains">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Annual Maintenance Cost:</label> <input type="text" id="annualMaintenanceCost" placeholder="Annual Maintenance Cost" ng-model="annualMaintenanceCost">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Annual Cost Increase:</label> <input type="text" id="annualCostIncrease" placeholder="Annual Cost Increase" ng-model ="annualCostIncrease">
+                </fieldset>
+            </div>
+
+            <div id="Bond" class="tile closed">
+                    <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Bond Details</h3>
+       
+                <fieldset class="form-group">
+                    <label>Interest Rate:</label> <input type="text" id="interestRate" placeholder="Interest Rate" ng-model="interestRate">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Deposit:</label> <input type="text" id="deposit" placeholder="Deposit" ng-model="deposit">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Property Value:</label> <input type="text" id="propertyValue" placeholder="Property Value" ng-model="propertyValue">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Number Of Years:</label> <input type="text" id="numberOfYears" placeholder="Number Of Years" ng-model ="numberOfYears">
+                </fieldset>
+                
+                <fieldset class="form-group">
+                    <label>Bond Repayment:</label> <input type="text" id="bondRepaymnet" placeholder="Bond Repayment" ng-model ="bondRepaymnet">
+                </fieldset>
+            </div>
+            
+             <div id="addBondRepayment" class="tile closed" style="display: none">
+                    <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Additional Bond Repayment</h3>
+
+                <fieldset class="form-group">
+                    <label>Period:</label> <input type="text" id="Period" placeholder="Period" ng-model="Period">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Additional Cash:</label> <input type="text" id="additionalCash" placeholder="Additional Cash" ng-model="additionalCash">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Once-Off Payment:</label> <input type="text" id="onceOffPayment" placeholder="Once-Off Payment"  ng-model="onceOffPayment">
+                </fieldset>
+            </div>
+            
+            <div id="Reserves" class="tile closed">
+                    <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Reserves</h3>
+                    
+                <fieldset class="form-group">
+                    <label>Maintenance:</label> <input type="text" id="maintenance" placeholder="Maintenance" ng-model="maintenance">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Renovation:</label> <input type="text" id="renovation" placeholder="Renovation" ng-model ="renovation">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Deviance:</label> <input type="text" id="deviance" placeholder="Deviance" ng-model="deviance">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Rent Insurance:</label> <input type="text" id="rentInsurance" placeholder="Rent Insurance" ng-model="rentInsurance">
+                </fieldset>
+            </div>
+
+            <div id="upFrontCosts" class="tile closed">
+                    <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Up-Front Costs</h3>
+                    
+                <fieldset class="form-group">
+                    <label>Conveyancing Fees:</label> <input type="text" id="conveyancingFees" placeholder="Conveyancing Fees" ng-model="conveyancingFees">
+                </fieldset>
+
+                <fieldset class="form-group">
+                   <label>VAT Debit:</label>  <input type="text" id="vatDebit" placeholder="VAT Debit" ng-model="vatDebit">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Deeds Fee:</label> <input type="text" id="deedsFee" placeholder="Deeds Fee" ng-model="deedsFee">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Initiation Fee:</label> <input type="text" id="initiationFee" placeholder="Initiation Fee" ng-model ="initiationFee">
+                </fieldset>
+            </div>
+            
+            <div id="Expenses" class="tile closed">
+                    <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Expenses</h3>
+                    
+                <fieldset class="form-group">
+                    <label>Rates and Tax:</label> <input type="text" id="tax" placeholder="Rates and Tax" ng-model ="rates_Taxes">
+                </fieldset>
+
+                    <fieldset class="form-group" style="display: none">
+                    <label>Rates:</label> <input type="text" id="rates" placeholder="Rates" ng-model="rates">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Levy:</label> <input type="text" id="levy" placeholder="Levy" ng-model="levy">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Bond Fee:</label> <input type="text" id="managementFee" placeholder="Bond Fee" ng-model="bondFee">
+                </fieldset>
+            </div>
+            
+            <div id="Increases" class="tile closed">
+                    <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Increases</h3>
+                    
+                <fieldset class="form-group">
+                    <label>Inflation:</label> <input type="text"  id="inflation" placeholder="Inflation" ng-model ="inflation">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Property Value:</label> <input type="text" id="propertyValueIncrease" placeholder="Property Value" ng-model="propertyValueIncrease">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Rent:</label> <input type="text" id="rentIncrease" placeholder="Rent" ng-model ="rentIncrease">
+                </fieldset>
+
+                <fieldset class="form-group" style="display: none">
+                    <label>Rates:</label> <input type="text" id="ratesIncrease" placeholder="Rates" ng-model="ratesIncrease">
+                </fieldset>
+                
+                <fieldset class="form-group">
+                    <label>Rates and Tax:</label> <input type="text" id="taxIncrease" placeholder="Tax" ng-model="ratesAnstaxes">
+                </fieldset>
+                
+                <fieldset class="form-group">
+                    <label>Bond Fee:</label> <input type="text" id="bondFeeIncrease" placeholder="Bond Fee" ng-model ="bondFeeIncrease">
+                </fieldset>
+                
+                <fieldset class="form-group">
+                    <label>Levy:</label> <input type="text" id="levyIncrease" placeholder="Levy" ng-model="levyIncrease">
+                </fieldset>
+            </div>
+            
+            <div id="Rental" class="tile closed">
+                    <h3 id="miniHeading" onclick="grow(this.parentNode.id)">Rental Information</h3>
+
+                <fieldset class="form-group">
+                    <label>Occupancy Rate:</label> <input type="text" id="occupancyRate" placeholder="Occupancy Rate" ng-model="occupancyRate">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Agent Commission:</label> <input type="text" id="agentCommission" placeholder="Agent Commission" ng-model="agentCommission">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label>Rental Amount:</label> <input type="text" id="rentalAmount" placeholder="Rental Amount" ng-model="rentalAmount">
+                </fieldset>
+
+
+            </div>
+                  <button  type="submit" id="submit" class="btn">Update Property</button>
+        </form>
+    </body>
+</html>

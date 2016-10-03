@@ -157,16 +157,33 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   ,@FormParam("deviance") double deviance,@FormParam("rentInsurance") double rentInsurance
   ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
   ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
-  ,@FormParam("tax") double tax,@FormParam("rates") double rates
+  ,@FormParam("tax") double tax,@FormParam("rates") double bondFee
  ,@FormParam("levy") double levy,@FormParam("managementFee") double managementFee,@FormParam("inflation") double inflation
  ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
  ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
  ,@FormParam("rentalAmount") double rentalAmount,@FormParam("profileID") Long profileID){
-     System.out.print(profileID);
-     System.out.print(marketPriceAdjustment);
      
+     if( marketPriceAdjustment < 0 || capitalGains < 0 || annualMaintenanceCost
+        < 0 || annualCostIncrease < 0 || interestRate < 0 || deposit 
+        < 0 || propertyValue < 0 || numberOfYears
+        < 0 || bondRepaymnet < 0 || Period
+        < 0 || additionalCash < 0 || onceOffPayment
+        < 0 || maintenance < 0 || renovation
+        < 0 || deviance < 0 || rentInsurance
+        < 0 || conveyancingFees < 0 || vatDebit
+        < 0 || deedsFee < 0 || initiationFee < 0 || levy < 0 || managementFee < 0 || inflation
+        < 0 || propertyValueIncrease < 0 || rentIncrease
+        < 0 || ratesIncrease < 0 || taxIncrease
+        < 0 || bondFeeIncrease < 0 || levyIncrease
+        < 0 || occupancyRate < 0 || agentCommission
+        < 0 || rentalAmount < 0 || profileID < 0){
+         
+         throw new ArithmeticException("invalid input"); }
+   
+
+     else{
      Property propertyObj = new Property();
       
 
@@ -186,7 +203,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       
       Expenses expensesObj = new Expenses();
       expensesObj.setRates_Taxes(tax);
-      
+      expensesObj.setBondFee(bondFee);
       expensesObj.setLevy(levy);
       
       
@@ -237,31 +254,174 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       propertyObj.setExpenses(expensesObj);
       propertyObj.setProfile(profile);
       pIOBean.persist(propertyObj);
-
+     }
     }
+ //updateProperty
+ 
+ @Path("/updateProperty")
+ @POST
+ @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+ @Produces(MediaType.APPLICATION_JSON)
+ public void updateProperty(@FormParam("propertyName") String propertyName,@FormParam("marketPriceAdjustment") double marketPriceAdjustment
+  ,@FormParam("capitalGains") double capitalGains,@FormParam("annualMaintenanceCost") double annualMaintenanceCost,@FormParam("annualCostIncrease") double annualCostIncrease
+  ,@FormParam("interestRate") double interestRate,@FormParam("deposit") double deposit
+  ,@FormParam("propertyValue") double propertyValue,@FormParam("numberOfYears") int numberOfYears
+  ,@FormParam("bondRepaymnet") double bondRepaymnet,@FormParam("Period") int Period
+  ,@FormParam("additionalCash") double additionalCash,@FormParam("onceOffPayment") double onceOffPayment
+  ,@FormParam("maintenance") double maintenance,@FormParam("renovation") double renovation
+  ,@FormParam("deviance") double deviance,@FormParam("rentInsurance") double rentInsurance
+  ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
+  ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
+  ,@FormParam("tax") double tax,@FormParam("rates") double bondFee
+ ,@FormParam("levy") double levy,@FormParam("managementFee") double managementFee,@FormParam("inflation") double inflation
+ ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
+ ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
+ ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
+ ,@FormParam("occupancyRate") double occupancyRate,@FormParam("agentCommission") double agentCommission
+ ,@FormParam("rentalAmount") double rentalAmount,@FormParam("profileID") Long profileID,@FormParam("propertyid") Long propertyid){
+     
+     if( marketPriceAdjustment < 0 || capitalGains < 0 || annualMaintenanceCost
+        < 0 || annualCostIncrease < 0 || interestRate < 0 || deposit 
+        < 0 || propertyValue < 0 || numberOfYears
+        < 0 || bondRepaymnet < 0 || Period
+        < 0 || additionalCash < 0 || onceOffPayment
+        < 0 || maintenance < 0 || renovation
+        < 0 || deviance < 0 || rentInsurance
+        < 0 || conveyancingFees < 0 || vatDebit
+        < 0 || deedsFee < 0 || initiationFee < 0 || levy < 0 || managementFee < 0 || inflation
+        < 0 || propertyValueIncrease < 0 || rentIncrease
+        < 0 || ratesIncrease < 0 || taxIncrease
+        < 0 || bondFeeIncrease < 0 || levyIncrease
+        < 0 || occupancyRate < 0 || agentCommission
+        < 0 || rentalAmount < 0 || profileID < 0){
+         throw new ArithmeticException("invalid input");
+     }
+   
+
+     else{
+      
+       
+      TypedQuery<Property> updateProfile = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class);
+      List<Property> p = updateProfile.getResultList();
+      for (Property c : p) {
+     
+      UpFrontCosts upFrontCostsObj = new UpFrontCosts();
+      upFrontCostsObj = c.getUpFrontCosts();
+      upFrontCostsObj.setConveyancingFees(conveyancingFees);
+      upFrontCostsObj.setVatDebit(vatDebit);
+      upFrontCostsObj.setDeedsFees(deedsFee);
+      upFrontCostsObj.setInitiationFee(initiationFee);
+      
+      Expenses expensesObj = new Expenses();
+      expensesObj = c.getExpenses();
+      expensesObj.setRates_Taxes(tax);
+      expensesObj.setBondFee(bondFee);
+      expensesObj.setLevy(levy);
+      
+      
+      Rental rentalObj = new Rental();
+      rentalObj = c.getRental();
+      rentalObj.setOccupancyRate(occupancyRate);
+      rentalObj.setOnceOffAgentFee(onceOffPayment);// onceOffPayment is missing from the html page
+      rentalObj.setRentalAmount(rentalAmount);
+      rentalObj.setTotalRent(rentalAmount); // total rent is missing from the html page
+      rentalObj.setAgentCommission(agentCommission);
+      
+      Increases increasesObj = new Increases();
+      increasesObj = c.getInceases();
+      increasesObj.setInflation(inflation);
+      increasesObj.setLevy(levyIncrease);
+      increasesObj.setRates_taxes(taxIncrease);
+      increasesObj.setPropertyValue(propertyValueIncrease);
+      increasesObj.setBondFee(bondFeeIncrease);
+      increasesObj.setRent(rentIncrease);
+      
+      Bond bondObj = new Bond();
+      bondObj = c.getBond();
+      bondObj.setBondRepayment(bondRepaymnet);
+      bondObj.setDepositInRands(deposit);
+      bondObj.setInterestRate(interestRate);
+      bondObj.setNumberOfYears(numberOfYears);
+      bondObj.setPropertyValue(propertyValue);
+     
+      
+      
+      PropertyReserves reservesObj = new PropertyReserves();
+      reservesObj = c.getReserves();
+      reservesObj.setMaintenance(maintenance);
+      reservesObj.setRenovation(renovation);
+      reservesObj.setDeviance(deviance);
+      reservesObj.setRentInsurance(rentInsurance);
+      reservesObj.setMinReserves(maintenance);// minireserves is missing from the html page
+      
+      pIOBean.persist(upFrontCostsObj);
+      pIOBean.persist(reservesObj);
+      pIOBean.persist(expensesObj);
+      pIOBean.persist(rentalObj);
+      pIOBean.persist(bondObj);
+      pIOBean.persist(increasesObj);
+      TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.id= "+profileID+" ",Profile.class);
+       Profile profile = query.getSingleResult();
+           
+     // Property propertyObj = new Property();
+      //propertyObj = p.get(propertyid);
+      c.setPropertyName(propertyName);
+      c.setMarketPriceAdjustment(marketPriceAdjustment);
+      c.setCapitalGains(capitalGains);
+      
+
+      c.setIncreases(increasesObj);
+      c.setUpFrontCosts(upFrontCostsObj);
+      c.setReserves(reservesObj);
+      c.setRental(rentalObj);
+      c.setBond(bondObj);
+      c.setExpenses(expensesObj);
+      c.setProfile(profile);
+      pIOBean.persist(c);
+     }
+     }
+    }
+ 
+ //updateproperty Ends
  @Path("/getPropertyDetails")
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_XML)
-  public  List<Property> addProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
- System.out.print(propertyid);
-  System.out.print(profileID);
+  public  List<Property> getProperties(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
+
   TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class);
       List<Property> p = query.getResultList();
       
       return p;
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> refs/remotes/origin/master
   }
   
+ 
  @Path("/deleteProperty")
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_XML)
   public  void deleteProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
+<<<<<<< HEAD
  
   int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
       
+=======
+  
+      if(profileID < 0)
+        throw new ArithmeticException("invalid input");     
+      else{
+        int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
+      }
+
+
+>>>>>>> refs/remotes/origin/master
   }
+  
   
   @GET
   @Path("retrieveProperties/{id}")

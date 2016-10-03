@@ -31,7 +31,11 @@ $scope.validation = function()
 $scope.submitFunction = function() 
     {
             var encodedString = 
-            'UserName='+
+            'firstName='+
+            encodeURIComponent($scope.Password)+
+            '&lastName='+
+            encodeURIComponent($scope.Password)+
+            '&UserName='+
             encodeURIComponent($scope.UserName)+
             '&Email='+
             encodeURIComponent($scope.Email)+
@@ -40,7 +44,7 @@ $scope.submitFunction = function()
             '&confrimPassword='+
             encodeURIComponent($scope.confrimPassword);
        
-
+             //51029
             $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/profile/register',
@@ -52,7 +56,7 @@ $scope.submitFunction = function()
                 }).
                 error(function(response)
                 {
-                    $window.alert(response);
+                    $window.alert(response+" fail");
                 });
 
         };

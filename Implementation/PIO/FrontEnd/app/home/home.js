@@ -10,6 +10,8 @@ angular.module('myApp', ['ngRoute'])
 }])
 
 .controller('HomeCtrl',["$scope", "$window", "$http", function($scope, $window, $http ) {
+	
+	
  $scope.populate = function()
 {
     //get sesion
@@ -93,5 +95,9 @@ $scope.logout = function()
     localStorage.clear();
     window.location = "../index.html";
 }
-
+ $scope.updatePage= function(el)
+{
+    localStorage.setItem("propertyID", el.id)
+    window.location = "../updateProperty/updateProperty.html";
+}
 }]);

@@ -35,5 +35,11 @@ public interface PIOBeanLocal {
     public void retrieveProperty(Long id);
 
     public double[] generateIncomeStatement(Property property);
+
+    public double[] AssetCapitalGains(Property obj);
+
+    public double[] Expenses(Property obj);
+
+    public double[] AssetTotal(Property obj);
     
 }
