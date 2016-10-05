@@ -3,7 +3,7 @@ import Entities.*;
 import Accounting.*;
 import static Accounting.accountingAsset.getCapitalGains;
 import static Accounting.accountingAsset.getTotal;
-import static Accounting.accountingExpenses.Tax_DeductibleExpenses;
+import static Accounting.accountingExpenses.getTotalExpenses;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -149,7 +149,7 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] Expenses(Property obj){
-        return Tax_DeductibleExpenses(obj);
+        return getTotalExpenses(obj);
     } 
     
     /**

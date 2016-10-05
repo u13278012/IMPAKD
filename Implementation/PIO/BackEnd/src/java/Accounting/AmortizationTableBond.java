@@ -29,8 +29,10 @@ public class AmortizationTableBond {
     static double arrayBalance[] = new double[yearsToPayOffBond*12+1];
 
     static double arrayInterestPerYear[] = new double[yearsToPayOffBond+1];
+    static double arrayPrinciplePerYear[] = new double[yearsToPayOffBond+1];
     static  double arrayTotalExpeneses[] = new double[yearsToPayOffBond+1];
     static double interestPerYear = 0.00;
+    static double principlePerYear = 0.00;
     static double propertyValue = 799000;//obj.getBond().getPropertyValue();
     
     
@@ -39,6 +41,7 @@ public class AmortizationTableBond {
        //setAmortizationTableBond(obj);
         //getTotalExpenses(obj);
         //getArrayBalance(obj);
+       // getArrayPrincipleTotalPerYear(obj);
     }
     
     /**
@@ -136,6 +139,9 @@ public class AmortizationTableBond {
      */
     public static double[] getArrayPrinciple(Property obj){
         setAmortizationTableBond(obj);
+//        for(int i =0; i<yearsToPayOffBond*12+1; i++){
+//            System.out.println(i +" "+ arrayPrinciple[i]);
+//        }
         return arrayPrinciple;
     }
     
@@ -189,12 +195,53 @@ public class AmortizationTableBond {
         setArrayInterestTotalPerYear(obj);
         return arrayInterestPerYear;
     }
+     
+    /**
+     *
+     * @param obj
+    */ 
+    public static void setArrayPrincipleTotalPerYear(Property obj){
+        getArrayPrinciple(obj);   
+        int number = 1;
+        int count = 0;
+        int k=1;
+        /*calculate Interest per year from arrayInterest that calculated interest per month */
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){ 
+            if(i< 12*number+1){
+                count = count +1;
+                principlePerYear += arrayPrinciple[i];
+                if(count == 12){
+                    count = 0;                    
+                    if(k < yearsToPayOffBond+1){
+                        arrayPrinciplePerYear[k] = principlePerYear;
+                    }
+                    number++;
+                    k++;
+                    principlePerYear = 0;
+                }
+            }          
+        }
+
+    }
+    
+     /**
+     *
+     * @param obj
+     * @return
+     */
+    public static double[] getArrayPrincipleTotalPerYear(Property obj){
+        setArrayPrincipleTotalPerYear(obj);
+//        for(int i =0; i<yearsToPayOffBond+1; i++){
+//            System.out.println(i +" "+ arrayPrinciplePerYear[i]);
+//        }
+        return arrayPrinciplePerYear;
+    }
     
      /**
      *
      * @param obj
     */
-    public static void setTotalExpenses(Property obj){
+    public static void setTotalTax_DeductibleExpenses(Property obj){
         //total expenses yearly
         getArrayInterestTotalPerYear(obj);
         for(int i=0; i< yearsToPayOffBond+1; i++){
@@ -207,8 +254,8 @@ public class AmortizationTableBond {
      * @param obj
      * @return
      */
-    public static double[] getTotalExpenses(Property obj){
-        setTotalExpenses(obj);
+    public static double[] getTotalTax_DeductibleExpenses(Property obj){
+        setTotalTax_DeductibleExpenses(obj);
         // display totalExpenses
 //         for(int i=0; i< yearsToPayOffBond+1; i++){
 //             System.out.println(i + " " + arrayTotalExpeneses[i]);
