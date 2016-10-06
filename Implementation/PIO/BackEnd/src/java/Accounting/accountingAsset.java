@@ -13,19 +13,20 @@ import java.text.DecimalFormat;
  * @author Diana
  */
 public class accountingAsset {
-    static DecimalFormat df = new DecimalFormat();
-    static final int yearsToPayOffBond = 20;//bond.getNumberOfYears();  
-    static double propertyValue = 799000;//obj.getBond().getPropertyValue();
-    static double propertyValueInc = 0.05; //obj.getInceases().getPropertyValue();
-    
-    static double fixedAsset[] = new double[yearsToPayOffBond+1];
-    static double capitalGains[] = new double[yearsToPayOffBond+1];
-    static double total[] = new double[yearsToPayOffBond+1];
+    //DecimalFormat df = new DecimalFormat();
+    final int yearsToPayOffBond = 20;//bond.getNumberOfYears();  
+    double propertyValue = 799000;//obj.getBond().getPropertyValue();
+    double propertyValueInc = 0.05; //obj.getInceases().getPropertyValue();
+
+    double fixedAsset[] = new double[yearsToPayOffBond+1];
+    double capitalGains[] = new double[yearsToPayOffBond+1];
+    double total[] = new double[yearsToPayOffBond+1];
     
     public static void main(String[] args) {
         Property obj = new Property();
+        //accountingAsset test = new accountingAsset();
         //getCapital(obj);
-        //getCapitalGains(obj);
+       // test.getCapitalGains(obj);
         //getTotal(obj);
     }
     
@@ -33,7 +34,7 @@ public class accountingAsset {
      *
      * @param obj
     */
-    public static void setCapital(Property obj){
+    public void setCapital(Property obj){
         for(int i=0; i<yearsToPayOffBond+1; i++){
             fixedAsset[i] = propertyValue;
         }   
@@ -44,7 +45,7 @@ public class accountingAsset {
      * @param obj
      * @return
      */
-    public static double[] getCapital(Property obj){
+    public double[] getCapital(Property obj){
         setCapital(obj);
 //        for(int i=0; i<yearsToPayOffBond+1;i++){
 //            System.out.println(i + " " + fixedAsset[i]);
@@ -56,7 +57,7 @@ public class accountingAsset {
      *
      * @param obj
     */
-    public static void setAssset(Property obj){
+    public void setAssset(Property obj){
         for(int i=0; i<yearsToPayOffBond+1; i++){
             if(i==0){
                 capitalGains[i] = 0.00;
@@ -74,7 +75,7 @@ public class accountingAsset {
      * @param obj
      * @return
      */
-    public static double[] getCapitalGains(Property obj){
+    public double[] getCapitalGains(Property obj){
         setAssset(obj);
 //        for(int i=0; i<yearsToPayOffBond+1;i++){
 //            System.out.println(i + " " + capitalGains[i]);
@@ -87,7 +88,7 @@ public class accountingAsset {
      * @param obj
      * @return
      */
-    public static double[] getTotal(Property obj){
+    public double[] getTotal(Property obj){
         setAssset(obj);       
        //df.setMaximumFractionDigits(9);
 //        for(int i=0; i<yearsToPayOffBond+1;i++){
