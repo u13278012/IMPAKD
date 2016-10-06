@@ -42,4 +42,6 @@ public interface PIOBeanLocal {
 
     public double[] AssetTotal(Property obj);
     
+    public double[] RentTotal(Property obj);
+    
 }

@@ -1,9 +1,7 @@
 package service;
 import Entities.*;
 import Accounting.*;
-import static Accounting.accountingAsset.getCapitalGains;
-import static Accounting.accountingAsset.getTotal;
-import static Accounting.accountingExpenses.getTotalExpenses;
+//import static Accounting.accountingExpenses.getTotalExpenses;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -38,10 +36,16 @@ public class PIOBean implements PIOBeanLocal {
     static Property property;
     accountingIncomeStatement incomeStatement;
     
+    accountingExpenses objExp = new accountingExpenses();
+    accountingAsset objAss = new accountingAsset();
+    accountingRental objRental = new accountingRental();
+            
     public static void main(String[] args) {
-        //Expenses(property);
+        PIOBean objTest = new PIOBean();
+//        objTest.Expenses(property);
         //AssetTotal(property);
         //AssetCapitalGains(property);
+        //objTest.RentTotal(property);
     }
 
     public PIOBean() 
@@ -149,7 +153,7 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] Expenses(Property obj){
-        return getTotalExpenses(obj);
+        return objExp.getTotalExpenses(obj);
     } 
     
     /**
@@ -158,7 +162,7 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] AssetCapitalGains(Property obj){
-        return getCapitalGains(obj);
+        return objAss.getCapitalGains(obj);
     }
     
      /**
@@ -167,29 +171,17 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] AssetTotal(Property obj){
-        return getTotal(obj);
+        return objAss.getTotal(obj);
 
     }
     
-      /**
-     * @param double
-     * @param double
-     * @param double
-     * @param double
+    /**
+     * @param obj
      * @return
      */
-    double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
-        Rental rent = new Rental();
-        
-        //totalRent = rent.getTotalRent();
-        occupancyRate = rent.getOccupancyRate();
-        rentalAmount = rent.getRentalAmount();
-        onceOffAgentFee = rent.getOnceOffAgentFee();
-        
-        totalRent = rentalAmount * (12.00 * occupancyRate);
-        
-        return totalRent;
-        
+    @Override
+    public double[] RentTotal(Property obj){
+        return objRental.getTotalRent(obj);
     }
     
     @Override
