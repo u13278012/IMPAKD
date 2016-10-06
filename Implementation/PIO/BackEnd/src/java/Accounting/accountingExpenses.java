@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package Accounting;
-import static Accounting.AmortizationTableBond.getArrayPrincipleTotalPerYear;
-import static Accounting.AmortizationTableBond.getTotalTax_DeductibleExpenses;
+//import static Accounting.AmortizationTableBond.getArrayPrincipleTotalPerYear;
+//import static Accounting.AmortizationTableBond.getTotalTax_DeductibleExpenses;
 import Entities.Property;
 import java.lang.reflect.Array;
 
@@ -14,33 +14,34 @@ import java.lang.reflect.Array;
  * @author Diana
  */
 public class accountingExpenses {
+    AmortizationTableBond objAmor = new AmortizationTableBond();
     
-    static final int yearsToPayOffBond = 20;//bond.getNumberOfYears();
-    static double rates_taxes = 370;//obj.getExpenses().getRates_Taxes();
-    static double levy = 534.50;//obj.getExpenses().getLevy();//expenses.getLevy();
-    static double bondFee = 57;//obj.getExpenses().getBondFee();//expenses.getBondFee();
+    final int yearsToPayOffBond = 20;//bond.getNumberOfYears();
+    double rates_taxes = 370;//obj.getExpenses().getRates_Taxes();
+    double levy = 534.50;//obj.getExpenses().getLevy();//expenses.getLevy();
+    double bondFee = 57;//obj.getExpenses().getBondFee();//expenses.getBondFee();
 
-    static double arrayRates_Taxes[] = new double[yearsToPayOffBond+1];
-    static double arrayLevy[] = new double[yearsToPayOffBond+1];
-    static double arrayBondFee[] = new double[yearsToPayOffBond+1];
-    
-    static double totalRates_Taxes[] = new double[yearsToPayOffBond+1];
-    static double totalLevy[] = new double[yearsToPayOffBond+1];
-    static double totalBondFee[] = new double[yearsToPayOffBond+1];
-    static double expenses[]  = new double[yearsToPayOffBond+1];
+    double arrayRates_Taxes[] = new double[yearsToPayOffBond+1];
+    double arrayLevy[] = new double[yearsToPayOffBond+1];
+    double arrayBondFee[] = new double[yearsToPayOffBond+1];
+
+    double totalRates_Taxes[] = new double[yearsToPayOffBond+1];
+    double totalLevy[] = new double[yearsToPayOffBond+1];
+    double totalBondFee[] = new double[yearsToPayOffBond+1];
+    double expenses[]  = new double[yearsToPayOffBond+1];
+    double arrayTotalExpeneses[] = new double[yearsToPayOffBond+1];
    
     public  static void main(String[] args) {
         Property obj = new Property();
-        //Tax_DeductibleExpenses(obj);
-       // non_Tax_DeductibleExpenses(obj);
-      // getTotalExpenses(obj);
+       // accountingExpenses test = new accountingExpenses();
+        //test.Tax_DeductibleExpenses(obj);
     }
       
     /**
      *
      * @param obj
     */
-    public static void setArrayRates_Taxes(Property obj){  
+    public  void setArrayRates_Taxes(Property obj){  
         //increases per year for rates&taxes
         for(int i=1; i< yearsToPayOffBond+1; i++){
             if( i == 1){
@@ -62,7 +63,7 @@ public class accountingExpenses {
      * @param obj
      * @return
      */
-    public static double[] getArrayRates_Taxes(Property obj){
+    public  double[] getArrayRates_Taxes(Property obj){
         setArrayRates_Taxes(obj);
         return totalRates_Taxes;
     }
@@ -71,7 +72,7 @@ public class accountingExpenses {
      *
      * @param obj
     */
-    public static void setArrayLevy(Property obj){     
+    public  void setArrayLevy(Property obj){     
         //increases per year for levy 
         for(int i =1; i<yearsToPayOffBond+1; i++){
             if( i == 1){
@@ -92,7 +93,7 @@ public class accountingExpenses {
      * @param obj
      * @return
      */
-    public static double[] getArrayLevy(Property obj){
+    public  double[] getArrayLevy(Property obj){
         setArrayLevy(obj);
         return totalLevy;
     }
@@ -101,7 +102,7 @@ public class accountingExpenses {
      *
      * @param obj
     */
-    public static void setArrayBondFee(Property obj){
+    public  void setArrayBondFee(Property obj){
         //increases per year for bondFee
         for(int i = 1; i<yearsToPayOffBond+1; i++){
             if( i == 1){
@@ -122,18 +123,42 @@ public class accountingExpenses {
      * @param obj
      * @return
      */
-    public static double[] getArrayBondFee(Property obj){
+    public  double[] getArrayBondFee(Property obj){
         setArrayBondFee(obj);
         return totalBondFee;
     }
     
+         /**
+     *
+     * @param obj
+    */
+    public void setTotalTax_DeductibleExpenses(Property obj){
+        //total expenses yearly
+        for(int i=0; i< yearsToPayOffBond+1; i++){
+            arrayTotalExpeneses[i] = Array.getDouble(objAmor.getArrayInterestTotalPerYear(obj),i) +  Array.getDouble(getArrayLevy(obj),i) + Array.getDouble(getArrayBondFee(obj),i) + Array.getDouble(getArrayRates_Taxes(obj),i);
+        }
+    }
+    
+     /**
+     *
+     * @param obj
+     * @return
+     */
+    public double[] getTotalTax_DeductibleExpenses(Property obj){
+        setTotalTax_DeductibleExpenses(obj);
+        // display totalExpenses
+//         for(int i=0; i< yearsToPayOffBond+1; i++){
+//             System.out.println(i + " " + arrayTotalExpeneses[i]);
+//         }
+        return arrayTotalExpeneses;
+    }
     
     /**
      *
      * @param obj
      * @return 
     */
-    public static double[] Tax_DeductibleExpenses(Property obj){
+    public  double[] Tax_DeductibleExpenses(Property obj){
         getArrayRates_Taxes(obj);
         getArrayLevy(obj);
         getArrayBondFee(obj);
@@ -145,17 +170,17 @@ public class accountingExpenses {
      * @param obj
      * @return 
     */
-    public static double[] non_Tax_DeductibleExpenses(Property obj){
-      return getArrayPrincipleTotalPerYear(obj);
+    public  double[] non_Tax_DeductibleExpenses(Property obj){
+      return objAmor.getArrayPrincipleTotalPerYear(obj);
     }
     
     /**
      *
      * @param obj
     */
-    public static void setTotalExpenses(Property obj){
+    public  void setTotalExpenses(Property obj){
         for(int i=0; i<yearsToPayOffBond+1;i++){
-            expenses[i] = Array.getDouble(Tax_DeductibleExpenses(obj),i) + Array.getDouble(non_Tax_DeductibleExpenses(obj),i) ;
+            expenses[i] = Array.getDouble(Tax_DeductibleExpenses(obj),i) + Array.getDouble(non_Tax_DeductibleExpenses(obj),i);
         }
     }
     /**
@@ -163,7 +188,7 @@ public class accountingExpenses {
      * @param obj
      * @return 
     */
-    public static double[] getTotalExpenses(Property obj){
+    public  double[] getTotalExpenses(Property obj){
         setTotalExpenses(obj);
         for(int i=0; i< yearsToPayOffBond+1; i++){
             System.out.println(i + " " + expenses[i]);
