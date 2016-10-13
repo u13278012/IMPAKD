@@ -41,8 +41,8 @@ public class PIOBean implements PIOBeanLocal {
     accountingRental objRental = new accountingRental();
             
     public static void main(String[] args) {
-        PIOBean objTest = new PIOBean();
-//        objTest.Expenses(property);
+        //PIOBean objTest = new PIOBean();
+      // objTest.retrieveProperty(Long.MIN_VALUE);
         //AssetTotal(property);
         //AssetCapitalGains(property);
         //objTest.RentTotal(property);
@@ -187,11 +187,12 @@ public class PIOBean implements PIOBeanLocal {
     @Override
     public void retrieveProperty(Long id)
     {
-//        TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
-//        property = query.getSingleResult();
-        //Create a mock property object
-        //Generate Income Statement
-        generateIncomeStatement(property);
+        TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
+        property = query.getSingleResult();
+        Expenses(property);
+//        Create a mock property object
+//        Generate Income Statement
+//        generateIncomeStatement(property);
         
       
     }

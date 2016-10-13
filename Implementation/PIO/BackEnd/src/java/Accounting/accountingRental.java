@@ -12,11 +12,12 @@ import Entities.Property;
 public class accountingRental {
     Property obj = new Property();
     
-    final int yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears();
-    double occupancyRate = 1*12;//obj.getRental().getOccupancyRate()*12;
-    double agentCommission = 8.00;//obj.getRental().getAgentCommission();
-    double rentalAmount = 6700.00;//obj.getRental().getRentalAmount();
-    double onceOffAgentFee = 15.37/100.00;//obj.getRental().getOnceOffAgentFee();
+    final int yearsToPayOffBond = obj.getBond().getNumberOfYears();
+    double occupancyRate = obj.getRental().getOccupancyRate()*12;
+    double agentCommission = obj.getRental().getAgentCommission();
+    double rentalAmount = obj.getRental().getRentalAmount();
+    double onceOffAgentFee = obj.getRental().getOnceOffAgentFee()/100;
+    
     double totalRent[] = new double[yearsToPayOffBond+1];
     double arrayRentalAmount[] = new double[yearsToPayOffBond+1];
     
@@ -36,7 +37,7 @@ public class accountingRental {
                 arrayRentalAmount[i] = rentalAmount; 
             }
             else{
-                arrayRentalAmount[i] =  arrayRentalAmount[i-1] * 6.00/100.00/*obj.getIncreases().getRent() */ + arrayRentalAmount[i-1];
+                arrayRentalAmount[i] =  arrayRentalAmount[i-1] * (obj.getIncreases().getRent()/100) + arrayRentalAmount[i-1];
             }
         }    
         
