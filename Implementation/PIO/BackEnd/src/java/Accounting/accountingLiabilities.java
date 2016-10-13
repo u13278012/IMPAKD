@@ -14,8 +14,9 @@ import java.lang.reflect.Array;
 public class accountingLiabilities {
     accountingAsset objAsset = new accountingAsset();          
     AmortizationTableBond objAmor = new AmortizationTableBond(); 
+    Property obj = new Property();
     
-    final int yearsToPayOffBond = 20;//bond.getNumberOfYears();
+    final int yearsToPayOffBond = obj.getBond().getNumberOfYears();
     double bondPrincipleDebt[] = new double[yearsToPayOffBond+1];
     double arrayEquity[] = new double[yearsToPayOffBond+1];
     

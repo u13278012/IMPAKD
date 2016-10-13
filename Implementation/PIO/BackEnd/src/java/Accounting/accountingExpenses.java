@@ -15,11 +15,12 @@ import java.lang.reflect.Array;
  */
 public class accountingExpenses {
     AmortizationTableBond objAmor = new AmortizationTableBond();
+    Property obj = new Property();
     
-    final int yearsToPayOffBond = 20;//bond.getNumberOfYears();
-    double rates_taxes = 370;//obj.getExpenses().getRates_Taxes();
-    double levy = 534.50;//obj.getExpenses().getLevy();//expenses.getLevy();
-    double bondFee = 57;//obj.getExpenses().getBondFee();//expenses.getBondFee();
+    final int yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
+    double rates_taxes = obj.getExpenses().getRates_Taxes();
+    double levy = obj.getExpenses().getLevy();
+    double bondFee = obj.getExpenses().getBondFee();
 
     double arrayRates_Taxes[] = new double[yearsToPayOffBond+1];
     double arrayLevy[] = new double[yearsToPayOffBond+1];
@@ -48,7 +49,7 @@ public class accountingExpenses {
                 arrayRates_Taxes[i] = rates_taxes; 
             }
             else{
-                arrayRates_Taxes[i] =  arrayRates_Taxes[i-1] * 8.00/100.00/*obj.getIncreases().getRates_taxes() */ + arrayRates_Taxes[i-1];
+                arrayRates_Taxes[i] =  arrayRates_Taxes[i-1] * (obj.getIncreases().getRates_taxes()/100.00) + arrayRates_Taxes[i-1];
             }
         }    
         
@@ -79,7 +80,7 @@ public class accountingExpenses {
                 arrayLevy[i] = levy; 
             }
             else{
-                arrayLevy[i] = arrayLevy[i-1] * 8.00/100.00/*obj.getIncreases().getRates_taxes() */ + arrayLevy[i-1];
+                arrayLevy[i] = arrayLevy[i-1] * (obj.getIncreases().getLevy()/100.00) + arrayLevy[i-1];
             }
         }
         //total levy for each year
@@ -109,7 +110,7 @@ public class accountingExpenses {
                 arrayBondFee[i] = bondFee; 
             }
             else{
-                arrayBondFee[i] = arrayBondFee[i-1] * 7.00/100.00/*obj.getIncreases().getRates_taxes()*/ + arrayBondFee[i-1];
+                arrayBondFee[i] = arrayBondFee[i-1] * (obj.getIncreases().getBondFee()/100.00) + arrayBondFee[i-1];
             }
         }
         //total bondFee for each year

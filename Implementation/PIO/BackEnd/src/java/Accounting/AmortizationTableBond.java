@@ -15,12 +15,13 @@ import Entities.Property;
  * @author Diana
  */
 public class AmortizationTableBond { 
-    final int yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears();
-    double interestRate = 9.5;//obj.getBond().getInterestRate();
-    double depositInRands = 0;
-    double principleDebt = 0;
+    Property obj = new Property();
+    
+    final int yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
+    double interestRate = obj.getBond().getInterestRate();  
     double depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
-    double paymentPerMonth = 5958;//obj.getBond().getBondRepayment();
+    double paymentPerMonth = obj.getBond().getBondRepayment();
+    double propertyValue = obj.getBond().getPropertyValue();
 
     double arrayPaymentPerMonth[] = new double[yearsToPayOffBond*12+1];
     double arrayInterest[] = new double[yearsToPayOffBond*12+1];
@@ -31,7 +32,9 @@ public class AmortizationTableBond {
     double arrayPrinciplePerYear[] = new double[yearsToPayOffBond+1];
     double interestPerYear = 0.00;
     double principlePerYear = 0.00;
-    double propertyValue = 799000;//obj.getBond().getPropertyValue();
+    double depositInRands = 0.00;
+    double principleDebt = 0.00;
+    
     
     
 //    public static void main(String[] args) {

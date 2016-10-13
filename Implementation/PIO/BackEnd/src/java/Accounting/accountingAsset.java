@@ -6,7 +6,7 @@
 package Accounting;
 
 import Entities.Property;
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 
 /**
  *
@@ -14,16 +14,18 @@ import java.text.DecimalFormat;
  */
 public class accountingAsset {
     //DecimalFormat df = new DecimalFormat();
-    final int yearsToPayOffBond = 20;//bond.getNumberOfYears();  
-    double propertyValue = 799000;//obj.getBond().getPropertyValue();
-    double propertyValueInc = 0.05; //obj.getInceases().getPropertyValue();
+    Property obj = new Property();
+    
+    final int yearsToPayOffBond = obj.getBond().getNumberOfYears();  
+    double propertyValue = obj.getBond().getPropertyValue();
+    double propertyValueInc = obj.getInceases().getPropertyValue()/100.0;
 
     double fixedAsset[] = new double[yearsToPayOffBond+1];
     double capitalGains[] = new double[yearsToPayOffBond+1];
     double total[] = new double[yearsToPayOffBond+1];
     
     public static void main(String[] args) {
-        Property obj = new Property();
+        
         //accountingAsset test = new accountingAsset();
         //getCapital(obj);
        // test.getCapitalGains(obj);
