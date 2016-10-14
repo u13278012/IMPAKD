@@ -1,6 +1,7 @@
 package service;
 import Entities.*;
 import Accounting.*;
+//import static Accounting.accountingExpenses.getTotalExpenses;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,15 +33,19 @@ public class PIOBean implements PIOBeanLocal {
     
     //Bond Object
     Bond bond;
-    Property property;
+    static Property property;
     accountingIncomeStatement incomeStatement;
     
+    accountingExpenses objExp = new accountingExpenses();
+    accountingAsset objAss = new accountingAsset();
+    accountingRental objRental = new accountingRental();
+            
     public static void main(String[] args) {
-        double arrayTotalExpeneses[] = new double[20];
-//        Expenses(arrayTotalExpeneses);
-//        for(int i =0; i< 20; i++){
-//            System.out.println(arrayTotalExpeneses[i]);
-//        }
+        //PIOBean objTest = new PIOBean();
+      // objTest.retrieveProperty(Long.MIN_VALUE);
+        //AssetTotal(property);
+        //AssetCapitalGains(property);
+        //objTest.RentTotal(property);
     }
 
     public PIOBean() 
@@ -62,9 +67,9 @@ public class PIOBean implements PIOBeanLocal {
         reserves.setRentInsurance(0);
       
         Expenses expenses = new Expenses();
-        expenses.setRates_Taxes(370.0);
-      
+        expenses.setRates_Taxes(370.0);  
         expenses.setLevy(534.5);
+        expenses.setBondFee(57);
       
       
         Rental rental = new Rental();
@@ -146,34 +151,48 @@ public class PIOBean implements PIOBeanLocal {
      * @param obj
      * @return
      */
+    @Override
+    public double[] Expenses(Property obj){
+        return objExp.getTotalExpenses(obj);
+    } 
     
-    //@Override
-//    static public double[] Expenses(Property obj){
-//        
-//    }  
+    /**
+     * @param obj
+     * @return
+     */
+    @Override
+    public double[] AssetCapitalGains(Property obj){
+        return objAss.getCapitalGains(obj);
+    }
     
-    static double Rental(double totalRent,double occupancyRate,double rentalAmount,double onceOffAgentFee){
-        Rental rent = new Rental();
-        
-        //totalRent = rent.getTotalRent();
-        occupancyRate = rent.getOccupancyRate();
-        rentalAmount = rent.getRentalAmount();
-        onceOffAgentFee = rent.getOnceOffAgentFee();
-        
-        totalRent = rentalAmount * (12.00 * occupancyRate);
-        
-        return totalRent;
-        
+     /**
+     * @param obj
+     * @return
+     */
+    @Override
+    public double[] AssetTotal(Property obj){
+        return objAss.getTotal(obj);
+
+    }
+    
+    /**
+     * @param obj
+     * @return
+     */
+    @Override
+    public double[] RentTotal(Property obj){
+        return objRental.getTotalRent(obj);
     }
     
     @Override
     public void retrieveProperty(Long id)
     {
-//        TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
-//        property = query.getSingleResult();
-        //Create a mock property object
-        //Generate Income Statement
-        generateIncomeStatement(property);
+        TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
+        property = query.getSingleResult();
+        Expenses(property);
+//        Create a mock property object
+//        Generate Income Statement
+//        generateIncomeStatement(property);
         
       
     }

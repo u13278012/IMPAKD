@@ -17,6 +17,8 @@ angular.module('myApp', ['ngRoute'])
      $scope.submitFunction = function() 
         {
             var session  = localStorage.getItem("session");
+            var propertyid  = localStorage.getItem("propertyID");
+
             if (typeof(Storage) === "undefined") {
             alert("You're not logged in");
             window.location = "../login/login.html";     
@@ -64,7 +66,7 @@ angular.module('myApp', ['ngRoute'])
             '&initiationFee=' +
             encodeURIComponent($scope.initiationFee) +
             '&tax=' +
-            encodeURIComponent($scope.tax) +
+            encodeURIComponent($scope.rates_Taxes) +
             '&rates=' +
             encodeURIComponent($scope.rates) +
             '&levy=' +
@@ -80,7 +82,7 @@ angular.module('myApp', ['ngRoute'])
             '&ratesIncrease=' +
             encodeURIComponent($scope.ratesIncrease) +
             '&taxIncrease=' +
-            encodeURIComponent($scope.taxIncrease)+
+            encodeURIComponent($scope.ratesAnstaxes)+
             '&bondFeeIncrease=' +
             encodeURIComponent($scope.bondFeeIncrease)+
             '&levyIncrease=' +
@@ -92,25 +94,27 @@ angular.module('myApp', ['ngRoute'])
             '&rentalAmount=' +
             encodeURIComponent($scope.rentalAmount)+
             '&profileID=' +
-            encodeURIComponent(session);
+            encodeURIComponent(session)+
+            '&propertyid=' +
+            encodeURIComponent(propertyid);
             //51029
             alert(encodedString);
-            $http({
+           $http({
                 method: 'POST',
-                url: 'http://localhost:51029/BackEnd/rs/property/addProperty',
+                url: 'http://localhost:8080/BackEnd/rs/property/updateProperty',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
                    
-                              alert(response);
-                               window.location = "../home/home.html"; 
+                              alert("good");
+                              // window.location = "../home/home.html"; 
 
                 }).
                 error(function(response)
                 {
                    // $window.alert("Server error..request not sent");
-                     alert(response);
-                                         // alert('loaded');
+                    alert(response);
+                                       //  alert('bad');
 
                 });
 
@@ -120,7 +124,8 @@ $scope.default = function()
             $scope.propertyresults;
           
             var session  = localStorage.getItem("session");
-            var propertyid  = localStorage.getItem("property");
+            
+            var propertyid  = localStorage.getItem("propertyID");
             var encodedString = 'profileID=' +
             encodeURIComponent(session)+
             '&propertyid=' +
@@ -130,7 +135,7 @@ $scope.default = function()
         
             $http({
                 method: 'POST',
-                url: 'http://localhost:51029/BackEnd/rs/property/getPropertyDetails',
+                url: 'http://localhost:8080/BackEnd/rs/property/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -208,6 +213,15 @@ function update($scope)
     $scope.occupancyRate =  property.properties.property.rental.occupancyRate;
     $scope.agentCommission =  property.properties.property.rental.agentCommission;
     $scope.rentalAmount =  property.properties.property.rental.rentalAmount;
+    
+    //needs to be removed, in the submit function and also in update in propertyFacade
+    $scope.Period = 1;
+    $scope.additionalCash = 1;
+    $scope.onceOffPayment = 1;
+    $scope.rates = 1;
+    $scope.managementFee = 1;
+    $scope.ratesIncrease = 1;
+   
 
     }
 }
