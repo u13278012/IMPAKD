@@ -31,11 +31,7 @@ $scope.validation = function()
 $scope.submitFunction = function() 
     {
             var encodedString = 
-            'firstName='+
-            encodeURIComponent($scope.Password)+
-            '&lastName='+
-            encodeURIComponent($scope.Password)+
-            '&UserName='+
+            'UserName='+
             encodeURIComponent($scope.UserName)+
             '&Email='+
             encodeURIComponent($scope.Email)+
