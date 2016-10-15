@@ -97,19 +97,22 @@ angular.module('myApp', ['ngRoute'])
             encodeURIComponent($scope.session);
             //51029
             $scope.addedProperty = true;
-            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              || isNaN($scope.marketPriceAdjustment)||isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              ||isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
-              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)){
-              alert($scope.marketPriceAdjustment);
+            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.capitalGains) || isNaN($scope.annualMaintenanceCost)
+              || isNaN($scope.annualCostIncrease)||isNaN($scope.interestRate) || isNaN($scope.deposit)
+              || isNaN($scope.propertyValue) || isNaN($scope.numberOfYears) || isNaN($scope.bondRepaymnet)
+              || isNaN($scope.Period) || isNaN($scope.additionalCash) || isNaN($scope.onceOffPayment)
+              || isNaN($scope.maintenance) || isNaN($scope.renovation) || isNaN($scope.deviance)
+              || isNaN($scope.rentInsurance) || isNaN($scope.conveyancingFees) || isNaN($scope.vatDebit)
+              ||isNaN($scope.deedsFee) || isNaN($scope.initiationFee) || isNaN($scope.tax)
+              || isNaN($scope.rates) || isNaN($scope.levy) || isNaN($scope.managementFee)
+              || isNaN($scope.inflation) || isNaN($scope.propertyValueIncrease) || isNaN($scope.rentIncrease)
+              || isNaN($scope.ratesIncrease) || isNaN($scope.taxIncrease) || isNaN($scope.bondFeeIncrease)
+              || isNaN($scope.levyIncrease) || isNaN($scope.occupancyRate) || isNaN($scope.agentCommission)
+              || isNaN($scope.rentalAmount)){
+              alert("error ...wrong input");
 
                  }
-            else{alert("works")
+            else{
            $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/property/addProperty',
