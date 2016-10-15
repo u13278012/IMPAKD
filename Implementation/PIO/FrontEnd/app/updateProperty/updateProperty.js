@@ -97,8 +97,23 @@ angular.module('myApp', ['ngRoute'])
             encodeURIComponent(session)+
             '&propertyid=' +
             encodeURIComponent(propertyid);
-            //51029
-            alert(encodedString);
+           
+            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.capitalGains) || isNaN($scope.annualMaintenanceCost)
+              || isNaN($scope.annualCostIncrease)||isNaN($scope.interestRate) || isNaN($scope.deposit)
+              || isNaN($scope.propertyValue) || isNaN($scope.numberOfYears) || isNaN($scope.bondRepaymnet)
+              || isNaN($scope.Period) || isNaN($scope.additionalCash) || isNaN($scope.onceOffPayment)
+              || isNaN($scope.maintenance) || isNaN($scope.renovation) || isNaN($scope.deviance)
+              || isNaN($scope.rentInsurance) || isNaN($scope.conveyancingFees) || isNaN($scope.vatDebit)
+              ||isNaN($scope.deedsFee) || isNaN($scope.initiationFee) || isNaN($scope.tax)
+              || isNaN($scope.rates) || isNaN($scope.levy) || isNaN($scope.managementFee)
+              || isNaN($scope.inflation) || isNaN($scope.propertyValueIncrease) || isNaN($scope.rentIncrease)
+              || isNaN($scope.ratesIncrease) || isNaN($scope.taxIncrease) || isNaN($scope.bondFeeIncrease)
+              || isNaN($scope.levyIncrease) || isNaN($scope.occupancyRate) || isNaN($scope.agentCommission)
+              || isNaN($scope.rentalAmount)){
+              alert("error ...wrong input");
+
+                 }
+             //51029
            $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/property/updateProperty',
