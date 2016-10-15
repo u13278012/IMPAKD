@@ -21,8 +21,8 @@ angular.module('myApp', ['ngRoute'])
 
             //window.location = "../login/login.html";     
             }
-            
-        
+  
+
             $scope.encodedString = 'propertyName=' +
             encodeURIComponent($scope.propertyName) +//
             '&marketPriceAdjustment=' +
@@ -97,8 +97,20 @@ angular.module('myApp', ['ngRoute'])
             encodeURIComponent($scope.session);
             //51029
             $scope.addedProperty = true;
+            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              || isNaN($scope.marketPriceAdjustment)||isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              ||isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)
+              || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment) || isNaN($scope.marketPriceAdjustment)){
+              alert($scope.marketPriceAdjustment);
 
-            $http({
+                 }
+            else{alert("works")
+           $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/property/addProperty',
                 data:  $scope.encodedString,
@@ -118,6 +130,7 @@ angular.module('myApp', ['ngRoute'])
                                          // alert('loaded');
 
                 });
+            }
 
         };
 $scope.default = function()
