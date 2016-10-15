@@ -84,7 +84,7 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
      */
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML})
     public Profile find(@PathParam("id") Long id) {
         return super.find(id);
     }
@@ -145,15 +145,14 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
     @Path("register")
      @POST
      @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-     public void register(@FormParam("firstName") String firstName,@FormParam("lastName") String lastName,@FormParam("UserName") String username, @FormParam("Email") String Email,
+     public void register(@FormParam("UserName") String username, @FormParam("Email") String Email,
              @FormParam("Password") String Password, @FormParam("confrimPassword") String confrimPassword) 
      {
          Profile p = new Profile();
          p.setEmail(Email);
          p.setUsername(username);
          p.setPassword(Password);
-         p.setFirstname(lastName);
-         p.setLastName(firstName);
+
          
 //         super.create(p);
          pIOBean.register(p);

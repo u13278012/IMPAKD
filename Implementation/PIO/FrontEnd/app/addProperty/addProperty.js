@@ -17,9 +17,9 @@ angular.module('myApp', ['ngRoute'])
             
             if (typeof(Storage) === "undefined") {
             alert("You're not logged in");
-            	    localStorage.setItem("session", 1);
+//            	    localStorage.setItem("session", 1);
 
-            //window.location = "../login/login.html";     
+            window.location = "../login/login.html";     
             }
   
 
@@ -71,8 +71,8 @@ angular.module('myApp', ['ngRoute'])
             encodeURIComponent($scope.rates) +
             '&levy=' +
             encodeURIComponent($scope.levy) +
-            '&managementFee=' +
-            encodeURIComponent($scope.managementFee) +
+            '&bondFee=' +
+            encodeURIComponent($scope.bondFee) +
             '&inflation=' +
             encodeURIComponent($scope.inflation) +
             '&propertyValueIncrease=' +
@@ -136,7 +136,7 @@ angular.module('myApp', ['ngRoute'])
             }
 
         };
-$scope.default = function()
+$scope.Default = function()
 {
     $scope.inflation = 7;
     $scope.rentIncrease = 6;
