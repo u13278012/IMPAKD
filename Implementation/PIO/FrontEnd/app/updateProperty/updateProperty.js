@@ -114,6 +114,7 @@ angular.module('myApp', ['ngRoute'])
 
                  }
              //51029
+             else{
            $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/property/updateProperty',
@@ -132,7 +133,7 @@ angular.module('myApp', ['ngRoute'])
                                        //  alert('bad');
 
                 });
-
+            }
         };
 $scope.default = function()
 {
