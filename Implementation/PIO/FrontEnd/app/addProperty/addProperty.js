@@ -106,7 +106,7 @@ angular.module('myApp', ['ngRoute'])
             }).success(function(response) {
                    
                                $scope.addedProperty = true;
-                            //  window.location = "../home/home.html"; 
+                              window.location = "../home/home.html"; 
 
                 }).
                 error(function(response)
