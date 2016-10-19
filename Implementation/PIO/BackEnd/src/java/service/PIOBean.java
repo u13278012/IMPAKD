@@ -32,13 +32,13 @@ import javax.ws.rs.core.MediaType;
 public class PIOBean implements PIOBeanLocal {
     
     //Bond Object
-    Bond bond;
+//    Bond bond;
     static Property property;
-    accountingIncomeStatement incomeStatement;
-    
-    accountingExpenses objExp = new accountingExpenses();
-    accountingAsset objAss = new accountingAsset();
-    accountingRental objRental = new accountingRental();
+//    accountingIncomeStatement incomeStatement;
+//    
+//    accountingExpenses objExp = new accountingExpenses();
+//    accountingAsset objAss = new accountingAsset();
+//    accountingRental objRental = new accountingRental();
             
     public static void main(String[] args) {
         //PIOBean objTest = new PIOBean();
@@ -96,7 +96,7 @@ public class PIOBean implements PIOBeanLocal {
         property.setUpFrontCosts(upFrontCosts);
         property.setReserves(reserves);
         property.setRental(rental);
-        property.setBond(bond);
+//        property.setBond(bond);
         property.setExpenses(expenses);
 
     }
@@ -131,8 +131,9 @@ public class PIOBean implements PIOBeanLocal {
     @Override
     public double[] generateIncomeStatement(Property property)
     {
-       incomeStatement = new accountingIncomeStatement(property);
-       return incomeStatement.getRentIncome();
+//       incomeStatement = new accountingIncomeStatement(property);
+//       return incomeStatement.getRentIncome();
+        return null;
     }
      /**
      *
@@ -153,7 +154,8 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] Expenses(Property obj){
-        return objExp.getTotalExpenses(obj);
+//        return objExp.getTotalExpenses(obj);
+            return null;
     } 
     
     /**
@@ -162,7 +164,8 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] AssetCapitalGains(Property obj){
-        return objAss.getCapitalGains(obj);
+//        return objAss.getCapitalGains(obj);
+        return null;
     }
     
      /**
@@ -171,8 +174,8 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] AssetTotal(Property obj){
-        return objAss.getTotal(obj);
-
+//        return objAss.getTotal(obj);
+        return null;
     }
     
     /**
@@ -181,7 +184,8 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] RentTotal(Property obj){
-        return objRental.getTotalRent(obj);
+//        return objRental.getTotalRent(obj);
+        return null;
     }
     
     @Override
