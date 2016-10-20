@@ -14,30 +14,51 @@ import java.lang.reflect.Array;
  * @author Diana
  */
 public class accountingExpenses {
-    AmortizationTableBond objAmor = new AmortizationTableBond();
-    Property obj = new Property();
+    AmortizationTableBond objAmor;
     
-    final int yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
-    double rates_taxes = obj.getExpenses().getRates_Taxes();
-    double levy = obj.getExpenses().getLevy();
-    double bondFee = obj.getExpenses().getBondFee();
+    int yearsToPayOffBond = 0; 
+    double rates_taxes = 0.00;
+    double levy = 0.00;
+    double bondFee = 0.00;
 
-    double arrayRates_Taxes[] = new double[yearsToPayOffBond+1];
-    double arrayLevy[] = new double[yearsToPayOffBond+1];
-    double arrayBondFee[] = new double[yearsToPayOffBond+1];
+    double arrayRates_Taxes[];
+    double arrayLevy[];
+    double arrayBondFee[];
 
-    double totalRates_Taxes[] = new double[yearsToPayOffBond+1];
-    double totalLevy[] = new double[yearsToPayOffBond+1];
-    double totalBondFee[] = new double[yearsToPayOffBond+1];
-    double expenses[]  = new double[yearsToPayOffBond+1];
-    double arrayTotalExpeneses[] = new double[yearsToPayOffBond+1];
+    double totalRates_Taxes[];
+    double totalLevy[];
+    double totalBondFee[];
+    double expenses[];
+    double arrayTotalExpeneses[];
    
     public  static void main(String[] args) {
         Property obj = new Property();
        // accountingExpenses test = new accountingExpenses();
         //test.Tax_DeductibleExpenses(obj);
     }
-      
+    
+    /**
+     *
+     * @param obj
+     * @param objAmor
+    */
+    public void declarationsEx(Property obj, AmortizationTableBond objAmor){ 
+        this.objAmor = objAmor;
+        yearsToPayOffBond = objAmor.yearsToPayOffBond; 
+        rates_taxes = obj.getExpenses().getRates_Taxes();
+        levy = obj.getExpenses().getLevy();
+        bondFee = obj.getExpenses().getBondFee();
+
+        arrayRates_Taxes = new double[yearsToPayOffBond+1];
+        arrayLevy = new double[yearsToPayOffBond+1];
+        arrayBondFee = new double[yearsToPayOffBond+1];
+
+        totalRates_Taxes = new double[yearsToPayOffBond+1];
+        totalLevy = new double[yearsToPayOffBond+1];
+        totalBondFee = new double[yearsToPayOffBond+1];
+        expenses  = new double[yearsToPayOffBond+1];
+        arrayTotalExpeneses = new double[yearsToPayOffBond+1];
+    }
     /**
      *
      * @param obj
