@@ -33,8 +33,6 @@ public class Bond implements Serializable {
     @Column
     private Double propertyValue;
     
-    @Column
-    private Double depositInRands;
     
     @Column
     private Double bondRepayment;
@@ -61,21 +59,7 @@ public class Bond implements Serializable {
         return depositPercentage;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Double getDepositInRands() {
-        return depositInRands;
-    }
-
-    /**
-     *
-     * @param depositInRands
-     */
-    public void setDepositInRands(Double depositInRands) {
-        this.depositInRands = depositInRands;
-    }
+   
 
     /**
      *
