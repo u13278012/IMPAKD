@@ -33,71 +33,83 @@ public class PIOBean implements PIOBeanLocal {
     
     //Bond Object
 //    Bond bond;
-    static Property property;
-//    accountingIncomeStatement incomeStatement;
-//    
-//    accountingExpenses objExp = new accountingExpenses();
-//    accountingAsset objAss = new accountingAsset();
+    Property property;  
+//    accountingIncomeStatement incomeStatement;   
+    AmortizationTableBond objAmor = new AmortizationTableBond();
+    accountingExpenses objExp = new accountingExpenses();
+    accountingAsset objAss = new accountingAsset();
 //    accountingRental objRental = new accountingRental();
             
     public static void main(String[] args) {
-        //PIOBean objTest = new PIOBean();
-      // objTest.retrieveProperty(Long.MIN_VALUE);
+        PIOBean objTest = new PIOBean();
+        Long id = new Long(1);
+//         property = objTest.retrieveProperty(Long.MIN_VALUE);
         //AssetTotal(property);
         //AssetCapitalGains(property);
         //objTest.RentTotal(property);
+        objTest.calculations(id);
+    }
+    
+    public double[] calculations(Long id)
+    {
+        property = retrieveProperty(id);
+        objAmor.declarationsAM(property);
+        objExp.declarationsEx(property, objAmor);
+        objAss.declarationsAss(property);
+        Expenses(property);
+        return null;
     }
 
     public PIOBean() 
     {
         //Create and initialise mock object
-        property = new Property();
-        
-        UpFrontCosts upFrontCosts = new UpFrontCosts();
-      
-        upFrontCosts.setConveyancingFees(9535.91);
-        upFrontCosts.setVatDebit(1310.42);
-        upFrontCosts.setDeedsFees(740.0);
-        upFrontCosts.setInitiationFee(5700.0);
-      
-        PropertyReserves reserves = new PropertyReserves();
-        reserves.setMaintenance(5.0);
-        reserves.setRenovation(7);
-        reserves.setDeviance(0);
-        reserves.setRentInsurance(0);
-      
-        Expenses expenses = new Expenses();
-        expenses.setRates_Taxes(370.0);  
-        expenses.setLevy(534.5);
-        expenses.setBondFee(57);
-      
-      
-        Rental rental = new Rental();
-        rental.setOccupancyRate(12.0);
-        rental.setRentalAmount(6700.0);
-        rental.setTotalRent(80400.0); // total rent is missing from the html page
-      
-        Increases increases = new Increases();
-        increases.setInflation(7.0);
-        increases.setLevy(8.0);
-        increases.setRates_taxes(8.0);
-        increases.setPropertyValue(5.0);
-        increases.setBondFee(7.0);
-        increases.setRent(6.0);
-      
-        Bond bondObj = new Bond();
-        bondObj.setBondRepayment(5958.0);
-        bondObj.setDepositInRands(159800.0);
-        bondObj.setInterestRate(9.5);
-        bondObj.setNumberOfYears(20);
-        bondObj.setPropertyValue(799000.0);
-      
-        property.setIncreases(increases);
-        property.setUpFrontCosts(upFrontCosts);
-        property.setReserves(reserves);
-        property.setRental(rental);
-//        property.setBond(bond);
-        property.setExpenses(expenses);
+//        property = new Property();
+//        
+//        UpFrontCosts upFrontCosts = new UpFrontCosts();
+//      
+//        upFrontCosts.setConveyancingFees(9535.91);
+//        upFrontCosts.setVatDebit(1310.42);
+//        upFrontCosts.setDeedsFees(740.0);
+//        upFrontCosts.setInitiationFee(5700.0);
+//      
+//        PropertyReserves reserves = new PropertyReserves();
+//        reserves.setMaintenance(5.0);
+//        reserves.setRenovation(7);
+//        reserves.setDeviance(0);
+//        reserves.setRentInsurance(0);
+//      
+//        Expenses expenses = new Expenses();
+//        expenses.setRates_Taxes(370.0);  
+//        expenses.setLevy(534.5);
+//        expenses.setBondFee(57);
+//      
+//      
+//        Rental rental = new Rental();
+//        rental.setOccupancyRate(12.0);
+//        rental.setRentalAmount(6700.0);
+//        rental.setTotalRent(80400.0); // total rent is missing from the html page
+//      
+//        Increases increases = new Increases();
+//        increases.setInflation(7.0);
+//        increases.setLevy(8.0);
+//        increases.setRates_taxes(8.0);
+//        increases.setPropertyValue(5.0);
+//        increases.setBondFee(7.0);
+//        increases.setRent(6.0);
+//      
+//        Bond bondObj = new Bond();
+//        bondObj.setBondRepayment(5958.0);
+//        bondObj.setDepositInRands(159800.0);
+//        bondObj.setInterestRate(9.5);
+//        bondObj.setNumberOfYears(20);
+//        bondObj.setPropertyValue(799000.0);
+//      
+//        property.setIncreases(increases);
+//        property.setUpFrontCosts(upFrontCosts);
+//        property.setReserves(reserves);
+//        property.setRental(rental);
+////        property.setBond(bond);
+//        property.setExpenses(expenses);
 
     }
     
@@ -154,8 +166,8 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] Expenses(Property obj){
-//        return objExp.getTotalExpenses(obj);
-            return null;
+        return objExp.getTotalExpenses(obj);
+         
     } 
     
     /**
@@ -164,8 +176,8 @@ public class PIOBean implements PIOBeanLocal {
      */
     @Override
     public double[] AssetCapitalGains(Property obj){
-//        return objAss.getCapitalGains(obj);
-        return null;
+        //return objAss.getCapitalGains(obj);
+       return null;
     }
     
      /**
@@ -189,11 +201,11 @@ public class PIOBean implements PIOBeanLocal {
     }
     
     @Override
-    public void retrieveProperty(Long id)
+    public Property retrieveProperty(Long id, Long idP)
     {
         TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
-        property = query.getSingleResult();
-        Expenses(property);
+        Property property = query.getSingleResult();
+        return property;
 //        Create a mock property object
 //        Generate Income Statement
 //        generateIncomeStatement(property);
