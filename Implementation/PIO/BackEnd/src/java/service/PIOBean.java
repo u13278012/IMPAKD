@@ -87,7 +87,6 @@ public class PIOBean implements PIOBeanLocal {
       
         Bond bondObj = new Bond();
         bondObj.setBondRepayment(5958.0);
-        bondObj.setDepositInRands(159800.0);
         bondObj.setInterestRate(9.5);
         bondObj.setNumberOfYears(20);
         bondObj.setPropertyValue(799000.0);
