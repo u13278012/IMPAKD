@@ -224,7 +224,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       
       Bond bondObj = new Bond();
       bondObj.setBondRepayment(bondRepaymnet);
-      bondObj.setDepositInRands(deposit);
+      bondObj.setDepositPercentage(deposit);
       bondObj.setInterestRate(interestRate);
       bondObj.setNumberOfYears(numberOfYears);
       bondObj.setPropertyValue(propertyValue);
@@ -339,7 +339,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       Bond bondObj = new Bond();
       bondObj = c.getBond();
       bondObj.setBondRepayment(bondRepaymnet);
-      bondObj.setDepositInRands(deposit);
+      bondObj.setDepositPercentage(deposit);
       bondObj.setInterestRate(interestRate);
       bondObj.setNumberOfYears(numberOfYears);
       bondObj.setPropertyValue(propertyValue);
