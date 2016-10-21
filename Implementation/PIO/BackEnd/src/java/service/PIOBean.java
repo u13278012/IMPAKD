@@ -201,7 +201,7 @@ public class PIOBean implements PIOBeanLocal {
     }
     
     @Override
-    public Property retrieveProperty(Long id, Long idP)
+    public Property retrieveProperty(Long id)
     {
         TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
         Property property = query.getSingleResult();
