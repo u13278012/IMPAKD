@@ -18,7 +18,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
         
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/property/getPropertyDetails',
+                url: 'http://localhost:51029/BackEnd/rs/property/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -36,9 +36,20 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                 });
 
         };
-
+   $scope.getROI = function() 
+   { 
+     var d = new Date();
+     var currentYear = d.getFullYear();
+     $scope.Year = [];
+     for(var x = 0; x < 10 ;x++){
+      $scope.Year[x] = currentYear; 
+      currentYear =currentYear+1;
+     // alert($scope.Year[x]);
+     }
+    $scope.ROI = [0,25,32,45,30,33,37,42,44,51]; 
+  };
     $scope.show = function () {
-     
+     $scope.getROI();
          var session  = localStorage.getItem("session");
              if (typeof(Storage) === "undefined") {
          alert("You're not logged in");
@@ -84,16 +95,16 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
 				showInLegend: true,
 				name: "ROI%",
 				dataPoints: [
-				{ label: 2016, y: 0 },
-				{ label: 2017, y: 25},
-				{ label: 2018, y: 20 },
-				{ label: 2019, y: 40 },
-				{ label: 2020, y: 50 },
-				{ label: 2021, y: 66 },
-				{ label: 2022, y: 70 },
-				{ label: 2023, y: 64 },
-				{ label: 2024, y: 69},
-				{ label: 2025, y: 72 }
+				{ label: $scope.Year[0], y: $scope.ROI[0] },
+				{ label: $scope.Year[1], y: $scope.ROI[1]},
+				{ label: $scope.Year[2], y: $scope.ROI[2] },
+				{ label: $scope.Year[3], y: $scope.ROI[3] },
+				{ label: $scope.Year[4], y: $scope.ROI[4] },
+				{ label: $scope.Year[5], y: $scope.ROI[5] },
+				{ label: $scope.Year[6], y: $scope.ROI[6] },
+				{ label: $scope.Year[7], y: $scope.ROI[7] },
+				{ label: $scope.Year[8], y: $scope.ROI[8]},
+				{ label: $scope.Year[9], y: $scope.ROI[9] }
 				]
 			} 
 			],
