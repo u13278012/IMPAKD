@@ -113,7 +113,7 @@ angular.module('myApp', ['ngRoute'])
               alert("error ...wrong input");
 
                  }
-             //51029
+             //20285
              else{
            $http({
                 method: 'POST',
@@ -159,7 +159,7 @@ $scope.default = function()
                     var x = x2js.xml_str2json(response);
                     property = x;
                     ready = true;
-                    console.log(x);
+                   
                      update($scope);
 
 
