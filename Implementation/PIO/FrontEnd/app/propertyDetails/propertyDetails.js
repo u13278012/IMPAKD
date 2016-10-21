@@ -13,25 +13,48 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
             encodeURIComponent(session)+
             '&propertyid=' +
             encodeURIComponent(propertyid);
-            //51029
+            //20285
            
         
             $http({
                 method: 'POST',
-                url: 'http://localhost:51029/BackEnd/rs/property/getPropertyDetails',
+                url: 'http://localhost:8080/BackEnd/rs/property/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.propertyresults = x;
-                    console.log(x);
+                   // console.log(x);
                    
 
                 }).
                 error(function(response)
                 {
                      alert(response);
+
+                });
+                //20285
+                $http({
+                method: 'POST',
+                url: 'http://localhost:8080/BackEnd/rs/property/getRIOValues',
+                data: encodedString,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+                    var x2js = new X2JS();
+                    var arr = x2js.xml_str2json(response);
+                  //  $scope.Array = arr;
+                    $scope.ROI = [];
+                    var l = arr.roi.array.length;
+                    while (--l >= 0 )
+                    $scope.ROI[l] = parseFloat(arr.roi.array[l]);
+                    console.log($scope.ROI);
+                    $scope.show();
+                }).
+                error(function(response)
+                {
+                 alert(response);
+                     
 
                 });
 
@@ -44,9 +67,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
      for(var x = 0; x < 10 ;x++){
       $scope.Year[x] = currentYear; 
       currentYear =currentYear+1;
-     // alert($scope.Year[x]);
      }
-    $scope.ROI = [0,25,32,45,30,33,37,42,44,51]; 
   };
     $scope.show = function () {
      $scope.getROI();
