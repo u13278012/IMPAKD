@@ -115,6 +115,11 @@ angular.module('myApp', ['ngRoute'])
         {
           window.location.reload();  
         };
+        
+         $scope.back = function()
+        {
+           window.location = "../home/home.html"; 
+        };
 
 }]);
 

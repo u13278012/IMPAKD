@@ -422,14 +422,12 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_XML)
   public  void deleteProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
-  
+      
       if(profileID < 0)
         throw new ArithmeticException("invalid input");     
       else{
         int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
       }
-
-
   }
   
   

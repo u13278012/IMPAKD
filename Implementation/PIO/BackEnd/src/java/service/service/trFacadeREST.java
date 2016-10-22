@@ -6,6 +6,7 @@
 package service.service;
 
 import Accounting.ROI;
+import java.io.File;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,13 +20,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 
 /**
  *
  * @author Khumalo
  */
 @Stateless
-@Path("accounting.tr")
+@Path("tr")
 public class trFacadeREST extends AbstractFacade<ROI> {
 
     @PersistenceContext(unitName = "BackEndPU")
@@ -87,5 +90,19 @@ public class trFacadeREST extends AbstractFacade<ROI> {
     protected EntityManager getEntityManager() {
         return em;
     }
+    
+    	@GET
+	@Path("/pdf")
+	@Produces("application/pdf")
+	public Response getFile() {
+
+		File file = new File("C://Users//Kudzai//Downloads//Compressed//Absa-Core-Income-Fund.pdf");
+
+		ResponseBuilder response = Response.ok((Object) file);
+		response.header("Content-Disposition",
+				"attachment; filename=Report.pdf");
+		return response.build();
+
+	}
     
 }
