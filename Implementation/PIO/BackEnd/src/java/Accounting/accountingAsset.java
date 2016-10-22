@@ -18,9 +18,9 @@ public class accountingAsset {
     double propertyValue = 0.00;
     double propertyValueInc = 0.00;
 
-    double fixedAsset[] = new double[yearsToPayOffBond+1];
-    double capitalGains[] = new double[yearsToPayOffBond+1];
-    double total[] = new double[yearsToPayOffBond+1];
+    double fixedAsset[];
+    double capitalGains[];
+    double total[];
     
     public static void main(String[] args) {
         

@@ -38,7 +38,7 @@ public class PIOBean implements PIOBeanLocal {
     AmortizationTableBond objAmor = new AmortizationTableBond();
     accountingExpenses objExp = new accountingExpenses();
     accountingAsset objAss = new accountingAsset();
-//    accountingRental objRental = new accountingRental();
+    accountingRental objRental = new accountingRental();
             
     public static void main(String[] args) {
         PIOBean objTest = new PIOBean();
@@ -47,23 +47,14 @@ public class PIOBean implements PIOBeanLocal {
         //AssetTotal(property);
         //AssetCapitalGains(property);
         //objTest.RentTotal(property);
-        objTest.calculations(id);
+        objTest.ReturnOnInvestment(id);
     }
     
-    public double[] calculations(Long id)
-    {
-        property = retrieveProperty(id);
-        objAmor.declarationsAM(property);
-        objExp.declarationsEx(property, objAmor);
-        objAss.declarationsAss(property);
-        Expenses(property);
-        return null;
-    }
 
     public PIOBean() 
     {
         //Create and initialise mock object
-<<<<<<< HEAD
+
 //        property = new Property();
 //        
 //        UpFrontCosts upFrontCosts = new UpFrontCosts();
@@ -111,7 +102,8 @@ public class PIOBean implements PIOBeanLocal {
 //        property.setRental(rental);
 ////        property.setBond(bond);
 //        property.setExpenses(expenses);
-=======
+<<<<<<< HEAD
+
         property = new Property();
         
         UpFrontCosts upFrontCosts = new UpFrontCosts();
@@ -158,7 +150,9 @@ public class PIOBean implements PIOBeanLocal {
         property.setRental(rental);
 //        property.setBond(bond);
         property.setExpenses(expenses);
->>>>>>> master
+
+=======
+>>>>>>> 0d06e67473c117639db394e2196f33c4b4599d3d
 
     }
     
@@ -207,16 +201,31 @@ public class PIOBean implements PIOBeanLocal {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public double[] ReturnOnInvestment(Long id)
+    {
+        property = retrieveProperty(id);
+        
+        objAmor.declarationsAM(property);
+        objExp.declarationsEx(property, objAmor);
+        objAss.declarationsAss(property);
+        objRental.declarationsR(property, objAmor);
+       
+        return null;
+    }
     
 
     /**
-     * @param obj
+     * @param id
      * @return
      */
     @Override
-    public double[] Expenses(Property obj){
-        return objExp.getTotalExpenses(obj);
-         
+    public double[] Expenses(Long id){
+        property = retrieveProperty(id);
+        
+        objAmor.declarationsAM(property);
+        objExp.declarationsEx(property, objAmor);
+        objAss.declarationsAss(property);
+        return objExp.getTotalExpenses(property);        
     } 
     
     /**
@@ -240,21 +249,27 @@ public class PIOBean implements PIOBeanLocal {
     }
     
     /**
-     * @param obj
+     * @param id
      * @return
      */
     @Override
-    public double[] RentTotal(Property obj){
-//        return objRental.getTotalRent(obj);
-        return null;
+    public double[] RentTotal(Long id){
+        property = retrieveProperty(id);
+        
+        objAmor.declarationsAM(property);
+        objExp.declarationsEx(property, objAmor);
+        objAss.declarationsAss(property);
+        objRental.declarationsR(property, objAmor);
+        
+        return objRental.getTotalRent(property);
     }
     
     @Override
     public Property retrieveProperty(Long id)
     {
         TypedQuery<Property> query = em.createQuery("SELECT a FROM Property a WHERE a.profile.id = "+id+"",Property.class);
-        Property property = query.getSingleResult();
-        return property;
+        Property propertyObj = query.getSingleResult();
+        return propertyObj;
 //        Create a mock property object
 //        Generate Income Statement
 //        generateIncomeStatement(property);

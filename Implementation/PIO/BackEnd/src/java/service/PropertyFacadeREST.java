@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package service;
+import Accounting.ROI;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -393,15 +394,43 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       List<Property> p = query.getResultList();
       
       return p;
+<<<<<<< HEAD
+      
+=======
 
+>>>>>>> refs/remotes/origin/master
   }
-  
+  //getROI
+ @Path("/getRIOValues")
+ @POST
+ @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+ @Produces(MediaType.APPLICATION_XML)
+  public  ROI getROIvalues(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
+      ROI  t = new ROI(); 
+     // t.init(10);
+      double v = 30.0;
+       double roi[] = new double[10];
+       t.init(10);
+       for(int x = 0; x< 10; x++){
+          // roi[x] =  v;
+          // System.out.println(x +" " + roi[x]);
+          t.getArray()[x] = x* 2.0;
+          // System.out.println(t.getArray()[x]);
+          
+       }
+    return t;
+  }
  
  @Path("/deleteProperty")
  @POST
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  @Produces(MediaType.APPLICATION_XML)
   public  void deleteProperty(@FormParam("profileID") int profileID, @FormParam("propertyid") Long propertyid){
+<<<<<<< HEAD
+ 
+  int  query = em.createQuery("DELETE FROM Property a WHERE a.profile.id = "+profileID+" AND a.id = "+propertyid+" ",Property.class).executeUpdate();
+      
+=======
   
       if(profileID < 0)
         throw new ArithmeticException("invalid input");     
@@ -410,6 +439,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       }
 
 
+>>>>>>> refs/remotes/origin/master
   }
   
   
