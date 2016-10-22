@@ -102,7 +102,7 @@ public class PIOBean implements PIOBeanLocal {
 //        property.setRental(rental);
 ////        property.setBond(bond);
 //        property.setExpenses(expenses);
-<<<<<<< HEAD
+
 
         property = new Property();
         
@@ -151,8 +151,7 @@ public class PIOBean implements PIOBeanLocal {
 //        property.setBond(bond);
         property.setExpenses(expenses);
 
-=======
->>>>>>> 0d06e67473c117639db394e2196f33c4b4599d3d
+
 
     }
     
