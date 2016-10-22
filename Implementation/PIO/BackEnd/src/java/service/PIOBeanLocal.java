@@ -38,10 +38,10 @@ public interface PIOBeanLocal {
 
     public double[] AssetCapitalGains(Property obj);
 
-    public double[] Expenses(Property obj);
+    public double[] Expenses(Long id);
 
     public double[] AssetTotal(Property obj);
     
-    public double[] RentTotal(Property obj);
+    public double[] RentTotal(Long id);
     
 }

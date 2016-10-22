@@ -22,7 +22,7 @@ angular.module('myApp', ['ngRoute'])
         alert('You are not logged in.');
         window.location = "../index.html";
     }
-     //51029
+     //20285
     else
     {
         $http({
@@ -63,7 +63,7 @@ $scope.homeTodetails = function(el)
             '&propertyid=' +
             encodeURIComponent(propertyid);
  
-            //51029
+            //20285
            
         
             $http({
@@ -110,7 +110,7 @@ $scope.init = function()
         alert('You are not logged in.');
         window.location = "../index.html";
     }
-     //51029
+     //20285
     else
     {
         $http({

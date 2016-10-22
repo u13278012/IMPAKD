@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package Accounting;
-
-//import static Accounting.accountingExpenses.getArrayBondFee;
-//import static Accounting.accountingExpenses.getArrayLevy;
-//import static Accounting.accountingExpenses.getArrayRates_Taxes;
 import Entities.Property;
 
 /**
@@ -39,7 +35,8 @@ public class AmortizationTableBond {
      *
      * @param obj
     */  
-    public void declarationsAM(Property obj){   
+    public void declarationsAM(Property obj){ 
+        
         yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
         interestRate = obj.getBond().getInterestRate();  
         depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
@@ -58,15 +55,7 @@ public class AmortizationTableBond {
         depositInRands = 0.00;
         principleDebt = 0.00;      
     }
-    
-//    public static void main(String[] args) {
-//        Property obj = new Property();
-//       //setAmortizationTableBond(obj);
-//        //getTotalExpenses(obj);
-//        //getArrayBalance(obj);
-//       // getArrayPrincipleTotalPerYear(obj);
-//    }
-    
+
     /**
      *
      * @param obj

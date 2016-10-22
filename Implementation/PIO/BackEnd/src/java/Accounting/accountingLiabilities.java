@@ -33,6 +33,7 @@ public class accountingLiabilities {
      * @param objAsset
     */
     public void declarationsEx(Property obj, AmortizationTableBond objAmor,accountingAsset objAsset){ 
+        
         this.objAmor = objAmor;
         this.objAsset = objAsset;
          
