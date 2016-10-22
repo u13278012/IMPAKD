@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fee3ae73-7895-4427-8e22-0f683b65e5e4">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5b1808f0-2bbd-4f00-a2a9-5cc505f789de">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="47"/>
 	<property name="ireport.y" value="451"/>
@@ -13,48 +13,73 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
-	<subDataset name="PieChartDataset" uuid="aa742531-357e-4aaa-9920-0abec899dca3"/>
+	<subDataset name="PieChartDataset" uuid="07e46cdc-957f-4d1c-a9f4-5a5190e9434c"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
-     property."id" AS property_id,
-     property."capitalgains" AS property_capitalgains,
-     property."marketpriceadjustment" AS property_marketpriceadjustment,
-     property."profileid" AS property_profileid,
-     property."propertyname" AS property_propertyname,
-     property."profile_id" AS property_profile_id,
-     property."bond_id" AS property_bond_id,
-     property."expenses_id" AS property_expenses_id,
-     property."increases_id" AS property_increases_id,
-     property."rental_id" AS property_rental_id,
-     property."reserves_id" AS property_reserves_id,
-     property."upfrontcosts_id" AS property_upfrontcosts_id
+     profile."username" AS username,
+     bond."bondrepayment" AS bondrepayment,
+     bond."depositpercentage" AS depositpercentage,
+     bond."interestrate" AS interestrate,
+     bond."numberofyears" AS numberofyears,
+     bond."propertyvalue" AS propertyvalue,
+     property."propertyname" AS propertyname
 FROM
-     "public"."property" property]]>
+     "public"."profile" profile INNER JOIN "public"."property" property ON profile."id" = property."profile_id"
+     INNER JOIN "public"."bond" bond ON property."bond_id" = bond."id"]]>
 	</queryString>
-	<field name="property_id" class="java.lang.Long"/>
-	<field name="property_capitalgains" class="java.lang.Double"/>
-	<field name="property_marketpriceadjustment" class="java.lang.Double"/>
-	<field name="property_profileid" class="java.lang.Integer"/>
-	<field name="property_propertyname" class="java.lang.String"/>
-	<field name="property_profile_id" class="java.lang.Long"/>
-	<field name="property_bond_id" class="java.lang.Long"/>
-	<field name="property_expenses_id" class="java.lang.Long"/>
-	<field name="property_increases_id" class="java.lang.Long"/>
-	<field name="property_rental_id" class="java.lang.Long"/>
-	<field name="property_reserves_id" class="java.lang.Long"/>
-	<field name="property_upfrontcosts_id" class="java.lang.Long"/>
+	<field name="username" class="java.lang.String"/>
+	<field name="bondrepayment" class="java.lang.Double"/>
+	<field name="depositpercentage" class="java.lang.Double"/>
+	<field name="interestrate" class="java.lang.Double"/>
+	<field name="numberofyears" class="java.lang.Integer"/>
+	<field name="propertyvalue" class="java.lang.Double"/>
+	<field name="propertyname" class="java.lang.String"/>
+	<group name="username">
+		<groupExpression><![CDATA[$F{profile_username}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="229" y="7" width="573" height="24" forecolor="#B89F7D" backcolor="#70A9C6" uuid="867f00da-e182-434b-afba-ca6be32b7464"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="263" height="23" forecolor="#FFFFFF" uuid="58b8a018-c961-4dbb-8e5d-e30f95f7bff8"/>
+						<textElement>
+							<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{username}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="propertyname">
+		<groupExpression><![CDATA[$F{property_propertyname}]]></groupExpression>
+		<groupHeader>
+			<band height="24">
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="Float" x="231" y="4" width="571" height="20" forecolor="#000000" uuid="c80143a6-ff5f-40e8-b576-e8b64954da67"/>
+					<textElement>
+						<font fontName="Arial" size="16" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{property_propertyname}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
 	<background>
 		<band height="555" splitType="Stretch">
 			<pie3DChart>
 				<chart isShowLegend="false" evaluationTime="Report">
-					<reportElement x="-18" y="406" width="229" height="139" uuid="2dd3e5ac-ed0a-47e1-9f2d-1d2522a09ab4"/>
+					<reportElement x="-18" y="406" width="229" height="139" uuid="f995565e-6a1b-4657-8879-6a4fb2d5fa40"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
 				</chart>
 				<pieDataset>
 					<dataset>
-						<datasetRun subDataset="PieChartDataset" uuid="d235cb2a-b83d-40ac-b090-553714b39783">
+						<datasetRun subDataset="PieChartDataset" uuid="bde84039-b024-4e2e-a004-5bcc06c8fd33">
 							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(5)]]></dataSourceExpression>
 						</datasetRun>
 					</dataset>
@@ -75,19 +100,19 @@ $V{REPORT_COUNT}]]></keyExpression>
 				</pie3DPlot>
 			</pie3DChart>
 			<image>
-				<reportElement x="-20" y="65" width="229" height="250" uuid="b5738ff9-62eb-4d87-a5a9-10d6a1992a3e">
+				<reportElement x="-20" y="65" width="229" height="250" uuid="8c805fb4-2509-4302-9828-4ccbf0650aac">
 					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1]]></printWhenExpression>
 				</reportElement>
 				<imageExpression><![CDATA["flower1.png"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="-20" y="-20" width="229" height="250" uuid="94f1bd49-95df-419a-96a1-49e90d23d983">
+				<reportElement x="-20" y="-20" width="229" height="250" uuid="3e38c0b5-9324-48ed-bce1-ab697257ba09">
 					<printWhenExpression><![CDATA[$V{PAGE_NUMBER} > 1]]></printWhenExpression>
 				</reportElement>
 				<imageExpression><![CDATA["flower1.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement mode="Opaque" x="318" y="315" width="239" height="181" backcolor="#FFFFCC" uuid="f1e7582b-6bf2-4dbb-9a54-d61aaa9638b2">
+				<reportElement mode="Opaque" x="318" y="315" width="239" height="181" backcolor="#FFFFCC" uuid="786b82d3-fcd3-4c1f-bbac-252b9b65a9c9">
 					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4">
@@ -108,7 +133,7 @@ This rectangle element is not printed (see the print when expression of this
 element)]]></text>
 			</staticText>
 			<line>
-				<reportElement x="201" y="431" width="117" height="1" uuid="9a48a56b-99dc-4122-ac03-76bbd3f622c0">
+				<reportElement x="201" y="431" width="117" height="1" uuid="0c4f0d66-202c-4a87-bf5e-8bb3e2a0cc97">
 					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
 				</reportElement>
 				<graphicElement>
@@ -116,7 +141,7 @@ element)]]></text>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="275" y="-10" width="240" height="181" backcolor="#FFFFCC" uuid="052b2204-3cb9-47d6-bb89-ae08df46d989">
+				<reportElement mode="Opaque" x="275" y="-10" width="240" height="181" backcolor="#FFFFCC" uuid="2e6aa6a1-5aca-40e9-8fe1-0b2c072d2eab">
 					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
 				</reportElement>
 				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4">
@@ -134,7 +159,7 @@ element)]]></text>
 There are two flowers, the first one is printed only starting from the second page, the other one only in the first page.]]></text>
 			</staticText>
 			<line>
-				<reportElement x="72" y="37" width="204" height="1" uuid="195e7411-11e0-4e17-9772-35abd22d927a">
+				<reportElement x="72" y="37" width="204" height="1" uuid="9529137d-0e81-41b0-8113-2827a88e914d">
 					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
 				</reportElement>
 				<graphicElement>
@@ -146,16 +171,16 @@ There are two flowers, the first one is printed only starting from the second pa
 	<title>
 		<band height="94" splitType="Stretch">
 			<staticText>
-				<reportElement style="SubTitle" x="336" y="65" width="449" height="29" uuid="062475ad-6ab4-4b52-ad16-5af4fba2fc8e"/>
+				<reportElement style="SubTitle" x="336" y="65" width="449" height="29" uuid="d2458ca9-e04f-4030-8285-ac511d3f8ea1"/>
 				<textElement textAlignment="Right">
 					<font size="22" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Flower SubTitle]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="8af4f8fb-8e0e-4dba-9f47-7fec40ed9d60"/>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699" uuid="da0aad3f-c5e3-49d1-bbf4-04ac523ee4ac"/>
 				<staticText>
-					<reportElement style="Title" x="231" y="0" width="578" height="65" uuid="835a7cdf-af71-4074-89ee-db2b87391da5"/>
+					<reportElement style="Title" x="231" y="0" width="578" height="65" uuid="d24449d5-af0c-4d10-8eb9-2283bb1e8043"/>
 					<textElement textAlignment="Right">
 						<font size="54" isBold="false"/>
 					</textElement>
@@ -170,90 +195,41 @@ There are two flowers, the first one is printed only starting from the second pa
 	<columnHeader>
 		<band height="14" splitType="Stretch">
 			<frame>
-				<reportElement x="227" y="0" width="575" height="14" uuid="373a6580-55f0-4b2b-abec-ae3b974960f3"/>
+				<reportElement x="227" y="0" width="575" height="14" uuid="d198a9aa-0472-4d5c-bca8-77a340c46d67"/>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" x="0" y="0" width="47" height="14" forecolor="#000000" uuid="a3e21481-7f6d-4dee-acb1-5dca9f1d789c"/>
+					<reportElement style="Column header" positionType="Float" x="0" y="0" width="115" height="14" forecolor="#000000" uuid="bd51c3d0-afbd-4e7a-94cd-a034e7cd3c2a"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
-					<text><![CDATA[property_id]]></text>
+					<text><![CDATA[bondrepayment]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" x="47" y="0" width="47" height="14" forecolor="#000000" uuid="79a34491-5f13-479c-9aa1-e16af3d6a308"/>
+					<reportElement style="Column header" positionType="Float" x="115" y="0" width="115" height="14" forecolor="#000000" uuid="8d86981b-e0f8-4799-8127-3e6ad0b98e50"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
-					<text><![CDATA[property_capitalgains]]></text>
+					<text><![CDATA[depositpercentage]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" x="94" y="0" width="47" height="14" forecolor="#000000" uuid="c3c56659-f8bd-4c41-b3e7-1d420de367ee"/>
+					<reportElement style="Column header" positionType="Float" x="230" y="0" width="115" height="14" forecolor="#000000" uuid="918efa7a-2175-489e-be7e-073edee2cc92"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
-					<text><![CDATA[property_marketpriceadjustment]]></text>
+					<text><![CDATA[interestrate]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" x="141" y="0" width="47" height="14" forecolor="#000000" uuid="abebb31b-fa9b-4bfa-b35f-2314d0a7ff33"/>
+					<reportElement style="Column header" positionType="Float" x="345" y="0" width="115" height="14" forecolor="#000000" uuid="741b47dc-edbd-4506-821e-cd71b038c04a"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
-					<text><![CDATA[property_profileid]]></text>
+					<text><![CDATA[numberofyears]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" x="188" y="0" width="47" height="14" forecolor="#000000" uuid="426ea012-44ea-493f-96c4-a119c035c1f7"/>
+					<reportElement style="Column header" positionType="Float" x="460" y="0" width="115" height="14" forecolor="#000000" uuid="f08d0c27-fce7-4ace-abcd-b4df97aebd25"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
 					</textElement>
-					<text><![CDATA[property_propertyname]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" x="235" y="0" width="47" height="14" forecolor="#000000" uuid="204e4ac0-bf6d-48e1-94a3-a9de1f3dbd51"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[property_profile_id]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" x="282" y="0" width="47" height="14" forecolor="#000000" uuid="f7d0e752-26c9-42ba-af5e-1d4cfa9eda0f"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[property_bond_id]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" x="329" y="0" width="47" height="14" forecolor="#000000" uuid="6a0ca5fb-d862-4c24-b252-8d26bcfe6990"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[property_expenses_id]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" x="376" y="0" width="47" height="14" forecolor="#000000" uuid="2ce7443a-9f29-4191-b6a1-206a2990e525"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[property_increases_id]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" x="423" y="0" width="47" height="14" forecolor="#000000" uuid="cfe758ce-7ac4-4017-87f0-f9a2d38d2b1d"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[property_rental_id]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" x="470" y="0" width="47" height="14" forecolor="#000000" uuid="2fddca7e-340a-4fe6-9019-fe7545ce8172"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[property_reserves_id]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" positionType="Float" x="517" y="0" width="47" height="14" forecolor="#000000" uuid="a57ce9e7-5e7c-41a0-8321-c49e7939925d"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[property_upfrontcosts_id]]></text>
+					<text><![CDATA[propertyvalue]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -261,93 +237,44 @@ There are two flowers, the first one is printed only starting from the second pa
 	<detail>
 		<band height="15" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="227" y="14" width="575" height="1" uuid="2954f9c7-a180-49b4-924a-a60ce3903362"/>
+				<reportElement positionType="FixRelativeToBottom" x="227" y="14" width="575" height="1" uuid="7bd7bdae-6091-4073-8bdf-8105db32c71b"/>
 			</line>
 			<frame>
-				<reportElement x="227" y="0" width="575" height="14" uuid="4659c826-f5db-4c2d-8198-459060d71d2a"/>
+				<reportElement x="227" y="0" width="575" height="14" uuid="374b1694-d75a-40e5-bff2-040d15834879"/>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="0" y="0" width="47" height="14" uuid="0a2721d4-ae21-4afa-a8b0-4fd04be4be27"/>
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="115" height="14" uuid="103e8718-e186-4750-832f-da5a9a845f94"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{property_id}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{bondrepayment}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="47" y="0" width="47" height="14" uuid="a7305a6d-0186-41d0-8ca0-6433819c0210"/>
+					<reportElement style="Detail" positionType="Float" x="115" y="0" width="115" height="14" uuid="8b05073d-f4e0-4de1-ae01-bbf1f800fc25"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{property_capitalgains}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{depositpercentage}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="94" y="0" width="47" height="14" uuid="3a35044c-9537-4e0c-9d8e-7715c8a992b0"/>
+					<reportElement style="Detail" positionType="Float" x="230" y="0" width="115" height="14" uuid="51f618da-e501-40c0-bd47-e5ab30786f1e"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{property_marketpriceadjustment}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{interestrate}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="141" y="0" width="47" height="14" uuid="efeb3bfb-6506-4221-a43e-409712129c55"/>
+					<reportElement style="Detail" positionType="Float" x="345" y="0" width="115" height="14" uuid="4918d611-59d3-42d0-9b77-9480bd70ec7d"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{property_profileid}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{numberofyears}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="188" y="0" width="47" height="14" uuid="2b8141d8-4a40-4d76-ac5a-f1aafe00efce"/>
+					<reportElement style="Detail" positionType="Float" x="460" y="0" width="115" height="14" uuid="b6ea6069-b1a3-4a4f-9501-52e619cd9e55"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{property_propertyname}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="235" y="0" width="47" height="14" uuid="f99b393a-6862-44b0-9823-c3652e54124c"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{property_profile_id}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="282" y="0" width="47" height="14" uuid="49b038de-fc09-4ada-91c4-fec16b9e28b2"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{property_bond_id}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="329" y="0" width="47" height="14" uuid="80e64e4b-0902-4cdf-8593-cb64ff9c1811"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{property_expenses_id}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="376" y="0" width="47" height="14" uuid="7a882a4d-003f-469e-b770-d9522c662a53"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{property_increases_id}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="423" y="0" width="47" height="14" uuid="d0c268b3-9622-4091-a461-ca197a90c13d"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{property_rental_id}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="470" y="0" width="47" height="14" uuid="b2799adb-2109-44b4-898b-8a6f7ec05dcc"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{property_reserves_id}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-					<reportElement style="Detail" positionType="Float" x="517" y="0" width="47" height="14" uuid="131f2b30-aab3-4cb9-b2e1-89771b6ee749"/>
-					<textElement>
-						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{property_upfrontcosts_id}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{propertyvalue}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -355,7 +282,7 @@ There are two flowers, the first one is printed only starting from the second pa
 	<columnFooter>
 		<band height="7" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="bbce0e09-3d75-40e5-a5f0-facddb518b94"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="95477163-0915-43de-b084-b8b02d54b369"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -365,23 +292,23 @@ There are two flowers, the first one is printed only starting from the second pa
 	<pageFooter>
 		<band height="16" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="d0031bf4-277a-45bf-b2df-a7cdaaed66ec"/>
+				<reportElement mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="614aa752-1851-44fa-8515-d9d34d1815c0"/>
 				<textField evaluationTime="Report">
-					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="ced838b5-2ef9-4531-b3f6-b79148c20612"/>
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="6bdd2efa-9771-4b0b-9537-902b0b58ac56"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="32531431-025d-48d7-8800-91eb35a7f916"/>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="047dab60-be4d-41ad-9b1e-085f42e9ca62"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="48ec001c-d6f5-4f9e-8c8a-eafccddf33d7"/>
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="d99247c9-a607-4d26-9fca-1257541ed4ef"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
 					</textElement>
