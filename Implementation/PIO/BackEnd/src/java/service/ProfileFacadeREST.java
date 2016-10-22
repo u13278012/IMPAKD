@@ -211,4 +211,36 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
 
 
      }
+     
+       /**
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param username
+     * @param lastname
+     * @param FirstName
+     * @param Email
+     * @param Password
+     * @param confrimPassword
+     */
+    @Path("update/{profileID}/{firstName}/{lastName}/{UserName}/{Email}/{Password}/{confrimPassword}")
+     @POST
+     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+     public void updateProfile(@PathParam("profileID") Long id, @PathParam("firstName") String firstName, @PathParam("lastName") String lastName, @PathParam("UserName") String username, @PathParam("Email") String Email,
+             @PathParam("Password") String Password, @PathParam("confrimPassword") String confrimPassword) 
+     {
+         TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.id = "+id+"",Profile.class);
+         Profile p = query.getSingleResult();
+         p.setEmail(Email);
+         p.setUsername(username);
+         p.setPassword(Password);
+         p.setFirstname(firstName);
+         p.setLastName(lastName);
+
+         
+//         super.create(p);
+         pIOBean.persist(p);
+      
+    }
 }
