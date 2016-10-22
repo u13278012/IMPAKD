@@ -140,16 +140,16 @@ public class accountingIncomeStatement
     public void setInterestIncome(Property obj){
 
     }
-    
     /**
      *
      * @param obj
      * @return 
     */ 
     public double[] getInterestIncome(Property obj){
-
         return InterestIncome;
     }
+    
+
     
     /******************************************* GrossProfit Calculations **************************************************/
      /**
@@ -161,7 +161,7 @@ public class accountingIncomeStatement
             GrossProfit[i] = Array.getDouble(getRentIncome(obj),i) + Array.getDouble(getInterestIncome(obj),i);
         }
     }
-    
+
     /**
      *
      * @param obj
@@ -169,9 +169,16 @@ public class accountingIncomeStatement
     */ 
     public double[] getGrossProfit(Property obj){
         setGrossProfit(obj);
+<<<<<<< HEAD
 //        for(int i=0; i<yearsToPayOffBond*12+1;i++){
 //            System.out.println(i +" "+ GrossProfit[i]);
 //        }
+=======
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            System.out.println(i +" "+ GrossProfit[i]);
+
+        }
+>>>>>>> master
         return GrossProfit;
     }
     
@@ -203,7 +210,6 @@ public class accountingIncomeStatement
         }
         return ratesTaxesIncYearly;
     }
-    
     /**
      *
      * @param obj
@@ -240,6 +246,7 @@ public class accountingIncomeStatement
     }
     
     /******************************************* Levy Calculations **************************************************/
+<<<<<<< HEAD
     /**
      *
      * @param obj
@@ -302,6 +309,9 @@ public class accountingIncomeStatement
         setLevy(obj);
         return Levy;
     }
+=======
+
+>>>>>>> master
     
     
     /******************************************* BondFee Calculations **************************************************/
