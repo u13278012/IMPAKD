@@ -28,6 +28,8 @@ public class CoreSubsetFileReader
         sc.useLocale(Locale.US);
         // read names
         String[] names = sc.nextLine().split(",");
+        
+        //
         int n = names.length;
         // read distance matrix
         double[][] dist = new double[n][n];
@@ -40,5 +42,17 @@ public class CoreSubsetFileReader
         }
         // create and return data object
         return new CoreSubsetData(names, dist);
+    }
+    
+    public CoreSubsetData organiseData()
+    {
+        String name = "discountRate"; //
+        String[] names;
+        double[][] whatever; //Values to maximise
+        
+        //Append name to ROI, i.e ROI
+        
+        
+        int years = names.length;
     }
 }
