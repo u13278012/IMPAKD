@@ -98,43 +98,27 @@ angular.module('myApp', ['ngRoute'])
             '&propertyid=' +
             encodeURIComponent(propertyid);
            
-<<<<<<< HEAD
-            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.capitalGains) || isNaN($scope.annualMaintenanceCost)
+
+
+
+           /* if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.capitalGains) || isNaN($scope.annualMaintenanceCost)
               || isNaN($scope.annualCostIncrease)||isNaN($scope.interestRate) || isNaN($scope.deposit)
               || isNaN($scope.propertyValue) || isNaN($scope.numberOfYears) || isNaN($scope.bondRepaymnet)
               || isNaN($scope.Period) || isNaN($scope.additionalCash) || isNaN($scope.onceOffPayment)
               || isNaN($scope.maintenance) || isNaN($scope.renovation) || isNaN($scope.deviance)
               || isNaN($scope.rentInsurance) || isNaN($scope.conveyancingFees) || isNaN($scope.vatDebit)
               ||isNaN($scope.deedsFee) || isNaN($scope.initiationFee) || isNaN($scope.tax)
-              || isNaN($scope.rates) || isNaN($scope.levy) || isNaN($scope.managementFee)
+              || isNaN($scope.rates) || isNaN($scope.levy) || isNaN($scope.bondFee)
               || isNaN($scope.inflation) || isNaN($scope.propertyValueIncrease) || isNaN($scope.rentIncrease)
               || isNaN($scope.ratesIncrease) || isNaN($scope.taxIncrease) || isNaN($scope.bondFeeIncrease)
               || isNaN($scope.levyIncrease) || isNaN($scope.occupancyRate) || isNaN($scope.agentCommission)
               || isNaN($scope.rentalAmount)){
               alert("error ...wrong input");
 
-                 }
-             //20285
-             else{
-=======
-//            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.capitalGains) || isNaN($scope.annualMaintenanceCost)
-//              || isNaN($scope.annualCostIncrease)||isNaN($scope.interestRate) || isNaN($scope.deposit)
-//              || isNaN($scope.propertyValue) || isNaN($scope.numberOfYears) || isNaN($scope.bondRepaymnet)
-//              || isNaN($scope.Period) || isNaN($scope.additionalCash) || isNaN($scope.onceOffPayment)
-//              || isNaN($scope.maintenance) || isNaN($scope.renovation) || isNaN($scope.deviance)
-//              || isNaN($scope.rentInsurance) || isNaN($scope.conveyancingFees) || isNaN($scope.vatDebit)
-//              ||isNaN($scope.deedsFee) || isNaN($scope.initiationFee) || isNaN($scope.tax)
-//              || isNaN($scope.rates) || isNaN($scope.levy) || isNaN($scope.bondFee)
-//              || isNaN($scope.inflation) || isNaN($scope.propertyValueIncrease) || isNaN($scope.rentIncrease)
-//              || isNaN($scope.ratesIncrease) || isNaN($scope.taxIncrease) || isNaN($scope.bondFeeIncrease)
-//              || isNaN($scope.levyIncrease) || isNaN($scope.occupancyRate) || isNaN($scope.agentCommission)
-//              || isNaN($scope.rentalAmount)){
-//              alert("error ...wrong input");
-//
-//                 }
-//             //51029
-//             else{
->>>>>>> master
+                 }*/
+        //51029
+         //  else{
+
            $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/property/updateProperty',
@@ -142,10 +126,22 @@ angular.module('myApp', ['ngRoute'])
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
                    
-                              alert("good");
+                            
                                window.location = "../home/home.html"; 
 
                 }).
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                 error(function(response)
                 {
                    // $window.alert("Server error..request not sent");
@@ -153,7 +149,7 @@ angular.module('myApp', ['ngRoute'])
                                        //  alert('bad');
 
                 });
-//            }
+//       }
         };
 $scope.default = function()
 {
@@ -166,8 +162,8 @@ $scope.default = function()
             encodeURIComponent(session)+
             '&propertyid=' +
             encodeURIComponent(propertyid);
-            //51029
-           alert(encodedString);
+            //20285
+          
         
             $http({
                 method: 'POST',
@@ -207,48 +203,48 @@ function update($scope)
            //Property Details
   
     $scope.propertyName = property.properties.property.propertyName;
-    $scope.marketPriceAdjustment = property.properties.property.marketPriceAdjustment;
-    $scope.capitalGains = property.properties.property.capitalGains;
+    $scope.marketPriceAdjustment = parseFloat(property.properties.property.marketPriceAdjustment);
+    $scope.capitalGains = parseFloat(property.properties.property.capitalGains);
     $scope.annualMaintenanceCost = 8;
     $scope.annualCostIncrease = 5;
     //bond
-    $scope.interestRate = property.properties.property.bond.interestRate;
-    $scope.deposit = property.properties.property.bond.depositPercentage;
-    $scope.propertyValue = property.properties.property.bond.propertyValue;
-    $scope.numberOfYears = property.properties.property.bond.numberOfYears;
-    $scope.bondRepaymnet = property.properties.property.bond.bondRepayment;
+    $scope.interestRate = parseFloat(property.properties.property.bond.interestRate);
+    $scope.deposit = parseFloat(property.properties.property.bond.depositPercentage);
+    $scope.propertyValue = parseFloat(property.properties.property.bond.propertyValue);
+    $scope.numberOfYears = parseFloat(property.properties.property.bond.numberOfYears);
+    $scope.bondRepaymnet = parseFloat(property.properties.property.bond.bondRepayment);
     //Additional Bond Repayment
-    $scope.Period = property.properties.property.bond.Period;
-    $scope.additionalCash = property.properties.property.bond.additionalCash;
-    $scope.onceOffPayment = property.properties.property.bond.onceOffPayment;
+    $scope.Period = parseFloat(property.properties.property.bond.Period);
+    $scope.additionalCash = parseFloat(property.properties.property.bond.additionalCash);
+    $scope.onceOffPayment = parseFloat(property.properties.property.bond.onceOffPayment);
     //Reserves
-    $scope.maintenance = property.properties.property.reserves.maintenance;
-    $scope.renovation = property.properties.property.reserves.renovation;
-    $scope.deviance = property.properties.property.reserves.deviance;
-    $scope.rentInsurance = property.properties.property.reserves.rentInsurance;
+    $scope.maintenance = parseFloat(property.properties.property.reserves.maintenance);
+    $scope.renovation = parseFloat(property.properties.property.reserves.renovation);
+    $scope.deviance = parseFloat(property.properties.property.reserves.deviance);
+    $scope.rentInsurance = parseFloat(property.properties.property.reserves.rentInsurance);
     //Conveyancing Fees
-    $scope.conveyancingFees = property.properties.property.upFrontCosts.conveyancingFees;
-    $scope.vatDebit = property.properties.property.upFrontCosts.vatDebit;
-    $scope.deedsFee = property.properties.property.upFrontCosts.deedsFees;
-    $scope.initiationFee = property.properties.property.upFrontCosts.initiationFee;
+    $scope.conveyancingFees = parseFloat(property.properties.property.upFrontCosts.conveyancingFees);
+    $scope.vatDebit = parseFloat(property.properties.property.upFrontCosts.vatDebit);
+    $scope.deedsFee = parseFloat(property.properties.property.upFrontCosts.deedsFees);
+    $scope.initiationFee = parseFloat(property.properties.property.upFrontCosts.initiationFee);
     //Expenses
-    $scope.bondFee = property.properties.property.expenses.bondFee;
-    $scope.rates_Taxes = property.properties.property.expenses.rates_Taxes;
-    $scope.levy = property.properties.property.expenses.levy;
+    $scope.bondFee = parseFloat(property.properties.property.expenses.bondFee);
+    $scope.rates_Taxes = parseFloat(property.properties.property.expenses.rates_Taxes);
+    $scope.levy = parseFloat(property.properties.property.expenses.levy);
     //increases
 
-    $scope.propertyValueIncrease =  property.properties.property.increases.propertyValue;
-    $scope.rentIncrease =  property.properties.property.increases.rentIncrease;
-    $scope.ratesAnstaxes =  property.properties.property.increases.rates_taxes;
-    $scope.bondFeeIncrease =  property.properties.property.increases.bondFee;
-    $scope.levyIncrease =  property.properties.property.increases.levy;
-    $scope.rentIncrease =  property.properties.property.increases.rent;
-    $scope.inflation =  property.properties.property.increases.inflation;
+    $scope.propertyValueIncrease =  parseFloat(property.properties.property.increases.propertyValue);
+    $scope.rentIncrease =  parseFloat(property.properties.property.increases.rentIncrease);
+    $scope.ratesAnstaxes =  parseFloat(property.properties.property.increases.rates_taxes);
+    $scope.bondFeeIncrease =  parseFloat(property.properties.property.increases.bondFee);
+    $scope.levyIncrease =  parseFloat(property.properties.property.increases.levy);
+    $scope.rentIncrease =  parseFloat(property.properties.property.increases.rent);
+    $scope.inflation =  parseFloat(property.properties.property.increases.inflation);
 
     //Rental Information
-    $scope.occupancyRate =  property.properties.property.rental.occupancyRate;
-    $scope.agentCommission =  property.properties.property.rental.agentCommission;
-    $scope.rentalAmount =  property.properties.property.rental.rentalAmount;
+    $scope.occupancyRate =  parseFloat(property.properties.property.rental.occupancyRate);
+    $scope.agentCommission =  parseFloat(property.properties.property.rental.agentCommission);
+    $scope.rentalAmount =  parseFloat(property.properties.property.rental.rentalAmount);
     
     //needs to be removed, in the submit function and also in update in propertyFacade
     $scope.Period = 1;
