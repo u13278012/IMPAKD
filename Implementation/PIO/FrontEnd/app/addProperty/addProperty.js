@@ -112,7 +112,8 @@ angular.module('myApp', ['ngRoute'])
               alert("error ...wrong input");
 
                  }
-            else{
+            else{ //20285
+               
            $http({
                 method: 'POST',
                 url: 'http://localhost:8080/BackEnd/rs/property/addProperty',
