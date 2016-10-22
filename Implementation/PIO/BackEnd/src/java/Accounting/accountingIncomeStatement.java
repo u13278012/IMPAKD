@@ -133,23 +133,16 @@ public class accountingIncomeStatement
     public void setInterestIncome(Property obj){
 
     }
-    
     /**
-<<<<<<< HEAD
-     * Defines a constant value for the number of months in a year
-     */
-    public static final double numberOfMonths = 12;
-    public static final double hundredPercent = 100;
-=======
      *
      * @param obj
      * @return 
     */ 
     public double[] getInterestIncome(Property obj){
-
         return InterestIncome;
     }
->>>>>>> master
+    
+
     
     /******************************************* GrossProfit Calculations **************************************************/
      /**
@@ -161,25 +154,7 @@ public class accountingIncomeStatement
             GrossProfit[i] = Array.getDouble(getRentIncome(obj),i) + Array.getDouble(getInterestIncome(obj),i);
         }
     }
-    
-<<<<<<< HEAD
-    //Generate Rent Income
-    public void generateRentIncome()
-    {   
-        for(int i = 0; i < property.getBond().getNumberOfYears(); i++)
-        {
-           for(int j = 0; j < numberOfMonths; j++)
-           {
-               if(i == 0)
-               {
-                    rentIncome[i] = property.getRental().getRentalAmount();
-               }
-               else
-               {
-                    rentIncome[i] = rentIncome[i-1] + (rentIncome[i-1] * (property.getIncreases().getRent()/hundredPercent));
-               }
-           }
-=======
+
     /**
      *
      * @param obj
@@ -189,7 +164,7 @@ public class accountingIncomeStatement
         setGrossProfit(obj);
         for(int i=0; i<yearsToPayOffBond*12+1;i++){
             System.out.println(i +" "+ GrossProfit[i]);
->>>>>>> master
+
         }
         return GrossProfit;
     }
@@ -222,107 +197,6 @@ public class accountingIncomeStatement
         }
         return ratesTaxesIncYearly;
     }
-    
-<<<<<<< HEAD
-    //Calculate Rates & Taxes
-    public void generateRatesAndTaxes()
-    {
-        for(int i = 0; i < property.getBond().getNumberOfYears(); i++)
-        {
-           for(int j = 0; j < numberOfMonths; j++)
-           {
-               if(i == 0)
-               {
-                    ratesAndtaxes[i] = property.getExpenses().getRates_Taxes();
-               }
-               else
-               {
-                    ratesAndtaxes[i] = ratesAndtaxes[i-1] + (ratesAndtaxes[i-1] * (property.getIncreases().getRates_taxes()/hundredPercent));
-               }
-           }
-        }
-    }
-    
-    public double[] getRatesAndTaxes()
-    {
-        generateRatesAndTaxes();
-        return ratesAndtaxes;
-    }
-    
-    public void printRatesAndTaxes()
-    {
-        for(int i = 0; i < ratesAndtaxes.length; i++)
-        {
-            System.out.println(ratesAndtaxes[i]);
-        }
-    }
-    
-    //Calculate Levy
-    public void generateLevy()
-    {
-        for(int i = 0; i < property.getBond().getNumberOfYears(); i++)
-        {
-           for(int j = 0; j < numberOfMonths; j++)
-           {
-               if(i == 0)
-               {
-                    levy[i] = property.getExpenses().getLevy();
-               }
-               else
-               {
-                    levy[i] = levy[i-1] + (levy[i-1] * (property.getIncreases().getLevy()/hundredPercent));
-               }
-           }
-        }
-    }
-    
-    public double[] getLevy()
-    {
-        generateLevy();
-        return levy;
-    }
-    
-    public void printLevy()
-    {
-        for(int i = 0; i < levy.length; i++)
-        {
-            System.out.println(levy[i]);
-        }
-    }
-    
-    //Calculate BondFee
-    public void generateBondFee()
-    {
-        for(int i = 0; i < property.getBond().getNumberOfYears(); i++)
-        {
-           for(int j = 0; j < numberOfMonths; j++)
-           {
-               if(i == 0)
-               {
-                    bondFee[i] = property.getExpenses().getBondFee();
-               }
-               else
-               {
-                    bondFee[i] = bondFee[i-1] + (bondFee[i-1] * (property.getIncreases().getBondFee()/hundredPercent));
-               }
-           }
-        }
-    }
-    
-    public double[] getBondFee()
-    {
-        generateBondFee();
-        return bondFee;
-    }
-    
-    public void printBondFee()
-    {
-        for(int i = 0; i < bondFee.length; i++)
-        {
-            System.out.println(bondFee[i]);
-        }
-    }
-=======
     /**
      *
      * @param obj
@@ -362,7 +236,7 @@ public class accountingIncomeStatement
     }
     
     /******************************************* Levy Calculations **************************************************/
->>>>>>> master
+
     
     
     /******************************************* BondFee Calculations **************************************************/
