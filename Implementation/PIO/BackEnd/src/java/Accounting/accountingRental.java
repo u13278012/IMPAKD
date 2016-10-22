@@ -9,22 +9,37 @@ import Entities.Property;
  *
  * @author Diana
  */
-public class accountingRental {
-    Property obj = new Property();
+public class accountingRental {  
+    int yearsToPayOffBond = 0;
+    double occupancyRate = 0.00;
+    double agentCommission = 0.00;
+    double rentalAmount = 0.00;
+    double onceOffAgentFee = 0.00;
     
-    final int yearsToPayOffBond = obj.getBond().getNumberOfYears();
-    double occupancyRate = obj.getRental().getOccupancyRate()*12;
-    double agentCommission = obj.getRental().getAgentCommission();
-    double rentalAmount = obj.getRental().getRentalAmount();
-    double onceOffAgentFee = obj.getRental().getOnceOffAgentFee()/100;
-    
-    double totalRent[] = new double[yearsToPayOffBond+1];
-    double arrayRentalAmount[] = new double[yearsToPayOffBond+1];
+    double totalRent[];
+    double arrayRentalAmount[];
     
     public static void main(String[] args) {
 //        Property obj = new Property();
 //        accountingRental objRent = new accountingRental();
 //        objRent.getTotalRent(obj);
+    }
+    
+    /**
+     *
+     * @param obj
+     * @param objAmor
+    */  
+    public void declarationsR(Property obj, AmortizationTableBond objAmor){ 
+        
+        yearsToPayOffBond = objAmor.yearsToPayOffBond;
+        occupancyRate = obj.getRental().getOccupancyRate()*12;
+        agentCommission = obj.getRental().getAgentCommission();
+        rentalAmount = obj.getRental().getRentalAmount();
+        onceOffAgentFee = obj.getRental().getOnceOffAgentFee()/100;
+
+        totalRent = new double[yearsToPayOffBond+1];
+        arrayRentalAmount = new double[yearsToPayOffBond+1];
     }
     
     /**
