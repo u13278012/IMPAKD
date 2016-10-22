@@ -13,16 +13,14 @@ import Entities.Property;
  * @author Diana
  */
 public class accountingAsset {
-    //DecimalFormat df = new DecimalFormat();
-    Property obj = new Property();
-    
-    final int yearsToPayOffBond = obj.getBond().getNumberOfYears();  
-    double propertyValue = obj.getBond().getPropertyValue();
-    double propertyValueInc = obj.getInceases().getPropertyValue()/100.0;
+    //DecimalFormat df = new DecimalFormat(); 
+    int yearsToPayOffBond = 0;  
+    double propertyValue = 0.00;
+    double propertyValueInc = 0.00;
 
-    double fixedAsset[] = new double[yearsToPayOffBond+1];
-    double capitalGains[] = new double[yearsToPayOffBond+1];
-    double total[] = new double[yearsToPayOffBond+1];
+    double fixedAsset[];
+    double capitalGains[];
+    double total[];
     
     public static void main(String[] args) {
         
@@ -31,7 +29,19 @@ public class accountingAsset {
        // test.getCapitalGains(obj);
         //getTotal(obj);
     }
-    
+    /**
+     *
+     * @param obj
+    */  
+    public void declarationsAss(Property obj){ 
+        yearsToPayOffBond = obj.getBond().getNumberOfYears();  
+        propertyValue = obj.getBond().getPropertyValue();
+        propertyValueInc = obj.getInceases().getPropertyValue()/100.0;
+
+        fixedAsset = new double[yearsToPayOffBond+1];
+        capitalGains = new double[yearsToPayOffBond+1];
+        total = new double[yearsToPayOffBond+1];
+    }
      /**
      *
      * @param obj

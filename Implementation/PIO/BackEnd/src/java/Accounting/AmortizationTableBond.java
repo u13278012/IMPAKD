@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package Accounting;
-
-//import static Accounting.accountingExpenses.getArrayBondFee;
-//import static Accounting.accountingExpenses.getArrayLevy;
-//import static Accounting.accountingExpenses.getArrayRates_Taxes;
 import Entities.Property;
 
 /**
@@ -15,36 +11,51 @@ import Entities.Property;
  * @author Diana
  */
 public class AmortizationTableBond { 
-    Property obj = new Property();
-    
-    final int yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
-    double interestRate = obj.getBond().getInterestRate();  
-    double depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
-    double paymentPerMonth = obj.getBond().getBondRepayment();
-    double propertyValue = obj.getBond().getPropertyValue();
+  
+    int yearsToPayOffBond = 0; 
+    double interestRate = 0.00;  
+    double depositePercentage =  0.00;
+    double paymentPerMonth =  0.00;
+    double propertyValue =  0.00;
 
-    double arrayPaymentPerMonth[] = new double[yearsToPayOffBond*12+1];
-    double arrayInterest[] = new double[yearsToPayOffBond*12+1];
-    double arrayPrinciple[] = new double[yearsToPayOffBond*12+1];
-    double arrayBalance[] = new double[yearsToPayOffBond*12+1];
+    double[] arrayPaymentPerMonth;
+    double[] arrayInterest;
+    double[] arrayPrinciple;
+    double[] arrayBalance;
 
-    double arrayInterestPerYear[] = new double[yearsToPayOffBond+1];
-    double arrayPrinciplePerYear[] = new double[yearsToPayOffBond+1];
+    double[] arrayInterestPerYear;
+    double[] arrayPrinciplePerYear;
     double interestPerYear = 0.00;
     double principlePerYear = 0.00;
     double depositInRands = 0.00;
     double principleDebt = 0.00;
-    
-    
-    
-//    public static void main(String[] args) {
-//        Property obj = new Property();
-//       //setAmortizationTableBond(obj);
-//        //getTotalExpenses(obj);
-//        //getArrayBalance(obj);
-//       // getArrayPrincipleTotalPerYear(obj);
-//    }
-    
+
+
+    /**
+     *
+     * @param obj
+    */  
+    public void declarationsAM(Property obj){ 
+        
+        yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
+        interestRate = obj.getBond().getInterestRate();  
+        depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
+        paymentPerMonth = obj.getBond().getBondRepayment();
+        propertyValue = obj.getBond().getPropertyValue();
+
+        arrayPaymentPerMonth = new double[yearsToPayOffBond*12+1];
+        arrayInterest = new double[yearsToPayOffBond*12+1];
+        arrayPrinciple = new double[yearsToPayOffBond*12+1];
+        arrayBalance = new double[yearsToPayOffBond*12+1];
+
+        arrayInterestPerYear = new double[yearsToPayOffBond+1];
+        arrayPrinciplePerYear = new double[yearsToPayOffBond+1];
+        interestPerYear = 0.00;
+        principlePerYear = 0.00;
+        depositInRands = 0.00;
+        principleDebt = 0.00;      
+    }
+
     /**
      *
      * @param obj

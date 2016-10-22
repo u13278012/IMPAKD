@@ -12,13 +12,12 @@ import java.lang.reflect.Array;
  * @author Diana
  */
 public class accountingLiabilities {
-    accountingAsset objAsset = new accountingAsset();          
-    AmortizationTableBond objAmor = new AmortizationTableBond(); 
-    Property obj = new Property();
+    accountingAsset objAsset;          
+    AmortizationTableBond objAmor; 
     
-    final int yearsToPayOffBond = obj.getBond().getNumberOfYears();
-    double bondPrincipleDebt[] = new double[yearsToPayOffBond+1];
-    double arrayEquity[] = new double[yearsToPayOffBond+1];
+    int yearsToPayOffBond = 0;
+    double bondPrincipleDebt[];
+    double arrayEquity[];
     
     public  static void main(String[] args) {
         //Property obj = new Property();
@@ -27,7 +26,21 @@ public class accountingLiabilities {
         //getEndingBalancePerYear(obj);
        // test.getEquity(obj);
     }
-     
+    /**
+     *
+     * @param obj
+     * @param objAmor
+     * @param objAsset
+    */
+    public void declarationsEx(Property obj, AmortizationTableBond objAmor,accountingAsset objAsset){ 
+        
+        this.objAmor = objAmor;
+        this.objAsset = objAsset;
+         
+        yearsToPayOffBond = obj.getBond().getNumberOfYears();
+        bondPrincipleDebt = new double[yearsToPayOffBond+1];
+        arrayEquity = new double[yearsToPayOffBond+1];
+    }
     /**
      *
      * @param obj
