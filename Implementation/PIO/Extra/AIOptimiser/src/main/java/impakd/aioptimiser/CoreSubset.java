@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package impakd.aioptimiser;
 
 /**
  *
  * @author Priscilla
  */
-
 
 import java.io.FileNotFoundException;
 import java.util.concurrent.TimeUnit;
@@ -19,6 +13,10 @@ import org.jamesframework.core.subset.SubsetSolution;
 import org.jamesframework.core.search.algo.RandomDescent;
 import org.jamesframework.core.subset.neigh.SingleSwapNeighbourhood;
 import org.jamesframework.core.search.stopcriteria.MaxRuntime;
+import org.moeaframework.Executor;
+import org.moeaframework.core.NondominatedPopulation;
+import org.moeaframework.core.Solution;
+
 //import org.jamesframework.examples.util.ProgressSearchListener;
 
 /**
@@ -38,32 +36,54 @@ public class CoreSubset {
      * @param args array containing the input file path, subset size and runtime limit
      */
     public static void main(String[] args) {
+        
+        System.out.println("PARTICLE SWARM OPTIMISATION");
+        //configure and run this experiment
+		NondominatedPopulation result = new Executor()
+				.withProblem("UF1")
+				.withAlgorithm("NSGAII")
+				.withMaxEvaluations(10000)
+				.run();
+		
+		//display the results
+		System.out.format("Objective1  Objective2%n");
+		
+		for (Solution solution : result) {
+			System.out.format("%.4f      %.4f%n",
+					solution.getObjective(0),
+					solution.getObjective(1));
+		}
+        
         System.out.println("#########################");
         System.out.println("# CORE SUBSET SELECTION #");
         System.out.println("#########################");
-        // parse arguments
-        if(args.length != 3){
-            System.err.println("Usage: java -cp james-examples.jar org.jamesframework.examples.coresubset.CoreSubset <inputfile> <subsetsize> <runtime>");
-            System.exit(1);
-        }
-        String filePath = args[0];
-        int subsetSize = Integer.parseInt(args[1]);
-        int timeLimit = Integer.parseInt(args[2]);
-        run(filePath, subsetSize, timeLimit);
+       
+        int subsetSize = Integer.parseInt(args[0]);
+        int timeLimit = Integer.parseInt(args[1]);
+        run(subsetSize, timeLimit);
     }
     
-    private static void run(String filePath, int subsetSize, int timeLimit){
+    private static void run(int subsetSize, int timeLimit){
         
         /***************/
         /* PARSE INPUT */
         /***************/
         
-        System.out.println("# PARSING INPUT");
-        System.out.println("Reading file: " + filePath);
+//        System.out.println("# PARSING INPUT");
+//        System.out.println("Reading file: " + filePath);
         
-        try {
+            //Call CoreSubsetData Methods
+            double dataList[] = new double[20];
             
-            CoreSubsetData data = new CoreSubsetFileReader().read(filePath);
+            for(int i = 0; i < 20; i++)
+            {
+                if(i != 0)
+                    dataList[i] *= 0.7; //Assuming increase is 7%
+                else
+                    dataList[i] = 4500.0; //Initial Rent
+            }
+            
+            CoreSubsetData data = new CoreSubsetDataReader(dataList, "rent", 20).processDataToBeEvaluated();
         
             /**********************/
             /* SAMPLE CORE SUBSET */
@@ -108,10 +128,6 @@ public class CoreSubset {
             // dispose search
             search.dispose();
             
-        } catch (FileNotFoundException ex) {
-            System.err.println("Failed to read file: " + filePath);
-            System.exit(2);
-        }
         
     }
     

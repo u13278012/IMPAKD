@@ -15,7 +15,7 @@ import org.jamesframework.core.problems.objectives.evaluations.SimpleEvaluation;
 import org.jamesframework.core.subset.SubsetSolution;
 
 /**
- * Implements the core subset selection objective: maximizing the average distance between all pairs of selected items.
+ * Implements the core subset selection objective: minimising the difference between all pairs of selected items.
  * 
  * @author <a href="mailto:herman.debeukelaer@ugent.be">Herman De Beukelaer</a>
  */
@@ -43,10 +43,11 @@ public class CoreSubsetObjective implements Objective<SubsetSolution, CoreSubset
             for(int i=0; i<selected.length; i++){
                 for(int j=i+1; j<selected.length; j++){
                     sumDist += data.getDistance(selected[i], selected[j]);
+                    System.out.println("Distance: " + sumDist);
                     numDist++;
                 }
             }
-            value = sumDist/numDist;
+            value = sumDist;
         }
         return SimpleEvaluation.WITH_VALUE(value);
     }
@@ -58,7 +59,7 @@ public class CoreSubsetObjective implements Objective<SubsetSolution, CoreSubset
      */
     @Override
     public boolean isMinimizing() {
-        return false;
+        return true;
     }
 
 }

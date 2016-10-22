@@ -8,19 +8,20 @@ import org.jamesframework.core.problems.datatypes.IntegerIdentifiedData;
  *
  * @author Priscilla
  */
+
 public class CoreSubsetData implements IntegerIdentifiedData
 {
      // item names
     private String[] names;
     // distance matrix
-    private double[][] dist;
+    private double[][] data;
     // IDs
     private Set<Integer> ids;
 
-    public CoreSubsetData(String[] names, double[][] dist){
+    public CoreSubsetData(String[] names, double[][] data){
         // store data
         this.names = names;
-        this.dist = dist;
+        this.data = data;
         // infer IDs: 0..N-1 in case of N items
         // (indices in distance matrix and name array)
         ids = new HashSet<>();
@@ -38,6 +39,6 @@ public class CoreSubsetData implements IntegerIdentifiedData
 }
 
     public double getDistance(int id1, int id2){
-    return dist[id1][id2];
+    return data[id1][id2];
     }
 }

@@ -21,12 +21,12 @@ public class CoreSubsetFileReader
      * 
      * @param filePath input file path
      * @return core subset data as read from the input file
-     * @throws FileNotFoundException if the file does not exist
+//     * @throws FileNotFoundException if the file does not exist
      */
     public CoreSubsetData read(String filePath) throws FileNotFoundException{
         Scanner sc = new Scanner(new File(filePath));
         sc.useLocale(Locale.US);
-        // read names
+        // read names - expenses - 0, rent - total pre-tax income / 40, shortfall - 0
         String[] names = sc.nextLine().split(",");
         
         //
@@ -44,15 +44,4 @@ public class CoreSubsetFileReader
         return new CoreSubsetData(names, dist);
     }
     
-    public CoreSubsetData organiseData()
-    {
-        String name = "discountRate"; //
-        String[] names;
-        double[][] whatever; //Values to maximise
-        
-        //Append name to ROI, i.e ROI
-        
-        
-        int years = names.length;
-    }
 }
