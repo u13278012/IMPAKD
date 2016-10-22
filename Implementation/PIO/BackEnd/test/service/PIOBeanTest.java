@@ -179,7 +179,7 @@ public class PIOBeanTest {
     private PIOBean lookupPIOBeanBean() {
         try {
             Context c = new InitialContext();
-            return (PIOBean) c.lookup("");
+            return (PIOBean) c.lookup(PIOBean.class.getName());
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

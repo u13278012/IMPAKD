@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package Accounting;
-//import static Accounting.AmortizationTableBond.getArrayPrincipleTotalPerYear;
-//import static Accounting.AmortizationTableBond.getTotalTax_DeductibleExpenses;
 import Entities.Property;
 import java.lang.reflect.Array;
 
@@ -30,19 +28,14 @@ public class accountingExpenses {
     double totalBondFee[];
     double expenses[];
     double arrayTotalExpeneses[];
-   
-    public  static void main(String[] args) {
-        Property obj = new Property();
-       // accountingExpenses test = new accountingExpenses();
-        //test.Tax_DeductibleExpenses(obj);
-    }
-    
+      
     /**
      *
      * @param obj
      * @param objAmor
     */
     public void declarationsEx(Property obj, AmortizationTableBond objAmor){ 
+        
         this.objAmor = objAmor;
         yearsToPayOffBond = objAmor.yearsToPayOffBond; 
         rates_taxes = obj.getExpenses().getRates_Taxes();
@@ -59,6 +52,7 @@ public class accountingExpenses {
         expenses  = new double[yearsToPayOffBond+1];
         arrayTotalExpeneses = new double[yearsToPayOffBond+1];
     }
+    
     /**
      *
      * @param obj

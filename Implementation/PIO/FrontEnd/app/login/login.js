@@ -31,7 +31,7 @@ $scope.submitFunction = function()
             '&loginPassword='+
             encodeURIComponent($scope.loginPassword);
        
-//51029
+//20285
             $http({
                 method: 'GET',
                 url: 'http://localhost:8080/BackEnd/rs/profile/login/'+$scope.loginEmail+'/'+$scope.loginPassword
