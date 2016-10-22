@@ -63,7 +63,7 @@ public class PIOBean implements PIOBeanLocal {
     public PIOBean() 
     {
         //Create and initialise mock object
-<<<<<<< HEAD
+
 //        property = new Property();
 //        
 //        UpFrontCosts upFrontCosts = new UpFrontCosts();
@@ -111,7 +111,7 @@ public class PIOBean implements PIOBeanLocal {
 //        property.setRental(rental);
 ////        property.setBond(bond);
 //        property.setExpenses(expenses);
-=======
+
         property = new Property();
         
         UpFrontCosts upFrontCosts = new UpFrontCosts();
@@ -158,7 +158,7 @@ public class PIOBean implements PIOBeanLocal {
         property.setRental(rental);
 //        property.setBond(bond);
         property.setExpenses(expenses);
->>>>>>> master
+
 
     }
     
