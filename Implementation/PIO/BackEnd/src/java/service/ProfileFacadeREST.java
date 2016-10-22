@@ -84,7 +84,7 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
      */
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML})
     public Profile find(@PathParam("id") Long id) {
         return super.find(id);
     }
@@ -145,15 +145,14 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
     @Path("register")
      @POST
      @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-     public void register(@FormParam("firstName") String firstName,@FormParam("lastName") String lastName,@FormParam("UserName") String username, @FormParam("Email") String Email,
+     public void register(@FormParam("UserName") String username, @FormParam("Email") String Email,
              @FormParam("Password") String Password, @FormParam("confrimPassword") String confrimPassword) 
      {
          Profile p = new Profile();
          p.setEmail(Email);
          p.setUsername(username);
          p.setPassword(Password);
-         p.setFirstname(lastName);
-         p.setLastName(firstName);
+
          
 //         super.create(p);
          pIOBean.register(p);
@@ -176,7 +175,7 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
 
 
     public Profile login(@PathParam("Email") String loginEmail, @PathParam("Password") String loginPassword) {
-        TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.email = '"+loginEmail + "'AND a.password= '"+loginPassword+"'",Profile.class);
+        TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.email = '"+loginEmail + "' OR a.username = '"+loginEmail + "' AND a.password= '"+loginPassword+"'",Profile.class);
         Profile profile = query.getSingleResult(); //gets the object containing the username and password
         
             return profile;
@@ -212,4 +211,36 @@ public class ProfileFacadeREST extends AbstractFacade<Profile> {
 
 
      }
+     
+       /**
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param username
+     * @param lastname
+     * @param FirstName
+     * @param Email
+     * @param Password
+     * @param confrimPassword
+     */
+    @Path("update/{profileID}/{firstName}/{lastName}/{UserName}/{Email}/{Password}/{confrimPassword}")
+     @POST
+     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+     public void updateProfile(@PathParam("profileID") Long id, @PathParam("firstName") String firstName, @PathParam("lastName") String lastName, @PathParam("UserName") String username, @PathParam("Email") String Email,
+             @PathParam("Password") String Password, @PathParam("confrimPassword") String confrimPassword) 
+     {
+         TypedQuery<Profile> query = em.createQuery("SELECT a FROM Profile a WHERE a.id = "+id+"",Profile.class);
+         Profile p = query.getSingleResult();
+         p.setEmail(Email);
+         p.setUsername(username);
+         p.setPassword(Password);
+         p.setFirstname(firstName);
+         p.setLastName(lastName);
+
+         
+//         super.create(p);
+         pIOBean.persist(p);
+      
+    }
 }

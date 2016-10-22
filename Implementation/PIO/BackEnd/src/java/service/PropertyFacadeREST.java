@@ -157,8 +157,8 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   ,@FormParam("deviance") double deviance,@FormParam("rentInsurance") double rentInsurance
   ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
   ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
-  ,@FormParam("tax") double tax,@FormParam("rates") double bondFee
- ,@FormParam("levy") double levy,@FormParam("managementFee") double managementFee,@FormParam("inflation") double inflation
+  ,@FormParam("tax") double tax,@FormParam("rates") double rates
+ ,@FormParam("levy") double levy,@FormParam("bondFee") double bondFee,@FormParam("inflation") double inflation
  ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
@@ -173,7 +173,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         < 0 || maintenance < 0 || renovation
         < 0 || deviance < 0 || rentInsurance
         < 0 || conveyancingFees < 0 || vatDebit
-        < 0 || deedsFee < 0 || initiationFee < 0 || levy < 0 || managementFee < 0 || inflation
+        < 0 || deedsFee < 0 || initiationFee < 0 || levy < 0 || bondFee < 0 || inflation
         < 0 || propertyValueIncrease < 0 || rentIncrease
         < 0 || ratesIncrease < 0 || taxIncrease
         < 0 || bondFeeIncrease < 0 || levyIncrease
@@ -224,7 +224,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       
       Bond bondObj = new Bond();
       bondObj.setBondRepayment(bondRepaymnet);
-      bondObj.setDepositInRands(deposit);
+      bondObj.setDepositPercentage(deposit);
       bondObj.setInterestRate(interestRate);
       bondObj.setNumberOfYears(numberOfYears);
       bondObj.setPropertyValue(propertyValue);
@@ -272,8 +272,8 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
   ,@FormParam("deviance") double deviance,@FormParam("rentInsurance") double rentInsurance
   ,@FormParam("conveyancingFees") double conveyancingFees,@FormParam("vatDebit") double vatDebit
   ,@FormParam("deedsFee") double deedsFee,@FormParam("initiationFee") double initiationFee
-  ,@FormParam("tax") double tax,@FormParam("rates") double bondFee
- ,@FormParam("levy") double levy,@FormParam("managementFee") double managementFee,@FormParam("inflation") double inflation
+  ,@FormParam("tax") double tax,@FormParam("rates") double bondFeed
+ ,@FormParam("levy") double levy,@FormParam("bondFee") double bondFee,@FormParam("inflation") double inflation
  ,@FormParam("propertyValueIncrease") double propertyValueIncrease,@FormParam("rentIncrease") double rentIncrease
  ,@FormParam("ratesIncrease") double ratesIncrease,@FormParam("taxIncrease") double taxIncrease
  ,@FormParam("bondFeeIncrease") double bondFeeIncrease,@FormParam("levyIncrease") double levyIncrease
@@ -288,7 +288,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
         < 0 || maintenance < 0 || renovation
         < 0 || deviance < 0 || rentInsurance
         < 0 || conveyancingFees < 0 || vatDebit
-        < 0 || deedsFee < 0 || initiationFee < 0 || levy < 0 || managementFee < 0 || inflation
+        < 0 || deedsFee < 0 || initiationFee < 0 || levy < 0 || bondFee < 0 || inflation
         < 0 || propertyValueIncrease < 0 || rentIncrease
         < 0 || ratesIncrease < 0 || taxIncrease
         < 0 || bondFeeIncrease < 0 || levyIncrease
@@ -339,7 +339,7 @@ public class PropertyFacadeREST extends AbstractFacade<Property> {
       Bond bondObj = new Bond();
       bondObj = c.getBond();
       bondObj.setBondRepayment(bondRepaymnet);
-      bondObj.setDepositInRands(deposit);
+      bondObj.setDepositPercentage(deposit);
       bondObj.setInterestRate(interestRate);
       bondObj.setNumberOfYears(numberOfYears);
       bondObj.setPropertyValue(propertyValue);

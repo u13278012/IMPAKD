@@ -100,4 +100,35 @@ $scope.logout = function()
     localStorage.setItem("propertyID", el.id)
     window.location = "../updateProperty/updateProperty.html";
 }
+$scope.init = function()
+{
+     //get sesion
+    var session = localStorage.getItem("session");
+    //check if not empty
+    if(session === null)
+    {
+        alert('You are not logged in.');
+        window.location = "../index.html";
+    }
+     //51029
+    else
+    {
+        $http({
+                method: 'GET',
+                url: 'http://localhost:8080/BackEnd/rs/profile/'+session
+               // data: encodedString,
+                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+                    var x2js = new X2JS();
+                    var x = x2js.xml_str2json(response);
+                    $scope.p = x;
+                    
+                    console.log($scope.p);
+                }).
+                error(function(response)
+                {
+                    $window.alert(response);             
+                });
+    }
+}
 }]);

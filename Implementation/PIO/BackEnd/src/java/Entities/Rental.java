@@ -36,7 +36,7 @@ public class Rental implements Serializable {
     private Double rentalAmount;
     
     @Column
-    private Double onceOffAgentFee = (9.1 + 6.27) / 100.00;
+    private Double onceOffAgentFee;
     
      @Column
     private Double totalRent;
