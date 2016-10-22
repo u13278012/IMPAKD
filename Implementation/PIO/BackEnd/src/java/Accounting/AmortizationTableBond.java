@@ -37,11 +37,11 @@ public class AmortizationTableBond {
     */  
     public void declarationsAM(Property obj){ 
         
-        yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
-        interestRate = obj.getBond().getInterestRate();  
+        yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears(); 
+        interestRate = 9.5;//obj.getBond().getInterestRate();  
         depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
-        paymentPerMonth = obj.getBond().getBondRepayment();
-        propertyValue = obj.getBond().getPropertyValue();
+        paymentPerMonth = 5958.00;//obj.getBond().getBondRepayment();
+        propertyValue = 799000.00;//obj.getBond().getPropertyValue();
 
         arrayPaymentPerMonth = new double[yearsToPayOffBond*12+1];
         arrayInterest = new double[yearsToPayOffBond*12+1];
