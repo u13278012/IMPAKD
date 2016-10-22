@@ -37,8 +37,10 @@
     <a ng-click="back()" id ="deleteProperty" class="btn btn-default" role="button"><span class="glyphicon glyphicon-chevron-left"></span> Back</a>   
 </div>
 </div>
-
-<div class="row" id="maindiv" >
+<div id="loading">
+  <img id="loading-image" src="../images/loading51.gif" alt="Loading..." />
+ </div>
+  <div class="row" id="maindiv" >
  
   <div id ="PDborder" class="col-xs-4 col-sm-4 col-md-4 ">
 
@@ -49,21 +51,14 @@
         <td>{{propertyresults.properties.property.propertyName}}</td>
     </tr>
     <tr>
-        <td>Tax</td>
-        <td>{{propertyresults.properties.property.bond.depositInRands}}</td>
+        <td>Capital Gains</td>
+        <td>{{propertyresults.properties.property.capitalGains}}</td>
     </tr> 
     <tr>
-        <td>Inflation</td>
-        <td>{{propertyresults.properties.property.increases.inflation}}</td>
+        <td width="65%">Market price adjustment</td>
+        <td>{{propertyresults.properties.property.marketPriceAdjustment}}</td>
     </tr>
-    <tr>
-        <td width="10%">Annual maintance cost</td>
-        <td width="10%">{{propertyresults.properties.property.reserves.maintenance}}</td>
-    </tr>
-    <tr>
-        <td>Annual cost increase</td>
-        <td>{{propertyresults.properties.property.bond.depositInRands}}</td>
-    </tr>
+
    </table>
     
   </div>
@@ -79,7 +74,7 @@
     </tr>
     <tr>
         <td>Deposit as percentage</td>
-        <td>{{propertyresults.properties.property.bond.depositInRands}}</td>
+        <td>{{propertyresults.properties.property.bond.depositPercentage}}</td>
     </tr> 
     <tr>
         <td width="10%">Propery value</td>
@@ -120,11 +115,18 @@
    
 </div>
 
-<div id="chartContainer" style="height: 300px; width: 50%;" ng-controller="PropertyDetailsCtrl" data-ng-init="show()">
+<div id="chartContainer" style="height: 300px; width: 50%;">
      
 
 	</div>
 <script src="propertyDetails.js"></script>
- 
+ <script language="javascript" type="text/javascript">
+    setTimeout(function() {
+   
+     $('#loading').hide();
+     $('maindiv').show();
+
+  }, 3000);
+</script>
     </body>
 </html>

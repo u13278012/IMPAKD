@@ -22,7 +22,7 @@ angular.module('myApp', ['ngRoute'])
         alert('You are not logged in.');
         window.location = "../index.html";
     }
-     //51029
+     //20285
     else
     {
         $http({
@@ -63,7 +63,7 @@ $scope.homeTodetails = function(el)
             '&propertyid=' +
             encodeURIComponent(propertyid);
  
-            //51029
+            //20285
            
         
             $http({
@@ -110,7 +110,7 @@ $scope.init = function()
         alert('You are not logged in.');
         window.location = "../index.html";
     }
-     //51029
+     //20285
     else
     {
         $http({
@@ -122,6 +122,7 @@ $scope.init = function()
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.p = x;
+                    $scope.pdf();
                     
                     console.log($scope.p);
                 }).
@@ -131,4 +132,25 @@ $scope.init = function()
                 });
     }
 }
+
+$scope.pdf = function()
+{
+   $http({
+                method: 'GET',
+                url: 'http://localhost:8080/BackEnd/rs/tr/pdf'
+               // data: encodedString,
+                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+//                    var x2js = new X2JS();
+//                    var x = x2js.xml_str2json(response);
+//                    $scope.p = x;
+                        alert("pdf here");
+                    
+
+                }).
+                error(function(response)
+                {
+                    $window.alert(response+ "pdf fails");             
+                });  
+};
 }]);

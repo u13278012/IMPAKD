@@ -13,7 +13,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
             encodeURIComponent(session)+
             '&propertyid=' +
             encodeURIComponent(propertyid);
-            //51029
+            //20285
            
         
             $http({
@@ -25,7 +25,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.propertyresults = x;
-                    console.log(x);
+                   console.log(x);
                    
 
                 }).
@@ -34,11 +34,43 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                      alert(response);
 
                 });
+                //20285
+                $http({
+                method: 'POST',
+                url: 'http://localhost:8080/BackEnd/rs/property/getRIOValues',
+                data: encodedString,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(response) {
+                    var x2js = new X2JS();
+                    var arr = x2js.xml_str2json(response);
+                  //  $scope.Array = arr;
+                    $scope.ROI = [];
+                    var l = arr.roi.array.length;
+                    while (--l >= 0 )
+                    $scope.ROI[l] = parseFloat(arr.roi.array[l]);
+                    console.log($scope.ROI);
+                    $scope.show();
+                }).
+                error(function(response)
+                {
+                 alert(response);
+                     
+
+                });
 
         };
-
+   $scope.getROI = function() 
+   { 
+     var d = new Date();
+     var currentYear = d.getFullYear();
+     $scope.Year = [];
+     for(var x = 0; x < 10 ;x++){
+      $scope.Year[x] = currentYear; 
+      currentYear =currentYear+1;
+     }
+  };
     $scope.show = function () {
-     
+     $scope.getROI();
          var session  = localStorage.getItem("session");
              if (typeof(Storage) === "undefined") {
          alert("You're not logged in");
@@ -84,16 +116,16 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
 				showInLegend: true,
 				name: "ROI%",
 				dataPoints: [
-				{ label: 2016, y: 0 },
-				{ label: 2017, y: 25},
-				{ label: 2018, y: 20 },
-				{ label: 2019, y: 40 },
-				{ label: 2020, y: 50 },
-				{ label: 2021, y: 66 },
-				{ label: 2022, y: 70 },
-				{ label: 2023, y: 64 },
-				{ label: 2024, y: 69},
-				{ label: 2025, y: 72 }
+				{ label: $scope.Year[0], y: $scope.ROI[0] },
+				{ label: $scope.Year[1], y: $scope.ROI[1]},
+				{ label: $scope.Year[2], y: $scope.ROI[2] },
+				{ label: $scope.Year[3], y: $scope.ROI[3] },
+				{ label: $scope.Year[4], y: $scope.ROI[4] },
+				{ label: $scope.Year[5], y: $scope.ROI[5] },
+				{ label: $scope.Year[6], y: $scope.ROI[6] },
+				{ label: $scope.Year[7], y: $scope.ROI[7] },
+				{ label: $scope.Year[8], y: $scope.ROI[8]},
+				{ label: $scope.Year[9], y: $scope.ROI[9] }
 				]
 			} 
 			],
