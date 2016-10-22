@@ -14,7 +14,8 @@ public class ProblemDefinition extends AbstractProblem {
 		 * Constructs a new instance of the DTLZ2 function, defining it
 		 * to include 11 decision variables and 2 objectives.
 		 */
-		public ProblemDefinition() {
+		public ProblemDefinition() 
+                {
 			super(11, 2);
 		}
 
