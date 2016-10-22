@@ -40,10 +40,11 @@ public class CoreSubset {
         System.out.println("PARTICLE SWARM OPTIMISATION");
         //configure and run this experiment
 		NondominatedPopulation result = new Executor()
-				.withProblem("UF1")
-				.withAlgorithm("NSGAII")
-				.withMaxEvaluations(10000)
-				.run();
+                                .withProblemClass(ProblemDefinition.class)
+                                .withAlgorithm("GDE3")
+                                .withMaxEvaluations(10000)
+                                .distributeOnAllCores()
+                                .run();
 		
 		//display the results
 		System.out.format("Objective1  Objective2%n");
