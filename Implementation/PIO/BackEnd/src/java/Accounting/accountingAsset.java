@@ -1,25 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Accounting;
 
 import Entities.Property;
 import java.lang.reflect.Array;
-//import java.text.DecimalFormat;
 
 /**
  *
  * @author Diana
  */
 public class accountingAsset {
-    //DecimalFormat df = new DecimalFormat();
-    accountingIncomeStatement objIS = new accountingIncomeStatement();
-    AmortizationTableBond objAmor = new AmortizationTableBond() ;
-    accountingRental objR = new accountingRental();
-    ReservesCalculations objRe = new ReservesCalculations() ;
-    
+    accountingIncomeStatement objIS = new accountingIncomeStatement(); 
     int yearsToPayOffBond = 0;  
     double propertyValue = 0.00;
     double propertyValueInc = 0.00;
@@ -27,33 +16,27 @@ public class accountingAsset {
     double fixedAsset[];
     double capitalGains[];
     double total[];
-    
-    public static void main(String[] args) {
-        accountingAsset test = new accountingAsset();
-        Property obj = new Property();
-        test.getTotal(obj);
-    }
+
     /**
      *
      * @param obj
      * @param objIS
     */  
-    public void declarationsAss(accountingIncomeStatement objIS){ 
+    public void declarationsAss(Property obj,accountingIncomeStatement objIS){ 
         this.objIS = objIS;
-        yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears();  
-        propertyValue = 799000;//obj.getBond().getPropertyValue();
-        propertyValueInc = 5/100.00;//obj.getInceases().getPropertyValue()/100.0;
+        yearsToPayOffBond = obj.getBond().getNumberOfYears();  
+        propertyValue = obj.getBond().getPropertyValue();
+        propertyValueInc = obj.getInceases().getPropertyValue()/100.0;
 
         fixedAsset = new double[yearsToPayOffBond+1];
         capitalGains = new double[yearsToPayOffBond+1];
         total = new double[yearsToPayOffBond+1];
     }
-     /**
+    /**
      *
      * @param obj
     */
     public void setCapital(Property obj){
-        declarationsAss(objIS);
         for(int i=0; i<yearsToPayOffBond+1; i++){
             fixedAsset[i] = propertyValue;
         }   
@@ -74,8 +57,6 @@ public class accountingAsset {
      * @param obj
     */
     public void setAssset(Property obj){
-        declarationsAss(objIS);
-       // objIS.declarationsInc(obj, objAmor, objR, objRe);
         for(int i=0; i<yearsToPayOffBond+1; i++){
             if(i==0){
                 capitalGains[i] = 0.00;
@@ -104,13 +85,8 @@ public class accountingAsset {
      * @return
      */
     public double[] getTotal(Property obj){
-        setAssset(obj);       
-       //df.setMaximumFractionDigits(9);
-//        for(int i=0; i<yearsToPayOffBond+1;i++){
-//            System.out.println(i + " " + /*df.format(*/total[i]);
-//        }        
+        setAssset(obj);             
         return total;
-    }
-    
+    }   
 }
 

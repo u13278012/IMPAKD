@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Accounting;
 import Entities.Property;
 import java.lang.reflect.Array;
@@ -162,10 +157,6 @@ public class accountingExpenses {
      */
     public double[] getTotalTax_DeductibleExpenses(Property obj){
         setTotalTax_DeductibleExpenses(obj);
-        // display totalExpenses
-//         for(int i=0; i< yearsToPayOffBond+1; i++){
-//             System.out.println(i + " " + arrayTotalExpeneses[i]);
-//         }
         return arrayTotalExpeneses;
     }
     
@@ -206,9 +197,6 @@ public class accountingExpenses {
     */
     public  double[] getTotalExpenses(Property obj){
         setTotalExpenses(obj);
-        for(int i=0; i< yearsToPayOffBond+1; i++){
-            System.out.println(i + " " + expenses[i]);
-        }
         return expenses;
     }
 }
