@@ -6,30 +6,34 @@ package impakd.aioptimiser;
  */
 public class CoreSubsetDataReader 
 {
-    double[][] data; //Stores the rent,  variables to be evaluated
-    String type;  //Specifies the type of data to be evaluated
-    double[][] dataList;
-    int numberOfYears, months;
+    private final double[][] data; //Stores the rent,  variables to be evaluated
+    private final int numberOfYears, months;
     
     public CoreSubsetDataReader(double [][]dataList , int numberOfYears, int months) 
     {
-        this.type = type;
         this.numberOfYears = numberOfYears;
         this.months = months;
-        this.data = dataList;
+        data = new double[this.numberOfYears][this.months];
+        for(int i = 0; i < this.numberOfYears; i++)
+        {
+            for(int j = 0; j < this.months; j++)
+            {
+                data[i][j] = dataList[i][j];
+            }
+        }
 
     }
     
     public CoreSubsetData processDataToBeEvaluated()
     {
-         String[] names = new String[numberOfYears];
+         String[] names = new String[numberOfYears * months];
          
-         for(int i = 0; i < numberOfYears; i++)
+         for(int i = 0; i < numberOfYears * months; i++)
          {
              names[i] = "rent" + String.valueOf(i);
          }
         
-        // create and return data object
-        return new CoreSubsetData(names, data);
+        //Create and return data object
+        return new CoreSubsetData(names, data, numberOfYears, months);
     }
 }

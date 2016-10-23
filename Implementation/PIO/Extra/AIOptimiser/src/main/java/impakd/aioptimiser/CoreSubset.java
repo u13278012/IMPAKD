@@ -4,8 +4,8 @@ package impakd.aioptimiser;
  *
  * @author Priscilla
  */
+import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 import org.jamesframework.core.subset.SubsetProblem;
 import org.jamesframework.core.subset.SubsetSolution;
 import org.jamesframework.core.search.algo.RandomDescent;
@@ -31,91 +31,94 @@ public class CoreSubset
         System.out.println("PARTICLE SWARM OPTIMISATION");
         
         //Define a new Property object... Pass in the property object in correct constructor
-        ProblemDefinition problem = new ProblemDefinition(240, 12, 2); 
-        Solution newSolution = problem.newSolution();
+        ProblemDefinition problem = new ProblemDefinition(20, 12, 2);         
         
         //Run the PSO Algorithm
-		NondominatedPopulation result = new Executor()
-                                .withProblemClass(ProblemDefinition.class)
-                                .withAlgorithm("SMPSO")
-                                .withMaxEvaluations(200)
+	NondominatedPopulation result = new Executor()
+                                .withProblemClass(ProblemDefinition.class, 20, 12, 2)
+                                .withAlgorithm("SMPSO") //Particle Swarm Optimiser
+                                .withMaxEvaluations(1000)
                                 .distributeOnAllCores()
                                 .run();
 		
-		//display the results
-		System.out.format("Objective1  Objective2%n");
-		
-		for (Solution solution : result) {
-			System.out.format("%.4f      %.4f%n",
-					solution.getObjective(0),
-					solution.getObjective(1));
+                double[] solutions = new double[problem.getNumberOfMonths() * problem.getNumberOfYears()];
+		for (Solution solution : result) 
+                {
+                        for(int i = 0; i < solution.getNumberOfVariables(); i++)
+                        {
+                            solutions[i] = Double.parseDouble(solution.getVariable(i).toString());
+                        }
+                
 		}
-        
-        System.out.println("#########################");
-        System.out.println("# CORE SUBSET SELECTION #");
-        System.out.println("#########################");
        
         int subsetSize = problem.getNumberOfYears();
         int timeLimit = 1;  //Has to calculate the results quickly
-        run(subsetSize, timeLimit, problem);
+        
+        //Define dataSet
+        double[][] dataSet = new double[problem.getNumberOfYears()][problem.getNumberOfMonths()];
+        int count = 0;
+        
+        for(int i = 0; i < problem.getNumberOfYears(); i++)
+        {
+            for(int j = 0; j < problem.getNumberOfMonths(); j++)
+            {
+                dataSet[i][j] = solutions[count];
+                count++;
+            }
+        }
+        
+        run(subsetSize, timeLimit, problem, dataSet, solutions);
     }
     
-    private static void run(int subsetSize, int timeLimit, ProblemDefinition problem)
+    private static void run(int subsetSize, int timeLimit, ProblemDefinition problem,double[][] dataSet, double[] solution)
     {
         
-        /***************/
-        /* PARSE INPUT */
-        /***************/
-        
-//        System.out.println("# PARSING INPUT");
-//        System.out.println("Reading file: " + filePath);
-        
             //Call CoreSubsetData Methods
-            CoreSubsetData data = new CoreSubsetDataReader(problem.getDataArray(),problem.getNumberOfYears(), problem.getNumberOfMonths()).processDataToBeEvaluated();
-            
-            /**********************/
-            /* SAMPLE CORE SUBSET */
-            /**********************/
+            CoreSubsetData data = new CoreSubsetDataReader(dataSet,problem.getNumberOfYears(), problem.getNumberOfMonths()).processDataToBeEvaluated();
 
-            System.out.println("# SAMPLING CORE SUBSET");
-
-            System.out.println("Dataset size: " + data.getIDs().size());
-            System.out.println("Subset size: " + subsetSize);
-            System.out.println("Time limit: " + timeLimit + " seconds");
-
-            // create objective
+            //Create objective
             CoreSubsetObjective objective = new CoreSubsetObjective();
    
-            // create subset problem
+            //Create subset problem
             SubsetProblem<CoreSubsetData> problemSet = new SubsetProblem(data, objective, subsetSize);
 
-            // create random descent search with single swap neighbourhood - Hill Climbing
+            //Create Random Descent Search with Single Swap Neighbourhood - Hill Climbing
             RandomDescent<SubsetSolution> search = new RandomDescent<>(problemSet, new SingleSwapNeighbourhood());
-            // set maximum runtime
+            
+            //Set maximum runtime
             search.addStopCriterion(new MaxRuntime(timeLimit, TimeUnit.SECONDS));
-            // attach listener
-//            search.addSearchListener(new ProgressSearchListener());
-
+            
             //Start search
             search.start();
-
+            
+            HashSet<Integer> ids = new HashSet<Integer>();
+            
             //Print best solution and evaluation
-            if(search.getBestSolution() != null){
-                System.out.println("Best solution (IDs): "
-                                        + search.getBestSolution().getSelectedIDs());
-                System.out.println("Best solution (names): "
-                                        + search.getBestSolution().getSelectedIDs()
-                                                                  .stream()
-                                                                  .map(data::getName)
-                                                                  .collect(Collectors.toSet()));
-                System.out.println("Best solution evaluation: "
-                                        + search.getBestSolutionEvaluation());
-            } else {
-                System.out.println("No valid solution found...");
+            if(search.getBestSolution() != null)
+            {
+                ids.addAll(search.getBestSolution().getSelectedIDs());
             }
 
             //Dispose Search
             search.dispose();
+            
+            //Get optimised rent values
+            double[] rent = new double[problem.getNumberOfYears()];
+            
+            for(int i = 0; i < 20; i++)
+            {
+                //Add optimised rent values from the subset and return it
+                if(ids.contains(i))
+                    rent[i] = solution[i];
+            }
+            
+            //Print Optimised Rent
+            for(int i = 0; i < rent.length; i++)
+            {
+                System.out.print(rent[i] + " ");
+            }
+                    
+                    
             
         
     }
