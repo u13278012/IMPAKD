@@ -11,7 +11,7 @@ public class CoreSubsetDataReader
     double[] dataList;
     int numberOfYears;
     
-    public CoreSubsetDataReader(double []dataList , String type, int numberOfYears) 
+    public CoreSubsetDataReader(double []dataList , int numberOfYears) 
     {
         this.type = type;
         this.numberOfYears = numberOfYears;
@@ -46,6 +46,4 @@ public class CoreSubsetDataReader
         // create and return data object
         return new CoreSubsetData(names, data);
     }
-    
-    
 }
