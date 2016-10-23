@@ -18,7 +18,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
         
             $http({
                 method: 'POST',
-                url: 'http://localhost:20285/BackEnd/rs/property/getPropertyDetails',
+                url: 'http://localhost:8080/BackEnd/rs/property/getPropertyDetails',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -37,7 +37,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                 //20285
                 $http({
                 method: 'POST',
-                url: 'http://localhost:20285/BackEnd/rs/property/getRIOValues',
+                url: 'http://localhost:8080/BackEnd/rs/property/getRIOValues',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
