@@ -94,10 +94,12 @@ public class trFacadeREST extends AbstractFacade<ROI> {
     	@GET
 	@Path("/pdf")
 	@Produces("application/pdf")
+        @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+
 	public Response getFile() {
 
-		File file = new File("C://Users//Kudzai//Downloads//Compressed//Absa-Core-Income-Fund.pdf");
-
+		//File file = new File("C://Users//Kudzai//Downloads//Compressed//Absa-Core-Income-Fund.pdf");
+                File file = new File("C://Users//Khumalo//Downloads//sheet.pdf");
 		ResponseBuilder response = Response.ok((Object) file);
 		response.header("Content-Disposition",
 				"attachment; filename=Report.pdf");
