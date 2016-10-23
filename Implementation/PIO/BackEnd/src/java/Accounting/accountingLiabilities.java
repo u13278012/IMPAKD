@@ -19,13 +19,6 @@ public class accountingLiabilities {
     double bondPrincipleDebt[];
     double arrayEquity[];
     
-    public  static void main(String[] args) {
-        //Property obj = new Property();
-        //accountingLiabilities test = new accountingLiabilities();
-        //accountingLiabilities objAmor = new accountingLiabilities();
-        //getEndingBalancePerYear(obj);
-       // test.getEquity(obj);
-    }
     /**
      *
      * @param obj

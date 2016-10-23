@@ -6,6 +6,7 @@
 package Accounting;
 
 import Entities.Property;
+import java.lang.reflect.Array;
 //import java.text.DecimalFormat;
 
 /**
@@ -13,7 +14,12 @@ import Entities.Property;
  * @author Diana
  */
 public class accountingAsset {
-    //DecimalFormat df = new DecimalFormat(); 
+    //DecimalFormat df = new DecimalFormat();
+    accountingIncomeStatement objIS = new accountingIncomeStatement();
+    AmortizationTableBond objAmor = new AmortizationTableBond() ;
+    accountingRental objR = new accountingRental();
+    ReservesCalculations objRe = new ReservesCalculations() ;
+    
     int yearsToPayOffBond = 0;  
     double propertyValue = 0.00;
     double propertyValueInc = 0.00;
@@ -21,32 +27,35 @@ public class accountingAsset {
     double fixedAsset[];
     double capitalGains[];
     double total[];
+    double Cash[];
     
     public static void main(String[] args) {
-        
-        //accountingAsset test = new accountingAsset();
-        //getCapital(obj);
-       // test.getCapitalGains(obj);
-        //getTotal(obj);
+        accountingAsset test = new accountingAsset();
+        Property obj = new Property();
+        test.getTotal(obj);
     }
     /**
      *
      * @param obj
+     * @param objIS
     */  
-    public void declarationsAss(Property obj){ 
-        yearsToPayOffBond = obj.getBond().getNumberOfYears();  
-        propertyValue = obj.getBond().getPropertyValue();
-        propertyValueInc = obj.getInceases().getPropertyValue()/100.0;
+    public void declarationsAss(Property obj, accountingIncomeStatement objIS){ 
+        this.objIS = objIS;
+        yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears();  
+        propertyValue = 799000;//obj.getBond().getPropertyValue();
+        propertyValueInc = 5/100.00;//obj.getInceases().getPropertyValue()/100.0;
 
         fixedAsset = new double[yearsToPayOffBond+1];
         capitalGains = new double[yearsToPayOffBond+1];
         total = new double[yearsToPayOffBond+1];
+        Cash = new double[yearsToPayOffBond+1];
     }
      /**
      *
      * @param obj
     */
     public void setCapital(Property obj){
+        declarationsAss(obj,objIS);
         for(int i=0; i<yearsToPayOffBond+1; i++){
             fixedAsset[i] = propertyValue;
         }   
@@ -58,10 +67,7 @@ public class accountingAsset {
      * @return
      */
     public double[] getCapital(Property obj){
-        setCapital(obj);
-//        for(int i=0; i<yearsToPayOffBond+1;i++){
-//            System.out.println(i + " " + fixedAsset[i]);
-//        }        
+        setCapital(obj);       
         return fixedAsset;
     }
     
@@ -70,6 +76,8 @@ public class accountingAsset {
      * @param obj
     */
     public void setAssset(Property obj){
+        declarationsAss(obj,objIS);
+       // objIS.declarationsInc(obj, objAmor, objR, objRe);
         for(int i=0; i<yearsToPayOffBond+1; i++){
             if(i==0){
                 capitalGains[i] = 0.00;
@@ -77,7 +85,7 @@ public class accountingAsset {
             }
             else{
                 capitalGains[i] = Math.round(capitalGains[i-1] + (total[i-1]*propertyValueInc));
-                total[i] = Math.round(total[i-1] + capitalGains[i]);
+                total[i] = Math.round(total[i-1] + capitalGains[i] + Array.getDouble(objIS.getCashPerYear(obj),i));
             }
         }   
     }
@@ -88,10 +96,7 @@ public class accountingAsset {
      * @return
      */
     public double[] getCapitalGains(Property obj){
-        setAssset(obj);
-//        for(int i=0; i<yearsToPayOffBond+1;i++){
-//            System.out.println(i + " " + capitalGains[i]);
-//        }        
+        setAssset(obj);       
         return capitalGains;
     }
     
@@ -103,9 +108,9 @@ public class accountingAsset {
     public double[] getTotal(Property obj){
         setAssset(obj);       
        //df.setMaximumFractionDigits(9);
-//        for(int i=0; i<yearsToPayOffBond+1;i++){
-//            System.out.println(i + " " + /*df.format(*/total[i]);
-//        }        
+        for(int i=0; i<yearsToPayOffBond+1;i++){
+            System.out.println(i + " " + /*df.format(*/total[i]);
+        }        
         return total;
     }
     
