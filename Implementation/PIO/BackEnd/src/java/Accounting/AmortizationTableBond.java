@@ -18,13 +18,13 @@ public class AmortizationTableBond {
     double paymentPerMonth =  0.00;
     double propertyValue =  0.00;
 
-    double[] arrayPaymentPerMonth;
-    double[] arrayInterest;
-    double[] arrayPrinciple;
-    double[] arrayBalance;
+    double arrayPaymentPerMonth[];
+    double arrayInterest[];
+    double arrayPrinciple[];
+    double arrayBalance[];
 
-    double[] arrayInterestPerYear;
-    double[] arrayPrinciplePerYear;
+    double arrayInterestPerYear[];
+    double arrayPrinciplePerYear[];
     double interestPerYear = 0.00;
     double principlePerYear = 0.00;
     double depositInRands = 0.00;
@@ -35,7 +35,7 @@ public class AmortizationTableBond {
      *
      * @param obj
     */  
-    public void declarationsAM(Property obj){ 
+    public void declarationsAM(){ 
         
         yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears(); 
         interestRate = 9.5;//obj.getBond().getInterestRate();  
