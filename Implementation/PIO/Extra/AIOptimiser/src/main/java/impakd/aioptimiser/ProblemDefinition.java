@@ -22,7 +22,7 @@ public class ProblemDefinition extends AbstractProblem
                 
 		public ProblemDefinition() 
                 {
-			super(12, 1);
+			super(12, 2);
 		}
 
 		/**
@@ -66,15 +66,15 @@ public class ProblemDefinition extends AbstractProblem
                                         
                                         while(monthlyRent  < (expenses))
                                         {
-                                            monthlyRent += difference;
+                                            monthlyRent += ((profit/total));
                                         }
                                     }
                                     
-                                   solution.setVariable(i, new RealVariable(monthlyRent, monthlyRent + difference ));
+                                   solution.setVariable(i, new RealVariable(monthlyRent, monthlyRent + ((profit/total)) ));
                                 }
                                 else
                                 {
-                                    solution.setVariable(i, new RealVariable(rent, rent *  rentIncrease));
+                                    solution.setVariable(i, new RealVariable(rent, rent +  (rentIncrease * rent)));
                                 }  
                                 rent *= rentIncrease;
                                 k++;
@@ -90,7 +90,7 @@ public class ProblemDefinition extends AbstractProblem
 		 * the solution. 
      * @param solution
 		 */
-		@Override
+		/*@Override
 		public void evaluate(Solution solution) {
 			double[] x = EncodingUtils.getReal(solution);
 			double[] f = new double[numberOfObjectives];
@@ -113,9 +113,14 @@ public class ProblemDefinition extends AbstractProblem
 					f[i] *= Math.sin(0.5 * Math.PI * x[numberOfObjectives - i - 1]);
 				}
 			}
-
+                        
+                        for(int n = 0; n < f.length; n++)
+                        {
+                            System.out.println("Objective: " + f[n]);
+                        }
+                        
 			solution.setObjectives(f);
-		}
+		}*/
                 
                 /*public void setHigherBound(double bound)
                 {

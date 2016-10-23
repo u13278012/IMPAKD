@@ -41,8 +41,8 @@ public class CoreSubset {
         //configure and run this experiment
 		NondominatedPopulation result = new Executor()
                                 .withProblemClass(ProblemDefinition.class)
-                                .withAlgorithm("GDE3")
-                                .withMaxEvaluations(10000)
+                                .withAlgorithm("SMPSO")
+                                .withMaxEvaluations(100)
                                 .distributeOnAllCores()
                                 .run();
 		
