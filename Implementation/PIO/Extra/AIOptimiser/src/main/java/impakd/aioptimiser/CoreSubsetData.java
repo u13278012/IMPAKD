@@ -17,19 +17,38 @@ public class CoreSubsetData implements IntegerIdentifiedData
     private double[][] data;
     // IDs
     private Set<Integer> ids;
+    
+    int years, months;
 
-    public CoreSubsetData(String[] names, double[][] data){
+    public CoreSubsetData(String[] names, double[][] data, int years, int months){
         // store data
+        names = new String[names.length];
+        this.data = new double[years][months];
         this.names = names;
-        this.data = data;
+        this.years = years;
+        this.months = months;
+        for(int i = 0; i < years; i++)
+        {
+            for(int j = 0; j < months; j++)
+            {
+                this.data[i][j] = data[i][j];
+            }
+        }
         // infer IDs: 0..N-1 in case of N items
         // (indices in distance matrix and name array)
         ids = new HashSet<>();
-        for(int id=0; id<names.length; id++){
-            ids.add(id);
+        int count = 0;
+        
+        for(int id = 0; id< this.years * this.months; id++)
+        {
+            if(count > 20)
+                count = 0;
+            ids.add(count);
+            count++;
         }
     }
 
+    @Override
     public Set<Integer> getIDs() {
         return ids;
     }
@@ -38,7 +57,8 @@ public class CoreSubsetData implements IntegerIdentifiedData
     return names[id];
 }
 
-    public double getDistance(int id1, int id2){
-    return data[id1][id2];
+    public double getRent(int id1, int id2)
+    {
+        return data[id1][id2];
     }
 }

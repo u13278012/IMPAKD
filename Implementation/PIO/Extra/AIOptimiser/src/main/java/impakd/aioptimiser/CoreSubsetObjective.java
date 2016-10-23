@@ -31,23 +31,30 @@ public class CoreSubsetObjective implements Objective<SubsetSolution, CoreSubset
      * @return evaluation with a value set to the average distance between all pairs of selected items;
      *         the value is defined to be 0.0 if less than 2 items are selected
      */
+    
     @Override
     public Evaluation evaluate(SubsetSolution solution, CoreSubsetData data) {
         double value = 0.0;
-        if(solution.getNumSelectedIDs() >= 2){
-            // at least two items selected: compute average distance
+        if(solution.getNumSelectedIDs() >= 2)
+        {
+            //At least two items selected: Compute Average Rent
             int numDist = 0;
             double sumDist = 0.0;
             Integer[] selected = new Integer[solution.getNumSelectedIDs()];
             solution.getSelectedIDs().toArray(selected);
-            for(int i=0; i<selected.length; i++){
-                for(int j=i+1; j<selected.length; j++){
-                    sumDist += data.getDistance(selected[i], selected[j]);
-                    System.out.println("Distance: " + sumDist);
-                    numDist++;
+            for(int i = 0; i < 20; i++)
+            {
+                for(int j = 0; j < 12; j++)
+                {
+                    if(selected[i] < 20 && selected[j] < 12)
+                    {
+                        sumDist += data.getRent(selected[i], selected[j]);
+                        numDist++;
+                    }
                 }
             }
-            value = sumDist;
+            
+            value = sumDist/numDist;
         }
         return SimpleEvaluation.WITH_VALUE(value);
     }
@@ -58,7 +65,8 @@ public class CoreSubsetObjective implements Objective<SubsetSolution, CoreSubset
      * @return <code>false</code>
      */
     @Override
-    public boolean isMinimizing() {
+    public boolean isMinimizing() 
+    {
         return true;
     }
 

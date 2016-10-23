@@ -1,0 +1,331 @@
+
+Version 3.0
+
+1. New Objective class
+
+    Currently the MOEA Framework can only minimize objectives.  This adds
+    additional work for the user to manage the objectives.  Here we propose
+    adding an Objective class that will allow specifying the optimization
+    direction, name, and other optional attributes.
+    
+        public Solution newSolution() {
+            Solution solution = new Solution(2, 1, 1);
+            solution.setObjective(0, new MinimizedObjective());
+        }
+    
+        public void evaluate(Solution solution) {
+        	double x = ...
+            solution.setObjectiveValue(0, x);
+        }
+    
+2. New Constraint class
+
+    Similar to the new objective class, a constraint class will provide
+    custom constraint definitions.  In particular, this will remove the
+    restriction that feasible solutions must have constraint values of 0.0.
+    Equality and inequality constraints can be defined expressively.  To define
+    the constraint "x <= 5", previously we had:
+    
+        solution.setConstraint(0, x <= 5 ? 0.0 : x - 5.0);
+        
+    Now, you could do:
+    
+        solution.setConstraint(0, Constraint.lessThanOrEqual(x, 5.0));
+        
+    Alternatively, to avoid creating many constraint objects, one would first
+    define the constrain in the newSolution method:
+    
+        public Solution newSolution() {
+            Solution solution = new Solution(2, 1, 1);
+            solution.setConstraint(0, new LessThanOrEqual(5.0));
+        }
+        
+    Then, in the evaluate() method, the user sets the constraint value:
+    
+        public void evaluate(Solution solution) {
+        	double x = ...
+            solution.setConstraintValue(0, x);
+        }
+    
+3. New Context-Aware File Format
+
+    To support (1) and (2) and also provide better context for how outputs were
+    generated, we propose developing a new file format.  The new format will be
+    styled after ARFF.  The basic format of ARFF files is a header section
+    followed by a data section.  Similarly, the new MOEA result file will
+    contain a header section detailing the problem:
+    
+        % This is a comment
+        @PROBLEM DTLZ2_2
+        @CREATED 05/26/2016 9:01 AM
+        @NVARS 11
+        @NOBJS 2
+        @NCONSTRS 0
+        @VARIABLE x1 REAL 0.0 1.0
+        @VARIABLE x2 REAL 0.0 1.0
+        ...
+        @VARIABLE x11 REAL 0.0 1.0
+        @OBJECTIVE y1 MINIMIZE
+        @OBJECTIVE y2 MINIMIZE
+        
+    The data section begins with a tag indicating the file type, which can be:
+    
+        @REFSET - A single reference set for the problem
+        @RUNTIME - Stores runtime dynamics from a single run
+        @EXPERIMENT - Stores end-of-run results from multiple runs
+        
+    Each set begins with the @SET tag and ends with @ENDSET.  The set can
+    contain @ATTRIBUTE tags to store metadata followed by the raw data.
+    
+        @SET
+        @ATTR NFE 1000
+        @ATTR ElapsedTime 0.15
+        0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.0 0.0
+        0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.0 1.0
+        @ENDSET
+        
+    The file is terminated by the @END tag.  With this representation, we can
+    recreate many of the current functionality such as detecting incomplete
+    files, resuming incomplete experiments, etc.
+    
+4. New Command Line Interface
+
+    The old command line interface was often cumbersome to use, requiring the
+    user to type out long commands:
+    
+        java -cp "lib/*" org.moeaframework.analysis.sensitivity.Evaluate
+            -a NSGAII -b DTLZ2_2 -e 0.01,0.01 -n 10000 -o output.txt
+           
+    The new command line interface follows the style of Git and SVN, such as:
+    
+        moea list
+        moea help evaluate 
+        moea evaluate -a NSGAII -b DTLZ2_2 -e 0.01,0.01 -n 10000 -o output.txt
+        
+5. Descriptors for SPI Components
+
+    Here we propose improvements to the SPI to allow querying the supported
+    features of algorithms, problems, and operators.
+    
+        AlgorithmDescriptor adesc = AlgorithmFactory.getAlgorithmDescriptor("NSGAII");
+        List<Class<? extends Variable>> types = adesc.getSupportedTypes();
+        
+        Problem problem = new DTLZ2(2);
+        boolean supported = adesc.supports(problem);
+        
+        List<ParameterDescriptor<?>> parameters = adesc.getAlgorithmParameters();
+        
+        for (ParameterDescriptor<?> parameter : parameters) {
+            System.out.println(parameter.getName() + " " + parameter.isOptional() + " " +
+                parameter.getMinimumValue() + " " + parameter.getMaximumValue() + " " +
+                parameter.getDefaultValue());
+        }
+        
+    This will allow building better tools, possibly supported by JavaBeans or
+    other technologies.
+    
+6. Annotation-based Problem Definition
+
+    Currently one must implement the Problem interface when defining a new
+    problem.  If the problem is already implemented in Java, this adds
+    additional work.  Here we propose introducing annotations so a problem can
+    be defined using any existing Java class.  For example, here we use setters,
+    getters, and an explicit evaluation method.
+    
+        @Problem
+        public class MyProblem {
+    
+            @RealVariable(0.0, 1.0)
+            public void setX(double x) { ... }
+        
+            @RealVariable(0.0, 1.0)
+            public void setY(double y) { ... }
+    
+    	    @Evaluate
+    	    public void calculate() { ... }
+    	
+    	    @Objective(MINIMIZE)
+    	    public double getResult() { ... }
+    
+        }
+        
+    Here is a more compact example where everything is enclosed within a single
+    method.
+    
+        @Problem
+        public class MyProblem2 {
+    
+    	    @Objectives(direction={MINIMIZE, MINIMIZE})
+            public double[] calculate(
+                    @RealVariable(-10.0, 10.0) double x1,
+                    @RealVariable(-10.0, 10.0) double x2) {
+                return new double[] { x1*x2, x2-x1*x1 };
+            }
+    
+        }
+        
+    The annotation processor will scan the problem definition looking for the
+    annotations.  For example, in the above examples it detects the
+    @RealVariable annotation and creates a solution with 2 real variables with
+    the given bounds.
+    
+7. More permissive license
+
+    The current GNU LGPL license is very flexible in what it allows, but there
+    are still restrictions on requiring the users to release any modifications
+    to the MOEA Framework code when distributing the bundle.  We would like to
+    switch to a more permissive license, such as MIT or Apache, that will
+    eliminate these requirements and allow more permissive use of this software.
+    
+8. Remove required JMetal dependency
+
+    The MOEA Framework ties into JMetal to provide access to several algorithms
+    implemented in JMetal.  While JMetal has been extremely useful in this
+    regard, there are several limitations of having JMetal as a required
+    dependency.
+    
+      a) Class naming conflicts cause issues in IDEs.  For example, when a user
+         is creating a new Problem definition, they will have to choose to
+         between importing the MOEA Framework's Problem class versus the JMetal
+         Problem class.
+         
+      b) JMetal algorithms are designed within a single execute() method whereas
+         the MOEA Framework uses an iterative approach.  We prefer the
+         iterative approach since it allows collecting runtime dynamics, enables
+         composition of algorithm behavior (i.e., performing additional work
+         between each iteration, such as adaptive restarts), etc.
+         
+      c) Because of (b), it's not possible to collect runtime dynamics from
+         JMetal algorithms.  This causes a discrepancy in the outputs as an
+         algorithm from the MOEA Framework will show runtime dynamics while the
+         JMetal algorithm will not.
+         
+      d) JMetal 5.0 is undergoing major changes that will likely require
+         significant changes to continue support.
+         
+      e) JMetal is currently not released on Maven (although version 5.0 is).
+         As a result, we have to bundle the JMetal code with the MOEA Framework
+         JAR in the Maven release.
+         
+    Thus, we plan to remove the dependency as a required library.  Instead,
+    we propose creating an optional MOEAFramework-JMetal bridge library that
+    will enable cross-compatibility between the two libraries.  Similarly, we
+    can create a MOEAFramework-PISA bridge.
+    
+9. Commercialization
+
+    Building and maintaining open source software can be expensive (at least in
+    the amount of time developers must devote to the project).  Many successful
+    open source projects have commercialized some aspect of the business.  Such
+    efforts help raise funds to pay for developers time, fund bug bounties, and
+    pay for competitions or training material.  We plan to do the same by
+    adopting a two-tier approach.
+    
+        a) Community Edition - All core libraries will continue to be free and
+           open source.
+           
+        b) Professional Edition - Includes professional training and support,
+           custom software development, etc.
+           
+10. Ties to other languages
+
+    While Java is one of the most popular languages and supports many enterprise
+    operations, other programming languages have become popular in various
+    disciplines.  For example, Python has a growing scientific user base.  We
+    plan to branch out to other programming languages, either by providing
+    MOEA Framework-like libraries or by enabling cross-language support.
+    
+11. Better support for visualization
+
+    One of the features currently lacking in the MOEA Framework is visualization
+    and other data analysis.
+    
+12. Logging
+
+    Add SLF4J bindings for logging.
+    
+13. Better Exception handling
+
+    Currently, many exceptions are encompassed by the generic
+    FrameworkException.  These should be split into specific exception classes
+    (that subclass the FrameworkException), which would allow a user to catch
+    and handle specific errors.
+        
+Here are some ways to contribute to the MOEA Framework.  We ask that all
+contributions are licensed under the GNU Lesser General Public License and
+are complete with any necessary documentation, tests and data files.
+
+These tasks are organized by their level of difficulty.  Easy tasks provide an
+excellent starting point for beginners and should require only a few hours of 
+development effort.  More difficult tasks may take days or weeks of development
+effort, and may require interaction with other contributors to plan and discuss
+any changes.
+
+------
+ Easy
+------
+
+  - Need to make PSO algorithms resumable.
+
+  - Look into the JMetal algorithms dMPOSO, ssNSGAII, SMPSOhv.
+
+  - EncodingUtils should support extracting the codon array from Grammars
+
+  - Upgrade to JMetal 4.4.  The latest JMetal source is currently missing the
+    IConstraintViolationComparator interface and can not be compiled.
+
+  - Need to determine for which classes does value-based equals methods make
+    sense, and provide equals and hashCode implementations for these classes.
+    As an example, it doesn't make sense for Solution to provide an equals
+    method since there are many possible interpretations of equality.  Are two
+    solutions equal if they share the same objective values regardless of their
+    decision variables?  Consequently, equals methods don't make sense for
+    Populations.  However, a helper class that provides various methods of
+    comparison between solutions and populations would be useful.  For
+    consistency, use the Apache Commons Lang builder classes to implement
+    equals and hashCode.
+
+  - Scan the source code for errors, exceptions and warnings which are not
+    documented in the HELP file.
+    
+  - Identify public facing API methods and functions which are not protected
+    against invalid inputs, such as null or out-of-bounds values.  Ideally,
+    an invalid input which would cause an error should be detected as soon as
+    possible in order to provide meaningful feedback to developers (i.e.,
+    identify and report a null pointer ASAP rather than wait until dereferenced
+    by internal code.
+    
+    
+--------
+ Medium
+--------
+
+  - The MOEA Framework is primarily a single-threaded library, and currently
+    only supports multithreaded evaluation of problems.  This limitation is
+    caused by: 1) shared instances which are not thread safe, such as PRNG;
+    and 2) the current requirement for reproducibility, which is affected if 
+    PRNG is accessed by multiple concurrent threads.  Identify any other 
+    limiting factors that would hinder modifying the code to support 
+    multi-threaded execution.  Write a report detailing the necessary changes,
+    but do NOT implement any changes.
+    
+  - The MOEA Framework is currently standardized for minimization problems,
+    requiring any maximized objectives to be converted to minimization
+    objectives (i.e., through negation).  This has several advantages, such as
+    standardizing the file representation.  While a more flexible approach
+    would allow the problem to define both minimization and maximization
+    objectives, this may impact codes which only work on minimized objectives.
+    Write a report detailing the necessary changes, but do NOT implement any
+    changes.
+    
+
+------
+ Hard
+------
+
+  - Develop a GUI that simplifies the use of the framework, allowing users to
+    quickly design, run and view the results of experiments.  This should
+    support high-dimensional (3D) visualization of Pareto sets, detailed
+    runtime and end-of-run performance analysis, a code editor for defining new
+    problems in one of the supported scripting languages, etc.
+
