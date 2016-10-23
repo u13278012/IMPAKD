@@ -27,7 +27,7 @@ angular.module('myApp', ['ngRoute'])
     {
         $http({
                 method: 'GET',
-                url: 'http://localhost:8080/BackEnd/rs/property/retrieveProperties/'+session
+                url: 'http://localhost:20285/BackEnd/rs/property/retrieveProperties/'+session
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -68,7 +68,7 @@ $scope.homeTodetails = function(el)
         
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/property/deleteProperty',
+                url: 'http://localhost:20285/BackEnd/rs/property/deleteProperty',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -115,7 +115,7 @@ $scope.init = function()
     {
         $http({
                 method: 'GET',
-                url: 'http://localhost:8080/BackEnd/rs/profile/'+session
+                url: 'http://localhost:20285/BackEnd/rs/profile/'+session
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -137,7 +137,7 @@ $scope.pdf = function()
 {
    $http({
                 method: 'GET',
-                url: 'http://localhost:8080/BackEnd/rs/tr/pdf'
+                url: 'http://localhost:20285/BackEnd/rs/tr/pdf'
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
