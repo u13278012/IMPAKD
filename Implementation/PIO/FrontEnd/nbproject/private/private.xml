@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+<<<<<<< HEAD
+=======
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/addProperty/addProperty.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/report/report.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/register/register.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/propertyDetails/propertyDetails.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/profile/profile.js</file>
+            <file>file:/C:/Users/Khumalo/Desktop/IMPAKD/Implementation/PIO/FrontEnd/app/login/login.js</file>
+=======
+            <file>file:/C:/Users/Kudzai/OneDrive/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.js</file>
+            <file>file:/C:/Users/Kudzai/OneDrive/IMPAKD/Implementation/PIO/FrontEnd/app/updateProperty/updateProperty.js</file>
+            <file>file:/C:/Users/Kudzai/OneDrive/IMPAKD/Implementation/PIO/FrontEnd/app/home/home.html</file>
+>>>>>>> master
+        </group>
+    </open-files>
+>>>>>>> master
 </project-private>
