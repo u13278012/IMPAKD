@@ -31,14 +31,14 @@ public class CoreSubset
         System.out.println("PARTICLE SWARM OPTIMISATION");
         
         //Define a new Property object... Pass in the property object in correct constructor
-        ProblemDefinition problem = new ProblemDefinition(20, 12); 
+        ProblemDefinition problem = new ProblemDefinition(240, 12, 2); 
         Solution newSolution = problem.newSolution();
         
         //Run the PSO Algorithm
 		NondominatedPopulation result = new Executor()
                                 .withProblemClass(ProblemDefinition.class)
                                 .withAlgorithm("SMPSO")
-                                .withMaxEvaluations(50)
+                                .withMaxEvaluations(200)
                                 .distributeOnAllCores()
                                 .run();
 		
@@ -72,7 +72,7 @@ public class CoreSubset
         
             //Call CoreSubsetData Methods
             CoreSubsetData data = new CoreSubsetDataReader(problem.getDataArray(),problem.getNumberOfYears(), problem.getNumberOfMonths()).processDataToBeEvaluated();
-        
+            
             /**********************/
             /* SAMPLE CORE SUBSET */
             /**********************/
@@ -85,12 +85,11 @@ public class CoreSubset
 
             // create objective
             CoreSubsetObjective objective = new CoreSubsetObjective();
- 
-            
+   
             // create subset problem
             SubsetProblem<CoreSubsetData> problemSet = new SubsetProblem(data, objective, subsetSize);
 
-            // create random descent search with single swap neighbourhood
+            // create random descent search with single swap neighbourhood - Hill Climbing
             RandomDescent<SubsetSolution> search = new RandomDescent<>(problemSet, new SingleSwapNeighbourhood());
             // set maximum runtime
             search.addStopCriterion(new MaxRuntime(timeLimit, TimeUnit.SECONDS));
