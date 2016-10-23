@@ -30,9 +30,7 @@
 
 \begin{center}
 % Upper part of the page       
-\includegraphics[width=1\textwidth]{./University_of_Pretoria_Logo.PNG}\\[0.4cm]  
-\textsc{\LARGE COS 301}\\[0.9cm]
-\textsc{\LARGE Department Of Computer Science}\\[0.3cm]
+\includegraphics[width=1\textwidth]{./Logo.png}\\[0.4cm]
 
 %Title
 
@@ -92,6 +90,8 @@
 
 \newpage
 \begin{center}
+\textsc{\Large Client}\\[0.5cm]
+CSIR - Council for Scientific and Industrial Research\\[0.5cm]
 \textsc{\Large IMPAKD link}\\[0.5cm]
 For further references see \href{https://github.com/u13278012/IMPAKD/}{gitHub}.
 \today
@@ -122,7 +122,21 @@ The project was given to us by our client, CSIR, so that we can research how the
 
 \section{System Overview}
 
-The Property Investment Optimizer application is designed to assist the user to know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate the property's ROI which is then added to the user's portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic functionality, which is easy to use.
+The Property Investment Optimizer application is designed to assist the user to know when is the right time to buy property and when is the right time to sell property. It also tells the user the best option to pay off a bond, which is either higher or lower. A user is allowed to add a property to calculate the property's ROI which is then added to the user's portfolio. Two properties can be compared to see which one has a better return of investment. Furthermore, the application will simulate the buying of properties. This application contains basic functionality, which is easy to use. The project is split into the back-end server and the front-end website.
+\section{System Configuration}
+A Windows/Unix based host  is required to run the application's back end server. This
+host must have the associated technologies installed (the installation of these
+technologies is illustrated below). The host must have internet connectivity in order to allow any of the required dependencies to be installed and set
+up for the operating system environment. The back-end server runs on port 8080 and the website runs on port 8383.
+
+
+
+The system uses REST web services to send data between the back-end server and the website. The data from the back-end server is sent in xml format and is translated to json objects on the website. From the website, the data is sent as encodedString and application-form-urlencoded media types using Ajax calls.The systems data is stored on a PostgreSQL database.
+
+Users of the website will only be required to have a device that has a web browser and access to the internet.
+
+\includegraphics[width=0.9\linewidth, center]{./System/system.png}\\[0.4cm]
+
 \section{Installation}
 
 \subsection{Prerequisites}
@@ -259,7 +273,7 @@ Once the user has successfully logged into the system, the user will see this pa
 		When the user clicks their name, the system will navigate to the profile page that will display their personal details. 				The user can change his/her details accordingly. They will also be able to see the number of properties associated 				with their profile.
 		\bigskip
 		\item{\underline{\bfseries Report}}\\[0.2cm] 
-		This functionality will enable the user to generate a report about certain properties. Based on several calculations 				configured for certain properties, the report will contain the calculation results and display the Return of Interest based 			on the calculations. 
+		This functionality will enable the user to generate a report about certain properties in a pdf file. Based on several calculations 				configured for certain properties, the report will contain the calculation results and display the Return of Interest based 			on the calculations. 
 		\bigskip
 		\item{\underline{\bfseries Logout}}\\[0.2cm] 
 		This button will log the user out of the system. Once this option has been selected, the user will not be able to use the 				system. They will be redirected to the "main page" where they will need to log in again should they want to use the system 				again. 
