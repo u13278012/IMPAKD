@@ -10,6 +10,7 @@ import java.util.Random;
  *
  * @author Priscilla
  */
+
 public class ProblemDefinition extends AbstractProblem 
 {
 
@@ -21,7 +22,7 @@ public class ProblemDefinition extends AbstractProblem
                 
 		public ProblemDefinition() 
                 {
-			super(20, 1);
+			super(12, 1);
 		}
 
 		/**
@@ -33,7 +34,7 @@ public class ProblemDefinition extends AbstractProblem
                     //Optimise the rent to breakeven - to pay up the expenses
                     Random rand = new Random(); 
                     double profit, expenses, rent = 6700.0, rentIncrease = 0.06;
-                    double difference, interest;
+                    double difference = 0, interest = 0, monthlyRent = 0, total = 0, k = 0;
                     
                     Solution solution = new Solution(getNumberOfVariables(), getNumberOfObjectives());
 
@@ -44,18 +45,39 @@ public class ProblemDefinition extends AbstractProblem
                                 profit = rand.nextInt(9000) + 1;
                                 expenses = rand.nextInt(8000) + 1;
                                 
+                                total = profit + expenses;
+                                
                                 //Set the solution bounds to achieve break-even - How much it pay off the expenses
                                 if(profit < expenses)
                                 {
                                     interest = rand.nextInt(800) + 1; //Yearly - Accumulated
+                                    difference = expenses - profit;
+                                    System.out.println("Difference: " + difference);
+                                    monthlyRent = 4600.0 * (k * 0.06);
+                                    System.out.println("Rent: " + monthlyRent);
+                                    monthlyRent *= 12; //Get Annual Rent
                                     
-                                   //solution.setVariable(i, new RealVariable(,));
+                                    monthlyRent += (profit) + interest;
+                                    
+                                    monthlyRent *= ((profit/total));
+                                    
+                                    if(monthlyRent  < (expenses))
+                                    {
+                                        
+                                        while(monthlyRent  < (expenses))
+                                        {
+                                            monthlyRent += difference;
+                                        }
+                                    }
+                                    
+                                   solution.setVariable(i, new RealVariable(monthlyRent, monthlyRent + difference ));
                                 }
                                 else
                                 {
                                     solution.setVariable(i, new RealVariable(rent, rent *  rentIncrease));
                                 }  
                                 rent *= rentIncrease;
+                                k++;
 				
 			}
 
@@ -94,4 +116,26 @@ public class ProblemDefinition extends AbstractProblem
 
 			solution.setObjectives(f);
 		}
+                
+                /*public void setHigherBound(double bound)
+                {
+                    
+                }
+                
+                public void setLowerBound(double bound)
+                {
+                    
+                }
+                
+                public double getHigherBound(double higherBound)
+                {
+                    
+                }
+                
+                public double getLowerBound(double lowerBound)
+                {
+                    
+                }*/
+                
+                
 }
