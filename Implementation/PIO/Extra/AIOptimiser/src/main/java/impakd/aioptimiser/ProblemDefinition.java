@@ -19,23 +19,30 @@ public class ProblemDefinition extends AbstractProblem
 		 * Construction of a new, user-defined function DTLZ2
                  * To be specified - number of decision values (results) and objectives.
 		 */
-                final int months = 12; //Number of months in a year
+                int months; //Number of months in a year
+                int numberOfYears;
 //              Property property;
-                HashMap<Integer, Double> lowerBounds, upperBounds;
+                HashMap<Integer, Double> lowerBounds, upperBounds, optimisedRent;
+                double rent[][];
                 
-		public ProblemDefinition()  //Default Constructor
+                public ProblemDefinition(int numberOfYears, int months, int numberOfObjectives)  //Default Constructor
                 {
-			super(12, 2);
+			super(numberOfYears * months, numberOfObjectives);
+                        this.numberOfYears = numberOfYears;
+                        this.months = months;
                         lowerBounds = new HashMap<>();
                         upperBounds = new HashMap<>();
+                        optimisedRent = new HashMap<>();
+                        rent = new double[this.numberOfYears][this.months];
 		}
                 
-                /*public ProblemDefinition(int numberOfDecisionValues, int numberOfObjectives, Property property) 
+                /*public ProblemDefinition(int numberOfObjectives, Property property, int numberOfYears) 
                 {
 			super(numberOfDecisionValues, numberOfObjectives);
                         this.property = property;
                         lowerBounds = new HashMap<>();
                         upperBounds = new HashMap<>();
+                        rent = new double[numberOfYears][months];
 		}*/
 
 		/**
@@ -47,52 +54,62 @@ public class ProblemDefinition extends AbstractProblem
 		public Solution newSolution() {
                     //Optimise the rent to breakeven - to pay up the expenses. It makes up the profit of the property owner.
                     Random rand = new Random(); 
-                    double profit, expenses, rent = 6700.0, rentIncrease = 0.06;
-                    double interest = 0, monthlyRent = 0, total = 0, k = 0;
+                    double profit, expenses, rentValue = 4600.0, rentIncrease = 0.06;
+                    double interest = 0, monthlyRent = 0, total = 0;
+                    int k = 0;
                     
                     Solution solution = new Solution(getNumberOfVariables(), getNumberOfObjectives());
-
-			for (int i = 0; i < getNumberOfVariables(); i++) {
+                    for(int n = 0; n < numberOfYears; n++)
+                    {
+			for (int i = 0; i < months; i++) {
                                
                                 //Get the profit made and the expenses
                                 profit = rand.nextInt(9000) + 1;
                                 expenses = rand.nextInt(8000) + 1;
                                 
                                 total = profit + expenses;
+                                interest = rand.nextInt(80) + 1; //First month of every year - Accumulated
+                                if(k != 0)
+                                {
+                                    monthlyRent = (rentValue * (n * rentIncrease)) + rentValue;
+                                    rent[n][i] = monthlyRent;
+                                }
+                                else
+                                {
+                                    
+                                    rent[n][i] = rentValue;
+                                }
+                                monthlyRent += (profit + interest);
                                 
                                 //Set the solution bounds to achieve break-even - How much is needed to pay off the expenses
                                 if(profit < expenses)
                                 {
-                                    interest = rand.nextInt(80) + 1; //First month of every year - Accumulated
-                                    monthlyRent = 4600.0 * (k * 0.06);
-                                    
-                                    monthlyRent += (profit) + interest;
-                                    
                                     
                                     if(monthlyRent  < (expenses))
                                     {
                                         
                                         while(monthlyRent  < expenses)
                                         {
-                                            monthlyRent +=  (monthlyRent * 0.005); //0.06 /12
+                                            monthlyRent +=  (monthlyRent * 0.005); // (0.06/12) - Do a mini monthly increase to see if it makes a difference
                                         }
                                     }
-                                   setLowerBound(i, monthlyRent);
-                                   setUpperBound(i, monthlyRent + ((profit/total)));
-                                   solution.setVariable(i, new RealVariable(getLowerBound(i),getUpperBound(i)));
+                                   setLowerBound(k, monthlyRent);
+                                   setUpperBound(k, monthlyRent + (monthlyRent * 0.005) );
+                                   optimisedRent.put(k, (getLowerBound(k) + getUpperBound(k)) / 2 );
+                                   solution.setVariable(k, new RealVariable(getLowerBound(k),getUpperBound(k)));
                                 }
                                 else
                                 {
-                                    setLowerBound(i,rent);
-                                    setUpperBound(i, rent +  (rentIncrease * rent));
-                                    solution.setVariable(i, new RealVariable(rent, rent +  (rentIncrease * rent)));
-                                }  
-                                rent *= rentIncrease;
+                                    setLowerBound(k,rentValue);
+                                    setUpperBound(k, rentValue +  (rentIncrease * rentValue));
+                                    optimisedRent.put(k, (getLowerBound(k) + getUpperBound(k)) / 2 );
+                                    solution.setVariable(k, new RealVariable(getLowerBound(k),getUpperBound(k)));
+                                } 
                                 k++;
-				
 			}
-
-			return solution;
+                        rentValue += (rentIncrease * rentValue);
+                    }    
+                    return solution;
 		}
 		
 		/**
@@ -129,6 +146,7 @@ public class ProblemDefinition extends AbstractProblem
 			solution.setObjectives(f);
 		}
                 
+                //Getters and Setters for the Decision Values
                 public void setUpperBound(int i, double bound)
                 {
                     upperBounds.put(i, bound);
@@ -159,5 +177,27 @@ public class ProblemDefinition extends AbstractProblem
                     return lowerBounds;
                 }
                 
+                //Get Rent(Data in 2D Array)
+                double[][] getDataArray()
+                {
+                    return this.rent;
+                }
+                
+                //Get number of years and months
+                int getNumberOfYears()
+                {
+                    return this.numberOfYears;
+                }
+                
+                int getNumberOfMonths()
+                {
+                    return this.months;
+                }
+                
+                //Get Decision Values
+                HashMap<Integer, Double> getOptimisedRentValues()
+                {
+                    return optimisedRent;
+                }
                 
 }
