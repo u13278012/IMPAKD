@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Accounting;
 import Entities.Property;
 import java.lang.reflect.Array;
@@ -12,10 +7,11 @@ import java.lang.reflect.Array;
  * @author Diana
  */
 public class accountingLiabilities {
-    accountingAsset objAsset = new accountingAsset();          
-    AmortizationTableBond objAmor = new AmortizationTableBond(); 
-    accountingIncomeStatement objIS = new accountingIncomeStatement();
-    accountingAsset objA= new accountingAsset();
+    
+    accountingAsset objAsset;          
+    AmortizationTableBond objAmor; 
+    accountingIncomeStatement objIS;
+    accountingAsset objA;
     
     int yearsToPayOffBond = 0;
     double bondPrincipleDebt[];
@@ -23,25 +19,17 @@ public class accountingLiabilities {
     double retainedEarnings[];
     double roi[];
     
-    public static void main(String[] args) {
-        accountingLiabilities test = new accountingLiabilities();
-        Property obj = new Property();
-       //test.getRetainedEarnings(obj);
-        test.getRoi(obj);
-    }
     /**
      *
      * @param obj
      * @param objAmor
      * @param objAsset
     */
-    public void declarationsEx(Property obj, AmortizationTableBond objAmor,accountingAsset objAsset){ 
-            objAmor.declarationsAM();
-        objAsset.declarationsAss(objIS);
+    public void declarationsEx(Property obj, AmortizationTableBond objAmor,accountingAsset objAsset){       
         this.objAmor = objAmor;
         this.objAsset = objAsset;
     
-        yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears();
+        yearsToPayOffBond = obj.getBond().getNumberOfYears();
         bondPrincipleDebt = new double[yearsToPayOffBond+1];
         arrayEquity = new double[yearsToPayOffBond+1];
         retainedEarnings = new double[yearsToPayOffBond+1];
@@ -54,7 +42,6 @@ public class accountingLiabilities {
     public  void setEndingBalancePerYear(Property obj){
         int k=1;
         int number = 1;
-        declarationsEx( obj,  objAmor, objAsset);
         for(int i=0; i<yearsToPayOffBond*12+1; i++){
             if(i == 0){
                 bondPrincipleDebt[i] = Array.getDouble(objAmor.getArrayBalance(obj),i);
@@ -75,10 +62,7 @@ public class accountingLiabilities {
      * @return
      */
     public  double[] getEndingBalancePerYear(Property obj){
-        setEndingBalancePerYear(obj);
-//        for(int i=0; i<yearsToPayOffBond+1;i++){
-//            System.out.println(i + " " + bondPrincipleDebt[i]);
-//        }        
+        setEndingBalancePerYear(obj); 
         return bondPrincipleDebt;
     }
     
@@ -87,8 +71,6 @@ public class accountingLiabilities {
      * @param obj
     */
     public  void setEquity(Property obj){
-        //getEndingBalancePerYear(obj);
-       // declarationsEx(obj, objAmor, objAsset);
         for(int i=0; i<yearsToPayOffBond+1; i++){
             if(i == 0){
                 arrayEquity[i] = objAmor.getDepositInRands(obj);
@@ -106,9 +88,9 @@ public class accountingLiabilities {
      */
     public  double[] getEquity(Property obj){
         setEquity(obj);
-//        for(int i=0; i<yearsToPayOffBond+1; i++){
-//            System.out.println(i + " " + arrayEquity[i]);
-//        }
+        for(int i = 0; i<yearsToPayOffBond+1; i++){
+            arrayEquity[i] = Math.round(arrayEquity[i]);
+        }
         return arrayEquity;
     }
     
@@ -117,11 +99,10 @@ public class accountingLiabilities {
      * @param obj
     */
     public  void setRetainedEarnings(Property obj){
-        declarationsEx(obj, objAmor, objAsset);
         getEndingBalancePerYear(obj);
         getEquity(obj);
         for(int i=0; i<yearsToPayOffBond+1; i++){
-               retainedEarnings[i] = Array.getDouble(objAsset.getTotal(obj),i)- bondPrincipleDebt[i] - arrayEquity[i];
+            retainedEarnings[i] = Array.getDouble(objAsset.getTotal(obj),i)- bondPrincipleDebt[i] - arrayEquity[i];
         }           
     }
    
@@ -133,29 +114,32 @@ public class accountingLiabilities {
      */
     public  double[] getRetainedEarnings(Property obj){
         setRetainedEarnings(obj);
-//        for(int i=0; i<yearsToPayOffBond+1; i++){
-//            System.out.println(i + " " + retainedEarnings[i]);
-//        }
+        for(int i = 0; i<yearsToPayOffBond+1; i++){
+            retainedEarnings[i] = Math.round(retainedEarnings[i]);
+        }
         return retainedEarnings;
     }
-    
+    /**
+     *
+     * @param obj
+     */
     public void setRoi(Property obj) {
-        declarationsEx(obj, objAmor, objAsset);
         getRetainedEarnings(obj);
         getEquity(obj);
         for(int i = 1; i<yearsToPayOffBond+1; i++){
             roi[i] = ((retainedEarnings[i]/arrayEquity[i] - 1) *100) / i;
         }
     }
+    /**
+     *
+     * @param obj
+     * @return
+     */
     public double[] getRoi(Property obj) {
         setRoi(obj);
         for(int i = 0; i<yearsToPayOffBond+1; i++){
             roi[i] = Math.round(roi[i]);
         }
-        for(int i = 0; i<yearsToPayOffBond+1; i++){
-            System.out.println(i+". "+ roi[i]);
-        }
         return roi;
     }
-
 }
