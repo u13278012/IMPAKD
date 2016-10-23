@@ -6,7 +6,12 @@ input::-webkit-inner-spin-button {
 }
 
 /* Button Styles */
-    
+#pdfdisplay{
+        width: 50%;
+        height:50%;
+        margin: 0 auto;
+        position: relative;
+}   
 #submit
 {
 	color: #ffffff;
