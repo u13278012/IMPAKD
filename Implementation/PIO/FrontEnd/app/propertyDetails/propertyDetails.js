@@ -25,7 +25,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.propertyresults = x;
-                   // console.log(x);
+                   console.log(x);
                    
 
                 }).
