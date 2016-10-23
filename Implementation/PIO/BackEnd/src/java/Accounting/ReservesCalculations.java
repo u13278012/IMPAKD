@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Accounting;
 
 import Entities.Property;
@@ -12,25 +7,25 @@ import java.lang.reflect.Array;
  *
  * @author Diana
  */
-public class Reserves {
+public class ReservesCalculations {
     
-    accountingRental objR = new accountingRental();
-    AmortizationTableBond objAmor = new AmortizationTableBond();
+    accountingRental objR;
+    AmortizationTableBond objAmor;
     
-    int yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears();
-    double maintenancePerYear = 5.00/100.00;//obj.getReserves().getMaintenance();
-    double arrayMaintenancePerYear[] = new double[yearsToPayOffBond+1];
-    double maintenanceRunningTotal[] = new double[yearsToPayOffBond+1];
-     
+    int yearsToPayOffBond;
+    double maintenancePerYear;
+    double arrayMaintenancePerYear[];
+    double maintenanceRunningTotal[];
     
-    
-//    public static void main(String[] args) { 
-//        Reserves objR = new Reserves();
-//        Property obj = new Property();
-//        //objR.getMaintenance(obj);
-//       objR.getMaintenanceRunningTotal(obj);
-//    }
-    
+    public void declarationsReserves(Property obj, AmortizationTableBond objAmor,accountingRental objR){
+        this.objAmor = objAmor;
+        this.objR = objR;
+        
+        yearsToPayOffBond = obj.getBond().getNumberOfYears();
+        maintenancePerYear = obj.getReserves().getMaintenance()/100.0;
+        arrayMaintenancePerYear = new double[yearsToPayOffBond+1];
+        maintenanceRunningTotal = new double[yearsToPayOffBond+1];
+    }
     /**
      *
      * @param obj

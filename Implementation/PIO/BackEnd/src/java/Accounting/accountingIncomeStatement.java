@@ -9,64 +9,112 @@ import java.lang.reflect.Array;
 
 public class accountingIncomeStatement 
 {   
-    Property obj = new Property();
-    AmortizationTableBond objAmor = new AmortizationTableBond();
-    accountingRental objR = new accountingRental();
-    Reserves objRe = new Reserves();
+    AmortizationTableBond objAmor;
+    ReservesCalculations objRe;
+        
+    int yearsToPayOffBond;
+    double incomeTax;
     
-    int yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears();
+    double cashPerYear[];
+    double CashPerYear;
     
-    double rentIncome = 6700.0;//obj.getRental().getRentalAmount();
-    double rentIncrease = 6.00/100.00;//obj.getIncreases().getRent();
+    double rentIncome;
+    double rentIncrease;
     
-    double rates_taxes = 370.0; //obj.getExpenses().getRates_Taxes();
-    double rates_taxesIncrease = 8.00/100.00;//obj.getIncreases().getRates_taxes();
+    double rates_taxes;
+    double rates_taxesIncrease;
     
-    double levy = 535.0; //obj.getExpenses().getLevy();
-    double levyIncrease =8.00/100.00; //obj.getIncreases().getLevy();
+    double levy;
+    double levyIncrease;
     
-    double bondFee = 57; //obj.getExpenses().getBondFee();
-    double bondFeeIncrease = 7.00/100.00;//obj.getIncreases().getBondFee();
+    double bondFee;
+    double bondFeeIncrease ;
     
      
-    double RentIncome[] = new double[yearsToPayOffBond*12+1]; 
-    double rentIncYearly[] = new double[yearsToPayOffBond+1];
+    double RentIncome[]; 
+    double rentIncYearly[];
     
-    double InterestIncome[] = new double[yearsToPayOffBond*12+1];
-    double GrossProfit[] = new double[yearsToPayOffBond*12+1];
+    double InterestIncome[];
+    double GrossProfit[];
     
-    double RatesTaxes[] = new double[yearsToPayOffBond*12+1];
-    double ratesTaxesIncYearly[] = new double[yearsToPayOffBond+1];
+    double RatesTaxes[];
+    double ratesTaxesIncYearly[];
     
-    double Levy[] = new double[yearsToPayOffBond*12+1];
-    double levyTaxesIncYearly[] = new double[yearsToPayOffBond+1];
+    double Levy[];
+    double levyTaxesIncYearly[];
     
-    double BondFee[] = new double[yearsToPayOffBond*12+1];
-    double bondFeeTaxesIncYearly[] = new double[yearsToPayOffBond+1];
+    double BondFee[];
+    double bondFeeTaxesIncYearly[];
     
-    double maintenance[] = new double[yearsToPayOffBond*12+1];
-    double TaxableExpenses[] = new double[yearsToPayOffBond*12+1];
-    double PreTaxIncome[] = new double[yearsToPayOffBond*12+1];
-    double TaxableProfit[] = new double[yearsToPayOffBond*12+1];
-    double TaxableProfitAccumulated[] = new double[yearsToPayOffBond*12+1];
-    double PayTax[] = new double[yearsToPayOffBond*12+1];
-    double NetIncome[] = new double[yearsToPayOffBond*12+1];
-    double Cash[] = new double[yearsToPayOffBond*12+1];
-    double ShortFall[] = new double[yearsToPayOffBond*12+1];
+    double maintenance[];
+    double TaxableExpenses[];
+    double PreTaxIncome[];
+    double TaxableProfit[];
+    double TaxableProfitAccumulated[];
+    double PayTax[];
+    double NetIncome[];
+    double Cash[];
+    double ShortFall[];
+    double ShortFallPerYear;
+    double shortFallPerYear[];
     
-    public static void main(String[] args) { 
-        accountingIncomeStatement test = new accountingIncomeStatement();
-        //AmortizationTableBond objAmor = new AmortizationTableBond();
-        Property obj = new Property();
-        //test.getRentIncome(obj);
-        //test.getGrossProfit(obj);
-        //test.getRatesTaxes(obj);
-       // test.getLevy(obj);
-      // test.getBondFee(obj);
-        test.getTaxableExpenses(obj);
-     // test.getMaintenance(obj);
+    /**
+     *
+     * @param obj
+     * @param objAmor
+     * @param objRe
+    */
+    public void declarationsInc(Property obj, AmortizationTableBond objAmor,ReservesCalculations objRe){
+        this.objAmor = objAmor;
+        this.objRe = objRe;
+        
+        yearsToPayOffBond = obj.getBond().getNumberOfYears();
+        incomeTax = 36.00/100.00;
+        CashPerYear = 0;
+
+        rentIncome = obj.getRental().getRentalAmount();
+        rentIncrease = obj.getIncreases().getRent();
+
+        rates_taxes = obj.getExpenses().getRates_Taxes();
+        rates_taxesIncrease = obj.getIncreases().getRates_taxes();
+
+        levy = obj.getExpenses().getLevy();
+        levyIncrease = obj.getIncreases().getLevy();
+
+        bondFee = obj.getExpenses().getBondFee();
+        bondFeeIncrease = obj.getIncreases().getBondFee();
+
+
+        cashPerYear = new double[yearsToPayOffBond+1];
+        RentIncome = new double[yearsToPayOffBond*12+1]; 
+        rentIncYearly = new double[yearsToPayOffBond+1];
+
+        InterestIncome = new double[yearsToPayOffBond*12+1];
+        GrossProfit = new double[yearsToPayOffBond*12+1];
+
+        RatesTaxes = new double[yearsToPayOffBond*12+1];
+        ratesTaxesIncYearly = new double[yearsToPayOffBond+1];
+
+        Levy = new double[yearsToPayOffBond*12+1];
+        levyTaxesIncYearly = new double[yearsToPayOffBond+1];
+
+        BondFee = new double[yearsToPayOffBond*12+1];
+        bondFeeTaxesIncYearly = new double[yearsToPayOffBond+1];
+
+        maintenance = new double[yearsToPayOffBond*12+1];
+        TaxableExpenses = new double[yearsToPayOffBond*12+1];
+        PreTaxIncome = new double[yearsToPayOffBond*12+1];
+        TaxableProfit = new double[yearsToPayOffBond*12+1];
+        TaxableProfitAccumulated = new double[yearsToPayOffBond*12+1];
+        PayTax = new double[yearsToPayOffBond*12+1];
+        NetIncome = new double[yearsToPayOffBond*12+1];
+        Cash = new double[yearsToPayOffBond*12+1];
+        ShortFall = new double[yearsToPayOffBond*12+1];
+        ShortFallPerYear = 0.0;
+        shortFallPerYear = new double[yearsToPayOffBond*12+1];
+        
     }
-    
+
     /******************************************* RentIncome Calculations **************************************************/
     
     /**
@@ -138,7 +186,7 @@ public class accountingIncomeStatement
      * @param obj
     */ 
     public void setInterestIncome(Property obj){
-
+        /*Not needed */
     }
     /**
      *
@@ -146,10 +194,9 @@ public class accountingIncomeStatement
      * @return 
     */ 
     public double[] getInterestIncome(Property obj){
+        setInterestIncome(obj);
         return InterestIncome;
     }
-    
-
     
     /******************************************* GrossProfit Calculations **************************************************/
      /**
@@ -169,16 +216,6 @@ public class accountingIncomeStatement
     */ 
     public double[] getGrossProfit(Property obj){
         setGrossProfit(obj);
-<<<<<<< HEAD
-//        for(int i=0; i<yearsToPayOffBond*12+1;i++){
-//            System.out.println(i +" "+ GrossProfit[i]);
-//        }
-=======
-        for(int i=0; i<yearsToPayOffBond*12+1;i++){
-            System.out.println(i +" "+ GrossProfit[i]);
-
-        }
->>>>>>> master
         return GrossProfit;
     }
     
@@ -246,7 +283,7 @@ public class accountingIncomeStatement
     }
     
     /******************************************* Levy Calculations **************************************************/
-<<<<<<< HEAD
+
     /**
      *
      * @param obj
@@ -309,10 +346,7 @@ public class accountingIncomeStatement
         setLevy(obj);
         return Levy;
     }
-=======
-
->>>>>>> master
-    
+  
     
     /******************************************* BondFee Calculations **************************************************/
     /**
@@ -404,9 +438,6 @@ public class accountingIncomeStatement
     */ 
     public double[] getMaintenance(Property obj){
         setMaintenance(obj);
-//        for(int i=0; i<yearsToPayOffBond*12+1;i++){
-//            System.out.println(i +" "+ maintenance[i]);
-//        }
         return maintenance;
     }
     
@@ -416,7 +447,6 @@ public class accountingIncomeStatement
      * @param obj
     */ 
     public void setTaxableExpenses(Property obj){
-        objAmor.declarationsAM(obj);
         for(int i=1; i<yearsToPayOffBond*12+1;i++){
             TaxableExpenses[i] = Array.getDouble(getRatesTaxes(obj),i)+ Array.getDouble(getLevy(obj),i) + Array.getDouble(getBondFee(obj),i) + Array.getDouble(getMaintenance(obj),i)+ Array.getDouble(objAmor.getArrayInterest(obj),i);
         }
@@ -429,12 +459,384 @@ public class accountingIncomeStatement
     */ 
     public double[] getTaxableExpenses(Property obj){
         setTaxableExpenses(obj);
-        objR.declarationsR(obj,objAmor);
-        for(int i=0; i<yearsToPayOffBond*12+1;i++){
-            System.out.println(i +" "+ TaxableExpenses[i]);
-        }
         return TaxableExpenses;
     }
+    /******************************************* pre-Tax Income Calculations **************************************************/
+    /**
+     *
+     * @param obj
+    */ 
+    public void setPreTaxIncome(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            PreTaxIncome[i] = Array.getDouble(getGrossProfit(obj),i) - Array.getDouble(getTaxableExpenses(obj),i) - Array.getDouble(objAmor.getArrayPrinciple(obj),i);
+        }
+    }
+
+    /**
+     *
+     * @param obj
+     * @return 
+    */ 
+    public double[] getPreTaxIncome(Property obj){
+        setPreTaxIncome(obj);
+        return PreTaxIncome;
+    }
+    /******************************************* Taxable Profit Calculations **************************************************/
+    /**
+     *
+     * @param obj
+    */ 
+    public void setTaxableProfit(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = Array.getDouble(getGrossProfit(obj),i) - Array.getDouble(getTaxableExpenses(obj),i);
+        }
+    }
+
+    /**
+     *
+     * @param obj
+     * @return 
+    */ 
+    public double[] getTaxableProfit(Property obj){
+        setTaxableProfit(obj);
+        return TaxableProfit;
+    }
+    /******************************************* Taxable Profit Accumulated Calculations **************************************************/
+    /**
+     *
+     * @param obj
+    */ 
+    public void setTaxableProfitAccumulated(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = Array.getDouble(getGrossProfit(obj),i) - Array.getDouble(getTaxableExpenses(obj),i);
+        }
+        
+        /* calculating taxableProfitAccumulated here*/
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfitAccumulated[i] = TaxableProfitAccumulated[i-1] + TaxableProfit[i];
+        }
+    }
+
+    /**
+     *
+     * @param obj
+     * @return 
+    */ 
+    public double[] getTaxableProfitAccumulated(Property obj){
+        setTaxableProfitAccumulated(obj);
+        return TaxableProfitAccumulated;
+    }
     
+    /******************************************* Pay Tax Calculations **************************************************/
+    /**
+     *
+     * @param obj
+    */ 
+    public void setPayTax(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = Array.getDouble(getGrossProfit(obj),i) - Array.getDouble(getTaxableExpenses(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfitAccumulated[i] = TaxableProfitAccumulated[i-1] + TaxableProfit[i];
+        }
+        
+        /* calculating payTax here*/
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            if((i%6)==0){
+                PayTax[i] = TaxableProfitAccumulated[i]*incomeTax;
+            }
+        }
+    }
+
+    /**
+     *
+     * @param obj
+     * @return 
+    */ 
+    public double[] getPayTax(Property obj){
+        setPayTax(obj);
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            PayTax[i] = Math.round(PayTax[i]);
+        }
+        return PayTax;
+    }
     
+     /******************************************* Net Income Calculations **************************************************/
+    /**
+     *
+     * @param obj
+    */ 
+    public void setNetIncome(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            GrossProfit[i] = Array.getDouble(getRentIncome(obj),i) + Array.getDouble(getInterestIncome(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableExpenses[i] = Array.getDouble(getRatesTaxes(obj),i)+ Array.getDouble(getLevy(obj),i) + Array.getDouble(getBondFee(obj),i) + Array.getDouble(getMaintenance(obj),i)+ Array.getDouble(objAmor.getArrayInterest(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = GrossProfit[i] - TaxableExpenses[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfitAccumulated[i] = TaxableProfitAccumulated[i-1] + TaxableProfit[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            if((i%6)==0){
+                PayTax[i] = TaxableProfitAccumulated[i]*incomeTax;
+            }
+        }
+        
+        /* calculating netIncome here*/
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            NetIncome[i] = (GrossProfit[i] - TaxableExpenses[i] - Array.getDouble(objAmor.getArrayPrinciple(obj),i)) - Math.max(PayTax[i], 0);
+        }
+    }
+
+    /**
+     *
+     * @param obj
+     * @return 
+    */ 
+    public double[] getNetIncome(Property obj){
+        setNetIncome(obj);
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            NetIncome[i] = Math.round(NetIncome[i]);
+        }
+        return NetIncome;
+    }
+    
+    /******************************************* Cash Calculations **************************************************/
+    /**
+     *
+     * @param obj
+    */ 
+    public void setCash_ShortFall(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            GrossProfit[i] = Array.getDouble(getRentIncome(obj),i) + Array.getDouble(getInterestIncome(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableExpenses[i] = Array.getDouble(getRatesTaxes(obj),i)+ Array.getDouble(getLevy(obj),i) + Array.getDouble(getBondFee(obj),i) + Array.getDouble(getMaintenance(obj),i)+ Array.getDouble(objAmor.getArrayInterest(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = GrossProfit[i] - TaxableExpenses[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfitAccumulated[i] = TaxableProfitAccumulated[i-1] + TaxableProfit[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            if((i%6)==0){
+                PayTax[i] = TaxableProfitAccumulated[i]*incomeTax;
+            }
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            NetIncome[i] = (GrossProfit[i] - TaxableExpenses[i] - Array.getDouble(objAmor.getArrayPrinciple(obj),i)) - Math.max(PayTax[i], 0);
+        }
+        
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            if(NetIncome[i]<0.0){
+                ShortFall[i] = -(NetIncome[i]);
+            }
+        }
+        
+        /* calculating cash here*/
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            Cash[i] =Cash[i-1] + NetIncome[i] +(1*ShortFall[i-1]) - (Math.min(PayTax[i], 0));
+        }
+    }
+
+    /**
+     *
+     * @param obj
+     * @return 
+    */ 
+    public double[] getCash(Property obj){
+        setCash_ShortFall(obj);
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            Cash[i] = Math.round(Cash[i]);
+        }
+        return Cash;
+    }
+    /**
+     *
+     * @param obj
+    */ 
+    public  void setCashPerYear(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            GrossProfit[i] = Array.getDouble(getRentIncome(obj),i) + Array.getDouble(getInterestIncome(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableExpenses[i] = Array.getDouble(getRatesTaxes(obj),i)+ Array.getDouble(getLevy(obj),i) + Array.getDouble(getBondFee(obj),i) + Array.getDouble(getMaintenance(obj),i)+ Array.getDouble(objAmor.getArrayInterest(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = GrossProfit[i] - TaxableExpenses[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfitAccumulated[i] = TaxableProfitAccumulated[i-1] + TaxableProfit[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            if((i%6)==0){
+                PayTax[i] = TaxableProfitAccumulated[i]*incomeTax;
+            }
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            NetIncome[i] = (GrossProfit[i] - TaxableExpenses[i] - Array.getDouble(objAmor.getArrayPrinciple(obj),i)) - Math.max(PayTax[i], 0);
+        }
+        
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            if(NetIncome[i]<0.0){
+                ShortFall[i] = -(NetIncome[i]);
+            }
+        }
+        
+        /* calculating cash here*/
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            Cash[i] =Cash[i-1] + NetIncome[i] +(1*ShortFall[i-1]) - (Math.min(PayTax[i], 0));
+        }
+  
+        int number = 1;
+        int count = 0;
+        int k=1;
+        /*calculate Cash per year from Cash array that calculated Cash per month */
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){ 
+            if(i< 12*number+1){
+                count = count +1;
+                CashPerYear += Cash[i];
+                if(count == 12){
+                    count = 0;                    
+                    if(k < yearsToPayOffBond+1){
+                        cashPerYear[k] = CashPerYear;
+                    }
+                    number++;
+                    k++;
+                    CashPerYear = 0;
+                }
+            }          
+        }
+
+    }
+    
+     /**
+     *
+     * @param obj
+     * @return
+     */
+    public double[] getCashPerYear(Property obj){
+        setCashPerYear(obj);
+        for(int i=0; i<yearsToPayOffBond+1;i++){
+            if(cashPerYear[i]<0.0){
+                cashPerYear[i] = 0.0;
+            }
+            cashPerYear[i] = Math.round(cashPerYear[i]);
+        }   
+        return cashPerYear;
+    }
+    
+    /**
+     *
+     * @param obj
+     * @return 
+    */ 
+    public double[] getShortFall(Property obj){
+
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            GrossProfit[i] = Array.getDouble(getRentIncome(obj),i) + Array.getDouble(getInterestIncome(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableExpenses[i] = Array.getDouble(getRatesTaxes(obj),i)+ Array.getDouble(getLevy(obj),i) + Array.getDouble(getBondFee(obj),i) + Array.getDouble(getMaintenance(obj),i)+ Array.getDouble(objAmor.getArrayInterest(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = GrossProfit[i] - TaxableExpenses[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfitAccumulated[i] = TaxableProfitAccumulated[i-1] + TaxableProfit[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            if((i%6)==0){
+                PayTax[i] = TaxableProfitAccumulated[i]*incomeTax;
+            }
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            NetIncome[i] = (GrossProfit[i] - TaxableExpenses[i] - Array.getDouble(objAmor.getArrayPrinciple(obj),i)) - Math.max(PayTax[i], 0);
+        }
+        
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            if(NetIncome[i]<0.0){
+                ShortFall[i] = -(NetIncome[i]);
+            }
+        }
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            ShortFall[i] = Math.round(ShortFall[i]);
+        }
+        return ShortFall;
+    }
+    
+    /**
+     *
+     * @param obj
+    */ 
+    public  void setShortFallPerYear(Property obj){
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            GrossProfit[i] = Array.getDouble(getRentIncome(obj),i) + Array.getDouble(getInterestIncome(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableExpenses[i] = Array.getDouble(getRatesTaxes(obj),i)+ Array.getDouble(getLevy(obj),i) + Array.getDouble(getBondFee(obj),i) + Array.getDouble(getMaintenance(obj),i)+ Array.getDouble(objAmor.getArrayInterest(obj),i);
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfit[i] = GrossProfit[i] - TaxableExpenses[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            TaxableProfitAccumulated[i] = TaxableProfitAccumulated[i-1] + TaxableProfit[i];
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            if((i%6)==0){
+                PayTax[i] = TaxableProfitAccumulated[i]*incomeTax;
+            }
+        }
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            NetIncome[i] = (GrossProfit[i] - TaxableExpenses[i] - Array.getDouble(objAmor.getArrayPrinciple(obj),i)) - Math.max(PayTax[i], 0);
+        }
+        
+        for(int i=0; i<yearsToPayOffBond*12+1;i++){
+            if(NetIncome[i]<0.0){
+                ShortFall[i] = -(NetIncome[i]);
+            }
+        }
+        /* calculating cash here*/
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){
+            Cash[i] =Cash[i-1] + NetIncome[i] +(1*ShortFall[i-1]) - (Math.min(PayTax[i], 0));
+        }
+  
+        int number = 1;
+        int count = 0;
+        int k=1;
+        /*calculate Shortfall per year from ShortFall array that calculated shortFall per month */
+        for(int i=1; i<yearsToPayOffBond*12+1;i++){ 
+            if(i< 12*number+1){
+                count = count +1;
+                ShortFallPerYear += ShortFall[i];
+                if(count == 12){
+                    count = 0;                    
+                    if(k < yearsToPayOffBond+1){
+                        shortFallPerYear[k] = ShortFallPerYear;
+                    }
+                    number++;
+                    k++;
+                    ShortFallPerYear = 0;
+                }
+            }          
+        }
+
+    }
+    
+     /**
+     *
+     * @param obj
+     * @return
+     */
+    public double[] getShortFallPerYear(Property obj){
+        setShortFallPerYear(obj);
+        for(int i=0; i<yearsToPayOffBond+1;i++){
+            shortFallPerYear[i] = Math.round(shortFallPerYear[i]);
+        }   
+        return shortFallPerYear;
+    }
 }
