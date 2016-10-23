@@ -1,5 +1,6 @@
 package impakd.aioptimiser;
 
+import java.util.HashMap;
 import org.moeaframework.core.Solution;
 import org.moeaframework.core.variable.EncodingUtils;
 import org.moeaframework.problem.AbstractProblem;
@@ -15,65 +16,75 @@ public class ProblemDefinition extends AbstractProblem
 {
 
 		/**
-		 * Constructs a new instance of the DTLZ2 function, defining it
-		 * to include 20 decision variables and 1 objectives.
+		 * Construction of a new, user-defined function DTLZ2
+                 * To be specified - number of decision values (results) and objectives.
 		 */
                 final int months = 12; //Number of months in a year
+//              Property property;
+                HashMap<Integer, Double> lowerBounds, upperBounds;
                 
-		public ProblemDefinition() 
+		public ProblemDefinition()  //Default Constructor
                 {
 			super(12, 2);
+                        lowerBounds = new HashMap<>();
+                        upperBounds = new HashMap<>();
 		}
+                
+                /*public ProblemDefinition(int numberOfDecisionValues, int numberOfObjectives, Property property) 
+                {
+			super(numberOfDecisionValues, numberOfObjectives);
+                        this.property = property;
+                        lowerBounds = new HashMap<>();
+                        upperBounds = new HashMap<>();
+		}*/
 
 		/**
 		 * Constructs a new solution and defines the bounds of the decision
 		 * variables.
 		 */
+                
 		@Override
 		public Solution newSolution() {
-                    //Optimise the rent to breakeven - to pay up the expenses
+                    //Optimise the rent to breakeven - to pay up the expenses. It makes up the profit of the property owner.
                     Random rand = new Random(); 
                     double profit, expenses, rent = 6700.0, rentIncrease = 0.06;
-                    double difference = 0, interest = 0, monthlyRent = 0, total = 0, k = 0;
+                    double interest = 0, monthlyRent = 0, total = 0, k = 0;
                     
                     Solution solution = new Solution(getNumberOfVariables(), getNumberOfObjectives());
 
 			for (int i = 0; i < getNumberOfVariables(); i++) {
-                                
+                               
                                 //Get the profit made and the expenses
-                                
                                 profit = rand.nextInt(9000) + 1;
                                 expenses = rand.nextInt(8000) + 1;
                                 
                                 total = profit + expenses;
                                 
-                                //Set the solution bounds to achieve break-even - How much it pay off the expenses
+                                //Set the solution bounds to achieve break-even - How much is needed to pay off the expenses
                                 if(profit < expenses)
                                 {
-                                    interest = rand.nextInt(800) + 1; //Yearly - Accumulated
-                                    difference = expenses - profit;
-                                    System.out.println("Difference: " + difference);
+                                    interest = rand.nextInt(80) + 1; //First month of every year - Accumulated
                                     monthlyRent = 4600.0 * (k * 0.06);
-                                    System.out.println("Rent: " + monthlyRent);
-                                    monthlyRent *= 12; //Get Annual Rent
                                     
                                     monthlyRent += (profit) + interest;
                                     
-                                    monthlyRent *= ((profit/total));
                                     
                                     if(monthlyRent  < (expenses))
                                     {
                                         
-                                        while(monthlyRent  < (expenses))
+                                        while(monthlyRent  < expenses)
                                         {
-                                            monthlyRent += ((profit/total));
+                                            monthlyRent +=  (monthlyRent * 0.005); //0.06 /12
                                         }
                                     }
-                                    
-                                   solution.setVariable(i, new RealVariable(monthlyRent, monthlyRent + ((profit/total)) ));
+                                   setLowerBound(i, monthlyRent);
+                                   setUpperBound(i, monthlyRent + ((profit/total)));
+                                   solution.setVariable(i, new RealVariable(getLowerBound(i),getUpperBound(i)));
                                 }
                                 else
                                 {
+                                    setLowerBound(i,rent);
+                                    setUpperBound(i, rent +  (rentIncrease * rent));
                                     solution.setVariable(i, new RealVariable(rent, rent +  (rentIncrease * rent)));
                                 }  
                                 rent *= rentIncrease;
@@ -88,9 +99,10 @@ public class ProblemDefinition extends AbstractProblem
 		 * Extracts the decision variables from the solution, evaluates the
 		 * Rosenbrock function, and saves the resulting objective value back to
 		 * the solution. 
-     * @param solution
+                 * @param solution
 		 */
-		/*@Override
+                
+		@Override
 		public void evaluate(Solution solution) {
 			double[] x = EncodingUtils.getReal(solution);
 			double[] f = new double[numberOfObjectives];
@@ -114,33 +126,38 @@ public class ProblemDefinition extends AbstractProblem
 				}
 			}
                         
-                        for(int n = 0; n < f.length; n++)
-                        {
-                            System.out.println("Objective: " + f[n]);
-                        }
-                        
 			solution.setObjectives(f);
-		}*/
+		}
                 
-                /*public void setHigherBound(double bound)
+                public void setUpperBound(int i, double bound)
                 {
-                    
+                    upperBounds.put(i, bound);
                 }
                 
-                public void setLowerBound(double bound)
+                public void setLowerBound(int i, double bound)
                 {
-                    
+                    lowerBounds.put(i, bound);
                 }
                 
-                public double getHigherBound(double higherBound)
+                public double getUpperBound(int i)
                 {
-                    
+                    return upperBounds.get(i);
                 }
                 
-                public double getLowerBound(double lowerBound)
+                public double getLowerBound(int i)
                 {
-                    
-                }*/
+                    return lowerBounds.get(i);
+                }
+                
+                public HashMap<Integer, Double> getUpperBounds()
+                {
+                    return upperBounds;
+                }
+                
+                public HashMap<Integer, Double> getLowerBounds()
+                {
+                    return lowerBounds;
+                }
                 
                 
 }
