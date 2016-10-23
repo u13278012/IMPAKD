@@ -27,7 +27,7 @@ angular.module('myApp', ['ngRoute'])
     {
         $http({
                 method: 'GET',
-                url: 'http://localhost:20285/BackEnd/rs/property/retrieveProperties/'+session
+                url: 'http://localhost:8080/BackEnd/rs/property/retrieveProperties/'+session
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
