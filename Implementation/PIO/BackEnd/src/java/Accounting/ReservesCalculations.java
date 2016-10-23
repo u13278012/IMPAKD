@@ -12,7 +12,7 @@ import java.lang.reflect.Array;
  *
  * @author Diana
  */
-public class Reserves {
+public class ReservesCalculations {
     
     accountingRental objR = new accountingRental();
     AmortizationTableBond objAmor = new AmortizationTableBond();
