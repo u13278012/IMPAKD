@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 angular.module('myApp.report', ['ngRoute'])
 
@@ -11,4 +11,25 @@ angular.module('myApp.report', ['ngRoute'])
 
 .controller('ReportCtrl', [function() {
 
+}]);*/
+
+
+'use strict';
+
+
+angular.module('myApp', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/report', {
+    templateUrl: 'report/report.html',
+    controller: 'UpdatePropertyCtrl'
+  });
+}])
+
+.controller('ReportCtrl', ["$scope", "$window", "$http", function($scope, $window, $http) {
+
+           
+
+
 }]);
+
