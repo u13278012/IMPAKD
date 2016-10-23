@@ -20,22 +20,36 @@ public class ProblemDefinition extends AbstractProblem
                  * To be specified - number of decision values (results) and objectives.
 		 */
                 final int months = 12; //Number of months in a year
+                int numberOfYears;
 //              Property property;
                 HashMap<Integer, Double> lowerBounds, upperBounds;
+                double rent[][];
                 
 		public ProblemDefinition()  //Default Constructor
                 {
 			super(12, 2);
+                        this.numberOfYears = 20;
                         lowerBounds = new HashMap<>();
                         upperBounds = new HashMap<>();
+                        rent = new double[50][months];
 		}
                 
-                /*public ProblemDefinition(int numberOfDecisionValues, int numberOfObjectives, Property property) 
+                public ProblemDefinition(int numberOfYears, int numberOfObjectives)  //Default Constructor
+                {
+			super(12, 2);
+                        this.numberOfYears = numberOfYears;
+                        lowerBounds = new HashMap<>();
+                        upperBounds = new HashMap<>();
+                        rent = new double[this.numberOfYears][months];
+		}
+                
+                /*public ProblemDefinition(int numberOfObjectives, Property property, int numberOfYears) 
                 {
 			super(numberOfDecisionValues, numberOfObjectives);
                         this.property = property;
                         lowerBounds = new HashMap<>();
                         upperBounds = new HashMap<>();
+                        rent = new double[numberOfYears][months];
 		}*/
 
 		/**
@@ -47,11 +61,12 @@ public class ProblemDefinition extends AbstractProblem
 		public Solution newSolution() {
                     //Optimise the rent to breakeven - to pay up the expenses. It makes up the profit of the property owner.
                     Random rand = new Random(); 
-                    double profit, expenses, rent = 6700.0, rentIncrease = 0.06;
+                    double profit, expenses, rentValue = 4600.0, rentIncrease = 0.06;
                     double interest = 0, monthlyRent = 0, total = 0, k = 0;
                     
                     Solution solution = new Solution(getNumberOfVariables(), getNumberOfObjectives());
-
+                    for(int n = 0; n < numberOfYears; n++)
+                    {
 			for (int i = 0; i < getNumberOfVariables(); i++) {
                                
                                 //Get the profit made and the expenses
@@ -59,22 +74,28 @@ public class ProblemDefinition extends AbstractProblem
                                 expenses = rand.nextInt(8000) + 1;
                                 
                                 total = profit + expenses;
+                                interest = rand.nextInt(80) + 1; //First month of every year - Accumulated
+                                if(k != 0)
+                                {
+                                    monthlyRent = (rentValue * (k * rentIncrease) + rentValue);
+                                    System.out.println("Rent: " + monthlyRent);
+                                }
+                                else
+                                {
+                                    rent[n][i] = rentValue;
+                                }
+                                monthlyRent += (profit) + interest;
                                 
                                 //Set the solution bounds to achieve break-even - How much is needed to pay off the expenses
                                 if(profit < expenses)
                                 {
-                                    interest = rand.nextInt(80) + 1; //First month of every year - Accumulated
-                                    monthlyRent = 4600.0 * (k * 0.06);
-                                    
-                                    monthlyRent += (profit) + interest;
-                                    
                                     
                                     if(monthlyRent  < (expenses))
                                     {
                                         
                                         while(monthlyRent  < expenses)
                                         {
-                                            monthlyRent +=  (monthlyRent * 0.005); //0.06 /12
+                                            monthlyRent +=  (monthlyRent * 0.005); // (0.06/12) - Do a mini monthly increase to see if it makes a difference
                                         }
                                     }
                                    setLowerBound(i, monthlyRent);
@@ -83,16 +104,15 @@ public class ProblemDefinition extends AbstractProblem
                                 }
                                 else
                                 {
-                                    setLowerBound(i,rent);
-                                    setUpperBound(i, rent +  (rentIncrease * rent));
-                                    solution.setVariable(i, new RealVariable(rent, rent +  (rentIncrease * rent)));
+                                    setLowerBound(i,rentValue);
+                                    setUpperBound(i, rentValue +  (rentIncrease * rentValue));
+                                    solution.setVariable(i, new RealVariable(rentValue, rentValue +  (rentIncrease * rentValue)));
                                 }  
-                                rent *= rentIncrease;
-                                k++;
-				
 			}
-
-			return solution;
+                        rentValue += (rentIncrease * rentValue) + rentValue;
+                        k++;
+                    }    
+                    return solution;
 		}
 		
 		/**
@@ -129,6 +149,7 @@ public class ProblemDefinition extends AbstractProblem
 			solution.setObjectives(f);
 		}
                 
+                //Getters and Setters for the Decision Values
                 public void setUpperBound(int i, double bound)
                 {
                     upperBounds.put(i, bound);
@@ -159,5 +180,28 @@ public class ProblemDefinition extends AbstractProblem
                     return lowerBounds;
                 }
                 
+                //Get Rent(Data in 2D Array)
+                double[][] getDataArray()
+                {
+                    for(int i = 0; i < 20; i++)
+                    {
+                        for(int j = 0; j < 12; j++)
+                        {
+                            System.out.println("Rent Value: " + this.rent[i][j]);
+                        }
+                    }
+                    return this.rent;
+                }
+                
+                //Get number of years and months
+                int getNumberOfYears()
+                {
+                    return this.numberOfYears;
+                }
+                
+                int getNumberOfMonths()
+                {
+                    return this.months;
+                }
                 
 }

@@ -34,20 +34,21 @@ public class CoreSubsetObjective implements Objective<SubsetSolution, CoreSubset
     @Override
     public Evaluation evaluate(SubsetSolution solution, CoreSubsetData data) {
         double value = 0.0;
-        if(solution.getNumSelectedIDs() >= 2){
-            // at least two items selected: compute average distance
+        if(solution.getNumSelectedIDs() >= 2)
+        {
+            //At least two items selected: Compute Average Distance
             int numDist = 0;
             double sumDist = 0.0;
             Integer[] selected = new Integer[solution.getNumSelectedIDs()];
             solution.getSelectedIDs().toArray(selected);
-            for(int i=0; i<selected.length; i++){
-                for(int j=i+1; j<selected.length; j++){
+            for(int i=0; i<selected.length; i++)
+            {
+                for(int j=i + 1; j<selected.length; j++){
                     sumDist += data.getDistance(selected[i], selected[j]);
-                    System.out.println("Distance: " + sumDist);
                     numDist++;
                 }
             }
-            value = sumDist;
+            value = sumDist/numDist;
         }
         return SimpleEvaluation.WITH_VALUE(value);
     }

@@ -22,25 +22,23 @@ import org.moeaframework.core.Solution;
  * 
  * @author <a href="mailto:herman.debeukelaer@ugent.be">Herman De Beukelaer</a>
  */
-public class CoreSubset {
+public class CoreSubset 
+{
     
-    /**
-     * Runs the core subset selection problem. Expects three parameters: (1) the input file path, (2) the desired
-     * core subset size and (3) the runtime limit (in seconds). The input is specified in a CSV file in which the
-     * first row (header) lists the N item names and the subsequent N rows describe a symmetric (N x N) distance matrix.
-     * The distance matrix indicates the distance between each pair of items, where the rows follow the same order as
-     * the columns, as indicated by the header row.
-     * 
-     * @param args array containing the input file path, subset size and runtime limit
-     */
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         
         System.out.println("PARTICLE SWARM OPTIMISATION");
-        //configure and run this experiment
+        
+        //Define a new Property object... Pass in the property object in correct constructor
+        ProblemDefinition problem = new ProblemDefinition(20, 12); 
+        Solution newSolution = problem.newSolution();
+        
+        //Run the PSO Algorithm
 		NondominatedPopulation result = new Executor()
                                 .withProblemClass(ProblemDefinition.class)
                                 .withAlgorithm("SMPSO")
-                                .withMaxEvaluations(100)
+                                .withMaxEvaluations(50)
                                 .distributeOnAllCores()
                                 .run();
 		
@@ -57,12 +55,13 @@ public class CoreSubset {
         System.out.println("# CORE SUBSET SELECTION #");
         System.out.println("#########################");
        
-        int subsetSize = Integer.parseInt(args[0]);
-        int timeLimit = Integer.parseInt(args[1]);
-        run(subsetSize, timeLimit);
+        int subsetSize = problem.getNumberOfYears();
+        int timeLimit = 1;  //Has to calculate the results quickly
+        run(subsetSize, timeLimit, problem);
     }
     
-    private static void run(int subsetSize, int timeLimit){
+    private static void run(int subsetSize, int timeLimit, ProblemDefinition problem)
+    {
         
         /***************/
         /* PARSE INPUT */
@@ -72,17 +71,7 @@ public class CoreSubset {
 //        System.out.println("Reading file: " + filePath);
         
             //Call CoreSubsetData Methods
-            double dataList[] = new double[20];
-            
-            for(int i = 0; i < 20; i++)
-            {
-                if(i != 0)
-                    dataList[i] *= 0.7; //Assuming increase is 7%
-                else
-                    dataList[i] = 4500.0; //Initial Rent
-            }
-            
-            CoreSubsetData data = new CoreSubsetDataReader(dataList, "rent", 20).processDataToBeEvaluated();
+            CoreSubsetData data = new CoreSubsetDataReader(problem.getDataArray(),problem.getNumberOfYears(), problem.getNumberOfMonths()).processDataToBeEvaluated();
         
             /**********************/
             /* SAMPLE CORE SUBSET */
@@ -95,21 +84,23 @@ public class CoreSubset {
             System.out.println("Time limit: " + timeLimit + " seconds");
 
             // create objective
-            CoreSubsetObjective obj = new CoreSubsetObjective();
+            CoreSubsetObjective objective = new CoreSubsetObjective();
+ 
+            
             // create subset problem
-            SubsetProblem<CoreSubsetData> problem = new SubsetProblem<>(data, obj, subsetSize);
+            SubsetProblem<CoreSubsetData> problemSet = new SubsetProblem(data, objective, subsetSize);
 
             // create random descent search with single swap neighbourhood
-            RandomDescent<SubsetSolution> search = new RandomDescent<>(problem, new SingleSwapNeighbourhood());
+            RandomDescent<SubsetSolution> search = new RandomDescent<>(problemSet, new SingleSwapNeighbourhood());
             // set maximum runtime
             search.addStopCriterion(new MaxRuntime(timeLimit, TimeUnit.SECONDS));
             // attach listener
 //            search.addSearchListener(new ProgressSearchListener());
 
-            // start search
+            //Start search
             search.start();
 
-            // print best solution and evaluation
+            //Print best solution and evaluation
             if(search.getBestSolution() != null){
                 System.out.println("Best solution (IDs): "
                                         + search.getBestSolution().getSelectedIDs());
@@ -124,7 +115,7 @@ public class CoreSubset {
                 System.out.println("No valid solution found...");
             }
 
-            // dispose search
+            //Dispose Search
             search.dispose();
             
         
