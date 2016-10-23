@@ -39,6 +39,7 @@ public class PIOBean implements PIOBeanLocal {
     accountingExpenses objExp = new accountingExpenses();
     accountingAsset objAss = new accountingAsset();
     accountingRental objRental = new accountingRental();
+    accountingIncomeStatement objIS = new accountingIncomeStatement();
             
     public static void main(String[] args) {
         PIOBean objTest = new PIOBean();
@@ -206,7 +207,7 @@ public class PIOBean implements PIOBeanLocal {
         
         objAmor.declarationsAM(property);
         objExp.declarationsEx(property, objAmor);
-        objAss.declarationsAss(property);
+        objAss.declarationsAss(property,objIS);
         objRental.declarationsR(property, objAmor);
        
         return null;
@@ -223,7 +224,7 @@ public class PIOBean implements PIOBeanLocal {
         
         objAmor.declarationsAM(property);
         objExp.declarationsEx(property, objAmor);
-        objAss.declarationsAss(property);
+        objAss.declarationsAss(property,objIS);
         return objExp.getTotalExpenses(property);        
     } 
     
@@ -257,7 +258,7 @@ public class PIOBean implements PIOBeanLocal {
         
         objAmor.declarationsAM(property);
         objExp.declarationsEx(property, objAmor);
-        objAss.declarationsAss(property);
+        objAss.declarationsAss(property,objIS);
         objRental.declarationsR(property, objAmor);
         
         return objRental.getTotalRent(property);
