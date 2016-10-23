@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Accounting;
 import Entities.Property;
 
@@ -14,7 +9,7 @@ public class AmortizationTableBond {
   
     int yearsToPayOffBond = 0; 
     double interestRate = 0.00;  
-    double depositePercentage =  0.00;
+    double depositePercentage = 0.00;
     double paymentPerMonth =  0.00;
     double propertyValue =  0.00;
 
@@ -35,13 +30,13 @@ public class AmortizationTableBond {
      *
      * @param obj
     */  
-    public void declarationsAM(){ 
+    public void declarationsAM(Property obj){ 
         
-        yearsToPayOffBond = 20;//obj.getBond().getNumberOfYears(); 
-        interestRate = 9.5;//obj.getBond().getInterestRate();  
-        depositePercentage = 20.00; //obj.getBond().getDepositPercentage();
-        paymentPerMonth = 5958.00;//obj.getBond().getBondRepayment();
-        propertyValue = 799000.00;//obj.getBond().getPropertyValue();
+        yearsToPayOffBond = obj.getBond().getNumberOfYears(); 
+        interestRate = obj.getBond().getInterestRate();  
+        depositePercentage = obj.getBond().getDepositPercentage();
+        paymentPerMonth = obj.getBond().getBondRepayment();
+        propertyValue = obj.getBond().getPropertyValue();
 
         arrayPaymentPerMonth = new double[yearsToPayOffBond*12+1];
         arrayInterest = new double[yearsToPayOffBond*12+1];
@@ -61,7 +56,7 @@ public class AmortizationTableBond {
      * @param obj
     */ 
     public  void setDepositInRands(Property obj){
-        depositInRands = propertyValue * (depositePercentage/100);    
+        depositInRands = propertyValue * (depositePercentage/100.0);    
     }
     
      /**
@@ -151,9 +146,6 @@ public class AmortizationTableBond {
      */
     public  double[] getArrayPrinciple(Property obj){
         setAmortizationTableBond(obj);
-//        for(int i =0; i<yearsToPayOffBond*12+1; i++){
-//            System.out.println(i +" "+ arrayPrinciple[i]);
-//        }
         return arrayPrinciple;
     }
     
@@ -164,9 +156,6 @@ public class AmortizationTableBond {
      */
     public double[] getArrayBalance(Property obj){
         setAmortizationTableBond(obj);
-//        for(int i =0; i<yearsToPayOffBond*12+1; i++){
-//            System.out.println(i +" "+ arrayBalance[i]);
-//        }
        return arrayBalance;
     }  
     
@@ -243,9 +232,6 @@ public class AmortizationTableBond {
      */
     public double[] getArrayPrincipleTotalPerYear(Property obj){
         setArrayPrincipleTotalPerYear(obj);
-//        for(int i =0; i<yearsToPayOffBond+1; i++){
-//            System.out.println(i +" "+ arrayPrinciplePerYear[i]);
-//        }
         return arrayPrinciplePerYear;
     }
     
