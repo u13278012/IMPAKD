@@ -26,7 +26,7 @@ angular.module('myApp', ['ngRoute'])
             {
                 $http({
                         method: 'GET',
-                        url: 'http://localhost:8080/BackEnd/rs/profile/retrieveProfile/'+session
+                        url: 'http://localhost:20285/BackEnd/rs/profile/retrieveProfile/'+session
                        // data: encodedString,
                         //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                     }).success(function(response) {
@@ -97,7 +97,7 @@ angular.module('myApp', ['ngRoute'])
     
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/profile/update/'+session+'/'+$scope.firstName+'/'+$scope.lastName+'/'+$scope.UserName+'/'+$scope.Email+'/'+$scope.Password+'/'+$scope.confrimPassword,
+                url: 'http://localhost:20285/BackEnd/rs/profile/update/'+session+'/'+$scope.firstName+'/'+$scope.lastName+'/'+$scope.UserName+'/'+$scope.Email+'/'+$scope.Password+'/'+$scope.confrimPassword,
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
