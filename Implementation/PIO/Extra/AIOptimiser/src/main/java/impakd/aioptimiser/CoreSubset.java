@@ -4,8 +4,6 @@ package impakd.aioptimiser;
  *
  * @author Priscilla
  */
-
-import java.io.FileNotFoundException;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import org.jamesframework.core.subset.SubsetProblem;
