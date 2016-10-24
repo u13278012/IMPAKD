@@ -34,8 +34,7 @@ angular.module('myApp', ['ngRoute'])
                             var x = x2js.xml_str2json(response);
                             $scope.results = x;
                             $scope.Prof = $scope.results.profile;
-                           
-                            console.log(x);
+                            
                             document.getElementById("pfirstName").value = $scope.results.profile.firstname;
                             document.getElementById("plastName").value  = $scope.results.profile.lastName;
                             document.getElementById("pemail").value  = $scope.results.profile.email;
@@ -43,7 +42,7 @@ angular.module('myApp', ['ngRoute'])
                         }).
                         error(function(response)
                         {
-                            $window.alert(response);             
+//                            alert(response);             
                         });
                         
             }
