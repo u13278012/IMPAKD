@@ -9,8 +9,8 @@ import java.lang.reflect.Array;
 
 public class accountingIncomeStatement 
 {   
-    AmortizationTableBond objAmor;
-    ReservesCalculations objRe;
+    AmortizationTableBond objAmor = new AmortizationTableBond();
+    ReservesCalculations objRe = new ReservesCalculations();
         
     int yearsToPayOffBond;
     double incomeTax;
@@ -64,7 +64,9 @@ public class accountingIncomeStatement
      * @param objAmor
      * @param objRe
     */
-    public void declarationsInc(Property obj, AmortizationTableBond objAmor,ReservesCalculations objRe){
+    public void declarationsInc(Property obj, AmortizationTableBond objAmor,ReservesCalculations objRe, accountingRental objR){
+        objAmor.declarationsAM(obj);
+        objRe.declarationsReserves(obj, objAmor, objR);
         this.objAmor = objAmor;
         this.objRe = objRe;
         
