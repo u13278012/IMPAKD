@@ -98,7 +98,7 @@ angular.module('myApp', ['ngRoute'])
             '&propertyid=' +
             encodeURIComponent(propertyid);
            
-<<<<<<< HEAD
+
 
 
 
@@ -119,7 +119,7 @@ angular.module('myApp', ['ngRoute'])
                  }*/
         //51029
          //  else{
-=======
+
 
 
 //            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.capitalGains) || isNaN($scope.annualMaintenanceCost)
@@ -139,7 +139,7 @@ angular.module('myApp', ['ngRoute'])
 //                 }
 //             //51029
 //             else{
->>>>>>> master
+
 
            $http({
                 method: 'POST',
