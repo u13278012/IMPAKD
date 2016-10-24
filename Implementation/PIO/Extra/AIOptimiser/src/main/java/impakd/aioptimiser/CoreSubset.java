@@ -51,6 +51,7 @@ public class CoreSubset
                 
 		}
        
+        System.out.println("HILL CLIMBING");        
         int subsetSize = problem.getNumberOfYears();
         int timeLimit = 1;  //Has to calculate the results quickly
         
@@ -68,6 +69,22 @@ public class CoreSubset
         }
         
         run(subsetSize, timeLimit, problem, dataSet, solutions);
+    }
+    
+    //Insertion Sort
+    public static double[] doInsertionSort(double[] input){
+         
+        double temp;
+        for (int i = 1; i < input.length; i++) {
+            for(int j = i ; j > 0 ; j--){
+                if(input[j] < input[j-1]){
+                    temp = input[j];
+                    input[j] = input[j-1];
+                    input[j-1] = temp;
+                }
+            }
+        }
+        return input;
     }
     
     private static void run(int subsetSize, int timeLimit, ProblemDefinition problem,double[][] dataSet, double[] solution)
@@ -109,18 +126,27 @@ public class CoreSubset
             {
                 //Add optimised rent values from the subset and return it
                 if(ids.contains(i))
-                    rent[i] = solution[i];
+                    rent[i] = (double) Math.round(solution[i]);
             }
             
             //Print Optimised Rent
-            for(int i = 0; i < rent.length; i++)
+            /*for(int i = 0; i < rent.length; i++)
             {
                 System.out.print(rent[i] + " ");
             }
-                    
-                    
             
-        
+            System.out.println("");*/
+            
+            //Sort the rent values in ascending order
+            double[] finalRent = doInsertionSort(rent);
+            /*return doInsertionSort(rent);*/
+            
+            //Print Sorted Rent Values
+            /*System.out.print("Final Rent: ");
+            for(int i = 0; i < rent.length; i++)
+            {
+                System.out.print(finalRent[i] + " ");
+            }*/
     }
     
 }
