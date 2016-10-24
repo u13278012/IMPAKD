@@ -122,13 +122,35 @@ $scope.init = function()
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.p = x;
+                    $scope.pdf();
                     
                     console.log($scope.p);
                 }).
                 error(function(response)
                 {
-                    $window.alert(response);             
+                    alert(response);             
                 });
     }
 }
+
+//$scope.pdf = function()
+//{
+//   $http({
+//                method: 'GET',
+//                url: 'http://localhost:8080/BackEnd/rs/tr/pdf'
+//               // data: encodedString,
+//                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+//            }).success(function(response) {
+////                    var x2js = new X2JS();
+////                    var x = x2js.xml_str2json(response);
+////                    $scope.p = x;
+////                        alert("pdf here");
+//                    
+//
+//                }).
+//                error(function(response)
+//                {
+//                    $window.alert(response+ "pdf fails");             
+//                });  
+//};
 }]);

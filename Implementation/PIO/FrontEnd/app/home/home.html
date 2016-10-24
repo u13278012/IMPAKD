@@ -32,13 +32,17 @@
           <p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="../profile/profile.html" class="navbar-link">{{p.profile.username}}</a></p>
         </div>
         <ul class="nav navbar-nav listBar">
-          <li><a id="listItem" href="#">Report</a></li>
+          <li><a id="listItem" href="http://localhost:20285/BackEnd/rs/tr/pdf">Report</a></li>
           <li><a id="listItem" ng-click="logout()" style="cursor: pointer;">Logout</a></li> 
         </ul>
       </div>
     </nav>
 
+    <!-- <a id="name" href="http://localhost:8080/BackEnd/rs/tr/pdf" class="navbar-link"> pdf her hkfjahkjsdhkj</a>-->
+
+
     <form action="../addProperty/addProperty.html" >
+        
     <div class="row" id="propertList" ng-init="populate()">
     <div class="col-sm-12 col-md-11">
     <div class="thumbnail" >     
@@ -82,5 +86,6 @@
     </div>
     </div>
     </form>
+    
 </body>
 </html>

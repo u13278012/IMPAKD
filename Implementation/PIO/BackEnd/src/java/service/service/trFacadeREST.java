@@ -6,10 +6,14 @@
 package service.service;
 
 import Accounting.ROI;
+import Entities.Property;
+import java.io.File;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,14 +23,20 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+import service.PIOBeanLocal;
 
 /**
  *
  * @author Khumalo
  */
 @Stateless
-@Path("accounting.tr")
+@Path("tr")
 public class trFacadeREST extends AbstractFacade<ROI> {
+
+    @EJB
+    private PIOBeanLocal pIOBean;
 
     @PersistenceContext(unitName = "BackEndPU")
     private EntityManager em;
@@ -88,4 +98,28 @@ public class trFacadeREST extends AbstractFacade<ROI> {
         return em;
     }
     
+    	@GET
+	@Path("/pdf")
+	@Produces("application/pdf")
+        @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+
+	public Response getFile() {
+
+		//File file = new File("C://Users//Kudzai//Downloads//Compressed//Absa-Core-Income-Fund.pdf");
+                File file = new File("C://Users//Khumalo//Downloads//sheet.pdf");
+		ResponseBuilder response = Response.ok((Object) file);
+		response.header("Content-Disposition",
+				"attachment; filename=Report.pdf");
+		return response.build();
+
+	}
+    @GET
+    @Path("getROI/{pofileid}/{propertyid}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Produces({MediaType.APPLICATION_XML})
+    public ROI getROI(@PathParam("pofileid") Long pofileid, @PathParam("propertyid") Long propertyid) {
+        ROI roi = new ROI();
+        roi.setArray(pIOBean.ReturnOnInvestment(pofileid, propertyid));
+        return roi;
+    }
 }

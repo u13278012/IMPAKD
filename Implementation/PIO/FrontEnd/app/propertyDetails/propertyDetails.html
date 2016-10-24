@@ -51,21 +51,14 @@
         <td>{{propertyresults.properties.property.propertyName}}</td>
     </tr>
     <tr>
-        <td>Tax</td>
-        <td>{{propertyresults.properties.property.bond.depositInRands}}</td>
+        <td>Capital Gains</td>
+        <td>{{propertyresults.properties.property.capitalGains}}</td>
     </tr> 
     <tr>
-        <td>Inflation</td>
-        <td>{{propertyresults.properties.property.increases.inflation}}</td>
+        <td width="65%">Market price adjustment</td>
+        <td>{{propertyresults.properties.property.marketPriceAdjustment}}</td>
     </tr>
-    <tr>
-        <td width="10%">Annual maintance cost</td>
-        <td width="10%">{{propertyresults.properties.property.reserves.maintenance}}</td>
-    </tr>
-    <tr>
-        <td>Annual cost increase</td>
-        <td>{{propertyresults.properties.property.bond.depositInRands}}</td>
-    </tr>
+
    </table>
     
   </div>
@@ -81,7 +74,7 @@
     </tr>
     <tr>
         <td>Deposit as percentage</td>
-        <td>{{propertyresults.properties.property.bond.depositInRands}}</td>
+        <td>{{propertyresults.properties.property.bond.depositPercentage}}</td>
     </tr> 
     <tr>
         <td width="10%">Propery value</td>
@@ -133,7 +126,7 @@
      $('#loading').hide();
      $('maindiv').show();
 
-  }, 3000);
+  }, 50000);
 </script>
     </body>
 </html>

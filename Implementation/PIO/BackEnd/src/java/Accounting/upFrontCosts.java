@@ -1,25 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Accounting;
+
+import Entities.Property;
 
 /**
  *
  * @author Diana
  */
 public class upFrontCosts {
-    double conveyancingFees = 9535.91;  
-    double vatDebit = 1310.42;
-    double deedsFees = 740.00;
-    double initiationFee = 5700.00;
-    double totalUpFrontCosts = 0.00;
-
+    double conveyancingFees;  
+    double vatDebit;
+    double deedsFees;
+    double initiationFee;
+    double totalUpFrontCosts;
+    
+    /**
+     *
+     * @param obj
+    */  
+    public void declarationsAM(Property obj){ 
+        conveyancingFees = obj.getUpFrontCosts().getConveyancingFees();  
+        vatDebit = obj.getUpFrontCosts().getVatDebit();
+        deedsFees = obj.getUpFrontCosts().getDeedsFees();
+        initiationFee = obj.getUpFrontCosts().getInitiationFee();
+        totalUpFrontCosts = 0.00;
+    }
+    /**
+     *
+     * @
+    */ 
     public void setUpFrontCosts(){
         totalUpFrontCosts = conveyancingFees + vatDebit + deedsFees + initiationFee + totalUpFrontCosts;
     }
-    
+    /**
+     *
+     * @return 
+     * @
+    */ 
     public double getUpFrontCosts(){
         setUpFrontCosts();
         return totalUpFrontCosts;
