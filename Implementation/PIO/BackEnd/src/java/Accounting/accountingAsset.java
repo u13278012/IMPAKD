@@ -22,7 +22,8 @@ public class accountingAsset {
      * @param obj
      * @param objIS
     */  
-    public void declarationsAss(Property obj,accountingIncomeStatement objIS){ 
+    public void declarationsAss(Property obj,accountingIncomeStatement objIS, AmortizationTableBond objAmor, ReservesCalculations objRe,accountingRental objR){ 
+        objIS.declarationsInc(obj, objAmor, objRe,objR);
         this.objIS = objIS;
         yearsToPayOffBond = obj.getBond().getNumberOfYears();  
         propertyValue = obj.getBond().getPropertyValue();

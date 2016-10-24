@@ -32,16 +32,17 @@ public interface PIOBeanLocal {
     //public double[] Expenses(Property obj);
     public void persist(Object object);
 
-    public Property retrieveProperty(Long id);
+    public Property retrieveProperty(Long profile, Long property);
 
     public double[] generateIncomeStatement(Property property);
 
     public double[] AssetCapitalGains(Property obj);
 
-    public double[] Expenses(Long id);
+//    public double[] Expenses(Long id);
 
     public double[] AssetTotal(Property obj);
     
-    public double[] RentTotal(Long id);
+//    public double[] RentTotal(Long id);
+    public double[] ReturnOnInvestment(Long profile, Long propertyID);
     
 }

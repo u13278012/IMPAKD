@@ -8,10 +8,10 @@ import java.lang.reflect.Array;
  */
 public class accountingLiabilities {
     
-    accountingAsset objAsset;          
-    AmortizationTableBond objAmor; 
-    accountingIncomeStatement objIS;
-    accountingAsset objA;
+    accountingAsset objAsset = new accountingAsset();          
+    AmortizationTableBond objAmor = new AmortizationTableBond(); 
+    accountingIncomeStatement objIS = new accountingIncomeStatement();
+    accountingAsset objA = new accountingAsset();
     
     int yearsToPayOffBond = 0;
     double bondPrincipleDebt[];
@@ -25,7 +25,9 @@ public class accountingLiabilities {
      * @param objAmor
      * @param objAsset
     */
-    public void declarationsEx(Property obj, AmortizationTableBond objAmor,accountingAsset objAsset){       
+    public void declarationsL(Property obj, AmortizationTableBond objAmor,accountingAsset objAsset,ReservesCalculations objRe,accountingRental objR){ 
+        objAmor.declarationsAM(obj);
+        objAsset.declarationsAss(obj, objIS, objAmor, objRe, objR);
         this.objAmor = objAmor;
         this.objAsset = objAsset;
     
