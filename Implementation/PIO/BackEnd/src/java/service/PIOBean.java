@@ -12,7 +12,8 @@ import javax.persistence.TypedQuery;
  */
 
 @Stateless
-public class PIOBean implements PIOBeanLocal {
+public class PIOBean implements PIOBeanLocal 
+{
     
     Property property;    
     AmortizationTableBond objAmor = new AmortizationTableBond();

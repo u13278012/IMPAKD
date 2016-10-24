@@ -1,0 +1,41 @@
+\contentsline {section}{\numberline {1}Vision}{4}{section.1}
+\contentsline {section}{\numberline {2}Background}{5}{section.2}
+\contentsline {section}{\numberline {3}Functional Requirements and Application Design}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Use case prioritization}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Use case/Services contracts}{7}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Profile}{7}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Property}{7}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Accounting}{9}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Report}{10}{subsubsection.3.2.4}
+\contentsline {subsection}{\numberline {3.3}Required functionality}{11}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Login}{11}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Logout}{12}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Register}{13}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}updateProfile}{14}{subsubsection.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.5}addProperty}{15}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}deleteProperty}{16}{subsubsection.3.3.6}
+\contentsline {subsubsection}{\numberline {3.3.7}updateProperty}{17}{subsubsection.3.3.7}
+\contentsline {subsubsection}{\numberline {3.3.8}compareTwoProperties}{18}{subsubsection.3.3.8}
+\contentsline {subsubsection}{\numberline {3.3.9}viewProperty}{19}{subsubsection.3.3.9}
+\contentsline {subsubsection}{\numberline {3.3.10}calucalateNPV}{19}{subsubsection.3.3.10}
+\contentsline {subsubsection}{\numberline {3.3.11}calucalateROI}{20}{subsubsection.3.3.11}
+\contentsline {subsubsection}{\numberline {3.3.12}generateReport}{21}{subsubsection.3.3.12}
+\contentsline {subsubsection}{\numberline {3.3.13}viewReport}{22}{subsubsection.3.3.13}
+\contentsline {subsubsection}{\numberline {3.3.14}generatePDF}{23}{subsubsection.3.3.14}
+\contentsline {subsection}{\numberline {3.4}Process specifications}{24}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Login}{24}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Logout}{25}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Register}{26}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}updateProfile}{27}{subsubsection.3.4.4}
+\contentsline {subsubsection}{\numberline {3.4.5}addProperty}{28}{subsubsection.3.4.5}
+\contentsline {subsubsection}{\numberline {3.4.6}deleteProperty}{29}{subsubsection.3.4.6}
+\contentsline {subsubsection}{\numberline {3.4.7}updateProperty}{30}{subsubsection.3.4.7}
+\contentsline {subsubsection}{\numberline {3.4.8}compareTwoProperties}{31}{subsubsection.3.4.8}
+\contentsline {subsubsection}{\numberline {3.4.9}viewProperty}{32}{subsubsection.3.4.9}
+\contentsline {subsubsection}{\numberline {3.4.10}calucalateNPV}{32}{subsubsection.3.4.10}
+\contentsline {subsubsection}{\numberline {3.4.11}calucalateROI}{33}{subsubsection.3.4.11}
+\contentsline {subsubsection}{\numberline {3.4.12}generateReport}{34}{subsubsection.3.4.12}
+\contentsline {subsubsection}{\numberline {3.4.13}viewReport}{35}{subsubsection.3.4.13}
+\contentsline {subsubsection}{\numberline {3.4.14}generatePDF}{36}{subsubsection.3.4.14}
+\contentsline {subsection}{\numberline {3.5}Domain Model}{37}{subsection.3.5}
+\contentsline {section}{\numberline {4}Open Issues}{38}{section.4}

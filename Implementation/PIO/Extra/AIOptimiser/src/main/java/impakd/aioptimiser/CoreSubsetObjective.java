@@ -67,7 +67,7 @@ public class CoreSubsetObjective implements Objective<SubsetSolution, CoreSubset
     @Override
     public boolean isMinimizing() 
     {
-        return true;
+        return false;
     }
 
 }
