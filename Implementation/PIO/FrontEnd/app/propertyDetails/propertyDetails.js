@@ -27,12 +27,12 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                     var x = x2js.xml_str2json(response);
                     $scope.propertyresults = x;
                    console.log(x);
-                   alert("prop details succ");
+//                   alert("prop details succ");
 
                 }).
                 error(function(response)
                 {
-                     alert("prop details fail");
+//                     alert("prop details fail");
 
                 });
                 //20285
@@ -55,7 +55,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                 error(function(response)
                 {
                  
-                        alert("roi fails");
+                        //alert("roi fails");
 
                 });
 
