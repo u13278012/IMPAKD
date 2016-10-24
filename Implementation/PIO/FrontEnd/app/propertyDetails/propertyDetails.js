@@ -8,6 +8,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
     {
 
             var session  = localStorage.getItem("session");
+            
             var propertyid  = localStorage.getItem("property");
             var encodedString = 'profileID=' +
             encodeURIComponent(session)+
@@ -26,18 +27,18 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                     var x = x2js.xml_str2json(response);
                     $scope.propertyresults = x;
                    console.log(x);
-                   
+                   alert("prop details succ");
 
                 }).
                 error(function(response)
                 {
-                     alert(response);
+                     alert("prop details fail");
 
                 });
                 //20285
                 $http({
-                method: 'POST',
-                url: 'http://localhost:8080/BackEnd/rs/property/getRIOValues',
+                method: 'GET',
+                url: 'http://localhost:8080/BackEnd/rs/tr/getROI/'+session+'/'+propertyid,
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -53,8 +54,8 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                 }).
                 error(function(response)
                 {
-                 alert(response);
-                     
+                 
+                        alert("roi fails");
 
                 });
 
@@ -64,7 +65,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
      var d = new Date();
      var currentYear = d.getFullYear();
      $scope.Year = [];
-     for(var x = 0; x < 10 ;x++){
+     for(var x = 0; x < 20 ;x++){
       $scope.Year[x] = currentYear; 
       currentYear =currentYear+1;
      }
@@ -125,7 +126,17 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
 				{ label: $scope.Year[6], y: $scope.ROI[6] },
 				{ label: $scope.Year[7], y: $scope.ROI[7] },
 				{ label: $scope.Year[8], y: $scope.ROI[8]},
-				{ label: $scope.Year[9], y: $scope.ROI[9] }
+				{ label: $scope.Year[9], y: $scope.ROI[9] },
+                                { label: $scope.Year[10], y: $scope.ROI[10] },
+				{ label: $scope.Year[11], y: $scope.ROI[11]},
+				{ label: $scope.Year[12], y: $scope.ROI[12] },
+				{ label: $scope.Year[13], y: $scope.ROI[13] },
+				{ label: $scope.Year[14], y: $scope.ROI[14] },
+				{ label: $scope.Year[15], y: $scope.ROI[15] },
+				{ label: $scope.Year[16], y: $scope.ROI[16] },
+				{ label: $scope.Year[17], y: $scope.ROI[17] },
+				{ label: $scope.Year[18], y: $scope.ROI[18]},
+				{ label: $scope.Year[19], y: $scope.ROI[19] }
 				]
 			} 
 			],

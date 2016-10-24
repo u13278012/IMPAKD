@@ -7,7 +7,7 @@ import java.lang.reflect.Array;
  * @author Diana
  */
 public class accountingExpenses {
-    AmortizationTableBond objAmor;
+    AmortizationTableBond objAmor = new AmortizationTableBond();
     
     int yearsToPayOffBond = 0; 
     double rates_taxes = 0.00;
@@ -30,7 +30,7 @@ public class accountingExpenses {
      * @param objAmor
     */
     public void declarationsEx(Property obj, AmortizationTableBond objAmor){ 
-        
+        objAmor.declarationsAM(obj);
         this.objAmor = objAmor;
         yearsToPayOffBond = objAmor.yearsToPayOffBond; 
         rates_taxes = obj.getExpenses().getRates_Taxes();
