@@ -26,13 +26,22 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                     var x2js = new X2JS();
                     var x = x2js.xml_str2json(response);
                     $scope.propertyresults = x;
+<<<<<<< HEAD
                    console.log(x);
 //                   alert("prop details succ");
+=======
+                   //console.log(x);
+                   //alert("prop details succ");
+>>>>>>> 2e8ade21409b5c7bd89c4f8a3ab4ad1159d9de5e
 
                 }).
                 error(function(response)
                 {
+<<<<<<< HEAD
 //                     alert("prop details fail");
+=======
+                    // alert("prop details fail");
+>>>>>>> 2e8ade21409b5c7bd89c4f8a3ab4ad1159d9de5e
 
                 });
                 //20285
@@ -49,7 +58,7 @@ app.controller('PropertyDetailsCtrl', ["$scope", "$window", "$http", function($s
                     var l = arr.roi.array.length;
                     while (--l >= 0 )
                     $scope.ROI[l] = parseFloat(arr.roi.array[l]);
-                    console.log($scope.ROI);
+                    //console.log($scope.ROI);
                     $scope.show();
                 }).
                 error(function(response)
