@@ -145,7 +145,7 @@ angular.module('myApp', ['ngRoute'])
 
            $http({
                 method: 'POST',
-                url: 'http://localhost:20285/BackEnd/rs/property/updateProperty',
+                url: 'http://localhost:8080/BackEnd/rs/property/updateProperty',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
