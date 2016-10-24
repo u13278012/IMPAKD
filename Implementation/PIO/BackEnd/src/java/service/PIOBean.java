@@ -1,10 +1,21 @@
 package service;
 import Entities.*;
 import Accounting.*;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -241,5 +252,19 @@ public class PIOBean implements PIOBeanLocal {
         
       
     }
+    
+//    public void toPDF(){
+//        try {               
+//            JasperReport jasperReport = null;
+//            InputStream path=this.getClass().getResourceAsStream("report1.jrxml");    
+//            JasperPrint jasperPrint = null;
+//            jasperReport = JasperCompileManager.compileReport(path);
+//            HashMap parameters = new HashMap();
+//            jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, con);
+//            JasperViewer.viewReport(jasperPrint,false);
+//        } catch (JRException ex) {
+//            Logger.getLogger(FW.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//}
 
 }
