@@ -21,18 +21,20 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="home.css">
-    
-   <div class="navbar-header" id="Logo">
-        <img alt="Brand"  ng-src="../images/Logo.png"/>
-    </div> 
+  
         
     <nav class="navbar navbar-inverse" id="navBarHome">
-      <div class="container-fluid" id="divBar">
-        <div class="navbar-header">
+        <img alt="Brand"  src="../images/Logo.png"/><div id="user" class="navbar-header">
           <p id="nameLabel" class="navbar-text navbar-right">Signed in as <a id="name" href="../profile/profile.html" class="navbar-link">{{p.profile.username}}</a></p>
         </div>
+<<<<<<< HEAD
         <ul class="nav navbar-nav listBar">
+          <li><a id="listItem" href="http://8080/BackEnd/rs/tr/pdf">Report</a></li>
+=======
+      <div class="container-fluid" id="divBar">       
+        <ul id="access" class="nav navbar-nav listBar">
           <li><a id="listItem" href="http://localhost:20285/BackEnd/rs/tr/pdf">Report</a></li>
+>>>>>>> 2e8ade21409b5c7bd89c4f8a3ab4ad1159d9de5e
           <li><a id="listItem" ng-click="logout()" style="cursor: pointer;">Logout</a></li> 
         </ul>
       </div>
@@ -41,19 +43,15 @@
     <!-- <a id="name" href="http://localhost:8080/BackEnd/rs/tr/pdf" class="navbar-link"> pdf her hkfjahkjsdhkj</a>-->
 
 
-    <form action="../addProperty/addProperty.html" >
+    <form id="form" action="../addProperty/addProperty.html" >
         
     <div class="row" id="propertList" ng-init="populate()">
     <div class="col-sm-12 col-md-11">
-    <div class="thumbnail" >     
+    <div class="" >     
         <div class="caption" id="propertyHeader">
             <h1 id="propertyHead">Properties</h1>
         </div>
         <button id="btnAddProp" type="submit" class="btn">add Property</button>
-            <hr id="line">
-        <div class="caption" id="noProperties">
-             <h1>No Properties added</h1>
-        </div>
             <table class="table table-hover tableOfProperties" >
       <thead>
         <tr>
