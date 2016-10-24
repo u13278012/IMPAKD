@@ -9,8 +9,8 @@ import java.lang.reflect.Array;
  */
 public class ReservesCalculations {
     
-    accountingRental objR;
-    AmortizationTableBond objAmor;
+    accountingRental objR = new accountingRental();
+    AmortizationTableBond objAmor = new AmortizationTableBond();
     
     int yearsToPayOffBond;
     double maintenancePerYear;
@@ -18,6 +18,8 @@ public class ReservesCalculations {
     double maintenanceRunningTotal[];
     
     public void declarationsReserves(Property obj, AmortizationTableBond objAmor,accountingRental objR){
+        objAmor.declarationsAM(obj);
+        objR.declarationsR(obj, objAmor);
         this.objAmor = objAmor;
         this.objR = objR;
         

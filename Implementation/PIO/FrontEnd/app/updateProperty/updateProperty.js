@@ -98,7 +98,7 @@ angular.module('myApp', ['ngRoute'])
             '&propertyid=' +
             encodeURIComponent(propertyid);
            
-<<<<<<< HEAD
+
 
 
 
@@ -121,8 +121,7 @@ angular.module('myApp', ['ngRoute'])
         //51029
          //  else{
 
-=======
->>>>>>> master
+
 
 
 //            if(isNaN($scope.marketPriceAdjustment) || isNaN($scope.capitalGains) || isNaN($scope.annualMaintenanceCost)

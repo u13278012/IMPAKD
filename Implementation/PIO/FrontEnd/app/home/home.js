@@ -68,7 +68,7 @@ $scope.homeTodetails = function(el)
         
             $http({
                 method: 'POST',
-                url: 'http://localhost:20285/BackEnd/rs/property/deleteProperty',
+                url: 'http://localhost:8080/BackEnd/rs/property/deleteProperty',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -115,7 +115,7 @@ $scope.init = function()
     {
         $http({
                 method: 'GET',
-                url: 'http://localhost:20285/BackEnd/rs/profile/'+session
+                url: 'http://localhost:8080/BackEnd/rs/profile/'+session
                // data: encodedString,
                 //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(response) {
@@ -128,29 +128,29 @@ $scope.init = function()
                 }).
                 error(function(response)
                 {
-                    $window.alert(response);             
+                    alert(response);             
                 });
     }
 }
 
-$scope.pdf = function()
-{
-   $http({
-                method: 'GET',
-                url: 'http://localhost:20285/BackEnd/rs/tr/pdf'
-               // data: encodedString,
-                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            }).success(function(response) {
-//                    var x2js = new X2JS();
-//                    var x = x2js.xml_str2json(response);
-//                    $scope.p = x;
-//                        alert("pdf here");
-                    
-
-                }).
-                error(function(response)
-                {
-                    $window.alert(response+ "pdf fails");             
-                });  
-};
+//$scope.pdf = function()
+//{
+//   $http({
+//                method: 'GET',
+//                url: 'http://localhost:8080/BackEnd/rs/tr/pdf'
+//               // data: encodedString,
+//                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+//            }).success(function(response) {
+////                    var x2js = new X2JS();
+////                    var x = x2js.xml_str2json(response);
+////                    $scope.p = x;
+////                        alert("pdf here");
+//                    
+//
+//                }).
+//                error(function(response)
+//                {
+//                    $window.alert(response+ "pdf fails");             
+//                });  
+//};
 }]);
