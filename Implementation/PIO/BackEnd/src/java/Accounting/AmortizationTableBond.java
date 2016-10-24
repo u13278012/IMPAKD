@@ -7,23 +7,23 @@ import Entities.Property;
  */
 public class AmortizationTableBond { 
   
-    int yearsToPayOffBond = 0; 
-    double interestRate = 0.00;  
-    double depositePercentage = 0.00;
-    double paymentPerMonth =  0.00;
-    double propertyValue =  0.00;
+    public int yearsToPayOffBond = 0; 
+    public double interestRate = 0.00;  
+    public double depositePercentage = 0.00;
+    public double paymentPerMonth =  0.00;
+    public double propertyValue =  0.00;
 
-    double arrayPaymentPerMonth[];
-    double arrayInterest[];
-    double arrayPrinciple[];
-    double arrayBalance[];
+    public double arrayPaymentPerMonth[];
+    public double arrayInterest[];
+    public double arrayPrinciple[];
+    public double arrayBalance[];
 
-    double arrayInterestPerYear[];
-    double arrayPrinciplePerYear[];
-    double interestPerYear = 0.00;
-    double principlePerYear = 0.00;
-    double depositInRands = 0.00;
-    double principleDebt = 0.00;
+    public double arrayInterestPerYear[];
+    public double arrayPrinciplePerYear[];
+    public double interestPerYear = 0.00;
+    public double principlePerYear = 0.00;
+    public double depositInRands = 0.00;
+    public double principleDebt = 0.00;
 
 
     /**
