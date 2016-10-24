@@ -1,0 +1,41 @@
+\BOOKMARK [1][-]{section.1}{Vision}{}% 1
+\BOOKMARK [1][-]{section.2}{Background}{}% 2
+\BOOKMARK [1][-]{section.3}{Functional Requirements and Application Design}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Use case prioritization}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Use case/Services contracts}{section.3}% 5
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Profile}{subsection.3.2}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Property}{subsection.3.2}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Accounting}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.4}{Report}{subsection.3.2}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Required functionality}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Login}{subsection.3.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Logout}{subsection.3.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Register}{subsection.3.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.3.4}{updateProfile}{subsection.3.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.3.5}{addProperty}{subsection.3.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.3.6}{deleteProperty}{subsection.3.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.3.7}{updateProperty}{subsection.3.3}% 17
+\BOOKMARK [3][-]{subsubsection.3.3.8}{compareTwoProperties}{subsection.3.3}% 18
+\BOOKMARK [3][-]{subsubsection.3.3.9}{viewProperty}{subsection.3.3}% 19
+\BOOKMARK [3][-]{subsubsection.3.3.10}{calucalateNPV}{subsection.3.3}% 20
+\BOOKMARK [3][-]{subsubsection.3.3.11}{calucalateROI}{subsection.3.3}% 21
+\BOOKMARK [3][-]{subsubsection.3.3.12}{generateReport}{subsection.3.3}% 22
+\BOOKMARK [3][-]{subsubsection.3.3.13}{viewReport}{subsection.3.3}% 23
+\BOOKMARK [3][-]{subsubsection.3.3.14}{generatePDF}{subsection.3.3}% 24
+\BOOKMARK [2][-]{subsection.3.4}{Process specifications}{section.3}% 25
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Login}{subsection.3.4}% 26
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Logout}{subsection.3.4}% 27
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Register}{subsection.3.4}% 28
+\BOOKMARK [3][-]{subsubsection.3.4.4}{updateProfile}{subsection.3.4}% 29
+\BOOKMARK [3][-]{subsubsection.3.4.5}{addProperty}{subsection.3.4}% 30
+\BOOKMARK [3][-]{subsubsection.3.4.6}{deleteProperty}{subsection.3.4}% 31
+\BOOKMARK [3][-]{subsubsection.3.4.7}{updateProperty}{subsection.3.4}% 32
+\BOOKMARK [3][-]{subsubsection.3.4.8}{compareTwoProperties}{subsection.3.4}% 33
+\BOOKMARK [3][-]{subsubsection.3.4.9}{viewProperty}{subsection.3.4}% 34
+\BOOKMARK [3][-]{subsubsection.3.4.10}{calucalateNPV}{subsection.3.4}% 35
+\BOOKMARK [3][-]{subsubsection.3.4.11}{calucalateROI}{subsection.3.4}% 36
+\BOOKMARK [3][-]{subsubsection.3.4.12}{generateReport}{subsection.3.4}% 37
+\BOOKMARK [3][-]{subsubsection.3.4.13}{viewReport}{subsection.3.4}% 38
+\BOOKMARK [3][-]{subsubsection.3.4.14}{generatePDF}{subsection.3.4}% 39
+\BOOKMARK [2][-]{subsection.3.5}{Domain Model}{section.3}% 40
+\BOOKMARK [1][-]{section.4}{Open Issues}{}% 41
